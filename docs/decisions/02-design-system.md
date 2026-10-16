@@ -47,3 +47,18 @@ added only if a build step needs it.
 committed. The theme works without a build step (WordPress Playground, a
 downloaded zip). A test fails if the committed file is out of date with the
 tokens, so the JSON stays the source of truth.
+
+## 2026-10-16 — Font files: Fontsource, weight axis only, Inter italic
+
+- Source: Fontsource packages (`@fontsource-variable/inter` and
+  `@fontsource-variable/newsreader`, v5.3.0, OFL-1.1), fetched with `npm pack`
+  and copied into `theme/assets/fonts/` with their licences. They are already
+  WOFF2, variable and split into latin and latin-ext, so no subsetting step.
+- **Weight axis only.** Newsreader's optical size axis (better detail at large
+  sizes) more than doubles the file (57 KB → 129 KB for latin). Deferred until
+  it can be judged on the real render.
+- **Inter italic included** so the blog does not show a synthetic slant. It
+  downloads only on pages that use italics. Newsreader has no italic.
+- The two latin normal files are preloaded; latin-ext and italic load on
+  demand through `unicode-range`. A typical page downloads about 104 KB of
+  fonts.
