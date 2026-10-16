@@ -76,3 +76,13 @@ WordPress core, uploads and the database live outside the repo.
   WP-CLI with XAMPP's PHP so both match:
   `/Applications/XAMPP/xamppfiles/bin/php -d memory_limit=512M "$(brew --prefix wp-cli)/bin/wp" …`
 - Local admin credentials are kept outside the repo. Never commit them.
+
+## Design system
+
+- Before writing or changing any CSS, read `docs/design-brief.md` and
+  `tokens/tokens.json`.
+- Everything derives from `--unit` (8px). No hard-coded pixel values, except
+  1px hairlines.
+- Plain CSS custom properties, no Sass.
+- Do not change token values without Gonzalo's approval. Record any change in
+  `docs/decisions.md`.
