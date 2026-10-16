@@ -34,6 +34,8 @@ works, not just the final site.
   `includeIf` in the global git config.
 - Before committing, check `git config user.email`. If it shows the work
   address, stop and tell Gonzalo.
+- The `gh` CLI on this machine is logged in to the **work** account. Do not
+  use `gh` for this repo unless Gonzalo switches it to the personal account.
 
 ## Stack
 
@@ -86,6 +88,14 @@ WordPress core, uploads and the database live outside the repo.
 - Rank Math registration is skipped locally (no account connected).
 - `wp-content/uploads` is writable by Apache (`daemon`) through an ACL. Files
   it creates belong to `daemon`; delete them from WordPress, not the shell.
+
+## Quality checks
+
+Run before proposing a commit; CI runs the same:
+
+- `npm run test:tokens`: design token rules and generated files up to date.
+- `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
+  compatibility). `composer run lint:fix` fixes what it can.
 
 ## Design system
 

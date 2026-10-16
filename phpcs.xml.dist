@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ruleset name="wp-portfolio">
+	<description>Coding standards for wp-portfolio: WordPress Coding Standards and PHP 8.0+ compatibility.</description>
+
+	<file>theme</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<arg name="cache" value=".phpcs-cache"/>
+
+	<!-- WordPress Coding Standards (Core, Docs and Extra). -->
+	<rule ref="WordPress"/>
+
+	<config name="minimum_wp_version" value="7.1"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="portfolio-theme"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Globals must be prefixed. Template variables use "portfolio_". -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="portfolio_theme"/>
+				<element value="portfolio"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- PHP version: the theme declares Requires PHP: 8.0. -->
+	<config name="testVersion" value="8.0-"/>
+	<rule ref="PHPCompatibilityWP"/>
+</ruleset>

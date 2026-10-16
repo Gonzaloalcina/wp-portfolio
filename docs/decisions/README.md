@@ -8,9 +8,11 @@ decided and why.
 | [01 — Foundation](01-foundation.md) | Repository, git identity, layout, local environment |
 | [02 — Design system](02-design-system.md) | Styling approach, tokens, typography, colour, tokens build |
 | [03 — Theme](03-theme.md) | Theme structure, requirements and templates |
+| [04 — Performance](04-performance.md) | Front-end weight, default WordPress output |
+| [05 — Quality and CI](05-quality-ci.md) | Coding standards, tests, GitHub Actions |
 
-New phases get their own file when work on them starts (blog blocks, plugin,
-i18n, quality and CI, Playground).
+New phases get their own file when work on them starts, numbered in the order
+they start (performance, blog blocks, plugin, i18n, Playground…).
 
 ## How to write an entry
 
