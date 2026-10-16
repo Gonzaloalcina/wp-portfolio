@@ -1,0 +1,59 @@
+# --- WordPress ---
+# Core, uploads and config live outside the repo; ignore them in case they
+# ever end up inside it. Anchored to the repo root (leading slash) so theme
+# and plugin files with the same names are not ignored.
+/wp-admin/
+/wp-includes/
+/wp-content/
+/wp-*.php
+/xmlrpc.php
+/index.php
+/license.txt
+/readme.html
+wp-config.php
+
+# --- Database dumps ---
+*.sql
+*.sql.gz
+*.sqlite
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*credentials*
+
+# --- PHP / Composer ---
+vendor/
+.phpunit.result.cache
+.phpunit.cache/
+.phpcs-cache
+coverage/
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# --- Playwright ---
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# --- Logs ---
+*.log
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# --- Editors ---
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
