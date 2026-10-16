@@ -88,5 +88,8 @@ WordPress core, uploads and the database live outside the repo.
 - Everything derives from `--unit` (8px). No hard-coded pixel values, except
   1px hairlines.
 - Plain CSS custom properties, no Sass.
+- `theme/assets/css/tokens.css` is generated: edit `tokens/tokens.json`, then
+  run `npm run build:tokens` and commit both files. Never edit the CSS by hand.
+  `npm run test:tokens` checks the unit rules and that the CSS is up to date.
 - Do not change token values without Gonzalo's approval. Record any change in
   `docs/decisions/02-design-system.md`.

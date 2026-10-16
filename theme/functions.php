@@ -27,9 +27,16 @@ add_action( 'after_setup_theme', 'portfolio_theme_setup' );
  */
 function portfolio_theme_enqueue_assets() {
 	wp_enqueue_style(
+		'portfolio-theme-tokens',
+		get_theme_file_uri( 'assets/css/tokens.css' ),
+		array(),
+		PORTFOLIO_THEME_VERSION
+	);
+
+	wp_enqueue_style(
 		'portfolio-theme',
 		get_stylesheet_uri(),
-		array(),
+		array( 'portfolio-theme-tokens' ),
 		PORTFOLIO_THEME_VERSION
 	);
 }

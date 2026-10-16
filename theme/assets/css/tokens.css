@@ -1,0 +1,54 @@
+/* Generated from tokens/tokens.json by scripts/build-tokens.mjs. Do not edit. */
+
+:root {
+	--unit: 8px;
+	--space-0-5: calc(var(--unit) * 0.5);
+	--space-1: calc(var(--unit) * 1);
+	--space-1-5: calc(var(--unit) * 1.5);
+	--space-2: calc(var(--unit) * 2);
+	--space-3: calc(var(--unit) * 3);
+	--space-4: calc(var(--unit) * 4);
+	--space-6: calc(var(--unit) * 6);
+	--space-8: calc(var(--unit) * 8);
+	--space-12: calc(var(--unit) * 12);
+	--font-family-heading: Newsreader, "Iowan Old Style", Georgia, serif;
+	--font-family-body: Inter, system-ui, sans-serif;
+	--font-size-sm: calc(var(--unit) * 1.5);
+	--font-size-base: calc(var(--unit) * 2);
+	--font-size-lg: calc(var(--unit) * 3);
+	--font-size-xl: calc(var(--unit) * 5);
+	--font-line-height-sm: calc(var(--unit) * 2);
+	--font-line-height-base: calc(var(--unit) * 3);
+	--font-line-height-lg: calc(var(--unit) * 4);
+	--font-line-height-xl: calc(var(--unit) * 6);
+	--font-weight-regular: 400;
+	--font-weight-heading: 500;
+	--font-tracking-heading: -0.02em;
+	--layout-gutter: calc(var(--unit) * 3);
+	--layout-text: calc(var(--unit) * 80);
+	--layout-wide: calc(var(--unit) * 128);
+	--line-width: 1px;
+	--line-opacity: 0.3;
+	--marker-size: calc(var(--unit) * 0.5);
+	--color-line: color-mix(in srgb, var(--color-muted) 30%, transparent);
+	--color-paper: #FAF8F3;
+	--color-ink: #1A1A1A;
+	--color-muted: #6B6B66;
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--color-paper: #171615;
+		--color-ink: #ECE9E2;
+		--color-muted: #9A9791;
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme="dark"] {
+	--color-paper: #171615;
+	--color-ink: #ECE9E2;
+	--color-muted: #9A9791;
+	color-scheme: dark;
+}
