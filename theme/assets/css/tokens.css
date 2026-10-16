@@ -1,7 +1,7 @@
 /* Generated from tokens/tokens.json by scripts/build-tokens.mjs. Do not edit. */
 
 :root {
-	--unit: 8px;
+	--unit: 0.5rem;
 	--space-0-5: calc(var(--unit) * 0.5);
 	--space-1: calc(var(--unit) * 1);
 	--space-1-5: calc(var(--unit) * 1.5);
@@ -13,16 +13,17 @@
 	--space-12: calc(var(--unit) * 12);
 	--font-family-heading: Newsreader, "Iowan Old Style", Georgia, serif;
 	--font-family-body: Inter, system-ui, sans-serif;
-	--font-size-sm: calc(var(--unit) * 1.5);
+	--font-size-sm: calc(var(--unit) * 1.75);
 	--font-size-base: calc(var(--unit) * 2);
 	--font-size-lg: calc(var(--unit) * 3);
 	--font-size-xl: calc(var(--unit) * 5);
-	--font-line-height-sm: calc(var(--unit) * 2);
+	--font-line-height-sm: calc(var(--unit) * 3);
 	--font-line-height-base: calc(var(--unit) * 3);
 	--font-line-height-lg: calc(var(--unit) * 4);
 	--font-line-height-xl: calc(var(--unit) * 6);
 	--font-weight-regular: 400;
 	--font-weight-heading: 500;
+	--font-weight-strong: 600;
 	--font-tracking-heading: -0.02em;
 	--layout-gutter: calc(var(--unit) * 3);
 	--layout-text: calc(var(--unit) * 80);

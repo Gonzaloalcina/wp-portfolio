@@ -9,6 +9,8 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'PORTFOLIO_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 
+require_once get_theme_file_path( 'inc/design-system.php' );
+
 /**
  * Registers theme supports.
  */
@@ -23,29 +25,37 @@ function portfolio_theme_setup() {
 add_action( 'after_setup_theme', 'portfolio_theme_setup' );
 
 /**
- * Enqueues front-end assets.
+ * Enqueues a theme stylesheet. The file's modification time is the version,
+ * so browsers fetch it again whenever it changes.
+ *
+ * @param string   $handle Style handle.
+ * @param string   $file   Path relative to the theme root.
+ * @param string[] $deps   Handles this style depends on.
+ */
+function portfolio_theme_enqueue_style( $handle, $file, $deps = array() ) {
+	$path = get_theme_file_path( $file );
+
+	wp_enqueue_style(
+		$handle,
+		get_theme_file_uri( $file ),
+		$deps,
+		file_exists( $path ) ? (string) filemtime( $path ) : PORTFOLIO_THEME_VERSION
+	);
+}
+
+/**
+ * Enqueues front-end assets. Order: fonts and tokens, then base styles, then
+ * page-specific styles.
  */
 function portfolio_theme_enqueue_assets() {
-	wp_enqueue_style(
-		'portfolio-theme-fonts',
-		get_theme_file_uri( 'assets/css/fonts.css' ),
-		array(),
-		PORTFOLIO_THEME_VERSION
-	);
+	portfolio_theme_enqueue_style( 'portfolio-theme-fonts', 'assets/css/fonts.css' );
+	portfolio_theme_enqueue_style( 'portfolio-theme-tokens', 'assets/css/tokens.css' );
+	portfolio_theme_enqueue_style( 'portfolio-theme-base', 'assets/css/base.css', array( 'portfolio-theme-fonts', 'portfolio-theme-tokens' ) );
+	portfolio_theme_enqueue_style( 'portfolio-theme', 'style.css', array( 'portfolio-theme-base' ) );
 
-	wp_enqueue_style(
-		'portfolio-theme-tokens',
-		get_theme_file_uri( 'assets/css/tokens.css' ),
-		array(),
-		PORTFOLIO_THEME_VERSION
-	);
-
-	wp_enqueue_style(
-		'portfolio-theme',
-		get_stylesheet_uri(),
-		array( 'portfolio-theme-fonts', 'portfolio-theme-tokens' ),
-		PORTFOLIO_THEME_VERSION
-	);
+	if ( is_page( 'design-system' ) ) {
+		portfolio_theme_enqueue_style( 'portfolio-theme-design-system', 'assets/css/design-system.css', array( 'portfolio-theme-base' ) );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_theme_enqueue_assets' );
 

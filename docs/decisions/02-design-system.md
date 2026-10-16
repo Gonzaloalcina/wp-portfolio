@@ -62,3 +62,48 @@ tokens, so the JSON stays the source of truth.
 - The two latin normal files are preloaded; latin-ext and italic load on
   demand through `unicode-range`. A typical page downloads about 104 KB of
   fonts.
+
+## 2026-10-16 — `/design-system` page rendered from generated token data
+
+- The build script also writes `theme/assets/data/tokens.json` (flat list:
+  path, CSS variable, value, multiplier; colours paired light/dark). Generated
+  and committed like `tokens.css`, and covered by the same up-to-date test.
+- The page uses the `page-design-system.php` template and renders every value
+  from that file, so it cannot drift from the tokens. Contrast ratios are
+  computed in PHP (WCAG 2), not typed by hand.
+- `design-system.css` loads only on that page.
+- **noindex is set in Rank Math** on the page (`rank_math_robots`), the way an
+  editor would. It lives in the database, so the Playground blueprint must set
+  it too.
+
+## 2026-10-16 — Small text is 14/24; font sizes allow quarter units
+
+12px read too small on the real render. `font.size.sm` is now 14px (1.75
+units) with a 24px line height (3 units). Font sizes may use steps of 0.25
+unit (2px); everything else keeps steps of 0.5, and line heights stay whole
+units so all text sits on the 8px grid. Supersedes the 12/16 step in "Everything
+derives from an 8px unit". The tokens test enforces both step sizes.
+
+## 2026-10-16 — Dimensions in rem: `--unit: 0.5rem`
+
+Px sizes ignore the font size a visitor sets in the browser (zoom still
+works, but the setting does not), which hurts accessibility. The unit is now
+`0.5rem` (8px at the default 16px root) and every dimension token is in rem,
+so the whole system scales with that setting. Hairlines stay at `1px`. The
+8px grid and all multipliers are unchanged. The tokens test checks that only
+hairlines use px. Supersedes the `--unit: 8px` value in "Everything derives
+from an 8px unit".
+
+## 2026-10-16 — Strong weight 600; H3 at base size and strong weight
+
+- New token `font.weight.strong: 600`, used by `strong`/`b`.
+- H3 uses the base size (16/24) with the strong weight, in the heading font.
+  H4–H6 use the base size with the heading weight for now.
+
+## 2026-10-16 — Base style details: links, rhythm, focus
+
+- **Link underline offset: 4px** (`--space-0-5`) instead of the brief's 3px,
+  which would break the unit rule.
+- **Vertical rhythm:** 24px (`--space-3`) between blocks, 48px (`--space-6`)
+  before a heading and 16px (`--space-2`) after it.
+- **Focus:** 1px outline in the current colour, offset 4px.

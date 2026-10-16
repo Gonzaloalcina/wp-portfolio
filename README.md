@@ -12,6 +12,7 @@ shows how the site is built, tested and documented, not just the result.
 - Custom PHP theme with SCF for dynamic sections. No page builders.
 - Gutenberg blog with a few custom blocks (React in the editor, PHP render).
 - English and Spanish with Polylang.
+- SEO with Rank Math.
 - Custom plugin with a REST contact form (server-side Cloudflare Turnstile,
   honeypot, rate limiting).
 - Design tokens (W3C JSON) compiled to CSS custom properties, with a living

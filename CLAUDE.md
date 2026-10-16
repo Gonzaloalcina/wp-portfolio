@@ -41,6 +41,7 @@ works, not just the final site.
   and components. No page builders.
 - **Blog:** Gutenberg with 2–3 custom blocks (React in the editor, PHP render).
 - **i18n:** Polylang (free), EN/ES.
+- **SEO:** Rank Math (free).
 - **Plugin:** custom plugin (`portfolio-core`): REST form with Cloudflare
   Turnstile validated server-side, honeypot and rate limiting; plus automation.
 - **Design system as code:** W3C design tokens (JSON) → CSS custom properties;
@@ -49,6 +50,8 @@ works, not just the final site.
   database) and Playwright. CI on GitHub Actions with MySQL as a service.
 - **Public demo:** WordPress Playground via `blueprint.json` (verify that SCF
   and Polylang boot).
+- **Build tooling:** no bundler. Plain CSS and native ES modules;
+  `@wordpress/scripts` only for Gutenberg blocks.
 - **Local:** XAMPP on macOS, no Docker.
 
 ## Repository layout
@@ -78,6 +81,9 @@ WordPress core, uploads and the database live outside the repo.
 - Local admin credentials are kept outside the repo. Never commit them.
 - Repo path: `/Users/Shared/wp-portfolio` (Apache cannot read the home
   folder). `theme/` is symlinked to `wp-content/themes/portfolio-theme`.
+- Permalinks: `/%postname%/`. The local `.htaccess` (outside the repo) holds
+  the WordPress rewrite rules and the WOFF2 media type.
+- Rank Math registration is skipped locally (no account connected).
 - `wp-content/uploads` is writable by Apache (`daemon`) through an ACL. Files
   it creates belong to `daemon`; delete them from WordPress, not the shell.
 
@@ -85,7 +91,8 @@ WordPress core, uploads and the database live outside the repo.
 
 - Before writing or changing any CSS, read `docs/design-brief.md` and
   `tokens/tokens.json`.
-- Everything derives from `--unit` (8px). No hard-coded pixel values, except
+- Everything derives from `--unit` (0.5rem = 8px at the default root size).
+  Dimensions are in rem. No hard-coded pixel values, except
   1px hairlines.
 - Plain CSS custom properties, no Sass.
 - `theme/assets/css/tokens.css` is generated: edit `tokens/tokens.json`, then

@@ -1,0 +1,62 @@
+/*
+ * /design-system page only.
+ */
+
+.design-system > section {
+	margin-block-start: var(--space-8);
+}
+
+.ds-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.ds-table th,
+.ds-table td {
+	padding-block: var(--space-1);
+	padding-inline-end: var(--space-2);
+	border-block-end: var(--line-width) solid var(--color-line);
+	text-align: start;
+	vertical-align: middle;
+}
+
+.ds-table th {
+	color: var(--color-muted);
+	font-weight: var(--font-weight-regular);
+}
+
+.ds-bar {
+	display: block;
+	height: var(--space-1);
+	background: var(--color-ink);
+}
+
+.ds-swatch {
+	display: inline-block;
+	width: var(--space-2);
+	height: var(--space-2);
+	margin-inline-end: var(--space-1);
+	vertical-align: middle;
+	border: var(--line-width) solid var(--color-line);
+}
+
+.ds-specimens {
+	margin-block-start: var(--space-4);
+}
+
+.ds-specimen {
+	padding-block: var(--space-2);
+	border-block-end: var(--line-width) solid var(--color-line);
+}
+
+.ds-specimen > * + * {
+	margin-block-start: var(--space-1);
+}
+
+.ds-heading {
+	font-family: var(--font-family-heading);
+	font-weight: var(--font-weight-heading);
+	letter-spacing: var(--font-tracking-heading);
+}

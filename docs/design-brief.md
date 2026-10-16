@@ -21,11 +21,13 @@ Their values are not copied.
 
 Everything derives from a single base unit.
 
-- `--unit: 8px`. Steps of 0.5 are allowed (4px).
+- `--unit: 0.5rem`, which is 8px at the default 16px root size. Steps of 0.5
+  are allowed (4px). Sizes are in rem so they follow the visitor's font size
+  setting; px values in this file are at the default size.
 - Use `calc(var(--unit) * n)` or the derived tokens. Do not hard-code pixel
   values.
-- Font sizes and line heights are multiples of 0.5 unit. Line heights are
-  whole units.
+- Font sizes are multiples of 0.25 unit (2px). Line heights are whole units,
+  so all text sits on the 8px grid.
 - Two exceptions: 1px hairlines, and heading tracking (`-0.02em`, relative to
   the font size).
 
@@ -47,7 +49,7 @@ Everything derives from a single base unit.
 
 | Step | Size / line height | Use |
 |---|---|---|
-| sm | 12 / 16 | Meta: dates, labels. Muted colour |
+| sm | 14 / 24 | Meta: dates, labels. Muted colour |
 | base | 16 / 24 | Body text |
 | lg | 24 / 32 | Section headings (H2) |
 | xl | 40 / 48 | Page title (H1) |
@@ -98,7 +100,7 @@ place.
 
 - 1px lines, `--color-line`. Used as dividers and as the row structure of lists.
 - Lists use a 4px square marker (`--marker-size`), not round bullets.
-- Links are underlined (offset 3px, underline at ~30% opacity) and change to
+- Links are underlined (offset 4px, one half unit, underline at ~30% opacity) and change to
   full ink on hover and focus. Keep a visible focus style.
 
 ## Not allowed

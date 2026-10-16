@@ -67,3 +67,23 @@ this project. The git `includeIf` rule points to the new path.
 Apache gets write access to `wp-content/uploads` only, through an inherited
 macOS ACL for `daemon`. No `sudo`, no global changes. Files Apache creates
 there belong to `daemon`; delete them from WordPress, not from the shell.
+
+## 2026-10-16 — Third-party plugins: SCF and Rank Math
+
+- **Secure Custom Fields** (WordPress.org) for dynamic sections and
+  components.
+- **Rank Math SEO** (free) for titles, meta robots and sitemaps.
+- Installed from wordpress.org with WP-CLI and checksum-verified. They live in
+  the WordPress install, not in the repo.
+- Rank Math only outputs front-end tags after an account is connected or the
+  registration is skipped. Locally the registration is skipped (no Rank Math
+  account); connecting one is Gonzalo's call.
+
+## 2026-10-16 — No bundler; `@wordpress/scripts` for blocks
+
+CSS is plain (native nesting, `calc()`, `clamp()`) and vanilla JS uses native
+ES modules through WordPress script modules (`wp_register_script_module`), so
+neither needs a build. Gutenberg blocks will use `@wordpress/scripts`, the
+official tool, which bundles React/JSX and generates the `index.asset.php`
+dependency file WordPress needs. Vite was rejected: it would be a second build
+tool and its main benefit (HMR for large JS apps) does not apply here.
