@@ -19,5 +19,6 @@ defined( 'ABSPATH' ) || exit;
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'portfolio-theme' ); ?></a>
 <header class="site-header">
 	<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+	<?php portfolio_theme_toggle_button(); ?>
 </header>
 <main id="content" class="site-main">

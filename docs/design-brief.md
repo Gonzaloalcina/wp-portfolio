@@ -128,6 +128,5 @@ properties. No Sass.
 ## Open items
 
 - Verify the dark values and heading weight on the real render.
-- Place and style the theme toggle.
 - Judge Newsreader's optical size axis on the real render (fonts ship with
   the weight axis only; see `docs/decisions/02-design-system.md`).

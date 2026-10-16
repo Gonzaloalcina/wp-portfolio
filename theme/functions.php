@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'PORTFOLIO_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 
 require_once get_theme_file_path( 'inc/design-system.php' );
+require_once get_theme_file_path( 'inc/theme-toggle.php' );
 
 /**
  * Registers theme supports.

@@ -155,6 +155,15 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</table>
 	</section>
 
+	<section aria-labelledby="ds-theme">
+		<h2 id="ds-theme"><?php esc_html_e( 'Light and dark', 'portfolio-theme' ); ?></h2>
+		<p><?php esc_html_e( 'The site follows the system by default. The toggle in the header switches between light and dark; a choice that differs from the system is stored in this browser and applied before the first paint.', 'portfolio-theme' ); ?></p>
+		<p class="meta">
+			<?php esc_html_e( 'Current:', 'portfolio-theme' ); ?>
+			<output data-theme-current><?php esc_html_e( 'requires JavaScript', 'portfolio-theme' ); ?></output>
+		</p>
+	</section>
+
 	<section aria-labelledby="ds-details">
 		<h2 id="ds-details"><?php esc_html_e( 'Lines and details', 'portfolio-theme' ); ?></h2>
 		<p>

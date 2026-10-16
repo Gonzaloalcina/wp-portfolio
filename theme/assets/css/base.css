@@ -189,7 +189,37 @@ hr {
 }
 
 .site-header {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	align-items: baseline;
+	justify-content: space-between;
 	padding-block: var(--space-4);
+}
+
+/* Theme toggle: reads as meta text, behaves like a link. */
+
+.theme-toggle {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--color-muted);
+	font: inherit;
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+	cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+	color: var(--color-ink);
+	text-decoration-line: underline;
+	text-decoration-thickness: var(--line-width);
+	text-underline-offset: var(--space-0-5);
+}
+
+.theme-toggle[hidden] {
+	display: none;
 }
 
 .site-main {
