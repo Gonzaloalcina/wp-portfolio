@@ -76,6 +76,10 @@ WordPress core, uploads and the database live outside the repo.
   WP-CLI with XAMPP's PHP so both match:
   `/Applications/XAMPP/xamppfiles/bin/php -d memory_limit=512M "$(brew --prefix wp-cli)/bin/wp" …`
 - Local admin credentials are kept outside the repo. Never commit them.
+- Repo path: `/Users/Shared/wp-portfolio` (Apache cannot read the home
+  folder). `theme/` is symlinked to `wp-content/themes/portfolio-theme`.
+- `wp-content/uploads` is writable by Apache (`daemon`) through an ACL. Files
+  it creates belong to `daemon`; delete them from WordPress, not the shell.
 
 ## Design system
 

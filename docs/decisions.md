@@ -78,3 +78,24 @@ licence and served from this site, with no third-party requests (GDPR).
 Palette: cream paper, near-black ink, one grey. The site follows the system
 colour scheme by default, with a manual toggle. Light is the reference theme
 and the fallback.
+
+## 2026-10-16 — Repo lives in `/Users/Shared/wp-portfolio`
+
+Apache (XAMPP) runs as `daemon`, which cannot read the user's home folder or
+the macOS-protected Desktop, so a symlink from `wp-content` into the Desktop
+would not work. Running Apache as the user was rejected because it would also
+affect other local sites. `/Users/Shared` is readable by `daemon` and isolates
+this project. The git `includeIf` rule points to the new path.
+
+## 2026-10-16 — Uploads writable through an ACL, not ownership changes
+
+Apache gets write access to `wp-content/uploads` only, through an inherited
+macOS ACL for `daemon`. No `sudo`, no global changes. Files Apache creates
+there belong to `daemon`; delete them from WordPress, not from the shell.
+
+## 2026-10-16 — Theme header: PHP 8.0, WordPress 7.1, GPL-2.0-or-later
+
+- `Requires PHP: 8.0` (the local PHP). **Provisional** until the hosting PHP
+  version is known.
+- `Requires at least: 7.1` (the version the theme is built on).
+- License `GPL-2.0-or-later`, as WordPress themes require.

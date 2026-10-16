@@ -1,0 +1,19 @@
+/*
+Theme Name:        Portfolio Theme
+Theme URI:         https://gonzaloalcina.dev
+Author:            Gonzalo Alcina
+Author URI:        https://gonzaloalcina.dev
+Description:       Custom theme for gonzaloalcina.dev.
+Version:           0.1.0
+Requires at least: 7.1
+Tested up to:      7.1
+Requires PHP:      8.0
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       portfolio-theme
+*/
+
+/*
+ * Theme header only. Styles come from the design tokens build
+ * (see docs/design-brief.md); none are written here by hand.
+ */
