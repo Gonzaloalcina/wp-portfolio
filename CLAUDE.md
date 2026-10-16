@@ -22,7 +22,7 @@ works, not just the final site.
   figures from Gonzalo's employer anywhere in the repo.
 - **Never push or publish without Gonzalo's explicit permission.** Local commits
   only when he approves them.
-- When a decision is closed, record it in `docs/decisions.md` (and here if it
+- When a decision is closed, record it in `docs/decisions/` (and here if it
   changes these rules or the stack).
 
 ## Git identity
@@ -59,7 +59,7 @@ plugin/              → symlinked to wp-content/plugins/portfolio-core
 tokens/              # design tokens (W3C JSON)
 tests/php/           # PHPUnit
 tests/e2e/           # Playwright
-docs/decisions.md    # decision log
+docs/decisions/      # decision log, one file per phase
 .github/workflows/   # CI
 blueprint.json       # WordPress Playground
 ```
@@ -89,4 +89,4 @@ WordPress core, uploads and the database live outside the repo.
   1px hairlines.
 - Plain CSS custom properties, no Sass.
 - Do not change token values without Gonzalo's approval. Record any change in
-  `docs/decisions.md`.
+  `docs/decisions/02-design-system.md`.

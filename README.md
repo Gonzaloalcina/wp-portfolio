@@ -26,7 +26,7 @@ theme/               # WordPress theme (portfolio-theme)
 plugin/              # WordPress plugin (portfolio-core)
 tokens/              # design tokens
 tests/               # PHPUnit and Playwright tests
-docs/                # project documentation and decision log
+docs/                # project documentation and decision log (by phase)
 .github/workflows/   # CI
 blueprint.json       # WordPress Playground blueprint
 ```
@@ -36,4 +36,4 @@ and `plugin/` are symlinked into a local WordPress install.
 
 ## Decisions
 
-See [docs/decisions.md](docs/decisions.md).
+See [docs/decisions/](docs/decisions/README.md), one file per project phase.
