@@ -220,6 +220,7 @@ function portfolio_theme_icon_picker_styles() {
 	$picker = '.acf-field.portfolio-icon-picker';
 	$css    = "
 		{$picker} ul.acf-radio-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+		{$picker} ul.acf-radio-list::before, {$picker} ul.acf-radio-list::after { display: none; }
 		{$picker} ul.acf-radio-list li { margin: 0; list-style: none; }
 		{$picker} ul.acf-radio-list li label { position: relative; display: block; padding: 12px 4px 8px; border: 1px solid #dcdcde; border-radius: 2px; text-align: center; font-size: 12px; line-height: 16px; cursor: pointer; }
 		{$picker} ul.acf-radio-list li label:hover { border-color: #8c8f94; }

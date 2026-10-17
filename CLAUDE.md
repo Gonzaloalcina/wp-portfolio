@@ -114,6 +114,9 @@ Run before proposing a commit; CI runs the same:
 - `npm run test:tokens`: design token rules and generated files up to date.
 - `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
   compatibility). `composer run lint:fix` fixes what it can.
+- `nvm exec 24 npm run playground`: runs `blueprint.json` in Playground CLI
+  with `./theme` mounted, on http://127.0.0.1:9400 (needs Node 24; the rest
+  of the tooling stays on Node 20). Use it to check blueprint changes.
 
 ## Design system
 
