@@ -62,3 +62,21 @@ output. The number of requests does not change: everything removed was inline.
   - REST `/wp/v2/users`: 401 for anyone who cannot edit posts, so author
     login slugs are not listed publicly. The block editor still reads it, and
     the rest of the REST API is untouched.
+
+## 2026-10-17 — Font weight axis trimmed to 400–600
+
+The design uses three weights (tokens `font.weight`: 400, 500, 600), but the
+variable fonts shipped the full axis (Inter 100–900, Newsreader 200–800). All
+six files are now instanced to `wght` 400–600, and the `@font-face` ranges in
+`fonts.css` match. Both families keep the same range so any combination (a
+`strong` inside a heading, for example) renders with real glyphs.
+
+- 27–34 % smaller per file. The two preloaded latin files go from 106.3 KB
+  to 74.9 KB, so every page loads about 31 KB less.
+- The OFL licences declare no Reserved Font Name, so modified files keep
+  their names.
+- To redo it from the original Fontsource files (see
+  `02-design-system.md`), with fontTools 4.60 and brotli in a throwaway
+  virtualenv:
+  `fonttools varLib.instancer <file>.woff2 wght=400:600 -o <file>.woff2`
+- A new weight outside 400–600 means re-instancing from the originals.
