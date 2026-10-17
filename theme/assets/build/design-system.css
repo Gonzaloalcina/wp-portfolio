@@ -1,31 +1,31 @@
 /* Generated from theme/assets/css/design-system.css by scripts/build-css.mjs. Do not edit. */
-.design-system > section {
+.design-system__section {
 margin-block-start: var(--space-8);
 }
-.ds-table {
+.design-system__table {
 width: 100%;
 border-collapse: collapse;
 font-size: var(--font-size-sm);
 line-height: var(--font-line-height-sm);
 }
-.ds-table th,
-.ds-table td {
+.design-system__table th,
+.design-system__table td {
 padding-block: var(--space-1);
 padding-inline-end: var(--space-2);
 border-block-end: var(--line-width) solid var(--color-line);
 text-align: start;
 vertical-align: middle;
 }
-.ds-table th {
+.design-system__table th {
 color: var(--color-muted);
 font-weight: var(--font-weight-regular);
 }
-.ds-bar {
+.design-system__bar {
 display: block;
 height: var(--space-1);
 background: var(--color-ink);
 }
-.ds-swatch {
+.design-system__swatch {
 display: inline-block;
 width: var(--space-2);
 height: var(--space-2);
@@ -33,28 +33,28 @@ margin-inline-end: var(--space-1);
 vertical-align: middle;
 border: var(--line-width) solid var(--color-line);
 }
-.ds-specimens {
+.design-system__specimens {
 margin-block-start: var(--space-4);
 }
-.ds-specimen {
+.design-system__specimen {
 padding-block: var(--space-2);
 border-block-end: var(--line-width) solid var(--color-line);
 }
-.ds-specimen > * + * {
+.design-system__specimen > * + * {
 margin-block-start: var(--space-1);
 }
-.ds-heading {
+.design-system__heading {
 font-family: var(--font-family-heading);
 font-weight: var(--font-weight-heading);
 letter-spacing: var(--font-tracking-heading);
 }
-.ds-icons {
+.design-system__icons {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(calc(var(--unit) * 12), 1fr));
 gap: var(--space-3) var(--space-2);
 margin-block-start: var(--space-4);
 }
-.ds-icons > li {
+.design-system__icon {
 display: flex;
 flex-direction: column;
 gap: var(--space-1);
@@ -62,13 +62,13 @@ align-items: center;
 padding-inline-start: 0;
 text-align: center;
 }
-.ds-icons > li::before {
+.design-system__icon::before {
 content: none;
 }
-.ds-icons > li + li {
+.design-system__icon + .design-system__icon {
 margin-block-start: 0;
 }
-.ds-card {
+.demo-card {
 display: grid;
 gap: var(--space-1);
 justify-items: start;
@@ -76,9 +76,9 @@ margin-block-start: var(--space-4);
 padding: var(--space-3);
 border: var(--line-width) solid var(--color-line);
 }
-.ds-card > * {
+.demo-card > * {
 margin-block-start: 0;
 }
-.ds-card-title {
+.demo-card__title {
 font-weight: var(--font-weight-strong);
 }

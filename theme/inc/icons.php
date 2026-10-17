@@ -58,6 +58,7 @@ function portfolio_theme_icon_kses() {
 			'stroke-linecap'  => true,
 			'stroke-linejoin' => true,
 			'class'           => true,
+			'data-icon'       => true,
 			'aria-hidden'     => true,
 			'focusable'       => true,
 		),
@@ -89,12 +90,13 @@ function portfolio_theme_get_icon( $name ) {
 	// Drop the licence comment (the licence ships in assets/icons/LICENSE.txt).
 	$svg = preg_replace( '/<!--.*?-->/s', '', $svg );
 
-	// Size comes from CSS; replace the Lucide class with ours.
+	// Size comes from CSS; replace the Lucide class with ours. The icon name
+	// goes in data-icon, not in a modifier class (modifiers are numeric).
 	$svg = preg_replace_callback(
 		'/<svg\b[^>]*>/',
 		static function ( $matches ) use ( $name ) {
 			$tag = preg_replace( '/\s(?:class|width|height)="[^"]*"/', '', $matches[0] );
-			return str_replace( '<svg', sprintf( '<svg class="icon icon-%s" aria-hidden="true" focusable="false"', $name ), $tag );
+			return str_replace( '<svg', sprintf( '<svg class="icon" data-icon="%s" aria-hidden="true" focusable="false"', $name ), $tag );
 		},
 		$svg
 	);
@@ -201,7 +203,7 @@ function portfolio_theme_icon_field_choices( $field ) {
 
 	foreach ( portfolio_theme_icon_names() as $name ) {
 		$field['choices'][ $name ] = sprintf(
-			'<span class="portfolio-icon-choice" data-icon="%1$s">%2$s</span>',
+			'<span class="portfolio-icon-picker__choice" data-icon="%1$s">%2$s</span>',
 			esc_attr( $name ),
 			esc_html( $name )
 		);
@@ -227,12 +229,12 @@ function portfolio_theme_icon_picker_styles() {
 		{$picker} ul.acf-radio-list li label.selected { border-color: #2271b1; box-shadow: 0 0 0 1px #2271b1; }
 		{$picker} ul.acf-radio-list li label:focus-within { outline: 2px solid #2271b1; outline-offset: 2px; }
 		{$picker} ul.acf-radio-list li input { position: absolute; opacity: 0; }
-		.portfolio-icon-choice::before { content: ''; display: block; width: 24px; height: 24px; margin: 0 auto 6px; background: currentColor; mask: var(--icon) center / contain no-repeat; }
+		.portfolio-icon-picker__choice::before { content: ''; display: block; width: 24px; height: 24px; margin: 0 auto 6px; background: currentColor; mask: var(--icon) center / contain no-repeat; }
 	";
 
 	foreach ( portfolio_theme_icon_names() as $name ) {
 		$css .= sprintf(
-			'.portfolio-icon-choice[data-icon="%1$s"] { --icon: url("%2$s"); }',
+			'.portfolio-icon-picker__choice[data-icon="%1$s"] { --icon: url("%2$s"); }',
 			esc_attr( $name ),
 			esc_url( get_theme_file_uri( "assets/icons/{$name}.svg" ) )
 		);

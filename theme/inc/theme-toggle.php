@@ -46,6 +46,7 @@ function portfolio_theme_toggle_button() {
 	<button type="button" class="theme-toggle" data-theme-toggle hidden>
 		<?php esc_html_e( 'Theme:', 'portfolio-theme' ); ?>
 		<span
+			class="theme-toggle__state"
 			data-theme-toggle-state
 			aria-live="polite"
 			data-label-light="<?php echo esc_attr( $labels['light'] ); ?>"

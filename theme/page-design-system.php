@@ -37,7 +37,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 	endwhile;
 	?>
 
-	<section aria-labelledby="ds-unit">
+	<section class="design-system__section" aria-labelledby="ds-unit">
 		<h2 id="ds-unit"><?php esc_html_e( 'Unit and spacing', 'portfolio-theme' ); ?></h2>
 		<p>
 			<?php
@@ -49,7 +49,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 			?>
 		</p>
 
-		<table class="ds-table">
+		<table class="design-system__table">
 			<thead>
 				<tr>
 					<th scope="col"><?php esc_html_e( 'Token', 'portfolio-theme' ); ?></th>
@@ -64,18 +64,18 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						<td><code><?php echo esc_html( $portfolio_token['var'] ); ?></code></td>
 						<td><?php echo esc_html( $portfolio_token['multiplier'] ); ?></td>
 						<td><?php echo esc_html( portfolio_theme_format_dimension( $portfolio_token['value'] ) ); ?></td>
-						<td><span class="ds-bar" style="<?php echo esc_attr( 'width: var(' . $portfolio_token['var'] . ')' ); ?>"></span></td>
+						<td><span class="design-system__bar" style="<?php echo esc_attr( 'width: var(' . $portfolio_token['var'] . ')' ); ?>"></span></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
 	</section>
 
-	<section aria-labelledby="ds-type">
+	<section class="design-system__section" aria-labelledby="ds-type">
 		<h2 id="ds-type"><?php esc_html_e( 'Typography', 'portfolio-theme' ); ?></h2>
 		<p><?php esc_html_e( 'Newsreader for headings, Inter for text. Both self-hosted. Font sizes are multiples of a quarter unit; line heights are whole units, so all text sits on the 8px grid.', 'portfolio-theme' ); ?></p>
 
-		<div class="ds-specimens">
+		<div class="design-system__specimens">
 			<?php foreach ( array_reverse( $portfolio_sizes ) as $portfolio_token ) : ?>
 				<?php
 				$portfolio_step        = substr( $portfolio_token['path'], strlen( 'font.size.' ) );
@@ -87,7 +87,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 					$portfolio_line_height['var'] ?? 'normal'
 				);
 				?>
-				<div class="ds-specimen">
+				<div class="design-system__specimen">
 					<p class="meta">
 						<?php
 						printf(
@@ -99,7 +99,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						);
 						?>
 					</p>
-					<p class="<?php echo esc_attr( $portfolio_is_heading ? 'ds-heading' : '' ); ?>" style="<?php echo esc_attr( $portfolio_style ); ?>">
+					<p class="<?php echo esc_attr( $portfolio_is_heading ? 'design-system__heading' : '' ); ?>" style="<?php echo esc_attr( $portfolio_style ); ?>">
 						<?php esc_html_e( 'Campaigns ship on time when the system is clear.', 'portfolio-theme' ); ?>
 					</p>
 				</div>
@@ -107,11 +107,11 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</div>
 	</section>
 
-	<section aria-labelledby="ds-color">
+	<section class="design-system__section" aria-labelledby="ds-color">
 		<h2 id="ds-color"><?php esc_html_e( 'Colour', 'portfolio-theme' ); ?></h2>
 		<p><?php esc_html_e( 'One paper, one ink, one grey. Light is the reference theme; dark follows the system or the toggle. Contrast is computed against paper (WCAG 2).', 'portfolio-theme' ); ?></p>
 
-		<table class="ds-table">
+		<table class="design-system__table">
 			<thead>
 				<tr>
 					<th scope="col"><?php esc_html_e( 'Token', 'portfolio-theme' ); ?></th>
@@ -125,7 +125,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						<td><code><?php echo esc_html( $portfolio_color['var'] ); ?></code></td>
 						<?php foreach ( array( 'light', 'dark' ) as $portfolio_mode ) : ?>
 							<td>
-								<span class="ds-swatch" style="<?php echo esc_attr( 'background: ' . $portfolio_color[ $portfolio_mode ] ); ?>"></span>
+								<span class="design-system__swatch" style="<?php echo esc_attr( 'background: ' . $portfolio_color[ $portfolio_mode ] ); ?>"></span>
 								<?php echo esc_html( $portfolio_color[ $portfolio_mode ] ); ?>
 								<?php if ( $portfolio_paper && 'paper' !== $portfolio_color['name'] ) : ?>
 									<span class="meta">
@@ -146,7 +146,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 					<tr>
 						<td><code><?php echo esc_html( $portfolio_derived['var'] ); ?></code></td>
 						<td colspan="2">
-							<span class="ds-swatch" style="<?php echo esc_attr( 'background: var(' . $portfolio_derived['var'] . ')' ); ?>"></span>
+							<span class="design-system__swatch" style="<?php echo esc_attr( 'background: var(' . $portfolio_derived['var'] . ')' ); ?>"></span>
 							<code><?php echo esc_html( $portfolio_derived['css'] ); ?></code>
 						</td>
 					</tr>
@@ -155,7 +155,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</table>
 	</section>
 
-	<section aria-labelledby="ds-theme">
+	<section class="design-system__section" aria-labelledby="ds-theme">
 		<h2 id="ds-theme"><?php esc_html_e( 'Light and dark', 'portfolio-theme' ); ?></h2>
 		<p><?php esc_html_e( 'The site follows the system by default. The toggle in the header switches between light and dark; a choice that differs from the system is stored in this browser and applied before the first paint.', 'portfolio-theme' ); ?></p>
 		<p class="meta">
@@ -164,13 +164,13 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</p>
 	</section>
 
-	<section aria-labelledby="ds-icons">
+	<section class="design-system__section" aria-labelledby="ds-icons">
 		<h2 id="ds-icons"><?php esc_html_e( 'Icons', 'portfolio-theme' ); ?></h2>
 		<p><?php esc_html_e( 'Lucide icons on a 24-unit grid, with a thinner stroke. They take the text colour and are decorative: the text next to them carries the meaning. Editors pick them in a reusable icon field.', 'portfolio-theme' ); ?></p>
 
-		<ul class="ds-icons" role="list">
+		<ul class="design-system__icons" role="list">
 			<?php foreach ( portfolio_theme_icon_names() as $portfolio_icon ) : ?>
-				<li>
+				<li class="design-system__icon">
 					<?php portfolio_theme_icon( $portfolio_icon ); ?>
 					<span class="meta"><?php echo esc_html( $portfolio_icon ); ?></span>
 				</li>
@@ -178,9 +178,9 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</ul>
 
 		<?php $portfolio_card_icon = function_exists( 'get_field' ) ? get_field( 'demo_card_icon' ) : ''; ?>
-		<div class="ds-card">
+		<div class="demo-card">
 			<?php portfolio_theme_icon( $portfolio_card_icon ? $portfolio_card_icon : 'blocks' ); ?>
-			<p class="ds-card-title"><?php esc_html_e( 'Demo card', 'portfolio-theme' ); ?></p>
+			<p class="demo-card__title"><?php esc_html_e( 'Demo card', 'portfolio-theme' ); ?></p>
 			<p class="meta">
 				<?php
 				printf(
@@ -193,7 +193,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</div>
 	</section>
 
-	<section aria-labelledby="ds-details">
+	<section class="design-system__section" aria-labelledby="ds-details">
 		<h2 id="ds-details"><?php esc_html_e( 'Lines and details', 'portfolio-theme' ); ?></h2>
 		<p>
 			<?php
@@ -212,7 +212,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		<hr>
 		<p class="meta"><?php esc_html_e( 'Meta text: dates, labels. Small and muted.', 'portfolio-theme' ); ?></p>
 
-		<table class="ds-table">
+		<table class="design-system__table">
 			<tbody>
 				<?php foreach ( $portfolio_details as $portfolio_token ) : ?>
 					<tr>
@@ -224,9 +224,9 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</table>
 	</section>
 
-	<section aria-labelledby="ds-layout">
+	<section class="design-system__section" aria-labelledby="ds-layout">
 		<h2 id="ds-layout"><?php esc_html_e( 'Layout', 'portfolio-theme' ); ?></h2>
-		<table class="ds-table">
+		<table class="design-system__table">
 			<tbody>
 				<?php foreach ( $portfolio_layout as $portfolio_token ) : ?>
 					<tr>
