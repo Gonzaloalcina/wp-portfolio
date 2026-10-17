@@ -1,0 +1,11 @@
+/*
+ * Entry: the stylesheet every page loads. scripts/build-css.mjs inlines the
+ * imports into theme/assets/build/site.css (one request, cached once).
+ *
+ * Order: fonts, tokens and base, then components. Add every new component
+ * here; the build fails if a file in components/ is not imported.
+ */
+
+@import "fonts.css";
+@import "tokens.css";
+@import "base.css";

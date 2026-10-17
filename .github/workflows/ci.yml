@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   tokens:
-    name: Design tokens
+    name: Design tokens and CSS
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -26,6 +26,9 @@ jobs:
 
       # Unit rules, plus generated tokens.css / tokens.json up to date.
       - run: npm run test:tokens
+
+      # Compiled stylesheets up to date, every component imported, no stray px.
+      - run: npm run test:css
 
   phpcs:
     name: PHP coding standards

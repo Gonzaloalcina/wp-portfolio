@@ -1,5 +1,6 @@
 /*
- * /design-system page only.
+ * Entry: rules only the /design-system page needs, built to
+ * theme/assets/build/design-system.css and loaded after site.css on that page.
  */
 
 .design-system > section {

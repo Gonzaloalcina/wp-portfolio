@@ -50,19 +50,18 @@ function portfolio_theme_enqueue_style( $handle, $file, $deps = array() ) {
 }
 
 /**
- * Enqueues front-end assets. Order: fonts and tokens, then base styles, then
- * page-specific styles.
+ * Enqueues front-end assets: the site stylesheet on every page, plus a page
+ * stylesheet where a page has rules nobody else uses. Both are compiled from
+ * assets/css/ into assets/build/ (npm run build:css).
  */
 function portfolio_theme_enqueue_assets() {
-	portfolio_theme_enqueue_style( 'portfolio-theme-fonts', 'assets/css/fonts.css' );
-	portfolio_theme_enqueue_style( 'portfolio-theme-tokens', 'assets/css/tokens.css' );
-	portfolio_theme_enqueue_style( 'portfolio-theme-base', 'assets/css/base.css', array( 'portfolio-theme-fonts', 'portfolio-theme-tokens' ) );
+	portfolio_theme_enqueue_style( 'portfolio-theme', 'assets/build/site.css' );
 
 	// style.css is not enqueued: it only holds the theme header WordPress
 	// reads to recognise the theme, so loading it would be an empty request.
 
 	if ( is_page( 'design-system' ) ) {
-		portfolio_theme_enqueue_style( 'portfolio-theme-design-system', 'assets/css/design-system.css', array( 'portfolio-theme-base' ) );
+		portfolio_theme_enqueue_style( 'portfolio-theme-design-system', 'assets/build/design-system.css', array( 'portfolio-theme' ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'portfolio_theme_enqueue_assets' );

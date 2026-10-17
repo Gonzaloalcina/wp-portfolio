@@ -110,3 +110,29 @@ production, with a GitHub Actions deploy (`main` → staging, version tags →
 production, after CI), are a separate phase once hosting is chosen; the
 pipeline depends on the host. Behaviour per environment uses
 `wp_get_environment_type()` and configuration, not code edits.
+
+## 2026-10-18 — CSS compiled into one site stylesheet (supersedes "no build step" for CSS)
+
+CSS is now written as one file per component and compiled, so each component
+lives in its own file without costing a request each. Loading the component
+files separately needed a registry in PHP and a rule that templates declare
+their components before `get_header()`, or the CSS printed in the footer:
+fragile, and not how it should be done.
+
+- **Build:** `scripts/build-css.mjs`, no dependencies, same pattern as the
+  tokens. Entries in `theme/assets/css/` list their parts with `@import`; the
+  build inlines them into `theme/assets/build/`, rewrites relative `url()`
+  paths and drops comments and indentation. Output is committed (Playground
+  and a downloaded zip work without building) and CI fails if it is out of
+  date or a component file is not imported.
+- **One stylesheet for the whole site** (`site.css`: fonts, tokens, base and
+  every component), cached once: 11.6 KB, 2.7 KB gzipped. Per-page bundles
+  were considered and rejected for now: they would save about 1 KB per page
+  and make every new page download the shared CSS again. A page gets its own
+  extra stylesheet only for rules nobody else uses (today `design-system.css`).
+  If the CSS grows enough for that to change, splitting means adding entries,
+  not changing the structure.
+- **Still no bundler:** a 150-line script, no Lightning CSS or PostCSS. Plain
+  CSS in, plain CSS out; JavaScript stays native ES modules without a build.
+- `npm run build:tokens` also runs the CSS build, since `site.css` contains
+  `tokens.css`.

@@ -70,7 +70,9 @@ from there), so:
   database) and Playwright. CI on GitHub Actions with MySQL as a service.
 - **Public demo:** WordPress Playground via `blueprint.json` (verify that SCF
   and Polylang boot).
-- **Build tooling:** no bundler. Plain CSS and native ES modules;
+- **Build tooling:** no bundler. CSS is split per component and compiled
+  by `scripts/build-css.mjs` (no dependencies) into one site stylesheet in
+  `theme/assets/build/`, committed. JavaScript stays native ES modules;
   `@wordpress/scripts` only for Gutenberg blocks.
 - **Local:** XAMPP on macOS, no Docker.
 
@@ -112,6 +114,9 @@ WordPress core, uploads and the database live outside the repo.
 Run before proposing a commit; CI runs the same:
 
 - `npm run test:tokens`: design token rules and generated files up to date.
+- `npm run test:css`: compiled CSS up to date, every component imported, no
+  stray px. After any CSS change run `npm run build:css` and commit the
+  sources and `theme/assets/build/` together.
 - `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
   compatibility). `composer run lint:fix` fixes what it can.
 - `nvm exec 24 npm run playground`: runs `blueprint.json` in Playground CLI

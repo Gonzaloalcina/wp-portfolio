@@ -8,9 +8,12 @@
     "node": ">=20"
   },
   "scripts": {
-    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:tokens": "node scripts/build-tokens.mjs && node scripts/build-css.mjs",
     "check:tokens": "node scripts/build-tokens.mjs --check",
     "test:tokens": "node --test tests/tokens/",
+    "build:css": "node scripts/build-css.mjs",
+    "check:css": "node scripts/build-css.mjs --check",
+    "test:css": "node --test tests/css/",
     "playground": "node scripts/playground.mjs"
   }
 }

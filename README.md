@@ -20,8 +20,9 @@ shows how the site is built, tested and documented, not just the result.
   honeypot, rate limiting).
 - Design system as code: W3C design tokens compiled to CSS custom properties,
   with a living `/design-system` page.
-- No bundler: plain CSS and native ES modules; `@wordpress/scripts` only for
-  blocks.
+- No bundler: CSS split per component and compiled by a zero-dependency
+  script into one site stylesheet; native ES modules; `@wordpress/scripts`
+  only for blocks.
 - PHPCS and token tests in GitHub Actions; PHPUnit and Playwright to come.
 - Public demo through WordPress Playground.
 
@@ -46,8 +47,8 @@ in [docs/design-brief.md](docs/design-brief.md); the values are in
 - **One unit:** everything derives from `--unit` (0.5rem, 8px at the default
   root size). Sizes are in rem, so the whole system follows the font size a
   visitor sets in the browser.
-- **Inspectable:** plain CSS custom properties, no Sass and no build step for
-  styles. What you read in DevTools is the system.
+- **Inspectable:** plain CSS custom properties, no Sass. The build only joins
+  files, so what you read in DevTools is the system.
 
 ### Tokens
 
@@ -169,28 +170,31 @@ Requirements: Node 20+, PHP 8.0+, Composer.
 composer install          # coding standards (dev only)
 npm run build:tokens      # regenerate tokens.css and tokens.json
 npm run test:tokens       # token rules and generated files up to date
+npm run build:css         # compile theme/assets/css into theme/assets/build
+npm run test:css          # build up to date, every component imported, no stray px
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
 nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```
 
 ## Environments
 
-### No build step for the theme
+### Builds: small, committed and checked
 
 There is no `npm run dev` / `npm run build` split for the theme, on purpose.
-CSS is plain (custom properties, native nesting) and JavaScript uses native ES
-modules, so the files in the repository are the files the browser loads, in
-every environment. What you inspect in production is what you wrote.
+Every build output is committed, so the theme runs as it is in every
+environment (Playground, a downloaded zip), and CI fails if an output is out
+of date:
 
-The exceptions are explicit and checked:
-
+- **CSS:** one file per component in `theme/assets/css/`, compiled by
+  `npm run build:css` (a zero-dependency script) into one site stylesheet in
+  `theme/assets/build/`. It only joins files and drops comments, so the output
+  reads like the source.
 - **Design tokens:** `npm run build:tokens` generates `tokens.css` and
-  `tokens.json`. Both are committed and CI fails if they are out of date.
+  `tokens.json`, then rebuilds the CSS.
 - **Gutenberg blocks** (planned): built with `@wordpress/scripts`, which brings
   its own `start` (development) and `build` (production) commands.
 
-Minifying CSS can be added as a deploy step if measurements justify it; with
-server compression the gain is usually small.
+JavaScript uses native ES modules without a build.
 
 ### Environments
 
