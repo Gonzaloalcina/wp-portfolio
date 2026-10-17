@@ -107,3 +107,25 @@ from an 8px unit".
 - **Vertical rhythm:** 24px (`--space-3`) between blocks, 48px (`--space-6`)
   before a heading and 16px (`--space-2`) after it.
 - **Focus:** 1px outline in the current colour, offset 4px.
+
+## 2026-10-17 — Icon library: 14 Lucide icons, picked from a reusable SCF field
+
+- **Source:** Lucide (`lucide-static` 1.59.0, ISC), 14 SVGs copied into
+  `theme/assets/icons/` with the licence. Chosen for its 24-unit grid (3 of our
+  units) and a stroke that CSS can thin down. Only the icons in use are
+  shipped, not the 2,000+ set.
+- **Icons:** accessibility, blocks, code-xml, flask-conical, gauge, languages,
+  layout-template, megaphone, pen-line, search, shield-check, tag, trending-up,
+  workflow. Adding an SVG to the folder adds it everywhere.
+- **Rendering:** `portfolio_theme_icon( $name )` inlines the SVG (only known
+  names, filtered with `wp_kses`), `currentColor`, hidden from assistive
+  technology because icons are decorative.
+- **Tokens:** `icon.size` (3 units) and `icon.stroke-width` (1.5, thinner than
+  Lucide's 2, to match the hairline style).
+- **Editor:** one inactive SCF field group ("Icon") holds a radio field whose
+  choices are generated from the folder. Other groups (cards, sections) reuse
+  it through a Clone field, so the picker is defined once, in code. In the
+  admin it shows as a grid of icon tiles: SCF strips SVG from choice labels,
+  so each label carries `data-icon` and admin CSS draws the icon with a mask.
+- `/design-system` shows the library and a demo card whose icon is picked on
+  that page (demo field group, not the final card component).
