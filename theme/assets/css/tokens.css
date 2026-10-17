@@ -30,6 +30,8 @@
 	--layout-wide: calc(var(--unit) * 128);
 	--line-width: 1px;
 	--line-opacity: 0.3;
+	--icon-size: calc(var(--unit) * 3);
+	--icon-stroke-width: 1.5;
 	--marker-size: calc(var(--unit) * 0.5);
 	--color-line: color-mix(in srgb, var(--color-muted) 30%, transparent);
 	--color-paper: #FAF8F3;

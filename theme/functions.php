@@ -14,6 +14,7 @@ require_once get_theme_file_path( 'inc/theme-toggle.php' );
 require_once get_theme_file_path( 'inc/cleanup.php' );
 require_once get_theme_file_path( 'inc/editor.php' );
 require_once get_theme_file_path( 'inc/security.php' );
+require_once get_theme_file_path( 'inc/icons.php' );
 
 /**
  * Registers theme supports.

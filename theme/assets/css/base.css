@@ -171,6 +171,15 @@ li + li {
 	margin-block-start: var(--space-1);
 }
 
+/* Icons: inline SVG, decorative, coloured by the text. */
+
+.icon {
+	flex-shrink: 0;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	stroke-width: var(--icon-stroke-width);
+}
+
 /* Lines */
 
 hr {

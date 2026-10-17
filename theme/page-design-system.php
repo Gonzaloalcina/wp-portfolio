@@ -164,6 +164,35 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</p>
 	</section>
 
+	<section aria-labelledby="ds-icons">
+		<h2 id="ds-icons"><?php esc_html_e( 'Icons', 'portfolio-theme' ); ?></h2>
+		<p><?php esc_html_e( 'Lucide icons on a 24-unit grid, with a thinner stroke. They take the text colour and are decorative: the text next to them carries the meaning. Editors pick them in a reusable icon field.', 'portfolio-theme' ); ?></p>
+
+		<ul class="ds-icons" role="list">
+			<?php foreach ( portfolio_theme_icon_names() as $portfolio_icon ) : ?>
+				<li>
+					<?php portfolio_theme_icon( $portfolio_icon ); ?>
+					<span class="meta"><?php echo esc_html( $portfolio_icon ); ?></span>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+		<?php $portfolio_card_icon = function_exists( 'get_field' ) ? get_field( 'demo_card_icon' ) : ''; ?>
+		<div class="ds-card">
+			<?php portfolio_theme_icon( $portfolio_card_icon ? $portfolio_card_icon : 'blocks' ); ?>
+			<p class="ds-card-title"><?php esc_html_e( 'Demo card', 'portfolio-theme' ); ?></p>
+			<p class="meta">
+				<?php
+				printf(
+					/* translators: %s: icon name. */
+					esc_html__( 'Icon picked in the editor: %s', 'portfolio-theme' ),
+					esc_html( $portfolio_card_icon ? $portfolio_card_icon : __( 'none (fallback: blocks)', 'portfolio-theme' ) )
+				);
+				?>
+			</p>
+		</div>
+	</section>
+
 	<section aria-labelledby="ds-details">
 		<h2 id="ds-details"><?php esc_html_e( 'Lines and details', 'portfolio-theme' ); ?></h2>
 		<p>
