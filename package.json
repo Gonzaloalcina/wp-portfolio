@@ -10,6 +10,7 @@
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
     "check:tokens": "node scripts/build-tokens.mjs --check",
-    "test:tokens": "node --test tests/tokens/"
+    "test:tokens": "node --test tests/tokens/",
+    "playground": "node scripts/playground.mjs"
   }
 }

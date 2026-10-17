@@ -1,0 +1,39 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "wp-portfolio",
+    "description": "Gonzalo Alcina's portfolio theme with its living design system.",
+    "author": "Gonzaloalcina",
+    "categories": ["Theme"]
+  },
+  "landingPage": "/design-system/",
+  "preferredVersions": {
+    "php": "8.0",
+    "wp": "latest"
+  },
+  "login": true,
+  "siteOptions": {
+    "blogname": "Gonzalo Alcina"
+  },
+  "plugins": ["secure-custom-fields", "seo-by-rank-math"],
+  "steps": [
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/Gonzaloalcina/wp-portfolio",
+        "ref": "main",
+        "refType": "branch",
+        "path": "theme"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "portfolio-theme"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire '/wordpress/wp-load.php';\n\n// Pretty permalinks, as on the live site.\nupdate_option( 'permalink_structure', '/%postname%/' );\n\n// Rank Math prints its tags only after registration is skipped or connected.\nupdate_option( 'rank_math_registration_skip', 1 );\n\n// The living design system page: noindex in Rank Math, demo card icon.\n$page_id = wp_insert_post(\n\tarray(\n\t\t'post_type'   => 'page',\n\t\t'post_title'  => 'Design system',\n\t\t'post_name'   => 'design-system',\n\t\t'post_status' => 'publish',\n\t)\n);\nupdate_post_meta( $page_id, 'rank_math_robots', array( 'noindex' ) );\nupdate_post_meta( $page_id, 'demo_card_icon', 'gauge' );\n\nflush_rewrite_rules();\n"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 # wp-portfolio
 
 > **Work in progress.** In place: repository base, design system (tokens,
-> fonts, base styles, icons, light/dark), theme skeleton and CI. Not built
-> yet: page templates, blog blocks, the contact form plugin, i18n and the
-> Playground demo.
+> fonts, base styles, icons, light/dark), theme skeleton, CI and the
+> Playground blueprint. Not built yet: page templates, blog blocks, the
+> contact form plugin and i18n.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
 Gonzalo Alcina, a WordPress developer. The repo is part of the portfolio: it
@@ -24,6 +24,13 @@ shows how the site is built, tested and documented, not just the result.
   blocks.
 - PHPCS and token tests in GitHub Actions; PHPUnit and Playwright to come.
 - Public demo through WordPress Playground.
+
+## Demo
+
+[Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Gonzaloalcina/wp-portfolio/main/blueprint.json)
+(available once the repository is public). It runs the theme from `main` with
+its plugins in your browser, logged in as admin, on the `/design-system/`
+page. Nothing is shared: every visitor gets a throwaway copy.
 
 ## Design system
 
@@ -146,10 +153,10 @@ scripts/             # build scripts (tokens)
 tests/               # token tests; PHPUnit and Playwright to come
 docs/                # design brief and decision log (by phase)
 .github/             # CI workflow and Dependabot
+blueprint.json       # WordPress Playground demo
 ```
 
-Planned: `plugin/` (contact form plugin, `portfolio-core`) and
-`blueprint.json` (WordPress Playground).
+Planned: `plugin/` (contact form plugin, `portfolio-core`).
 
 WordPress core, uploads and the database are not part of this repo. `theme/`
 is symlinked into a local WordPress install.
@@ -163,6 +170,7 @@ composer install          # coding standards (dev only)
 npm run build:tokens      # regenerate tokens.css and tokens.json
 npm run test:tokens       # token rules and generated files up to date
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
+nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```
 
 ## Decisions

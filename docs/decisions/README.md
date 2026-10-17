@@ -10,6 +10,7 @@ decided and why.
 | [03 — Theme](03-theme.md) | Theme structure, requirements and templates |
 | [04 — Performance](04-performance.md) | Front-end weight, default WordPress output |
 | [05 — Quality and CI](05-quality-ci.md) | Coding standards, tests, GitHub Actions |
+| [06 — Playground demo](06-playground.md) | Blueprint and local Playground runs |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).
