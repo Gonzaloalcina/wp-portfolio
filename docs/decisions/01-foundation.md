@@ -96,3 +96,17 @@ localhost serves only that folder (theme symlink), so the session that needs
 the browser keeps the main folder, and any other parallel session works in a
 git worktree on its own branch under `/Users/Shared/wp-portfolio-worktrees/`.
 Files are always staged by name. Details in `CLAUDE.md`.
+
+## 2026-10-17 — No build step for the theme; staging and production planned
+
+The theme has no development/production build split: plain CSS and native ES
+modules mean the repository files are what the browser loads everywhere. The
+only builds are the design tokens (generated output committed and checked in
+CI) and, later, Gutenberg blocks with `@wordpress/scripts`. CSS minification
+can be added as a deploy step if measurements justify it.
+
+Environments today: local (XAMPP) and the Playground demo. Staging and
+production, with a GitHub Actions deploy (`main` → staging, version tags →
+production, after CI), are a separate phase once hosting is chosen; the
+pipeline depends on the host. Behaviour per environment uses
+`wp_get_environment_type()` and configuration, not code edits.
