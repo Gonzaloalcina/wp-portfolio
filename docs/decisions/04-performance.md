@@ -80,3 +80,37 @@ six files are now instanced to `wght` 400–600, and the `@font-face` ranges in
   virtualenv:
   `fonttools varLib.instancer <file>.woff2 wght=400:600 -o <file>.woff2`
 - A new weight outside 400–600 means re-instancing from the originals.
+
+## 2026-10-17 — Image sizes for a narrow layout
+
+Images take the width of their container (`base.css`); the containers are
+the text column (`layout.text`, 640px) and wide images (`layout.wide`,
+1024px). WordPress generates four sizes, each a little larger than the case
+it serves (`theme/inc/media.php`):
+
+| Size | Width | Serves |
+|---|---|---|
+| `medium` | 640 | text column at 1x, phones at 1x |
+| `medium_large` | 960 | phones at 2x (about 680–780px needed) |
+| `large` | 1280 | text column on retina, phones at 3x, wide at 1x |
+| `full` | ≤ 2048 | wide on retina (`big_image_size_threshold`, default 2560) |
+
+Plus `thumbnail` (150×150 crop) for the admin media grid. Heights are not
+limited, so tall screenshots are not shrunk. Core's `1536x1536` and
+`2048x2048` are not generated: the scaled original covers them.
+
+- **Sizes are forced in code** (`pre_option_*` filters) so local, production
+  and Playground generate the same files. Settings › Media has no effect.
+- **`sizes` attribute from the tokens.** Core's default is the file's own
+  width, so retina screens fetched the 2048px original for a 640px column.
+  The default is now `(min-width: 43rem) 40rem, calc(100vw - 3rem)` (the same
+  rule as the CSS), and wide image blocks get the 64rem version. Lazy-loaded
+  images still get `auto` prepended by core.
+- **`$content_width` is 640, from `layout.text`.** It sizes embeds (YouTube
+  was 500px). It does not affect front-end image `sizes`, which is why the
+  filter above is needed.
+- **WebP/AVIF output postponed:** the local PHP (XAMPP GD, no Imagick)
+  supports neither, so it depends on the hosting.
+
+Checked on the test post: a 1024px 2x screen loads the 1280 file for the
+text column (2048 before); a 375px 2x phone loads the 960 file.
