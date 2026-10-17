@@ -173,6 +173,39 @@ composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
 nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```
 
+## Environments
+
+### No build step for the theme
+
+There is no `npm run dev` / `npm run build` split for the theme, on purpose.
+CSS is plain (custom properties, native nesting) and JavaScript uses native ES
+modules, so the files in the repository are the files the browser loads, in
+every environment. What you inspect in production is what you wrote.
+
+The exceptions are explicit and checked:
+
+- **Design tokens:** `npm run build:tokens` generates `tokens.css` and
+  `tokens.json`. Both are committed and CI fails if they are out of date.
+- **Gutenberg blocks** (planned): built with `@wordpress/scripts`, which brings
+  its own `start` (development) and `build` (production) commands.
+
+Minifying CSS can be added as a deploy step if measurements justify it; with
+server compression the gain is usually small.
+
+### Environments
+
+| Environment | Where | Status |
+|---|---|---|
+| Local | XAMPP on macOS, `WP_ENVIRONMENT_TYPE=local` | In use |
+| Demo | WordPress Playground (`blueprint.json`) | Ready, public once the repo is |
+| Staging | Private copy for review: noindex, password-protected, test keys | Planned |
+| Production | gonzaloalcina.dev | Planned (hosting not chosen yet) |
+
+Planned deployment: GitHub Actions deploys `main` to staging and version tags
+to production, only after CI passes. Environment-specific behaviour (debug,
+indexing, API keys) is driven by `wp_get_environment_type()` and
+configuration, never by editing code per environment.
+
 ## Decisions
 
 Every closed decision, with its reasons, is in
