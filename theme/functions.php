@@ -12,6 +12,8 @@ define( 'PORTFOLIO_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 require_once get_theme_file_path( 'inc/design-system.php' );
 require_once get_theme_file_path( 'inc/theme-toggle.php' );
 require_once get_theme_file_path( 'inc/cleanup.php' );
+require_once get_theme_file_path( 'inc/editor.php' );
+require_once get_theme_file_path( 'inc/security.php' );
 
 /**
  * Registers theme supports.
@@ -53,7 +55,9 @@ function portfolio_theme_enqueue_assets() {
 	portfolio_theme_enqueue_style( 'portfolio-theme-fonts', 'assets/css/fonts.css' );
 	portfolio_theme_enqueue_style( 'portfolio-theme-tokens', 'assets/css/tokens.css' );
 	portfolio_theme_enqueue_style( 'portfolio-theme-base', 'assets/css/base.css', array( 'portfolio-theme-fonts', 'portfolio-theme-tokens' ) );
-	portfolio_theme_enqueue_style( 'portfolio-theme', 'style.css', array( 'portfolio-theme-base' ) );
+
+	// style.css is not enqueued: it only holds the theme header WordPress
+	// reads to recognise the theme, so loading it would be an empty request.
 
 	if ( is_page( 'design-system' ) ) {
 		portfolio_theme_enqueue_style( 'portfolio-theme-design-system', 'assets/css/design-system.css', array( 'portfolio-theme-base' ) );
