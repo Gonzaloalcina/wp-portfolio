@@ -69,7 +69,7 @@ One ink, one grey, one paper.
 | line | muted at 30% | muted at 30% |
 
 Contrast (WCAG, computed): ink on paper 16.4:1 light, 14.9:1 dark; muted on
-paper 5.1:1 light, 6.2:1 dark. Both pass AA for body text.
+paper 5.0:1 light, 6.2:1 dark. Both pass AA for body text.
 
 Lines are not a second grey: `color-mix(in srgb, var(--color-muted) 30%, transparent)`.
 
