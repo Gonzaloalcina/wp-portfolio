@@ -87,3 +87,12 @@ neither needs a build. Gutenberg blocks will use `@wordpress/scripts`, the
 official tool, which bundles React/JSX and generates the `index.asset.php`
 dependency file WordPress needs. Vite was rejected: it would be a second build
 tool and its main benefit (HMR for large JS apps) does not apply here.
+
+## 2026-10-17 — Parallel sessions: one in the main folder, the rest in worktrees
+
+Two sessions shared `/Users/Shared/wp-portfolio` and each had uncommitted work
+there; a broad `git add` would have committed the other's half-done changes.
+localhost serves only that folder (theme symlink), so the session that needs
+the browser keeps the main folder, and any other parallel session works in a
+git worktree on its own branch under `/Users/Shared/wp-portfolio-worktrees/`.
+Files are always staged by name. Details in `CLAUDE.md`.

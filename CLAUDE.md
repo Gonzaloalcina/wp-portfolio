@@ -37,6 +37,24 @@ works, not just the final site.
 - The `gh` CLI on this machine is logged in to the **work** account. Do not
   use `gh` for this repo unless Gonzalo switches it to the personal account.
 
+## Parallel sessions and worktrees
+
+localhost serves only `/Users/Shared/wp-portfolio` (the theme is symlinked
+from there), so:
+
+- **One browser session at a time in the main folder.** Work that needs
+  localhost (styles, templates, performance) runs in `/Users/Shared/wp-portfolio`
+  on `main`.
+- **Every other parallel session uses a worktree** on its own branch, in
+  `/Users/Shared/wp-portfolio-worktrees/<name>` (outside the home folder, so
+  Apache could read it): CI, docs, scripts, tests.
+- To test a worktree in the browser, repoint the theme symlink to it and point
+  it back afterwards; the main-folder session loses its view meanwhile.
+- Branches merge into `main` locally, with Gonzalo's approval.
+- **Never `git add .`, `git add -A` or `git commit -a`.** Stage files by name:
+  another session may have uncommitted work in the same folder.
+- In a new worktree, check `git config user.email` before the first commit.
+
 ## Stack
 
 - **Theme:** custom PHP theme (`portfolio-theme`) with SCF for dynamic sections
