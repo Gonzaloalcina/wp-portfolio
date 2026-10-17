@@ -1,0 +1,22 @@
+/*
+ * button-a: the primary action. Ink on paper, inverted on hover and focus.
+ * Square corners, 1px line, no shadow. 48px tall at the default size: line
+ * height plus 1.5 units each side.
+ */
+
+.button-a {
+	display: inline-block;
+	padding: calc(var(--space-1-5) - var(--line-width)) calc(var(--space-3) - var(--line-width));
+	border: var(--line-width) solid var(--color-ink);
+	background: var(--color-ink);
+	color: var(--color-paper);
+	font-weight: var(--font-weight-strong);
+	line-height: var(--font-line-height-base);
+	text-decoration: none;
+}
+
+.button-a:hover,
+.button-a:focus-visible {
+	background: var(--color-paper);
+	color: var(--color-ink);
+}

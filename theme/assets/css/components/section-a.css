@@ -1,0 +1,33 @@
+/*
+ * section-a: an H2, then any of: one paragraph, a list-a, an actions-a and a
+ * closing "All …" link. Text keeps the text measure even on wide pages.
+ */
+
+* + .section-a {
+	margin-block-start: var(--space-8);
+}
+
+@media (min-width: 48rem) {
+	* + .section-a {
+		margin-block-start: var(--space-12);
+	}
+}
+
+.section-a__title,
+.section-a__text {
+	max-width: var(--layout-text);
+}
+
+.section-a__list {
+	margin-block-start: var(--space-3);
+}
+
+.section-a__actions {
+	margin-block-start: var(--space-4);
+}
+
+.section-a__more {
+	margin-block-start: var(--space-2);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}

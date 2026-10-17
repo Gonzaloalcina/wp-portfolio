@@ -131,6 +131,14 @@ Run before proposing a commit; CI runs the same:
   Dimensions are in rem. No hard-coded pixel values, except
   1px hairlines.
 - Plain CSS custom properties, no Sass.
+- Components are agnostic: named by what they are plus a design letter
+  (`hero-a`, `row-a`), never by page. New letter = different design; numeric
+  modifier (`--second`) = small variation. BEM without element chains (a
+  nested part becomes its own block). One template in
+  `theme/template-parts/components/` and one CSS file in
+  `theme/assets/css/components/` per component, imported in
+  `theme/assets/css/site.css`. JavaScript hooks use `data-*`. See
+  `docs/decisions/03-theme.md`.
 - `theme/assets/css/tokens.css` is generated: edit `tokens/tokens.json`, then
   run `npm run build:tokens` and commit both files. Never edit the CSS by hand.
   `npm run test:tokens` checks the unit rules and that the CSS is up to date.

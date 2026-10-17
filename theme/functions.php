@@ -16,6 +16,8 @@ require_once get_theme_file_path( 'inc/editor.php' );
 require_once get_theme_file_path( 'inc/security.php' );
 require_once get_theme_file_path( 'inc/media.php' );
 require_once get_theme_file_path( 'inc/icons.php' );
+require_once get_theme_file_path( 'inc/components.php' );
+require_once get_theme_file_path( 'inc/home.php' );
 
 /**
  * Registers theme supports.

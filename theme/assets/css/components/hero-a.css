@@ -1,0 +1,48 @@
+/*
+ * hero-a: H1, short intro, actions-a and a square image with a 1px line.
+ * Narrow: image first. From 48rem: text left (text measure), image right.
+ */
+
+.hero-a {
+	display: grid;
+	gap: var(--space-3);
+}
+
+.hero-a__text {
+	max-width: var(--layout-text);
+}
+
+.hero-a__intro {
+	margin-block-start: var(--space-2);
+}
+
+.hero-a__actions {
+	margin-block-start: var(--space-4);
+}
+
+.hero-a__image {
+	order: -1;
+	width: calc(var(--unit) * 12);
+	aspect-ratio: 1;
+	border: var(--line-width) solid var(--color-line);
+}
+
+.hero-a__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (min-width: 48rem) {
+	.hero-a {
+		grid-template-columns: minmax(0, var(--layout-text)) auto;
+		justify-content: space-between;
+		align-items: start;
+		gap: var(--space-6);
+	}
+
+	.hero-a__image {
+		order: 0;
+		width: calc(var(--unit) * 16);
+	}
+}

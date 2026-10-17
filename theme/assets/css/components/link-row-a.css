@@ -1,0 +1,16 @@
+/* link-row-a: quiet links on one line, wrapping when narrow. No markers. */
+
+.link-row-a {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-1) var(--space-3);
+}
+
+.link-row-a__item {
+	margin-block-start: 0;
+	padding-inline-start: 0;
+}
+
+.link-row-a__item::before {
+	content: none;
+}

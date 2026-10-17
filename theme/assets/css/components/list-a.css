@@ -1,0 +1,35 @@
+/*
+ * list-a: items separated by 1px lines, with the square marker. Each item
+ * holds a row-a. From 48rem the list owns three columns (title | text | meta)
+ * and items and rows share them through subgrid, so text and meta line up
+ * from row to row whatever their length.
+ */
+
+.list-a {
+	border-block-start: var(--line-width) solid var(--color-line);
+}
+
+.list-a__item {
+	margin-block-start: 0;
+	padding-block: var(--space-2);
+	padding-inline-start: var(--space-2);
+	border-block-end: var(--line-width) solid var(--color-line);
+}
+
+/* The marker sits on the first line, which is always the row title. */
+.list-a__item::before {
+	inset-block-start: calc(var(--space-2) + (var(--font-line-height-base) - var(--marker-size)) / 2);
+}
+
+@media (min-width: 48rem) {
+	.list-a {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+	}
+
+	.list-a__item {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+	}
+}

@@ -1,0 +1,59 @@
+/*
+ * row-a: title (linked when it has a URL), optional meta and one optional
+ * line. Narrow: stacked. From 48rem: title | text | meta, meta aligned to the
+ * end. Inside a list-a the columns come from the list (subgrid).
+ */
+
+.row-a {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas:
+		"title"
+		"meta"
+		"text";
+	gap: 0 var(--space-3);
+}
+
+.row-a > * {
+	margin: 0;
+}
+
+.row-a__title {
+	grid-area: title;
+	font-weight: var(--font-weight-strong);
+}
+
+.row-a__meta {
+	grid-area: meta;
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+	font-variant-numeric: tabular-nums;
+}
+
+.row-a__text {
+	grid-area: text;
+	color: var(--color-muted);
+}
+
+@media (min-width: 48rem) {
+	.row-a {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+		grid-template-areas: "title text meta";
+		align-items: baseline;
+	}
+
+	.list-a__item > .row-a {
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+	}
+
+	/* No text: the title takes its column too. */
+	.row-a:not(:has(.row-a__text)) {
+		grid-template-areas: "title title meta";
+	}
+
+	.row-a__meta {
+		text-align: end;
+	}
+}

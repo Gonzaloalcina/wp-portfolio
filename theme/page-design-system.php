@@ -224,6 +224,87 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 		</table>
 	</section>
 
+	<section class="design-system__section" aria-labelledby="ds-components">
+		<h2 id="ds-components"><?php esc_html_e( 'Components', 'portfolio-theme' ); ?></h2>
+		<p><?php esc_html_e( 'Components are named by what they are plus a letter for the design (hero-a, row-a…), never by the page that uses them. A new letter is a different design; a numeric modifier (--second) is a small variation of the same one. Each page loads only the CSS of the components it uses.', 'portfolio-theme' ); ?></p>
+
+		<table class="design-system__table">
+			<tbody>
+				<?php
+				$portfolio_component_notes = array(
+					'hero-a'     => __( 'H1, short intro, actions-a and a square image. One per page.', 'portfolio-theme' ),
+					'section-a'  => __( 'H2, then any of: a paragraph, a list-a, an actions-a and an "All …" link.', 'portfolio-theme' ),
+					'list-a'     => __( 'Rows separated by 1px lines, with the square marker.', 'portfolio-theme' ),
+					'row-a'      => __( 'Title, optional meta and one optional line.', 'portfolio-theme' ),
+					'actions-a'  => __( 'One button-a followed by a link-row-a.', 'portfolio-theme' ),
+					'button-a'   => __( 'The primary action. One per page, shown at most twice.', 'portfolio-theme' ),
+					'link-row-a' => __( 'Quiet links on one line.', 'portfolio-theme' ),
+				);
+				foreach ( $portfolio_component_notes as $portfolio_component => $portfolio_note ) :
+					?>
+					<tr>
+						<td><code><?php echo esc_html( $portfolio_component ); ?></code></td>
+						<td><?php echo esc_html( $portfolio_note ); ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+
+		<h3><?php esc_html_e( 'list-a and row-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Narrow screens stack each row; from 48rem the rows sit in three columns that the whole list shares.', 'portfolio-theme' ); ?></p>
+		<?php
+		portfolio_theme_component(
+			'list-a',
+			array(
+				'items' => array(
+					array(
+						'title' => __( 'Row with meta and text', 'portfolio-theme' ),
+						'url'   => '#ds-components',
+						'meta'  => __( 'Meta · sm, muted', 'portfolio-theme' ),
+						'text'  => __( 'One line of text, 140 characters at most. It wraps under itself, never under the title.', 'portfolio-theme' ),
+					),
+					array(
+						'title' => __( 'Row with text only', 'portfolio-theme' ),
+						'url'   => '#ds-components',
+						'text'  => __( 'Services use this form: a name and the problem it solves.', 'portfolio-theme' ),
+					),
+					array(
+						'title'    => __( 'Row with a date', 'portfolio-theme' ),
+						'url'      => '#ds-components',
+						'meta'     => wp_date( get_option( 'date_format' ) ),
+						'datetime' => wp_date( 'Y-m-d' ),
+					),
+				),
+				'class' => 'alignwide',
+			)
+		);
+		?>
+
+		<h3><?php esc_html_e( 'actions-a, button-a and link-row-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Ink on paper, inverted on hover and focus, square corners, no shadow. Everything else is a quiet link.', 'portfolio-theme' ); ?></p>
+		<?php
+		portfolio_theme_component(
+			'actions-a',
+			array(
+				'button' => array(
+					'title' => __( 'Primary action', 'portfolio-theme' ),
+					'url'   => '#ds-components',
+				),
+				'links'  => array(
+					array(
+						'title' => __( 'Quiet link', 'portfolio-theme' ),
+						'url'   => '#ds-components',
+					),
+					array(
+						'title' => __( 'Another', 'portfolio-theme' ),
+						'url'   => '#ds-components',
+					),
+				),
+			)
+		);
+		?>
+	</section>
+
 	<section class="design-system__section" aria-labelledby="ds-layout">
 		<h2 id="ds-layout"><?php esc_html_e( 'Layout', 'portfolio-theme' ); ?></h2>
 		<table class="design-system__table">
