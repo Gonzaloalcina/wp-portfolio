@@ -2,7 +2,7 @@
 
 > **Work in progress.** In place: repository base, design system (tokens,
 > fonts, base styles, icons, light/dark), theme skeleton, CI and the
-> Playground blueprint. Not built yet: page templates, blog blocks, the
+> Playground blueprint, blog blocks. Not built yet: page templates, the
 > contact form plugin and i18n.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
@@ -133,6 +133,19 @@ Blog posts use Gutenberg, limited to the system: the four token font sizes,
 no colour, gradient or duotone controls, and no default spacing or shadow
 presets. A colour fixed inside a post would break dark mode.
 
+Three custom blocks live in the `portfolio-core` plugin, so posts keep them
+if the theme changes (`plugin/blocks/`):
+
+- **Related:** links the note to one service and, optionally, one project.
+  Rendered in PHP from the current data, so a renamed service or a project
+  whose client withdraws consent updates every note. A pre-publish check
+  warns when a note links to no service (the sitemap rule).
+- **Code with file name:** code with an optional file name and caption. No
+  syntax highlighting and no JavaScript on the front end.
+- **Aside:** a label (Note, Decision) and a few blocks between two 1px lines.
+
+Each block's CSS loads only on pages that render it.
+
 ### Living reference: `/design-system`
 
 A page (noindex) that renders every token, the type scale, the palette with
@@ -157,7 +170,9 @@ docs/                # design brief and decision log (by phase)
 blueprint.json       # WordPress Playground demo
 ```
 
-Planned: `plugin/` (contact form plugin, `portfolio-core`).
+`plugin/` (`portfolio-core`) holds what must survive a theme change: the
+project and service types and the blog blocks (`plugin/blocks/src`, built
+into `plugin/blocks/build`).
 
 WordPress core, uploads and the database are not part of this repo. `theme/`
 is symlinked into a local WordPress install.
@@ -172,6 +187,10 @@ npm run build:tokens      # regenerate tokens.css and tokens.json
 npm run test:tokens       # token rules and generated files up to date
 npm run build:css         # compile theme/assets/css into theme/assets/build
 npm run test:css          # build up to date, every component imported, no stray px
+npm ci                    # @wordpress/scripts, for the blocks only
+npm run build:blocks      # build plugin/blocks/src into plugin/blocks/build
+npm run start:blocks      # same, rebuilding on every change
+npm run check:blocks      # block build up to date, no stray px in block CSS
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
 nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```
@@ -191,8 +210,9 @@ of date:
   reads like the source.
 - **Design tokens:** `npm run build:tokens` generates `tokens.css` and
   `tokens.json`, then rebuilds the CSS.
-- **Gutenberg blocks** (planned): built with `@wordpress/scripts`, which brings
-  its own `start` (development) and `build` (production) commands.
+- **Gutenberg blocks:** built with `@wordpress/scripts` (`npm run build:blocks`)
+  into `plugin/blocks/build/`, committed like the CSS. `npm run start:blocks`
+  rebuilds while editing.
 
 JavaScript uses native ES modules without a build.
 

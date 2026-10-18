@@ -12,6 +12,7 @@ decided and why.
 | [05 — Quality and CI](05-quality-ci.md) | Coding standards, tests, GitHub Actions |
 | [06 — Playground demo](06-playground.md) | Blueprint and local Playground runs |
 | [08 — Page templates](08-page-templates.md) | Page templates, content types, portfolio-core |
+| [09 — Blog blocks](09-blog-blocks.md) | Custom Gutenberg blocks: Related, Code with file name, Aside |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).

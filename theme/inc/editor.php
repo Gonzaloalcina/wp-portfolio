@@ -110,10 +110,13 @@ function portfolio_theme_remove_default_presets( $theme_json ) {
 add_filter( 'wp_theme_json_data_default', 'portfolio_theme_remove_default_presets' );
 
 /**
- * Loads the tokens in the editor, so the font size presets (token custom
- * properties) preview at their real size.
+ * Loads the tokens in the editor, so the font size presets and the
+ * portfolio-core blocks (token custom properties) preview at their real
+ * size. The block editor reads add_editor_style() files only when the theme
+ * declares editor-styles support.
  */
 function portfolio_theme_editor_styles() {
+	add_theme_support( 'editor-styles' );
 	add_editor_style( 'assets/css/tokens.css' );
 }
 add_action( 'after_setup_theme', 'portfolio_theme_editor_styles' );

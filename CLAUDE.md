@@ -73,7 +73,8 @@ from there), so:
 - **Build tooling:** no bundler. CSS is split per component and compiled
   by `scripts/build-css.mjs` (no dependencies) into one site stylesheet in
   `theme/assets/build/`, committed. JavaScript stays native ES modules;
-  `@wordpress/scripts` only for Gutenberg blocks.
+  `@wordpress/scripts` (v35, Node 20) only for Gutenberg blocks, which live
+  in `plugin/blocks/src/` and build into `plugin/blocks/build/`, committed.
 - **Local:** XAMPP on macOS, no Docker.
 
 ## Repository layout
@@ -117,6 +118,11 @@ Run before proposing a commit; CI runs the same:
 - `npm run test:css`: compiled CSS up to date, every component imported, no
   stray px. After any CSS change run `npm run build:css` and commit the
   sources and `theme/assets/build/` together.
+- `npm run check:blocks`: block build up to date, no stray px in block CSS.
+  After any change in `plugin/blocks/src/` run `npm run build:blocks` and
+  commit the sources and `plugin/blocks/build/` together. Install with
+  `npm ci`; adding or upgrading packages needs npm 11
+  (`npx npm@11.6.2 install …`), see `docs/decisions/09-blog-blocks.md`.
 - `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
   compatibility). `composer run lint:fix` fixes what it can.
 - `nvm exec 24 npm run playground`: runs `blueprint.json` in Playground CLI
