@@ -167,3 +167,10 @@ Kept discreet on purpose: no availability, no "hire me" fields, and no CV
 here (the Resume page is a transcription of the CV, without a downloadable
 PDF). Secrets and per-environment IDs (Turnstile, GTM) stay out of the
 database.
+
+## 2026-10-18 — Resume without a PDF download
+
+The Resume page stays (name, `/resume/`, links from the Home and Contact,
+indexable) as a transcription of the CV, with no downloadable PDF. The
+`resume_pdf` field and the download button are removed; the hero keeps a
+quiet link to Contact.

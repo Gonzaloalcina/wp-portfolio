@@ -99,7 +99,6 @@ update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $home_id );
 update_option( 'page_for_posts', $page_ids['notes'] );
 
-update_field( 'field_portfolio_resume_pdf', '', $page_ids['resume'] );
 update_field(
 	'field_portfolio_resume_sections',
 	array_map(

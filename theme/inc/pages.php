@@ -71,14 +71,6 @@ function portfolio_theme_register_page_fields() {
 			),
 			'fields'   => array(
 				array(
-					'key'           => 'field_portfolio_resume_pdf',
-					'label'         => __( 'PDF', 'portfolio-theme' ),
-					'name'          => 'resume_pdf',
-					'type'          => 'file',
-					'return_format' => 'url',
-					'mime_types'    => 'pdf',
-				),
-				array(
 					'key'          => 'field_portfolio_resume_sections',
 					'label'        => __( 'Sections', 'portfolio-theme' ),
 					'name'         => 'resume_sections',
