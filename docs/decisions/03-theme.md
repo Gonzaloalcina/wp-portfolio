@@ -61,3 +61,32 @@ See [README.md](README.md) for how entries are written.
 - **Kept as they are:** WordPress's own classes (`alignwide`,
   `screen-reader-text`, body classes, `wp-block-*`), `acf-*` in the admin,
   and element selectors for content written in the editor.
+
+## 2026-10-18 — Header navigation (nav-a)
+
+- **Items:** About · Work · Services · Notes · Contact. Contact is a plain
+  link like the rest: the only primary buttons are the page's own (Home brief
+  Q8, closed).
+- **A WordPress menu** (`primary` location, Appearance › Menus), so it is
+  edited without a deploy and Polylang assigns one per language. Rendered by
+  the `nav-a` component; filters swap core's `menu-item…` classes and ids for
+  BEM classes on that menu only. The current page is styled from the
+  `aria-current="page"` core adds. No menu assigned: no nav.
+- **Narrow screens (< 48rem): a "Menu" disclosure.** A text button like the
+  theme toggle (`aria-expanded`, `aria-controls`) opens the list as a
+  dropdown under the header, one 48px row per link. Escape closes it and
+  returns focus to the button; a click outside or widening the screen closes
+  it too. Native ES module (`assets/js/nav-a.js`), no build.
+- **Fade layer while open:** paper at 85% over the page (`color-mix`, no new
+  token), under the header. It fades the page instead of darkening it, so it
+  works the same in light and dark; tapping it closes the menu. No scroll lock
+  or focus trap: it is a disclosure, not a modal.
+- **Not sticky** (2026-10-18): the Home brief rules out sticky bars, a fixed
+  header costs ~14% of a 640px screen, and pages are short. To revisit for
+  long notes, as a header that reappears on scroll up.
+- **Without JavaScript** the button stays hidden and the links wrap on their
+  own row under the title: nothing is unreachable and there is no dead
+  button.
+- **From 48rem:** inline links between the title and the theme toggle. The
+  header is a grid (title | nav | toggle) with its own stacking context, so
+  the dropdown stays above the page.

@@ -1,0 +1,103 @@
+/*
+ * nav-a: a menu as a row of quiet links. The current page is marked by
+ * aria-current (underlined, full ink).
+ *
+ * Narrow, with JavaScript (data-ready): a "Menu" text button opens the list
+ * as a dropdown under the parent (the parent sets position: relative and its
+ * own stacking context), and a paper-coloured layer fades the page behind it.
+ * Narrow
+ * without JavaScript: the links wrap on their own line. From 48rem: inline,
+ * no button.
+ */
+
+.nav-a__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-1) var(--space-3);
+}
+
+.nav-a__item {
+	margin-block-start: 0;
+	padding-inline-start: 0;
+}
+
+.nav-a__item::before {
+	content: none;
+}
+
+.nav-a__link {
+	text-decoration-color: transparent;
+}
+
+.nav-a__link:hover,
+.nav-a__link:focus-visible,
+.nav-a__link[aria-current="page"] {
+	text-decoration-color: currentColor;
+}
+
+/* Text button, like the theme toggle: reads as meta, behaves like a link. */
+.nav-a__toggle {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--color-muted);
+	font: inherit;
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+	cursor: pointer;
+}
+
+.nav-a__toggle:hover,
+.nav-a__toggle:focus-visible,
+.nav-a__toggle[aria-expanded="true"] {
+	color: var(--color-ink);
+	text-decoration-line: underline;
+	text-decoration-thickness: var(--line-width);
+	text-underline-offset: var(--space-0-5);
+}
+
+@media (width < 48rem) {
+	.nav-a[data-ready] .nav-a__list {
+		position: absolute;
+		z-index: 10;
+		inset-inline: 0;
+		inset-block-start: 100%;
+		flex-direction: column;
+		gap: 0;
+		border-block: var(--line-width) solid var(--color-line);
+		background: var(--color-paper);
+	}
+
+	.nav-a[data-ready]:not([data-open]) .nav-a__list {
+		display: none;
+	}
+
+	/*
+	 * Fade layer: paper at 85%, so the page fades instead of darkening and it
+	 * works the same in both schemes. z-index -1 keeps it under the header's
+	 * own content; a tap on it closes the menu (nav-a.js).
+	 */
+	.nav-a[data-ready][data-open]::before {
+		content: "";
+		position: fixed;
+		z-index: -1;
+		inset: 0;
+		background: color-mix(in srgb, var(--color-paper) 85%, transparent);
+	}
+
+	/* One row per link, 48px tall: easy to tap. */
+	.nav-a[data-ready] .nav-a__item + .nav-a__item {
+		border-block-start: var(--line-width) solid var(--color-line);
+	}
+
+	.nav-a[data-ready] .nav-a__link {
+		display: block;
+		padding-block: var(--space-1-5);
+	}
+}
+
+@media (min-width: 48rem) {
+	.nav-a__toggle {
+		display: none;
+	}
+}

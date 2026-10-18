@@ -209,13 +209,26 @@ hr {
 	margin-inline: auto;
 }
 
+/*
+ * Header: title | nav | theme toggle. The nav's dropdown is positioned
+ * against the header, and z-index keeps it above anything positioned later
+ * in the page. Narrow without JavaScript, the nav takes its own row.
+ */
 .site__header {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-2);
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto auto;
+	gap: var(--space-2) var(--space-3);
 	align-items: baseline;
-	justify-content: space-between;
 	padding-block: var(--space-4);
+}
+
+@media (width < 48rem) {
+	.site__nav:not([data-ready]) {
+		grid-row: 2;
+		grid-column: 1 / -1;
+	}
 }
 
 /* Theme toggle: reads as meta text, behaves like a link. */

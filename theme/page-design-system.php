@@ -239,6 +239,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 					'actions-a'  => __( 'One button-a followed by a link-row-a.', 'portfolio-theme' ),
 					'button-a'   => __( 'The primary action. One per page, shown at most twice.', 'portfolio-theme' ),
 					'link-row-a' => __( 'Quiet links on one line.', 'portfolio-theme' ),
+					'nav-a'      => __( 'A WordPress menu as quiet links; a "Menu" dropdown on narrow screens. In the header.', 'portfolio-theme' ),
 				);
 				foreach ( $portfolio_component_notes as $portfolio_component => $portfolio_note ) :
 					?>

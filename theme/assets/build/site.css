@@ -250,12 +250,19 @@ width: min(var(--site-measure), 100% - var(--layout-gutter) * 2);
 margin-inline: auto;
 }
 .site__header {
-display: flex;
-flex-wrap: wrap;
-gap: var(--space-2);
+position: relative;
+z-index: 1;
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto auto;
+gap: var(--space-2) var(--space-3);
 align-items: baseline;
-justify-content: space-between;
 padding-block: var(--space-4);
+}
+@media (width < 48rem) {
+.site__nav:not([data-ready]) {
+grid-row: 2;
+grid-column: 1 / -1;
+}
 }
 .theme-toggle {
 padding: 0;
@@ -474,5 +481,77 @@ gap: var(--space-6);
 .hero-a__image {
 order: 0;
 width: calc(var(--unit) * 16);
+}
+}
+.nav-a__list {
+display: flex;
+flex-wrap: wrap;
+gap: var(--space-1) var(--space-3);
+}
+.nav-a__item {
+margin-block-start: 0;
+padding-inline-start: 0;
+}
+.nav-a__item::before {
+content: none;
+}
+.nav-a__link {
+text-decoration-color: transparent;
+}
+.nav-a__link:hover,
+.nav-a__link:focus-visible,
+.nav-a__link[aria-current="page"] {
+text-decoration-color: currentColor;
+}
+.nav-a__toggle {
+padding: 0;
+border: 0;
+background: none;
+color: var(--color-muted);
+font: inherit;
+font-size: var(--font-size-sm);
+line-height: var(--font-line-height-sm);
+cursor: pointer;
+}
+.nav-a__toggle:hover,
+.nav-a__toggle:focus-visible,
+.nav-a__toggle[aria-expanded="true"] {
+color: var(--color-ink);
+text-decoration-line: underline;
+text-decoration-thickness: var(--line-width);
+text-underline-offset: var(--space-0-5);
+}
+@media (width < 48rem) {
+.nav-a[data-ready] .nav-a__list {
+position: absolute;
+z-index: 10;
+inset-inline: 0;
+inset-block-start: 100%;
+flex-direction: column;
+gap: 0;
+border-block: var(--line-width) solid var(--color-line);
+background: var(--color-paper);
+}
+.nav-a[data-ready]:not([data-open]) .nav-a__list {
+display: none;
+}
+.nav-a[data-ready][data-open]::before {
+content: "";
+position: fixed;
+z-index: -1;
+inset: 0;
+background: color-mix(in srgb, var(--color-paper) 85%, transparent);
+}
+.nav-a[data-ready] .nav-a__item + .nav-a__item {
+border-block-start: var(--line-width) solid var(--color-line);
+}
+.nav-a[data-ready] .nav-a__link {
+display: block;
+padding-block: var(--space-1-5);
+}
+}
+@media (min-width: 48rem) {
+.nav-a__toggle {
+display: none;
 }
 }

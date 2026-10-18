@@ -29,6 +29,15 @@ if ( ! empty( $args['variant'] ) ) {
 <div class="<?php echo esc_attr( $portfolio_site_class ); ?>">
 <header class="site__header">
 	<a class="site__title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+	<?php
+	portfolio_theme_component(
+		'nav-a',
+		array(
+			'location' => 'primary',
+			'class'    => 'site__nav',
+		)
+	);
+	?>
 	<?php portfolio_theme_toggle_button(); ?>
 </header>
 <main id="content" class="site__main">
