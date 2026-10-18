@@ -108,15 +108,16 @@ from an 8px unit".
   before a heading and 16px (`--space-2`) after it.
 - **Focus:** 1px outline in the current colour, offset 4px.
 
-## 2026-10-17 — Icon library: 14 Lucide icons, picked from a reusable SCF field
+## 2026-10-17 — Icon library: Lucide icons, picked from a reusable SCF field
 
-- **Source:** Lucide (`lucide-static` 1.59.0, ISC), 14 SVGs copied into
+- **Source:** Lucide (`lucide-static` 1.59.0, ISC), SVGs copied into
   `theme/assets/icons/` with the licence. Chosen for its 24-unit grid (3 of our
   units) and a stroke that CSS can thin down. Only the icons in use are
   shipped, not the 2,000+ set.
 - **Icons:** accessibility, blocks, code-xml, flask-conical, gauge, languages,
   layout-template, megaphone, pen-line, search, shield-check, tag, trending-up,
-  workflow. Adding an SVG to the folder adds it everywhere.
+  workflow; sun and moon added 2026-10-18 for the theme toggle (same version).
+  Adding an SVG to the folder adds it everywhere.
 - **Rendering:** `portfolio_theme_icon( $name )` inlines the SVG (only known
   names, filtered with `wp_kses`), `currentColor`, hidden from assistive
   technology because icons are decorative.

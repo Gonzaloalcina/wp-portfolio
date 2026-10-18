@@ -44,14 +44,21 @@ function portfolio_theme_toggle_button() {
 	);
 	?>
 	<button type="button" class="theme-toggle" data-theme-toggle hidden>
-		<?php esc_html_e( 'Theme:', 'portfolio-theme' ); ?>
-		<span
-			class="theme-toggle__state"
-			data-theme-toggle-state
-			aria-live="polite"
-			data-label-light="<?php echo esc_attr( $labels['light'] ); ?>"
-			data-label-dark="<?php echo esc_attr( $labels['dark'] ); ?>"
-		><?php echo esc_html( $labels['light'] ); ?></span>
+		<?php
+		// Sun or moon for the scheme on screen; CSS shows one from data-scheme.
+		portfolio_theme_icon( 'sun' );
+		portfolio_theme_icon( 'moon' );
+		?>
+		<span class="screen-reader-text">
+			<?php esc_html_e( 'Theme:', 'portfolio-theme' ); ?>
+			<span
+				class="theme-toggle__state"
+				data-theme-toggle-state
+				aria-live="polite"
+				data-label-light="<?php echo esc_attr( $labels['light'] ); ?>"
+				data-label-dark="<?php echo esc_attr( $labels['dark'] ); ?>"
+			><?php echo esc_html( $labels['light'] ); ?></span>
+		</span>
 	</button>
 	<?php
 }

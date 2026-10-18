@@ -51,6 +51,10 @@ function choose( scheme ) {
 function render() {
 	const scheme = current();
 
+	for ( const button of document.querySelectorAll( '[data-theme-toggle]' ) ) {
+		button.dataset.scheme = scheme;
+	}
+
 	for ( const label of document.querySelectorAll( '[data-theme-toggle-state]' ) ) {
 		label.textContent = 'dark' === scheme ? label.dataset.labelDark : label.dataset.labelLight;
 	}

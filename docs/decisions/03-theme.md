@@ -20,7 +20,7 @@ See [README.md](README.md) for how entries are written.
   scheme is not stored, so the site follows the system again.
 - **Placement and style:** right side of the header, small muted text
   (`Theme: Light` / `Theme: Dark`, the scheme on screen), underlined on hover
-  and focus like a link. No icons.
+  and focus like a link. No icons. *Changed 2026-10-18: see below.*
 - **No flash:** a short inline script at the top of `<head>` applies the stored
   choice (`localStorage` key `portfolio-theme`) before first paint.
 - **Script:** native ES module (`wp_enqueue_script_module`), no build. The
@@ -90,3 +90,15 @@ See [README.md](README.md) for how entries are written.
 - **From 48rem:** inline links between the title and the theme toggle. The
   header is a grid (title | nav | toggle) with its own stacking context, so
   the dropdown stays above the page.
+
+## 2026-10-18 — Theme toggle: sun and moon icons
+
+- The text toggle becomes an icon button: **sun** while the light scheme is
+  on screen, **moon** while the dark one is (it shows the current state, as
+  the text did). Lucide `sun` and `moon`, added to the icon library.
+- Muted, full ink on hover and focus; 24px (`icon.size`), within the 24px
+  minimum target.
+- The accessible name stays "Theme: Light" / "Theme: Dark" in visually
+  hidden text, still announced through `aria-live` when it changes.
+- The module sets `data-scheme` on the button and CSS shows the matching
+  icon; the button stays hidden without JavaScript, as before.
