@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "portfolio-core/related",
+  "version": "0.1.0",
+  "title": "Related",
+  "category": "widgets",
+  "icon": "admin-links",
+  "description": "Links the note to one service and, optionally, one project. Rendered from the current data, so titles and links stay up to date.",
+  "keywords": [
+    "service",
+    "project",
+    "work",
+    "link"
+  ],
+  "textdomain": "portfolio-core",
+  "attributes": {
+    "serviceId": {
+      "type": "integer",
+      "default": 0
+    },
+    "projectId": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "supports": {
+    "className": false,
+    "customClassName": false,
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

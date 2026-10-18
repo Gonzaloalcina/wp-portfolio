@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "portfolio-core/aside",
+	"version": "0.1.0",
+	"title": "Aside",
+	"category": "text",
+	"icon": "info-outline",
+	"description": "A short note set apart from the text, with a label: a side note, or a decision and why it was made.",
+	"keywords": [ "note", "decision", "callout", "aside" ],
+	"textdomain": "portfolio-core",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"source": "text",
+			"selector": ".aside-a__label",
+			"default": ""
+		}
+	},
+	"variations": [
+		{
+			"name": "note",
+			"title": "Note",
+			"description": "A side note set apart from the text.",
+			"attributes": { "label": "Note" },
+			"isDefault": true,
+			"scope": [ "inserter", "transform" ],
+			"isActive": [ "label" ]
+		},
+		{
+			"name": "decision",
+			"title": "Decision",
+			"description": "A decision and why it was made.",
+			"icon": "yes-alt",
+			"attributes": { "label": "Decision" },
+			"scope": [ "inserter", "transform" ],
+			"isActive": [ "label" ]
+		}
+	],
+	"supports": {
+		"className": false,
+		"customClassName": false,
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

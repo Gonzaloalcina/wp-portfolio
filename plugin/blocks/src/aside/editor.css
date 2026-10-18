@@ -1,0 +1,16 @@
+/* Editor only: the label field looks like the saved label. */
+
+.aside-a__input {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	resize: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+}
+
+.aside-a__input::placeholder {
+	color: var(--color-muted);
+}

@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "portfolio-core/code",
+	"version": "0.1.0",
+	"title": "Code with file name",
+	"category": "text",
+	"icon": "editor-code",
+	"description": "Code with an optional file name above it and an optional caption below.",
+	"keywords": [ "code", "snippet", "file", "pre" ],
+	"textdomain": "portfolio-core",
+	"attributes": {
+		"filename": {
+			"type": "string",
+			"source": "text",
+			"selector": ".code-a__filename",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"source": "text",
+			"selector": "code",
+			"default": ""
+		},
+		"caption": {
+			"type": "rich-text",
+			"source": "rich-text",
+			"selector": "figcaption"
+		}
+	},
+	"supports": {
+		"align": [ "wide" ],
+		"className": false,
+		"customClassName": false,
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,22 @@
+/* Editor only: the plain-text fields look like the saved block. */
+
+textarea.code-a__filename,
+.code-a__input {
+	resize: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+}
+
+.code-a__input {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	white-space: pre;
+}
+
+textarea.code-a__filename::placeholder,
+.code-a__input::placeholder {
+	color: var(--color-muted);
+}

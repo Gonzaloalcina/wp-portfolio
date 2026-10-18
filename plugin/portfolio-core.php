@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Portfolio Core
  * Plugin URI:        https://gonzaloalcina.dev
- * Description:       Site functionality for gonzaloalcina.dev that must survive a theme change: content types and their fields.
+ * Description:       Site functionality for gonzaloalcina.dev that must survive a theme change: content types, their fields and the blog blocks.
  * Version:           0.1.0
  * Requires at least: 7.1
  * Requires PHP:      8.0
@@ -19,6 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 require_once __DIR__ . '/inc/content-types.php';
 require_once __DIR__ . '/inc/fields.php';
+require_once __DIR__ . '/inc/blocks.php';
 
 /**
  * Registers the content types' rewrite rules on activation, so their URLs

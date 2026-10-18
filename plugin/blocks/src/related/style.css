@@ -1,0 +1,20 @@
+/*
+ * related-a: a small label over a row list. The rows are the theme's list-a
+ * and row-a (BEM mix related-a__list), so only the label lives here.
+ * Loaded only on pages that render the block.
+ */
+
+* + .related-a {
+	margin-block-start: var(--space-6);
+}
+
+.related-a__label {
+	margin: 0;
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+* + .related-a__list {
+	margin-block-start: var(--space-1);
+}

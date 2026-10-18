@@ -178,6 +178,7 @@ $services = array(
 	array( 'AI and automation', 'ai-automation', 'draft' ),
 );
 
+$service_ids = array();
 foreach ( $services as $order => list( $title, $slug, $status ) ) {
 	$id = (int) wp_insert_post(
 		array(
@@ -210,6 +211,23 @@ foreach ( $services as $order => list( $title, $slug, $status ) ) {
 		$id
 	);
 	update_field( 'field_portfolio_core_service_proof', array( $project_ids['founderz'], $project_ids['hidden-pending-client'], $note_ids[0] ), $id );
+
+	$service_ids[ $slug ] = $id;
 }
+
+// A note with the blog blocks (portfolio-core), the newest on the index.
+$create(
+	array(
+		'post_type'    => 'post',
+		'post_title'   => 'Lorem ipsum blocks',
+		'post_name'    => 'lorem-ipsum-blocks',
+		'post_excerpt' => $lorem_line,
+		'post_content' => "<!-- wp:paragraph -->\n<p>{$lorem}</p>\n<!-- /wp:paragraph -->\n\n"
+			. "<!-- wp:portfolio-core/code -->\n<figure class=\"code-a\"><div class=\"code-a__filename\">plugin/inc/blocks.php</div><pre class=\"code-a__pre\" tabindex=\"0\"><code>function portfolio_core_register_blocks() {\n\t\$build = dirname( __DIR__ ) . '/blocks/build';\n\n\twp_register_block_types_from_metadata_collection( \$build, \$build . '/blocks-manifest.php' );\n}\nadd_action( 'init', 'portfolio_core_register_blocks' );</code></pre><figcaption class=\"code-a__caption\">Lorem ipsum dolor sit amet.</figcaption></figure>\n<!-- /wp:portfolio-core/code -->\n\n"
+			. "<!-- wp:portfolio-core/aside -->\n<aside class=\"aside-a\"><p class=\"aside-a__label\">Decision</p><div class=\"aside-a__content\"><!-- wp:paragraph -->\n<p>{$lorem_line}</p>\n<!-- /wp:paragraph --></div></aside>\n<!-- /wp:portfolio-core/aside -->\n\n"
+			. "<!-- wp:paragraph -->\n<p>{$lorem}</p>\n<!-- /wp:paragraph -->\n\n"
+			. '<!-- wp:portfolio-core/related {"serviceId":' . $service_ids['wordpress-development'] . ',"projectId":' . $project_ids['founderz'] . '} /-->',
+	)
+);
 
 flush_rewrite_rules();

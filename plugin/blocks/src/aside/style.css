@@ -1,0 +1,38 @@
+/*
+ * aside-a: a label with the square marker, then the content, between two
+ * 1px lines. Set apart by lines and tone, not by a box or a side line (the
+ * brief rules those out). Loaded only on pages that render the block.
+ */
+
+/* base.css spaces blocks after p, figure, pre…; an aside needs the same. */
+.aside-a + * {
+	margin-block-start: var(--space-3);
+}
+
+.aside-a {
+	padding-block: var(--space-2);
+	border-block: var(--line-width) solid var(--color-line);
+}
+
+.aside-a__label {
+	position: relative;
+	margin: 0;
+	padding-inline-start: var(--space-2);
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.aside-a__label::before {
+	content: "";
+	position: absolute;
+	inset-inline-start: 0;
+	inset-block-start: calc((var(--font-line-height-sm) - var(--marker-size)) / 2);
+	width: var(--marker-size);
+	height: var(--marker-size);
+	background: currentColor;
+}
+
+* + .aside-a__content {
+	margin-block-start: var(--space-1);
+}
