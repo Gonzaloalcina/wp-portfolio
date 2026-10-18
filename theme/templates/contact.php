@@ -53,7 +53,7 @@ portfolio_theme_component(
 				'label'    => __( 'Message', 'portfolio-theme' ),
 				'type'     => 'textarea',
 				'required' => true,
-				'hint'     => __( 'A role or a project: what it is and when it starts.', 'portfolio-theme' ),
+				'hint'     => __( 'A project: what it is and when it starts.', 'portfolio-theme' ),
 			),
 		),
 		'button' => __( 'Send message', 'portfolio-theme' ),
