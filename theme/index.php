@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header();
+get_header( null, array( 'variant' => 'second' ) );
 
 if ( have_posts() ) :
 	while ( have_posts() ) :
