@@ -138,3 +138,32 @@ with them from page to page. Every template, `/design-system/` and the
 `title-a`, `prose-a`, `facts-a` and `form-a` keep the text measure. A wide
 block inside `prose-a` (`alignwide`) starts with the text column and runs to
 the site's full width.
+
+## 2026-10-18 — Comments off site-wide
+
+`plugin/inc/comments.php` turns comments off everywhere: no support on any
+post type, closed and empty on the front end, no comment REST endpoints, no
+Comments or Discussion screens (direct visits go to the dashboard), no admin
+bar bubble, no comment feed links. Comment queries return nothing and counts
+are zero, so the dashboard hides its comment sections on its own. A portfolio
+gains little from comments and pays in spam, moderation and personal data.
+
+## 2026-10-18 — Site settings: identity and profile links in one place
+
+An SCF options page in portfolio-core ("Site settings") holds data the whole
+site uses: name, role and short bio (English and Spanish fields, because
+Polylang free does not translate options pages), location, and the profile
+links (label, URL, rel="me"). This replaces the Home's profile links field
+from "One source for contact and profile links": `portfolio_theme_profile_links()`
+keeps its name and shape and now reads the settings, and the Home's Contact
+section uses it too. The Home keeps its contact text and button label.
+
+The settings complete Rank Math's site Person (Titles & Meta › Local SEO set
+to Person; the blueprint sets it) with `jobTitle`, `description` and the
+rel="me" profiles as `sameAs`, through the `rank_math/json_ld` filter; post
+authors are left alone.
+
+Kept discreet on purpose: no availability, no "hire me" fields, and no CV
+here (the Resume page is a transcription of the CV, without a downloadable
+PDF). Secrets and per-environment IDs (Turnstile, GTM) stay out of the
+database.

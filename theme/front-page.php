@@ -109,7 +109,7 @@ $portfolio_sections = array(
 		'text'    => portfolio_theme_home_text( 'home_contact_text' ),
 		'actions' => array(
 			'button' => $portfolio_cta,
-			'links'  => portfolio_theme_home_rows( 'home_profile_links' ),
+			'links'  => portfolio_theme_profile_links(),
 		),
 	),
 );
