@@ -140,3 +140,10 @@ See [README.md](README.md) for how entries are written.
   shows name and year · type, linked to the live site. Both keep the consent
   rule (client OK to name: Yes or Not needed) and menu order.
 - Services on the Home still come from a temporary Home repeater.
+
+## 2026-10-18 — Home services come from the service post type
+
+The Home's Services rows are the published services (portfolio-core), in menu
+order, with their "Problem you solve" line, the same rows as the /services/
+hub. The temporary Home repeater is removed. AI and automation, a draft,
+appears by itself when it is published (Home brief Q3).

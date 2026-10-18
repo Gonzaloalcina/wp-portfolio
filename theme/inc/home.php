@@ -3,9 +3,8 @@
  * Home page: SCF fields and the data the front-page template reads.
  *
  * Selected work and Also built come from the project post type
- * (portfolio-core), placed by each project's "Home" field. Services still
- * come from a temporary Home repeater. The template only depends on the
- * helpers below.
+ * (portfolio-core), placed by each project's "Home" field; Services from the
+ * service post type. The template only depends on the helpers below.
  *
  * @package PortfolioTheme
  */
@@ -19,45 +18,6 @@ function portfolio_theme_register_home_fields() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
-
-	$row_fields = static function ( $prefix, $with_meta ) {
-		$fields = array(
-			array(
-				'key'      => "field_portfolio_home_{$prefix}_title",
-				'label'    => __( 'Title', 'portfolio-theme' ),
-				'name'     => 'title',
-				'type'     => 'text',
-				'required' => 1,
-			),
-			array(
-				'key'          => "field_portfolio_home_{$prefix}_url",
-				'label'        => __( 'Link', 'portfolio-theme' ),
-				'name'         => 'url',
-				'type'         => 'text',
-				'instructions' => __( 'A path on this site (/work/founderz/) or a full URL.', 'portfolio-theme' ),
-			),
-		);
-
-		if ( $with_meta ) {
-			$fields[] = array(
-				'key'          => "field_portfolio_home_{$prefix}_meta",
-				'label'        => __( 'Meta', 'portfolio-theme' ),
-				'name'         => 'meta',
-				'type'         => 'text',
-				'instructions' => __( 'Year and type, e.g. 2026 · Custom theme.', 'portfolio-theme' ),
-			);
-		}
-
-		$fields[] = array(
-			'key'       => "field_portfolio_home_{$prefix}_text",
-			'label'     => __( 'Line', 'portfolio-theme' ),
-			'name'      => 'text',
-			'type'      => 'text',
-			'maxlength' => 140,
-		);
-
-		return $fields;
-	};
 
 	acf_add_local_field_group(
 		array(
@@ -107,20 +67,6 @@ function portfolio_theme_register_home_fields() {
 					'type'          => 'image',
 					'return_format' => 'id',
 					'preview_size'  => 'thumbnail',
-				),
-				array(
-					'key'   => 'field_portfolio_home_tab_services',
-					'label' => __( 'Services', 'portfolio-theme' ),
-					'type'  => 'tab',
-				),
-				array(
-					'key'          => 'field_portfolio_home_services',
-					'label'        => __( 'Services', 'portfolio-theme' ),
-					'name'         => 'home_services',
-					'type'         => 'repeater',
-					'layout'       => 'block',
-					'button_label' => __( 'Add service', 'portfolio-theme' ),
-					'sub_fields'   => $row_fields( 'services', false ),
 				),
 				array(
 					'key'   => 'field_portfolio_home_tab_testimonials',
@@ -217,42 +163,6 @@ function portfolio_theme_resolve_url( $url ) {
 	}
 
 	return $url;
-}
-
-/**
- * Returns the rows of a Home repeater in the shape the row list expects.
- * Rows without a title are dropped, so a half-filled row never renders.
- *
- * @param string $name Repeater field name.
- * @return array<int, array{title: string, url: string, meta: string, text: string, rel: string}>
- */
-function portfolio_theme_home_rows( $name ) {
-	if ( ! function_exists( 'get_field' ) ) {
-		return array();
-	}
-
-	$rows = get_field( $name );
-	if ( ! is_array( $rows ) ) {
-		return array();
-	}
-
-	$items = array();
-	foreach ( $rows as $row ) {
-		$title = trim( (string) ( $row['title'] ?? '' ) );
-		if ( '' === $title ) {
-			continue;
-		}
-
-		$items[] = array(
-			'title' => $title,
-			'url'   => portfolio_theme_resolve_url( $row['url'] ?? '' ),
-			'meta'  => trim( (string) ( $row['meta'] ?? '' ) ),
-			'text'  => trim( (string) ( $row['text'] ?? '' ) ),
-			'rel'   => empty( $row['is_profile'] ) ? '' : 'me',
-		);
-	}
-
-	return $items;
 }
 
 /**

@@ -4,7 +4,8 @@
  * latest notes and contact, built from components. Wide layout (site--second).
  *
  * Text is read from the Home SCF fields (inc/home.php); Selected work and
- * Also built are projects placed by their "Home" field. An empty field
+ * Also built are projects placed by their "Home" field, Services are the
+ * published services. An empty field
  * renders nothing, and a section with no content hides itself.
  *
  * @package PortfolioTheme
@@ -72,7 +73,7 @@ $portfolio_sections = array(
 		'content' => array(
 			array(
 				'name' => 'list-a',
-				'args' => array( 'items' => portfolio_theme_home_rows( 'home_services' ) ),
+				'args' => array( 'items' => portfolio_theme_service_rows() ),
 			),
 		),
 		'more'    => array(
