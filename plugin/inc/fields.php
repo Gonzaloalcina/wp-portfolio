@@ -125,6 +125,20 @@ function portfolio_core_register_fields() {
 					'ui'           => 1,
 					'instructions' => __( 'Gives the project its own case page. Without it the project has no page of its own.', 'portfolio-core' ),
 				),
+				array(
+					'key'           => 'field_portfolio_core_project_home',
+					'label'         => __( 'Home', 'portfolio-core' ),
+					'name'          => 'project_home',
+					'type'          => 'select',
+					'choices'       => array(
+						'selected'   => __( 'Selected work', 'portfolio-core' ),
+						'also_built' => __( 'Also built', 'portfolio-core' ),
+					),
+					'allow_null'    => 1,
+					'default_value' => '',
+					'return_format' => 'value',
+					'instructions'  => __( 'Where the project shows on the Home. Selected work: up to three, with a page on this site. Also built: sites for agencies and small clients, linked to the live site. Empty: not on the Home. Only projects whose client may be named are shown.', 'portfolio-core' ),
+				),
 			),
 		)
 	);

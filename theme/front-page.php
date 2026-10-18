@@ -3,7 +3,8 @@
  * Home: hero, selected work (with also built), services, testimonials,
  * latest notes and contact, built from components. Wide layout (site--second).
  *
- * Text is read from the Home SCF fields (inc/home.php). An empty field
+ * Text is read from the Home SCF fields (inc/home.php); Selected work and
+ * Also built are projects placed by their "Home" field. An empty field
  * renders nothing, and a section with no content hides itself.
  *
  * @package PortfolioTheme
@@ -52,12 +53,12 @@ $portfolio_sections = array(
 		'content' => array(
 			array(
 				'name' => 'list-a',
-				'args' => array( 'items' => portfolio_theme_home_rows( 'home_work' ) ),
+				'args' => array( 'items' => portfolio_theme_home_project_rows( 'selected', 3 ) ),
 			),
 			array(
 				'title' => __( 'Also built', 'portfolio-theme' ),
 				'name'  => 'list-a',
-				'args'  => array( 'items' => portfolio_theme_home_rows( 'home_also_built' ) ),
+				'args'  => array( 'items' => portfolio_theme_home_project_rows( 'also_built' ) ),
 			),
 		),
 		'more'    => array(
@@ -109,7 +110,16 @@ $portfolio_sections = array(
 		'text'    => portfolio_theme_home_text( 'home_contact_text' ),
 		'actions' => array(
 			'button' => $portfolio_cta,
-			'links'  => portfolio_theme_profile_links(),
+			// Resume first, then the profiles from Site settings (Home brief 2.5).
+			'links'  => array_merge(
+				array(
+					array(
+						'title' => __( 'Resume', 'portfolio-theme' ),
+						'url'   => home_url( '/resume/' ),
+					),
+				),
+				portfolio_theme_profile_links()
+			),
 		),
 	),
 );

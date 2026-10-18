@@ -154,6 +154,8 @@ foreach ( $projects as $order => list( $title, $slug, $client_ok, $featured, $ur
 	update_field( 'field_portfolio_core_project_outcome', $lorem, $id );
 	update_field( 'field_portfolio_core_project_url', $url, $id );
 	update_field( 'field_portfolio_core_project_featured', $featured ? 1 : 0, $id );
+	// Home: the two with a page on this site above, the rest under Also built.
+	update_field( 'field_portfolio_core_project_home', in_array( $slug, array( 'founderz', 'this-website' ), true ) ? 'selected' : 'also_built', $id );
 
 	$project_ids[ $slug ] = $id;
 }

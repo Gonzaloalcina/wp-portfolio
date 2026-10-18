@@ -2,9 +2,10 @@
 /**
  * Home page: SCF fields and the data the front-page template reads.
  *
- * The fields are a temporary source for the visual preview. Where Selected
- * work and Services come from (a project post type, service pages) is still
- * to be decided; the template only depends on the helpers below.
+ * Selected work and Also built come from the project post type
+ * (portfolio-core), placed by each project's "Home" field. Services still
+ * come from a temporary Home repeater. The template only depends on the
+ * helpers below.
  *
  * @package PortfolioTheme
  */
@@ -106,31 +107,6 @@ function portfolio_theme_register_home_fields() {
 					'type'          => 'image',
 					'return_format' => 'id',
 					'preview_size'  => 'thumbnail',
-				),
-				array(
-					'key'   => 'field_portfolio_home_tab_work',
-					'label' => __( 'Selected work', 'portfolio-theme' ),
-					'type'  => 'tab',
-				),
-				array(
-					'key'          => 'field_portfolio_home_work',
-					'label'        => __( 'Selected work', 'portfolio-theme' ),
-					'name'         => 'home_work',
-					'type'         => 'repeater',
-					'layout'       => 'block',
-					'max'          => 3,
-					'button_label' => __( 'Add project', 'portfolio-theme' ),
-					'sub_fields'   => $row_fields( 'work', true ),
-				),
-				array(
-					'key'          => 'field_portfolio_home_also_built',
-					'label'        => __( 'Also built', 'portfolio-theme' ),
-					'name'         => 'home_also_built',
-					'type'         => 'repeater',
-					'layout'       => 'block',
-					'instructions' => __( 'Sites built for agencies and small clients, linked to the live site. Name a client only with their consent.', 'portfolio-theme' ),
-					'button_label' => __( 'Add site', 'portfolio-theme' ),
-					'sub_fields'   => $row_fields( 'also_built', true ),
 				),
 				array(
 					'key'   => 'field_portfolio_home_tab_services',
@@ -308,6 +284,38 @@ function portfolio_theme_home_quotes() {
 	}
 
 	return $items;
+}
+
+/**
+ * Returns the projects placed on the Home (the project's "Home" field), as
+ * row-a items. Only projects whose client may be named, in menu order.
+ *
+ * Selected work rows keep their line (what I did); Also built rows are name
+ * and year · type only, linked to the live site.
+ *
+ * @param string $placement "selected" or "also_built".
+ * @param int    $limit     Maximum rows; 0 for no limit.
+ * @return array<int, array{title: string, url: string, meta: string, text: string}>
+ */
+function portfolio_theme_home_project_rows( $placement, $limit = 0 ) {
+	$posts = array_values(
+		array_filter(
+			portfolio_theme_projects(),
+			static fn( $post ) => portfolio_theme_field( 'project_home', $post->ID ) === $placement
+		)
+	);
+
+	if ( $limit ) {
+		$posts = array_slice( $posts, 0, $limit );
+	}
+
+	$rows = portfolio_theme_project_rows( $posts );
+
+	if ( 'also_built' === $placement ) {
+		$rows = array_map( static fn( $row ) => array_merge( $row, array( 'text' => '' ) ), $rows );
+	}
+
+	return $rows;
 }
 
 /**

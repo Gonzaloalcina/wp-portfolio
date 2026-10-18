@@ -124,3 +124,19 @@ See [README.md](README.md) for how entries are written.
 - **section-a takes content components** (`content`: name, args, optional
   H3 title) instead of a fixed `list-a`, so one section can hold a list, a
   second titled list or quotes. An entry with no items is skipped.
+
+## 2026-10-18 — Home work comes from projects, placed by a "Home" field
+
+- Selected work and Also built read the `project` post type (portfolio-core)
+  instead of temporary Home repeaters, which are removed.
+- **Placement is a select field on each project, "Home":** Selected work /
+  Also built / empty (not on the Home). A taxonomy was considered and
+  rejected: the question has one answer per project and needs no archive
+  URLs; a taxonomy fits project *type* (shared values, filtering on /work/),
+  to decide when there are real projects. Deriving the split from the link
+  (page on this site vs live site) was also rejected in favour of an explicit
+  editorial choice.
+- Selected work shows up to three, with the "what I did" line; Also built
+  shows name and year · type, linked to the live site. Both keep the consent
+  rule (client OK to name: Yes or Not needed) and menu order.
+- Services on the Home still come from a temporary Home repeater.
