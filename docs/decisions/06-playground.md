@@ -34,3 +34,16 @@ ignores `preferredVersions` (it defaults to PHP 8.3).
 The CLI needs Node 24+ (Node 26 fails: a native dependency has no prebuilt
 binary for it). The project's tools stay on Node 20; run it with
 `nvm exec 24 npm run playground`. The CLI version is pinned in the script.
+
+## 2026-10-18 — Main menu in the blueprint
+
+The `runPHP` step creates the "Main" menu (About, Work, Services, Notes,
+Contact) and assigns it to the `primary` location, so the header nav shows in
+the demo. The URLs are built with `home_url()` at boot, because every
+Playground instance has its own address. The pages behind them do not exist
+yet, so they 404 in the demo too.
+
+The Home is not seeded: with empty Home fields it shows the site name as H1
+and Latest notes, and every other section hides itself. Checked with
+`npm run playground` (this run found and fixed a Contact heading that
+rendered with nothing under it).

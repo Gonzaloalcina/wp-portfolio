@@ -21,7 +21,10 @@ $portfolio_content = array_filter(
 	static fn( $entry ) => ! empty( $entry['name'] ) && ! empty( $entry['args']['items'] )
 );
 $portfolio_actions = $args['actions'] ?? array();
-$portfolio_more    = $args['more'] ?? array();
+if ( empty( $portfolio_actions['button']['title'] ) && empty( $portfolio_actions['links'] ) ) {
+	$portfolio_actions = array();
+}
+$portfolio_more = $args['more'] ?? array();
 
 if ( empty( $args['title'] ) || ( empty( $args['text'] ) && ! $portfolio_content && ! $portfolio_actions ) ) {
 	return;
