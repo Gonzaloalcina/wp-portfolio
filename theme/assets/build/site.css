@@ -424,6 +424,87 @@ grid-column: 1 / -1;
 grid-template-columns: subgrid;
 }
 }
+.quote-a {
+display: grid;
+grid-template-columns: minmax(0, 1fr);
+grid-template-areas:
+"quote"
+"cite";
+gap: var(--space-2) var(--space-3);
+margin: 0;
+}
+.quote-a > * {
+margin: 0;
+}
+.quote-a__quote {
+grid-area: quote;
+}
+.quote-a__text {
+font-family: var(--font-family-heading);
+font-size: var(--font-size-base);
+font-weight: var(--font-weight-regular);
+line-height: var(--font-line-height-base);
+letter-spacing: var(--font-tracking-heading);
+text-wrap: pretty;
+quotes: "\201C" "\201D";
+}
+.quote-a__text::before {
+content: open-quote;
+}
+.quote-a__text::after {
+content: close-quote;
+}
+.quote-a__cite {
+display: grid;
+grid-area: cite;
+align-content: start;
+}
+.quote-a__name {
+font-weight: var(--font-weight-strong);
+}
+.quote-a__role {
+color: var(--color-muted);
+font-size: var(--font-size-sm);
+line-height: var(--font-line-height-sm);
+}
+@media (min-width: 48rem) {
+.quote-a__text {
+font-size: var(--font-size-lg);
+line-height: var(--font-line-height-lg);
+}
+.quote-a {
+grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+grid-template-areas: "cite quote";
+}
+.quote-list-a__item > .quote-a {
+grid-column: 1 / -1;
+grid-template-columns: subgrid;
+grid-template-areas: "cite quote quote";
+}
+}
+.quote-list-a {
+border-block-start: var(--line-width) solid var(--color-line);
+}
+.quote-list-a__item {
+margin-block-start: 0;
+padding-block: var(--space-3);
+padding-inline-start: 0;
+border-block-end: var(--line-width) solid var(--color-line);
+}
+.quote-list-a__item::before {
+content: none;
+}
+@media (min-width: 48rem) {
+.quote-list-a {
+display: grid;
+grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+}
+.quote-list-a__item {
+display: grid;
+grid-column: 1 / -1;
+grid-template-columns: subgrid;
+}
+}
 * + .section-a {
 margin-block-start: var(--space-8);
 }
@@ -436,8 +517,15 @@ margin-block-start: var(--space-12);
 .section-a__text {
 max-width: var(--layout-text);
 }
-.section-a__list {
+.section-a__content {
 margin-block-start: var(--space-3);
+}
+.section-a__subtitle {
+max-width: var(--layout-text);
+margin-block-start: var(--space-6);
+}
+.section-a__subtitle + .section-a__content {
+margin-block-start: var(--space-2);
 }
 .section-a__actions {
 margin-block-start: var(--space-4);

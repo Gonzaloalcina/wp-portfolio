@@ -232,14 +232,16 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 			<tbody>
 				<?php
 				$portfolio_component_notes = array(
-					'hero-a'     => __( 'H1, short intro, actions-a and a square image. One per page.', 'portfolio-theme' ),
-					'section-a'  => __( 'H2, then any of: a paragraph, a list-a, an actions-a and an "All …" link.', 'portfolio-theme' ),
-					'list-a'     => __( 'Rows separated by 1px lines, with the square marker.', 'portfolio-theme' ),
-					'row-a'      => __( 'Title, optional meta and one optional line.', 'portfolio-theme' ),
-					'actions-a'  => __( 'One button-a followed by a link-row-a.', 'portfolio-theme' ),
-					'button-a'   => __( 'The primary action. One per page, shown at most twice.', 'portfolio-theme' ),
-					'link-row-a' => __( 'Quiet links on one line.', 'portfolio-theme' ),
-					'nav-a'      => __( 'A WordPress menu as quiet links; a "Menu" dropdown on narrow screens. In the header.', 'portfolio-theme' ),
+					'hero-a'       => __( 'H1, short intro, actions-a and a square image. One per page.', 'portfolio-theme' ),
+					'section-a'    => __( 'H2, then any of: a paragraph, content components (each with an optional H3), an actions-a and an "All …" link.', 'portfolio-theme' ),
+					'list-a'       => __( 'Rows separated by 1px lines, with the square marker.', 'portfolio-theme' ),
+					'row-a'        => __( 'Title, optional meta and one optional line.', 'portfolio-theme' ),
+					'actions-a'    => __( 'One button-a followed by a link-row-a.', 'portfolio-theme' ),
+					'button-a'     => __( 'The primary action. One per page, shown at most twice.', 'portfolio-theme' ),
+					'link-row-a'   => __( 'Quiet links on one line.', 'portfolio-theme' ),
+					'quote-list-a' => __( 'quote-a items separated by 1px lines, on the same columns as a list-a.', 'portfolio-theme' ),
+					'quote-a'      => __( 'A testimonial: the quote, then name (linked to proof) and role.', 'portfolio-theme' ),
+					'nav-a'        => __( 'A WordPress menu as quiet links; a "Menu" dropdown on narrow screens. In the header.', 'portfolio-theme' ),
 				);
 				foreach ( $portfolio_component_notes as $portfolio_component => $portfolio_note ) :
 					?>
@@ -274,6 +276,25 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						'url'      => '#ds-components',
 						'meta'     => wp_date( get_option( 'date_format' ) ),
 						'datetime' => wp_date( 'Y-m-d' ),
+					),
+				),
+				'class' => 'alignwide',
+			)
+		);
+		?>
+
+		<h3><?php esc_html_e( 'quote-list-a and quote-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Testimonials. The name links to the proof, such as a LinkedIn recommendation. No review schema: Google does not show stars for reviews a site publishes about itself.', 'portfolio-theme' ); ?></p>
+		<?php
+		portfolio_theme_component(
+			'quote-list-a',
+			array(
+				'items' => array(
+					array(
+						'quote' => __( 'The quote, in the heading serif at the large size. 240 characters at most, in the words of the person who said it.', 'portfolio-theme' ),
+						'name'  => __( 'Name of the person', 'portfolio-theme' ),
+						'role'  => __( 'Role, Company', 'portfolio-theme' ),
+						'url'   => '#ds-components',
 					),
 				),
 				'class' => 'alignwide',

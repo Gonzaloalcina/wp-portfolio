@@ -102,3 +102,25 @@ See [README.md](README.md) for how entries are written.
   hidden text, still announced through `aria-live` when it changes.
 - The module sets `data-scheme` on the button and CSS shows the matching
   icon; the button stays hidden without JavaScript, as before.
+
+## 2026-10-18 — Home: Also built and Testimonials
+
+- **Also built:** sites built for agencies and small clients, as an H3 list
+  inside Selected work (lighter work than the featured cases, so not a
+  section of its own). Name, year · type, linked to the live site. A client
+  is named only with consent. The SEO value is proof, not authority: links
+  out do not pass authority to this site; a credit link from the client's
+  site would.
+- **Testimonials:** a section between Services and Latest notes, so the
+  social proof sits right before the notes and the contact call. Up to three,
+  real and with permission, the name linked to proof (a LinkedIn
+  recommendation). New components `quote-list-a` and `quote-a`: the quote in
+  the heading serif, `base` when narrow and `lg` from 48rem (at `lg` on a
+  phone each quote ran to seven lines), who said it in the title column, on the same
+  three columns as `list-a`.
+- **No review schema:** Google does not show stars for reviews a site
+  publishes about itself. **No Google Business Profile:** it requires
+  in-person service and serves local search, which is not this audience.
+- **section-a takes content components** (`content`: name, args, optional
+  H3 title) instead of a fixed `list-a`, so one section can hold a list, a
+  second titled list or quotes. An entry with no items is skipped.

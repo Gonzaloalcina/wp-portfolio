@@ -123,6 +123,16 @@ function portfolio_theme_register_home_fields() {
 					'sub_fields'   => $row_fields( 'work', true ),
 				),
 				array(
+					'key'          => 'field_portfolio_home_also_built',
+					'label'        => __( 'Also built', 'portfolio-theme' ),
+					'name'         => 'home_also_built',
+					'type'         => 'repeater',
+					'layout'       => 'block',
+					'instructions' => __( 'Sites built for agencies and small clients, linked to the live site. Name a client only with their consent.', 'portfolio-theme' ),
+					'button_label' => __( 'Add site', 'portfolio-theme' ),
+					'sub_fields'   => $row_fields( 'also_built', true ),
+				),
+				array(
 					'key'   => 'field_portfolio_home_tab_services',
 					'label' => __( 'Services', 'portfolio-theme' ),
 					'type'  => 'tab',
@@ -135,6 +145,52 @@ function portfolio_theme_register_home_fields() {
 					'layout'       => 'block',
 					'button_label' => __( 'Add service', 'portfolio-theme' ),
 					'sub_fields'   => $row_fields( 'services', false ),
+				),
+				array(
+					'key'   => 'field_portfolio_home_tab_testimonials',
+					'label' => __( 'Testimonials', 'portfolio-theme' ),
+					'type'  => 'tab',
+				),
+				array(
+					'key'          => 'field_portfolio_home_testimonials',
+					'label'        => __( 'Testimonials', 'portfolio-theme' ),
+					'name'         => 'home_testimonials',
+					'type'         => 'repeater',
+					'layout'       => 'block',
+					'max'          => 3,
+					'instructions' => __( 'Real words, with the person\'s permission. Link to their LinkedIn recommendation or profile as proof.', 'portfolio-theme' ),
+					'button_label' => __( 'Add testimonial', 'portfolio-theme' ),
+					'sub_fields'   => array(
+						array(
+							'key'       => 'field_portfolio_home_testimonials_quote',
+							'label'     => __( 'Quote', 'portfolio-theme' ),
+							'name'      => 'quote',
+							'type'      => 'textarea',
+							'rows'      => 3,
+							'maxlength' => 240,
+							'required'  => 1,
+						),
+						array(
+							'key'      => 'field_portfolio_home_testimonials_name',
+							'label'    => __( 'Name', 'portfolio-theme' ),
+							'name'     => 'name',
+							'type'     => 'text',
+							'required' => 1,
+						),
+						array(
+							'key'          => 'field_portfolio_home_testimonials_role',
+							'label'        => __( 'Role', 'portfolio-theme' ),
+							'name'         => 'role',
+							'type'         => 'text',
+							'instructions' => __( 'Role and company, e.g. Head of Marketing, Company.', 'portfolio-theme' ),
+						),
+						array(
+							'key'   => 'field_portfolio_home_testimonials_url',
+							'label' => __( 'Proof link', 'portfolio-theme' ),
+							'name'  => 'url',
+							'type'  => 'url',
+						),
+					),
 				),
 				array(
 					'key'   => 'field_portfolio_home_tab_contact',
@@ -249,6 +305,37 @@ function portfolio_theme_home_rows( $name ) {
 			'meta'  => trim( (string) ( $row['meta'] ?? '' ) ),
 			'text'  => trim( (string) ( $row['text'] ?? '' ) ),
 			'rel'   => empty( $row['is_profile'] ) ? '' : 'me',
+		);
+	}
+
+	return $items;
+}
+
+/**
+ * Returns the Home testimonials in the shape quote-a expects. Rows without a
+ * quote or a name are dropped.
+ *
+ * @return array<int, array{quote: string, name: string, role: string, url: string}>
+ */
+function portfolio_theme_home_quotes() {
+	$rows = function_exists( 'get_field' ) ? get_field( 'home_testimonials' ) : null;
+	if ( ! is_array( $rows ) ) {
+		return array();
+	}
+
+	$items = array();
+	foreach ( $rows as $row ) {
+		$quote = trim( (string) ( $row['quote'] ?? '' ) );
+		$name  = trim( (string) ( $row['name'] ?? '' ) );
+		if ( '' === $quote || '' === $name ) {
+			continue;
+		}
+
+		$items[] = array(
+			'quote' => $quote,
+			'name'  => $name,
+			'role'  => trim( (string) ( $row['role'] ?? '' ) ),
+			'url'   => trim( (string) ( $row['url'] ?? '' ) ),
 		);
 	}
 

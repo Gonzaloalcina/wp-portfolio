@@ -1,0 +1,33 @@
+/*
+ * quote-list-a: quote-a items separated by 1px lines, no marker. From 48rem
+ * the list owns the same three columns as a list-a and each quote shares
+ * them through subgrid.
+ */
+
+.quote-list-a {
+	border-block-start: var(--line-width) solid var(--color-line);
+}
+
+.quote-list-a__item {
+	margin-block-start: 0;
+	padding-block: var(--space-3);
+	padding-inline-start: 0;
+	border-block-end: var(--line-width) solid var(--color-line);
+}
+
+.quote-list-a__item::before {
+	content: none;
+}
+
+@media (min-width: 48rem) {
+	.quote-list-a {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+	}
+
+	.quote-list-a__item {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+	}
+}

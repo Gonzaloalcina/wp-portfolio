@@ -1,7 +1,7 @@
 <?php
 /**
- * Home: hero, selected work, services, latest notes and contact, built from
- * components. Wide layout (site--second).
+ * Home: hero, selected work (with also built), services, testimonials,
+ * latest notes and contact, built from components. Wide layout (site--second).
  *
  * Text is read from the Home SCF fields (inc/home.php). An empty field
  * renders nothing, and a section with no content hides itself.
@@ -47,28 +47,58 @@ portfolio_theme_component(
 
 $portfolio_sections = array(
 	array(
-		'id'    => 'selected-work',
-		'title' => __( 'Selected work', 'portfolio-theme' ),
-		'items' => portfolio_theme_home_rows( 'home_work' ),
-		'more'  => array(
+		'id'      => 'selected-work',
+		'title'   => __( 'Selected work', 'portfolio-theme' ),
+		'content' => array(
+			array(
+				'name' => 'list-a',
+				'args' => array( 'items' => portfolio_theme_home_rows( 'home_work' ) ),
+			),
+			array(
+				'title' => __( 'Also built', 'portfolio-theme' ),
+				'name'  => 'list-a',
+				'args'  => array( 'items' => portfolio_theme_home_rows( 'home_also_built' ) ),
+			),
+		),
+		'more'    => array(
 			'title' => __( 'All work', 'portfolio-theme' ),
 			'url'   => home_url( '/work/' ),
 		),
 	),
 	array(
-		'id'    => 'services',
-		'title' => __( 'Services', 'portfolio-theme' ),
-		'items' => portfolio_theme_home_rows( 'home_services' ),
-		'more'  => array(
+		'id'      => 'services',
+		'title'   => __( 'Services', 'portfolio-theme' ),
+		'content' => array(
+			array(
+				'name' => 'list-a',
+				'args' => array( 'items' => portfolio_theme_home_rows( 'home_services' ) ),
+			),
+		),
+		'more'    => array(
 			'title' => __( 'All services', 'portfolio-theme' ),
 			'url'   => home_url( '/services/' ),
 		),
 	),
 	array(
-		'id'    => 'latest-notes',
-		'title' => __( 'Latest notes', 'portfolio-theme' ),
-		'items' => portfolio_theme_latest_note_rows( 3 ),
-		'more'  => array(
+		'id'      => 'testimonials',
+		'title'   => __( 'Testimonials', 'portfolio-theme' ),
+		'content' => array(
+			array(
+				'name' => 'quote-list-a',
+				'args' => array( 'items' => portfolio_theme_home_quotes() ),
+			),
+		),
+	),
+	array(
+		'id'      => 'latest-notes',
+		'title'   => __( 'Latest notes', 'portfolio-theme' ),
+		'content' => array(
+			array(
+				'name' => 'list-a',
+				'args' => array( 'items' => portfolio_theme_latest_note_rows( 3 ) ),
+			),
+		),
+		'more'    => array(
 			'title' => __( 'All notes', 'portfolio-theme' ),
 			'url'   => home_url( '/notes/' ),
 		),

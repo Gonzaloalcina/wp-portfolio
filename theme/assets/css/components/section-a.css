@@ -1,6 +1,7 @@
 /*
- * section-a: an H2, then any of: one paragraph, a list-a, an actions-a and a
- * closing "All …" link. Text keeps the text measure even on wide pages.
+ * section-a: an H2, then any of: one paragraph, content components (each
+ * with an optional H3), an actions-a and a closing "All …" link. Text keeps
+ * the text measure even on wide pages.
  */
 
 * + .section-a {
@@ -18,8 +19,17 @@
 	max-width: var(--layout-text);
 }
 
-.section-a__list {
+.section-a__content {
 	margin-block-start: var(--space-3);
+}
+
+.section-a__subtitle {
+	max-width: var(--layout-text);
+	margin-block-start: var(--space-6);
+}
+
+.section-a__subtitle + .section-a__content {
+	margin-block-start: var(--space-2);
 }
 
 .section-a__actions {
