@@ -204,38 +204,6 @@ function portfolio_theme_register_home_fields() {
 					'type'  => 'textarea',
 					'rows'  => 2,
 				),
-				array(
-					'key'          => 'field_portfolio_home_profile_links',
-					'label'        => __( 'Links', 'portfolio-theme' ),
-					'name'         => 'home_profile_links',
-					'type'         => 'repeater',
-					'layout'       => 'table',
-					'button_label' => __( 'Add link', 'portfolio-theme' ),
-					'sub_fields'   => array(
-						array(
-							'key'      => 'field_portfolio_home_profile_links_title',
-							'label'    => __( 'Label', 'portfolio-theme' ),
-							'name'     => 'title',
-							'type'     => 'text',
-							'required' => 1,
-						),
-						array(
-							'key'      => 'field_portfolio_home_profile_links_url',
-							'label'    => __( 'Link', 'portfolio-theme' ),
-							'name'     => 'url',
-							'type'     => 'text',
-							'required' => 1,
-						),
-						array(
-							'key'          => 'field_portfolio_home_profile_links_me',
-							'label'        => __( 'Profile (rel="me")', 'portfolio-theme' ),
-							'name'         => 'is_profile',
-							'type'         => 'true_false',
-							'instructions' => __( 'Tick for GitHub, LinkedIn and other profiles of yours.', 'portfolio-theme' ),
-							'ui'           => 1,
-						),
-					),
-				),
 			),
 		)
 	);

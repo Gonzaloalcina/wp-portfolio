@@ -43,8 +43,11 @@ $home_id = $create(
 );
 update_field( 'field_portfolio_home_cta_label', 'Lorem ipsum dolor', $home_id );
 update_field( 'field_portfolio_home_contact_text', $lorem, $home_id );
+update_field( 'field_portfolio_core_settings_name', 'Gonzalo Alcina', 'option' );
+update_field( 'field_portfolio_core_settings_role_en', 'Lorem ipsum developer', 'option' );
+update_field( 'field_portfolio_core_settings_bio_en', $lorem, 'option' );
 update_field(
-	'field_portfolio_home_profile_links',
+	'field_portfolio_core_settings_profile_links',
 	array(
 		array(
 			'title'      => 'GitHub',
@@ -57,7 +60,7 @@ update_field(
 			'is_profile' => 1,
 		),
 	),
-	$home_id
+	'option'
 );
 
 // Pages, with the template each one uses ('' = page.php).

@@ -181,28 +181,22 @@ function portfolio_theme_front_text( $name ) {
 }
 
 /**
- * Returns the Home's profile links (GitHub, LinkedIn…) as link-row-a links.
+ * Returns the profile links (GitHub, LinkedIn…) from the site settings in
+ * portfolio-core, as link-row-a links. Empty when the plugin is off.
  *
  * @return array<int, array{title: string, url: string, rel: string}>
  */
 function portfolio_theme_profile_links() {
-	$front_id = (int) get_option( 'page_on_front' );
-	$rows     = $front_id && function_exists( 'get_field' ) ? get_field( 'home_profile_links', $front_id ) : null;
-	if ( ! is_array( $rows ) ) {
+	if ( ! function_exists( 'portfolio_core_profile_links' ) ) {
 		return array();
 	}
 
 	$links = array();
-	foreach ( $rows as $row ) {
-		$title = trim( (string) ( $row['title'] ?? '' ) );
-		if ( '' === $title ) {
-			continue;
-		}
-
+	foreach ( portfolio_core_profile_links() as $link ) {
 		$links[] = array(
-			'title' => $title,
-			'url'   => portfolio_theme_resolve_url( $row['url'] ?? '' ),
-			'rel'   => empty( $row['is_profile'] ) ? '' : 'me',
+			'title' => $link['title'],
+			'url'   => portfolio_theme_resolve_url( $link['url'] ),
+			'rel'   => $link['is_profile'] ? 'me' : '',
 		);
 	}
 
