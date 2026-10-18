@@ -1,0 +1,24 @@
+/*
+ * title-a: the H1 of a text page, with an optional meta line under it and an
+ * optional intro. Text measure even on wide pages.
+ */
+
+.title-a {
+	max-width: var(--layout-text);
+}
+
+.title-a > * {
+	margin: 0;
+}
+
+.title-a__meta {
+	margin-block-start: var(--space-1);
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+	font-variant-numeric: tabular-nums;
+}
+
+.title-a__intro {
+	margin-block-start: var(--space-2);
+}

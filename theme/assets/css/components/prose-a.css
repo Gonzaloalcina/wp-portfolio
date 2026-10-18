@@ -1,0 +1,83 @@
+/*
+ * prose-a: long text from the editor, on the text measure. Children are
+ * plain elements (the editor adds no classes), so they are styled here
+ * through the block. Headings, lists, links and rhythm come from base.css.
+ */
+
+* + .prose-a {
+	margin-block-start: var(--space-6);
+}
+
+.prose-a {
+	max-width: var(--layout-text);
+}
+
+/*
+ * A quote reads in the heading serif at lg on every screen, set in a little.
+ * No side line. Unlike quote-a it does not drop to base when narrow: quotes
+ * in a text are short, and the serif at base reads smaller than the text.
+ */
+.prose-a blockquote {
+	padding-inline-start: var(--space-3);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-lg);
+	line-height: var(--font-line-height-lg);
+	letter-spacing: var(--font-tracking-heading);
+}
+
+.prose-a blockquote cite {
+	display: block;
+	margin-block-start: var(--space-1);
+	color: var(--color-muted);
+	font-family: var(--font-family-body);
+	font-size: var(--font-size-sm);
+	font-style: normal;
+	line-height: var(--font-line-height-sm);
+	letter-spacing: normal;
+}
+
+.prose-a figcaption {
+	margin-block-start: var(--space-1);
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.prose-a img {
+	border: var(--line-width) solid var(--color-line);
+}
+
+.prose-a pre {
+	padding: var(--space-2);
+	border: var(--line-width) solid var(--color-line);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+/* Tables: rows on 1px lines, like list-a. */
+.prose-a table {
+	width: 100%;
+	border-collapse: collapse;
+	font-variant-numeric: tabular-nums;
+}
+
+.prose-a th,
+.prose-a td {
+	padding: var(--space-1) var(--space-2) var(--space-1) 0;
+	border-block-end: var(--line-width) solid var(--color-line);
+	text-align: start;
+	vertical-align: top;
+}
+
+.prose-a th {
+	font-weight: var(--font-weight-strong);
+}
+
+/*
+ * Wide images in a wide layout: the text column sits at the start of the
+ * site, so a wide block starts with it and runs to the site's full width.
+ */
+.site--second .prose-a .alignwide {
+	width: min(var(--layout-wide), 100vw - var(--layout-gutter) * 2);
+	margin-inline: 0;
+}

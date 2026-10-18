@@ -1,0 +1,43 @@
+/*
+ * Print: the Resume is meant to be printed, and any page may be. Light ink
+ * on white even when the dark scheme is on (system colours, no new values),
+ * and the site chrome hidden.
+ */
+
+@media print {
+	:root,
+	:root[data-theme] {
+		--color-paper: Canvas;
+		--color-ink: CanvasText;
+		--color-muted: GrayText;
+		color-scheme: light;
+	}
+
+	.skip-link,
+	.site__nav,
+	.theme-toggle,
+	.actions-a,
+	.site__footer {
+		display: none;
+	}
+
+	.site__header,
+	.site__main {
+		width: auto;
+		padding-block: 0;
+	}
+
+	.site__main {
+		padding-block-start: var(--space-4);
+	}
+
+	/* Rows and facts stay whole across pages. */
+	.list-a__item,
+	.facts-a__item {
+		break-inside: avoid;
+	}
+
+	* + .section-a {
+		margin-block-start: var(--space-6);
+	}
+}

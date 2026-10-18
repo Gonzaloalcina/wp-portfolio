@@ -1,0 +1,45 @@
+/*
+ * pagination-a: newer and older links, each keeping its side when the other
+ * is missing, and "Page x of y". Narrow: the links on one row, the status
+ * under them. From 48rem: newer | status | older. No line of its own: it
+ * follows a list that already ends on one.
+ */
+
+* + .pagination-a {
+	margin-block-start: var(--space-4);
+}
+
+.pagination-a {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas:
+		"prev next"
+		"status status";
+	gap: var(--space-1) var(--space-3);
+	align-items: baseline;
+}
+
+.pagination-a__prev {
+	grid-area: prev;
+	justify-self: start;
+}
+
+.pagination-a__status {
+	grid-area: status;
+	margin: 0;
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.pagination-a__next {
+	grid-area: next;
+	justify-self: end;
+}
+
+@media (min-width: 48rem) {
+	.pagination-a {
+		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+		grid-template-areas: "prev status next";
+	}
+}

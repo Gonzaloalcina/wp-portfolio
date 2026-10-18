@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header();
+get_header( null, array( 'variant' => 'second' ) );
 
 $portfolio_unit    = portfolio_theme_design_token( 'unit' );
 $portfolio_spaces  = portfolio_theme_design_tokens_by_prefix( 'space.' );
@@ -242,6 +242,12 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 					'quote-list-a' => __( 'quote-a items separated by 1px lines, on the same columns as a list-a.', 'portfolio-theme' ),
 					'quote-a'      => __( 'A testimonial: the quote, then name (linked to proof) and role.', 'portfolio-theme' ),
 					'nav-a'        => __( 'A WordPress menu as quiet links; a "Menu" dropdown on narrow screens. In the header.', 'portfolio-theme' ),
+					'title-a'      => __( 'H1 of a text page, with an optional meta line and intro. hero-a is for pages that lead to an action.', 'portfolio-theme' ),
+					'prose-a'      => __( 'Long text from the editor, on the text measure.', 'portfolio-theme' ),
+					'facts-a'      => __( 'Label and value pairs on 1px lines: client, year, role.', 'portfolio-theme' ),
+					'form-a'       => __( 'field-a items, a submit button-a and a note.', 'portfolio-theme' ),
+					'field-a'      => __( 'Label, optional hint and a full-width control with a muted line (3:1 contrast).', 'portfolio-theme' ),
+					'pagination-a' => __( 'Newer and older links with "Page x of y". Hidden with one page.', 'portfolio-theme' ),
 				);
 				foreach ( $portfolio_component_notes as $portfolio_component => $portfolio_note ) :
 					?>
@@ -322,6 +328,96 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						'url'   => '#ds-components',
 					),
 				),
+			)
+		);
+		?>
+		<h3><?php esc_html_e( 'title-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Notes, case studies and legal pages open with it. Shown here without the H1 element, so this page keeps one H1.', 'portfolio-theme' ); ?></p>
+		<div class="title-a">
+			<p class="title-a__title design-system__heading" style="font-size: var(--font-size-xl); line-height: var(--font-line-height-xl);"><?php esc_html_e( 'Title of a text page', 'portfolio-theme' ); ?></p>
+			<p class="title-a__meta"><time datetime="<?php echo esc_attr( wp_date( 'Y-m-d' ) ); ?>"><?php echo esc_html( wp_date( get_option( 'date_format' ) ) ); ?></time></p>
+			<p class="title-a__intro"><?php esc_html_e( 'One or two sentences of intro, 160 characters at most.', 'portfolio-theme' ); ?></p>
+		</div>
+
+		<h3><?php esc_html_e( 'facts-a', 'portfolio-theme' ); ?></h3>
+		<?php
+		portfolio_theme_component(
+			'facts-a',
+			array(
+				'items' => array(
+					array(
+						'label' => __( 'Client', 'portfolio-theme' ),
+						'value' => __( 'Client name', 'portfolio-theme' ),
+					),
+					array(
+						'label' => __( 'Year', 'portfolio-theme' ),
+						'value' => wp_date( 'Y' ),
+					),
+					array(
+						'label' => __( 'Site', 'portfolio-theme' ),
+						'value' => 'example.com',
+						'url'   => '#ds-components',
+					),
+				),
+			)
+		);
+		?>
+
+		<h3><?php esc_html_e( 'prose-a', 'portfolio-theme' ); ?></h3>
+		<?php
+		portfolio_theme_component(
+			'prose-a',
+			array(
+				'content' => '<p>' . esc_html__( 'Text written in the editor. Paragraphs, lists, links and headings take the base styles; quotes, captions, code and tables get their own.', 'portfolio-theme' ) . '</p>'
+					. '<blockquote><p>' . esc_html__( 'A quote, in the heading serif, set in a little. No side line.', 'portfolio-theme' ) . '</p></blockquote>'
+					. '<table><thead><tr><th>' . esc_html__( 'Column', 'portfolio-theme' ) . '</th><th>' . esc_html__( 'Column', 'portfolio-theme' ) . '</th></tr></thead><tbody><tr><td>' . esc_html__( 'Rows on 1px lines', 'portfolio-theme' ) . '</td><td>2026</td></tr></tbody></table>',
+			)
+		);
+		?>
+
+		<h3><?php esc_html_e( 'form-a and field-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Static for now: without an action the submit is disabled. The contact form logic will come from the portfolio-core plugin.', 'portfolio-theme' ); ?></p>
+		<?php
+		portfolio_theme_component(
+			'form-a',
+			array(
+				'label'  => __( 'Demo form', 'portfolio-theme' ),
+				'fields' => array(
+					array(
+						'name'     => 'demo-email',
+						'label'    => __( 'Email', 'portfolio-theme' ),
+						'type'     => 'email',
+						'required' => true,
+					),
+					array(
+						'name'  => 'demo-message',
+						'label' => __( 'Message', 'portfolio-theme' ),
+						'type'  => 'textarea',
+						'hint'  => __( 'A hint under the label.', 'portfolio-theme' ),
+					),
+				),
+				'button' => __( 'Send message', 'portfolio-theme' ),
+				'note'   => __( 'A note under the button.', 'portfolio-theme' ),
+			)
+		);
+		?>
+
+		<h3><?php esc_html_e( 'pagination-a', 'portfolio-theme' ); ?></h3>
+		<?php
+		portfolio_theme_component(
+			'pagination-a',
+			array(
+				'prev'    => array(
+					'title' => __( 'Newer notes', 'portfolio-theme' ),
+					'url'   => '#ds-components',
+				),
+				'next'    => array(
+					'title' => __( 'Older notes', 'portfolio-theme' ),
+					'url'   => '#ds-components',
+				),
+				'current' => 2,
+				'total'   => 3,
+				'label'   => __( 'Demo pagination', 'portfolio-theme' ),
 			)
 		);
 		?>

@@ -20,3 +20,11 @@
 @import "components/section-a.css";
 @import "components/hero-a.css";
 @import "components/nav-a.css";
+@import "components/title-a.css";
+@import "components/prose-a.css";
+@import "components/facts-a.css";
+@import "components/field-a.css";
+@import "components/form-a.css";
+@import "components/pagination-a.css";
+
+@import "print.css";

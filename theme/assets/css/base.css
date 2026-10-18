@@ -273,6 +273,13 @@ hr {
 	line-height: var(--font-line-height-sm);
 }
 
+/* A quiet link back to the parent page, after an article. */
+.site__back {
+	margin-block-start: var(--space-6);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
 .alignwide {
 	width: min(var(--layout-wide), 100vw - var(--layout-gutter) * 2);
 	margin-inline: calc((min(var(--layout-wide), 100vw - var(--layout-gutter) * 2) - 100%) / -2);

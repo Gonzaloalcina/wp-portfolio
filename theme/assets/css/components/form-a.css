@@ -1,0 +1,37 @@
+/*
+ * form-a: fields stacked on the text measure, then the submit button-a and
+ * a note. The submit is a <button>, so it takes the page font here.
+ */
+
+* + .form-a {
+	margin-block-start: var(--space-6);
+}
+
+.form-a {
+	display: grid;
+	gap: var(--space-3);
+	max-width: var(--layout-text);
+}
+
+.form-a__submit {
+	justify-self: start;
+	font: inherit;
+	font-weight: var(--font-weight-strong);
+	cursor: pointer;
+}
+
+/* Not connected yet: muted, and no hover inversion. */
+.form-a__submit:disabled,
+.form-a__submit:disabled:hover {
+	border-color: var(--color-muted);
+	background: var(--color-muted);
+	color: var(--color-paper);
+	cursor: not-allowed;
+}
+
+.form-a__note {
+	margin: 0;
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
