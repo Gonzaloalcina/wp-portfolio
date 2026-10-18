@@ -1,0 +1,41 @@
+<?php
+/**
+ * Plugin Name:       Portfolio Core
+ * Plugin URI:        https://gonzaloalcina.dev
+ * Description:       Site functionality for gonzaloalcina.dev that must survive a theme change: content types and their fields.
+ * Version:           0.1.0
+ * Requires at least: 7.1
+ * Requires PHP:      8.0
+ * Author:            Gonzalo Alcina
+ * Author URI:        https://gonzaloalcina.dev
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       portfolio-core
+ *
+ * @package PortfolioCore
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+require_once __DIR__ . '/inc/content-types.php';
+require_once __DIR__ . '/inc/fields.php';
+
+/**
+ * Registers the content types' rewrite rules on activation, so their URLs
+ * work without visiting Settings › Permalinks.
+ */
+function portfolio_core_activate() {
+	portfolio_core_register_content_types();
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'portfolio_core_activate' );
+
+/**
+ * Drops the content types' rewrite rules on deactivation.
+ */
+function portfolio_core_deactivate() {
+	unregister_post_type( 'project' );
+	unregister_post_type( 'service' );
+	flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'portfolio_core_deactivate' );
