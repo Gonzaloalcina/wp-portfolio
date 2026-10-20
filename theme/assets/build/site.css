@@ -726,8 +726,12 @@ color: var(--color-muted);
 font-size: var(--font-size-sm);
 line-height: var(--font-line-height-sm);
 }
-.prose-a img {
+.prose-a img,
+.prose-a video {
 border: var(--line-width) solid var(--color-line);
+}
+.prose-a video {
+width: 100%;
 }
 .prose-a pre {
 padding: var(--space-2);

@@ -256,3 +256,26 @@ kind of list, so a visitor could not tell where a row would take them.
 - **A Link that is a page on this site replaces the project page:** this
   site's entry links to `/how-this-site-is-built/`, and `/work/this-website/`
   redirects there (301), so the same work has one URL.
+
+## 2026-10-20 — Screen recordings on project pages
+
+Some work is interaction (scroll effects, hovers) and reads better as a few
+seconds of video than as code.
+
+- **Short clips, no audio**, 5–20 s, recorded on the live site, trimmed and
+  converted with ffmpeg: 1280 px wide, 30 fps, WebM (VP9) with an MP4
+  (H.264) fallback, and the first frame as a JPEG poster. Under 3 MB each;
+  no GIFs (heavier and worse).
+- **In the content**, in a wide figure (`alignwide`) with a one-line caption
+  that says what the clip shows, at the end of "What I built" on each
+  project page. Media live in the library, not the repo.
+- **Where they fit:** short pieces (5–10 s are the most effective) next to
+  the plain layout: interactions, a walk through a site, and later code or a
+  process done with Claude.
+- **`video-autoplay.js`**, loaded only on pages with such a video: a
+  `[data-autoplay]` video plays while it is on screen and pauses when it
+  leaves. With "reduce motion" nothing plays by itself; the controls stay
+  either way, so anyone can pause (WCAG 2.2.2). `preload="none"`, so nothing
+  downloads before the visitor gets there.
+- Post content may now hold `<source>` (src, type): core's `wp_kses_post`
+  allows `<video>` but not its sources.

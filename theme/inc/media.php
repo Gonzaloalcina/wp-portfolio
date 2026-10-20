@@ -149,3 +149,42 @@ function portfolio_theme_big_image_threshold() {
 	return 2048;
 }
 add_filter( 'big_image_size_threshold', 'portfolio_theme_big_image_threshold' );
+
+/**
+ * Enqueues the autoplay module for screen recordings, only on pages whose
+ * content has one (a video with data-autoplay).
+ */
+function portfolio_theme_enqueue_video_autoplay() {
+	if ( ! is_singular() || false === strpos( (string) get_post_field( 'post_content', get_queried_object_id() ), 'data-autoplay' ) ) {
+		return;
+	}
+
+	$file = 'assets/js/video-autoplay.js';
+
+	wp_enqueue_script_module(
+		'portfolio-theme/video-autoplay',
+		get_theme_file_uri( $file ),
+		array(),
+		(string) filemtime( get_theme_file_path( $file ) )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'portfolio_theme_enqueue_video_autoplay' );
+
+/**
+ * Allows <source> (src, type) in post content, so a video can offer WebM
+ * with an MP4 fallback. Core allows <video> but not its sources.
+ *
+ * @param array  $tags    Allowed tags.
+ * @param string $context Context.
+ * @return array
+ */
+function portfolio_theme_allow_video_sources( $tags, $context ) {
+	if ( 'post' === $context ) {
+		$tags['source'] = array(
+			'src'  => true,
+			'type' => true,
+		);
+	}
+	return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'portfolio_theme_allow_video_sources', 10, 2 );

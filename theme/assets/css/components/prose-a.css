@@ -43,8 +43,14 @@
 	line-height: var(--font-line-height-sm);
 }
 
-.prose-a img {
+.prose-a img,
+.prose-a video {
 	border: var(--line-width) solid var(--color-line);
+}
+
+/* Screen recordings fill their figure, wide ones included. */
+.prose-a video {
+	width: 100%;
 }
 
 .prose-a pre {
