@@ -40,7 +40,7 @@ function portfolio_core_register_fields() {
 					'label'        => __( 'Case title', 'portfolio-core' ),
 					'name'         => 'project_case_title',
 					'type'         => 'text',
-					'instructions' => __( 'The H1 of the case page, for a featured project. Empty: the project name. Lists always show the name.', 'portfolio-core' ),
+					'instructions' => __( 'The H1 of the project page. Empty: the project name. Lists always show the name.', 'portfolio-core' ),
 				),
 				array(
 					'key'   => 'field_portfolio_core_project_client',
@@ -115,7 +115,7 @@ function portfolio_core_register_fields() {
 					'label'        => __( 'Link', 'portfolio-core' ),
 					'name'         => 'project_url',
 					'type'         => 'text',
-					'instructions' => __( 'The live site, or a page on this site (/how-this-site-is-built/). A featured project links to its own case page instead.', 'portfolio-core' ),
+					'instructions' => __( 'The live site, shown in the facts. A page on this site (/how-this-site-is-built/) replaces the project page: lists link there and the project URL redirects.', 'portfolio-core' ),
 				),
 				array(
 					'key'   => 'field_portfolio_core_project_screenshot_ok',
@@ -130,7 +130,7 @@ function portfolio_core_register_fields() {
 					'name'         => 'project_featured',
 					'type'         => 'true_false',
 					'ui'           => 1,
-					'instructions' => __( 'Gives the project its own case page. Without it the project has no page of its own.', 'portfolio-core' ),
+					'instructions' => __( 'A case study: listed under Case studies in the Work hub, with the long text. Every project has a page; this marks the main ones.', 'portfolio-core' ),
 				),
 				array(
 					'key'           => 'field_portfolio_core_project_home',
@@ -144,7 +144,7 @@ function portfolio_core_register_fields() {
 					'allow_null'    => 1,
 					'default_value' => '',
 					'return_format' => 'value',
-					'instructions'  => __( 'Where the project shows on the Home. Selected work: up to three, with a page on this site. Also built: sites for agencies and small clients, linked to the live site. Empty: not on the Home. Only projects whose client may be named are shown.', 'portfolio-core' ),
+					'instructions'  => __( 'Where the project shows on the Home. Selected work: up to three, with the line. Also built: name and year · type. Empty: not on the Home. Only projects whose client may be named are shown.', 'portfolio-core' ),
 				),
 			),
 		)

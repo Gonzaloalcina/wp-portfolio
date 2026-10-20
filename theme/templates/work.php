@@ -2,8 +2,8 @@
 /**
  * Template Name: Work
  *
- * Work hub: case studies (featured projects, each with its own page), then
- * every other project as a row linked to the live site. Only projects whose
+ * Work hub: case studies (featured projects), then every other project as a
+ * row. Every row links to the project's page on this site. Only projects whose
  * client may be named are listed. Wide layout (site--second).
  *
  * @package PortfolioTheme

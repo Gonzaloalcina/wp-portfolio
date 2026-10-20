@@ -284,18 +284,17 @@ function portfolio_theme_projects( $featured = null ) {
 }
 
 /**
- * Where a project links: its case page when featured, otherwise the link
- * field (the live site, or a page on this site).
+ * Where a project links: its own page, or another page on this site when
+ * the Link field is one (this site's entry). Never the live site: that is a
+ * fact on the project page.
  *
  * @param WP_Post $post Project.
  * @return string
  */
 function portfolio_theme_project_url( $post ) {
-	if ( portfolio_theme_field( 'project_featured', $post->ID ) ) {
-		return get_permalink( $post );
-	}
+	$url = portfolio_theme_field( 'project_url', $post->ID );
 
-	return portfolio_theme_resolve_url( portfolio_theme_field( 'project_url', $post->ID ) );
+	return str_starts_with( $url, '/' ) && ! str_starts_with( $url, '//' ) ? portfolio_theme_resolve_url( $url ) : get_permalink( $post );
 }
 
 /**

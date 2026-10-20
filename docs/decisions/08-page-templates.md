@@ -238,3 +238,21 @@ new tab" note in the footer, so screen readers announce it.
 `portfolio_theme_link_attrs()` applies it in every component that prints a
 link, and a `the_content` filter does the same for editor content. Internal
 links, `mailto:` and `tel:` are left alone.
+
+## 2026-10-20 — Every project has a page; featured marks the case studies
+
+Replaces "Work: a `project` post type with a featured flag" on one point.
+With only the featured projects linked inside the site, the Work hub mixed
+internal links (case studies) and links out (every other row) in the same
+kind of list, so a visitor could not tell where a row would take them.
+
+- **Every project whose client may be named has a page** at `/work/<slug>/`,
+  on the same template (`single-project.php`). A project without consent is
+  still a 404.
+- **Featured now means case study:** the Case studies list of the hub, the
+  long text, "Case study" above the title (other pages say "Project").
+- **Rows always link inside the site** (hub, Home, service proof, blocks).
+  The live site is a fact on the project page ("Site").
+- **A Link that is a page on this site replaces the project page:** this
+  site's entry links to `/how-this-site-is-built/`, and `/work/this-website/`
+  redirects there (301), so the same work has one URL.

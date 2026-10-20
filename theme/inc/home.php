@@ -201,7 +201,7 @@ function portfolio_theme_home_quotes() {
  * row-a items. Only projects whose client may be named, in menu order.
  *
  * Selected work rows keep their line (what I did); Also built rows are name
- * and year · type only, linked to the live site.
+ * and year · type only. Both link to the project's page.
  *
  * @param string $placement "selected" or "also_built".
  * @param int    $limit     Maximum rows; 0 for no limit.

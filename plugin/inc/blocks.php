@@ -40,20 +40,16 @@ function portfolio_core_field( $name, $post_id ) {
 }
 
 /**
- * Where a project links: its case page when it has one, otherwise its Link
- * field (the live site, or a path on this site).
+ * Where a project links: its page on this site (another page when its Link
+ * field is a path on this site).
  *
  * @param WP_Post $post Project.
  * @return string
  */
 function portfolio_core_project_url( $post ) {
-	if ( portfolio_core_project_is_featured( $post ) ) {
-		return get_permalink( $post );
-	}
+	$internal = portfolio_core_project_internal_url( $post );
 
-	$url = trim( portfolio_core_field( 'project_url', $post->ID ) );
-
-	return str_starts_with( $url, '/' ) && ! str_starts_with( $url, '//' ) ? home_url( $url ) : $url;
+	return $internal ? $internal : get_permalink( $post );
 }
 
 /**

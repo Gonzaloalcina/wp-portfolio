@@ -1,7 +1,7 @@
 <?php
 /**
- * Case study: a featured project's page (other projects have none; the
- * portfolio-core plugin answers them with a 404). H1 (the case title, or
+ * Project page: a case study (featured) or any other project, with the
+ * same structure; a case study just has more text. H1 (the case title, or
  * the name) with "what I did" as intro, the facts (client, year, role…),
  * the method and decisions from the editor, the outcome, then the closing
  * Contact section.
@@ -24,7 +24,7 @@ $portfolio_case_title = portfolio_theme_field( 'project_case_title' );
 		'title-a',
 		array(
 			'title' => $portfolio_case_title ? $portfolio_case_title : get_the_title(),
-			'meta'  => __( 'Case study', 'portfolio-theme' ),
+			'meta'  => portfolio_theme_field( 'project_featured' ) ? __( 'Case study', 'portfolio-theme' ) : __( 'Project', 'portfolio-theme' ),
 			'intro' => portfolio_theme_field( 'project_what' ),
 		)
 	);

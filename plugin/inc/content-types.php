@@ -85,7 +85,8 @@ function portfolio_core_project_is_public( $post ) {
 }
 
 /**
- * Whether a project has its own case page.
+ * Whether a project is a case study: the long template, the Case studies
+ * list of the Work hub.
  *
  * @param int|WP_Post $post Project.
  * @return bool
@@ -95,22 +96,41 @@ function portfolio_core_project_is_featured( $post ) {
 }
 
 /**
- * Only featured projects with consent have a page. Any other project URL is
- * a 404: those projects are rows in the Work hub, linked to the live site.
+ * A project's page on this site other than its own, from the Link field
+ * (e.g. /how-this-site-is-built/ for this site's entry), or ''.
+ *
+ * @param int|WP_Post $post Project.
+ * @return string
  */
-function portfolio_core_project_single_404() {
+function portfolio_core_project_internal_url( $post ) {
+	$url = trim( (string) get_post_meta( get_post( $post )->ID, 'project_url', true ) );
+
+	return str_starts_with( $url, '/' ) && ! str_starts_with( $url, '//' ) ? home_url( $url ) : '';
+}
+
+/**
+ * Every project whose client may be named has a page. A project without
+ * consent is a 404; a project whose Link is another page on this site
+ * redirects there, so the same work has one URL.
+ */
+function portfolio_core_project_single_guard() {
 	if ( ! is_singular( 'project' ) ) {
 		return;
 	}
 
 	$post = get_queried_object();
-	if ( portfolio_core_project_is_featured( $post ) && portfolio_core_project_is_public( $post ) ) {
+	if ( ! portfolio_core_project_is_public( $post ) ) {
+		global $wp_query;
+		$wp_query->set_404();
+		status_header( 404 );
+		nocache_headers();
 		return;
 	}
 
-	global $wp_query;
-	$wp_query->set_404();
-	status_header( 404 );
-	nocache_headers();
+	$internal = portfolio_core_project_internal_url( $post );
+	if ( $internal ) {
+		wp_safe_redirect( $internal, 301 );
+		exit;
+	}
 }
-add_action( 'template_redirect', 'portfolio_core_project_single_404' );
+add_action( 'template_redirect', 'portfolio_core_project_single_guard' );
