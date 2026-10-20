@@ -89,7 +89,7 @@ function portfolio_theme_register_home_fields() {
 							'name'      => 'quote',
 							'type'      => 'textarea',
 							'rows'      => 3,
-							'maxlength' => 240,
+							'maxlength' => 480,
 							'required'  => 1,
 						),
 						array(
