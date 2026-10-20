@@ -2,6 +2,8 @@
  * section-a: an H2, then any of: one paragraph, content components (each
  * with an optional H3), an actions-a and a closing "All …" link. Text keeps
  * the text measure even on wide pages.
+ * --second: set apart by a full-width 1px line and more space, so the
+ * closing Contact reads as the end of the page, not one more section.
  */
 
 * + .section-a {
@@ -11,6 +13,17 @@
 @media (min-width: 48rem) {
 	* + .section-a {
 		margin-block-start: var(--space-12);
+	}
+}
+
+.section-a--second {
+	padding-block-start: var(--space-8);
+	border-block-start: var(--line-width) solid var(--color-line);
+}
+
+@media (min-width: 48rem) {
+	.section-a--second {
+		padding-block-start: var(--space-12);
 	}
 }
 

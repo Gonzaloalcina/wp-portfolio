@@ -101,6 +101,21 @@ function portfolio_core_register_settings() {
 					'instructions' => __( 'e.g. Spain · CET.', 'portfolio-core' ),
 				),
 				array(
+					'key'          => 'field_portfolio_core_settings_languages_en',
+					'label'        => __( 'Languages (English)', 'portfolio-core' ),
+					'name'         => 'site_languages_en',
+					'type'         => 'text',
+					'instructions' => __( 'Comma-separated, level in brackets, e.g. Spanish (native), English (professional). Shown on About and read by the Person schema.', 'portfolio-core' ),
+					'wrapper'      => array( 'width' => '50' ),
+				),
+				array(
+					'key'     => 'field_portfolio_core_settings_languages_es',
+					'label'   => __( 'Languages (Spanish)', 'portfolio-core' ),
+					'name'    => 'site_languages_es',
+					'type'    => 'text',
+					'wrapper' => array( 'width' => '50' ),
+				),
+				array(
 					'key'   => 'field_portfolio_core_settings_tab_profiles',
 					'label' => __( 'Profiles', 'portfolio-core' ),
 					'type'  => 'tab',
@@ -210,9 +225,29 @@ function portfolio_core_profile_links() {
 }
 
 /**
+ * Returns the languages from the site settings, in the current language,
+ * without their level: "Spanish (native), English (professional)" gives
+ * Spanish and English.
+ *
+ * @return string[]
+ */
+function portfolio_core_languages() {
+	$languages = array();
+	foreach ( explode( ',', portfolio_core_setting_i18n( 'site_languages' ) ) as $language ) {
+		$language = trim( preg_replace( '/\s*\(.*?\)/', '', $language ) );
+		if ( '' !== $language ) {
+			$languages[] = $language;
+		}
+	}
+
+	return $languages;
+}
+
+/**
  * Completes the Person that Rank Math outputs (Titles & Meta › Local SEO set
- * to "Person") with the site settings: name, job title, description and the
- * rel="me" profiles as sameAs. Nothing about availability.
+ * to "Person") with the site settings: name, job title, description, the
+ * languages as knowsLanguage and the rel="me" profiles as sameAs. Nothing
+ * about availability.
  *
  * @param array $data JSON-LD entities, keyed by Rank Math.
  * @return array
@@ -227,10 +262,11 @@ function portfolio_core_person_schema( $data ) {
 
 	$fields = array_filter(
 		array(
-			'name'        => portfolio_core_setting( 'site_person_name' ),
-			'jobTitle'    => portfolio_core_setting_i18n( 'site_role' ),
-			'description' => portfolio_core_setting_i18n( 'site_bio' ),
-			'sameAs'      => $same_as,
+			'name'          => portfolio_core_setting( 'site_person_name' ),
+			'jobTitle'      => portfolio_core_setting_i18n( 'site_role' ),
+			'description'   => portfolio_core_setting_i18n( 'site_bio' ),
+			'knowsLanguage' => portfolio_core_languages(),
+			'sameAs'        => $same_as,
 		)
 	);
 

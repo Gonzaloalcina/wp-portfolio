@@ -279,3 +279,46 @@ seconds of video than as code.
   downloads before the visitor gets there.
 - Post content may now hold `<source>` (src, type): core's `wp_kses_post`
   allows `<video>` but not its sources.
+
+## 2026-10-20 — About: the entity page, built from existing components
+
+About answers, in order: who this is, how he works with the people around a
+live website, where, with what, who says so, other things (the person), contact. No new
+component and no new token.
+
+- **H1 is the name** (Site settings), not "About": it is the page about the
+  person (`ProfilePage`/Person, SEO session). The nav label stays "About".
+  Without a name the page title is the H1, so the page always has one.
+- **One source per fact.** Short bio, location and the new **languages**
+  field (`site_languages_en`/`_es`) live in Site settings; languages also
+  feed `knowsLanguage` in the Person schema, without their level.
+  "Where I have done it" is the **Resume page's first section**
+  (experience). Testimonials are the **Home's**, at most two
+  (`portfolio_theme_home_quotes()` now reads the front page and takes a
+  limit). Only what no other page has is an About field (`inc/about.php`):
+  `about_currently`, `about_how` (area | what I do | with whom),
+  `about_tools`, `about_outside`.
+- **Sections:** `hero-a` with a larger portrait, `facts-a`, `prose-a` (page
+  text), then `section-a` with `list-a`, text or `quote-list-a`. A section
+  without content does not render: `section-a` and the lists already drop
+  out when empty, and facts drop row by row.
+- **`hero-a--second`** (`variant => 'second'`): the portrait at 20 units
+  narrow and 24 from 48rem (12 and 16 on other pages), a larger image size
+  for sharp rendering. Still a square with a 1px line, eager (it is the
+  LCP), `alt` = the name.
+- **`section-a` text can hold paragraphs:** a blank line starts a new one.
+  Tools and AI needs two; other sections are unchanged.
+- **Not in About:** no availability or job-seeking wording, no employer
+  plugin names or internal figures, no client counts. The copy is reviewed
+  by Gonzalo before it leaves the local database.
+- An end-to-end check (one H1, empty sections absent) waits for Playwright,
+  which the repo does not have yet.
+
+## 2026-10-20 — The closing Contact is set apart by a line
+
+Contact closes every page that ends with it, but it looked like one more
+section of the page. Gonzalo chose the most minimal of three options (line
+and space; line and a larger title; line and the square marker):
+`section-a--second` adds a full-width 1px line and more space above it, like
+the footer's. Used by `portfolio_theme_contact_section()` and the Home's
+Contact. No new token.

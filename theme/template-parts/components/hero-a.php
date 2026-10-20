@@ -5,7 +5,8 @@
  *
  * Args: title, intro, actions (see actions-a), image_id, image_alt,
  * image_frame (true: draw the empty frame when there is no image; for the
- * preview only).
+ * preview only), variant ("second": a larger image, for a page about a
+ * person).
  *
  * @package PortfolioTheme
  */
@@ -17,8 +18,9 @@ if ( empty( $args['title'] ) ) {
 }
 
 $portfolio_image_id = (int) ( $args['image_id'] ?? 0 );
+$portfolio_second   = 'second' === ( $args['variant'] ?? '' );
 ?>
-<section class="hero-a" aria-labelledby="hero-a-title">
+<section class="hero-a<?php echo $portfolio_second ? ' hero-a--second' : ''; ?>" aria-labelledby="hero-a-title">
 	<div class="hero-a__text">
 		<h1 class="hero-a__title" id="hero-a-title"><?php echo esc_html( $args['title'] ); ?></h1>
 
@@ -39,11 +41,11 @@ $portfolio_image_id = (int) ( $args['image_id'] ?? 0 );
 			if ( $portfolio_image_id ) {
 				echo wp_get_attachment_image(
 					$portfolio_image_id,
-					'medium',
+					$portfolio_second ? 'medium_large' : 'medium',
 					false,
 					array(
 						'alt'     => $args['image_alt'] ?? '',
-						'sizes'   => '8rem',
+						'sizes'   => $portfolio_second ? '12rem' : '8rem',
 						'loading' => 'eager',
 					)
 				);

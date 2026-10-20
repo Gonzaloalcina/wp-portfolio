@@ -1,6 +1,7 @@
 /*
  * hero-a: H1, short intro, actions-a and a square image with a 1px line.
  * Narrow: image first. From 48rem: text left (text measure), image right.
+ * --second: a larger image, for a page about a person (About).
  */
 
 .hero-a {
@@ -33,6 +34,10 @@
 	object-fit: cover;
 }
 
+.hero-a--second .hero-a__image {
+	width: calc(var(--unit) * 20);
+}
+
 @media (min-width: 48rem) {
 	.hero-a {
 		grid-template-columns: minmax(0, var(--layout-text)) auto;
@@ -44,5 +49,9 @@
 	.hero-a__image {
 		order: 0;
 		width: calc(var(--unit) * 16);
+	}
+
+	.hero-a--second .hero-a__image {
+		width: calc(var(--unit) * 24);
 	}
 }

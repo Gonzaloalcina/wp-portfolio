@@ -167,12 +167,15 @@ function portfolio_theme_resolve_url( $url ) {
 
 /**
  * Returns the Home testimonials in the shape quote-a expects. Rows without a
- * quote or a name are dropped.
+ * quote or a name are dropped. Read from the front page, so other pages
+ * (About) show the same quotes without a second field.
  *
+ * @param int $limit Maximum quotes; 0 for all.
  * @return array<int, array{quote: string, name: string, role: string, url: string}>
  */
-function portfolio_theme_home_quotes() {
-	$rows = function_exists( 'get_field' ) ? get_field( 'home_testimonials' ) : null;
+function portfolio_theme_home_quotes( $limit = 0 ) {
+	$front_id = (int) get_option( 'page_on_front' );
+	$rows     = function_exists( 'get_field' ) && $front_id ? get_field( 'home_testimonials', $front_id ) : null;
 	if ( ! is_array( $rows ) ) {
 		return array();
 	}
@@ -193,7 +196,7 @@ function portfolio_theme_home_quotes() {
 		);
 	}
 
-	return $items;
+	return $limit ? array_slice( $items, 0, $limit ) : $items;
 }
 
 /**

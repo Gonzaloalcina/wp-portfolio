@@ -4,8 +4,9 @@
  * an actions-a and a closing link. A section with nothing but its title does
  * not render.
  *
- * Args: id (used for the heading), title, text, content, actions (see
- * actions-a), more (title, url).
+ * Args: id (used for the heading), title, text (a blank line starts a new
+ * paragraph), content, actions (see actions-a), more (title, url), variant
+ * ("second": set apart by a full-width line, for the closing Contact).
  *
  * content: a list of components to render in order, each
  * array( 'name' => 'list-a', 'args' => array( 'items' => … ), 'title' => '' ).
@@ -32,11 +33,13 @@ if ( empty( $args['title'] ) || ( empty( $args['text'] ) && ! $portfolio_content
 
 $portfolio_heading_id = sanitize_html_class( $args['id'] ?? sanitize_title( $args['title'] ) );
 ?>
-<section class="section-a" aria-labelledby="<?php echo esc_attr( $portfolio_heading_id ); ?>">
+<section class="section-a<?php echo 'second' === ( $args['variant'] ?? '' ) ? ' section-a--second' : ''; ?>" aria-labelledby="<?php echo esc_attr( $portfolio_heading_id ); ?>">
 	<h2 class="section-a__title" id="<?php echo esc_attr( $portfolio_heading_id ); ?>"><?php echo esc_html( $args['title'] ); ?></h2>
 
 	<?php if ( ! empty( $args['text'] ) ) : ?>
-		<p class="section-a__text"><?php echo esc_html( $args['text'] ); ?></p>
+		<?php foreach ( preg_split( '/\R\s*\R/', trim( $args['text'] ) ) as $portfolio_paragraph ) : ?>
+			<p class="section-a__text"><?php echo esc_html( $portfolio_paragraph ); ?></p>
+		<?php endforeach; ?>
 	<?php endif; ?>
 
 	<?php foreach ( $portfolio_content as $portfolio_entry ) : ?>
