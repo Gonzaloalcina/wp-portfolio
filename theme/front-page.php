@@ -108,6 +108,7 @@ $portfolio_sections = array(
 	array(
 		'id'      => 'contact',
 		'title'   => __( 'Contact', 'portfolio-theme' ),
+		'variant' => 'second',
 		'text'    => portfolio_theme_home_text( 'home_contact_text' ),
 		'actions' => array(
 			'button' => $portfolio_cta,

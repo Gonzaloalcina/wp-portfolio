@@ -46,6 +46,24 @@ update_field( 'field_portfolio_home_contact_text', $lorem, $home_id );
 update_field( 'field_portfolio_core_settings_name', 'Gonzalo Alcina', 'option' );
 update_field( 'field_portfolio_core_settings_role_en', 'Lorem ipsum developer', 'option' );
 update_field( 'field_portfolio_core_settings_bio_en', $lorem, 'option' );
+update_field( 'field_portfolio_core_settings_location', 'Lorem, Ipsum', 'option' );
+update_field( 'field_portfolio_core_settings_languages_en', 'Lorem (native), Ipsum (professional)', 'option' );
+update_field(
+	'field_portfolio_home_testimonials',
+	array(
+		array(
+			'quote' => $lorem,
+			'name'  => 'Lorem Ipsum',
+			'role'  => 'Dolor sit, Amet',
+		),
+		array(
+			'quote' => $lorem_line,
+			'name'  => 'Dolor Amet',
+			'role'  => 'Consectetur, Adipiscing',
+		),
+	),
+	$home_id
+);
 update_field(
 	'field_portfolio_core_settings_profile_links',
 	array(
@@ -98,6 +116,23 @@ foreach ( $pages as $slug => list( $title, $template ) ) {
 update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $home_id );
 update_option( 'page_for_posts', $page_ids['notes'] );
+
+// About: every section filled, so the template can be judged whole.
+update_field( 'field_portfolio_about_currently', 'Lorem ipsum, Dolor', $page_ids['about'] );
+update_field(
+	'field_portfolio_about_how',
+	array_map(
+		static fn( $area ) => array(
+			'area' => $area,
+			'text' => $lorem_line,
+			'who'  => 'Lorem, ipsum',
+		),
+		array( 'Lorem', 'Ipsum dolor', 'Sit amet' )
+	),
+	$page_ids['about']
+);
+update_field( 'field_portfolio_about_tools', "{$lorem}\n\n{$lorem}", $page_ids['about'] );
+update_field( 'field_portfolio_about_outside', $lorem, $page_ids['about'] );
 
 update_field(
 	'field_portfolio_resume_sections',

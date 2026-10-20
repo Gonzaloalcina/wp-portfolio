@@ -219,6 +219,7 @@ function portfolio_theme_contact_section() {
 		array(
 			'id'      => 'contact',
 			'title'   => __( 'Contact', 'portfolio-theme' ),
+			'variant' => 'second',
 			'text'    => portfolio_theme_front_text( 'home_contact_text' ),
 			'actions' => array(
 				'button' => portfolio_theme_contact_button(),
