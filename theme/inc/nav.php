@@ -10,17 +10,49 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Registers the menu location. With Polylang, each language assigns its own
- * menu to it.
+ * Registers the menu locations: the main menu (nav-a) and the footer links
+ * (link-row-a), for pages kept out of the main menu. With Polylang, each
+ * language assigns its own menu to them.
  */
 function portfolio_theme_register_menus() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Main menu', 'portfolio-theme' ),
+			'footer'  => __( 'Footer links', 'portfolio-theme' ),
 		)
 	);
 }
 add_action( 'after_setup_theme', 'portfolio_theme_register_menus' );
+
+/**
+ * Returns the top-level items of the menu in a location as link-row-a links.
+ *
+ * @param string $location Menu location.
+ * @return array<int, array{title: string, url: string}>
+ */
+function portfolio_theme_menu_links( $location ) {
+	$locations = get_nav_menu_locations();
+	if ( empty( $locations[ $location ] ) ) {
+		return array();
+	}
+
+	$items = wp_get_nav_menu_items( $locations[ $location ] );
+	if ( ! is_array( $items ) ) {
+		return array();
+	}
+
+	$links = array();
+	foreach ( $items as $item ) {
+		if ( ! $item->menu_item_parent ) {
+			$links[] = array(
+				'title' => $item->title,
+				'url'   => $item->url,
+			);
+		}
+	}
+
+	return $links;
+}
 
 /**
  * Whether a wp_nav_menu() call is the one nav-a makes, so the class filters

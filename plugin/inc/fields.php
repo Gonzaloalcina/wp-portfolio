@@ -36,6 +36,13 @@ function portfolio_core_register_fields() {
 			'menu_order' => 0,
 			'fields'     => array(
 				array(
+					'key'          => 'field_portfolio_core_project_case_title',
+					'label'        => __( 'Case title', 'portfolio-core' ),
+					'name'         => 'project_case_title',
+					'type'         => 'text',
+					'instructions' => __( 'The H1 of the case page, for a featured project. Empty: the project name. Lists always show the name.', 'portfolio-core' ),
+				),
+				array(
 					'key'   => 'field_portfolio_core_project_client',
 					'label' => __( 'Client', 'portfolio-core' ),
 					'name'  => 'project_client',
@@ -199,6 +206,15 @@ function portfolio_core_register_fields() {
 					'post_type'     => array( 'project', 'post' ),
 					'filters'       => array( 'search', 'post_type' ),
 					'return_format' => 'id',
+				),
+				array(
+					'key'           => 'field_portfolio_core_service_home',
+					'label'         => __( 'Show on the Home', 'portfolio-core' ),
+					'name'          => 'service_home',
+					'type'          => 'true_false',
+					'ui'            => 1,
+					'default_value' => 1,
+					'instructions'  => __( 'Off: the service is listed in the Services hub only (e.g. maintenance, linked from the footer).', 'portfolio-core' ),
 				),
 			),
 		)

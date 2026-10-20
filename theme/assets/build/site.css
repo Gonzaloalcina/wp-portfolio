@@ -288,11 +288,19 @@ display: none;
 padding-block: var(--space-6);
 }
 .site__footer {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: var(--space-1) var(--space-3);
 padding-block: var(--space-4);
 border-block-start: var(--line-width) solid var(--color-line);
 color: var(--color-muted);
 font-size: var(--font-size-sm);
 line-height: var(--font-line-height-sm);
+}
+.site__footer > * {
+margin-block-start: 0;
 }
 .site__back {
 margin-block-start: var(--space-6);

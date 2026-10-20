@@ -174,3 +174,42 @@ The Resume page stays (name, `/resume/`, links from the Home and Contact,
 indexable) as a transcription of the CV, with no downloadable PDF. The
 `resume_pdf` field and the download button are removed; the hero keeps a
 quiet link to Contact.
+
+## 2026-10-20 — Work rows say the role; cases get their own title
+
+- **Project rows show the role after "what I did"** (`portfolio_theme_project_line()`),
+  in the Work hub, in service proof and in Selected work. Agency work has to
+  say through whom it came and who did the design, and the row is the only
+  place most projects appear.
+- **"Case title" field** (`project_case_title`): the H1 of a case page, e.g.
+  "Ramón Esteve: moving an architecture studio's site from a custom theme to
+  Elementor". Lists keep the short name (the post title); empty falls back to
+  it.
+
+## 2026-10-20 — Maintenance: in the Services hub and the footer, not the Home
+
+- **"Show on the Home" field** on services (`service_home`, on by default).
+  WordPress maintenance switches it off: it is listed in the Services hub and
+  linked from the footer, not from the Home or the main menu. A field, like
+  the projects' Home placement, so the choice is editorial and visible in the
+  editor. A service saved before the field existed has no value and stays on.
+- **Footer links menu** (`footer` location, Appearance › Menus), rendered with
+  `link-row-a` next to the copyright. It holds pages kept out of the main menu.
+
+## 2026-10-20 — Polylang installed; English and Spanish locally
+
+Polylang (free) is active locally: English is the default language with no
+prefix, Spanish lives under `/es/`, browser detection off. Projects and
+services are translatable; custom fields are **not** synced between
+translations, since each language has its own text. Menus are assigned per
+language (main menu in English; footer links in both).
+
+Content is entered with a WP-CLI script kept outside the repo, so the
+database stays the source of content. Until the i18n phase:
+
+- Polylang free cannot share slugs, so Spanish projects carry `-es` and post
+  type bases stay in English (`/es/work/ramon-esteve-es/`). The rewrite filter
+  planned above translates the bases; the slugs are settled with it.
+- The Spanish Home, hubs and pages are not created yet, and theme strings are
+  not translated.
+- The Playground blueprint does not install Polylang yet.

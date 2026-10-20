@@ -299,7 +299,8 @@ function portfolio_theme_project_url( $post ) {
 }
 
 /**
- * Returns projects as row-a items: name, year · type, what I did.
+ * Returns projects as row-a items: name, year · type, what I did and the
+ * role (agency work says through whom, and who did the design).
  *
  * @param WP_Post[] $posts Projects.
  * @return array<int, array{title: string, url: string, meta: string, text: string}>
@@ -318,10 +319,25 @@ function portfolio_theme_project_rows( $posts ) {
 					)
 				)
 			),
-			'text'  => portfolio_theme_field( 'project_what', $post->ID ),
+			'text'  => portfolio_theme_project_line( $post ),
 		),
 		$posts
 	);
+}
+
+/**
+ * A project's one line for lists: what I did, then the role as a sentence.
+ *
+ * @param WP_Post $post Project.
+ * @return string
+ */
+function portfolio_theme_project_line( $post ) {
+	$role = portfolio_theme_field( 'project_role', $post->ID );
+	if ( '' !== $role && ! preg_match( '/[.!?]$/', $role ) ) {
+		$role .= '.';
+	}
+
+	return trim( portfolio_theme_field( 'project_what', $post->ID ) . ' ' . $role );
 }
 
 /**
@@ -366,9 +382,11 @@ function portfolio_theme_project_facts( $post ) {
 /**
  * Returns published services as row-a items: name and the problem it solves.
  *
+ * @param bool $home True: only services shown on the Home (the service's
+ *                   "Show on the Home" field; on unless switched off).
  * @return array<int, array{title: string, url: string, text: string}>
  */
-function portfolio_theme_service_rows() {
+function portfolio_theme_service_rows( $home = false ) {
 	if ( ! post_type_exists( 'service' ) ) {
 		return array();
 	}
@@ -385,6 +403,16 @@ function portfolio_theme_service_rows() {
 			'suppress_filters' => false,
 		)
 	);
+
+	if ( $home ) {
+		// Raw meta: a service saved before the field existed has none and stays on.
+		$posts = array_values(
+			array_filter(
+				$posts,
+				static fn( $post ) => '0' !== get_post_meta( $post->ID, 'service_home', true )
+			)
+		);
+	}
 
 	return array_map(
 		static fn( $post ) => array(
