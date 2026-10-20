@@ -117,8 +117,10 @@ pre {
 	font-size: 1em;
 }
 
+/* Tabs at four spaces: the browser default (eight) pushes code off screen. */
 pre {
 	overflow-x: auto;
+	tab-size: 4;
 }
 
 /* Links */

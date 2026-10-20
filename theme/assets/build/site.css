@@ -188,6 +188,7 @@ font-size: 1em;
 }
 pre {
 overflow-x: auto;
+tab-size: 4;
 }
 a {
 color: inherit;
