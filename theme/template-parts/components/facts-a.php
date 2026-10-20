@@ -26,7 +26,7 @@ if ( ! $portfolio_facts ) {
 			<dt class="facts-a__label"><?php echo esc_html( $portfolio_fact['label'] ); ?></dt>
 			<dd class="facts-a__value">
 				<?php if ( ! empty( $portfolio_fact['url'] ) ) : ?>
-					<a href="<?php echo esc_url( $portfolio_fact['url'] ); ?>"><?php echo esc_html( $portfolio_fact['value'] ); ?></a>
+					<a href="<?php echo esc_url( $portfolio_fact['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $portfolio_fact['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $portfolio_fact['value'] ); ?></a>
 				<?php else : ?>
 					<?php echo esc_html( $portfolio_fact['value'] ); ?>
 				<?php endif; ?>

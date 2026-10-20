@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
 get_header( null, array( 'variant' => 'second' ) );
 the_post();
 
+portfolio_theme_component( 'breadcrumb-a', array( 'items' => portfolio_theme_breadcrumbs() ) );
+
 portfolio_theme_component(
 	'hero-a',
 	array(

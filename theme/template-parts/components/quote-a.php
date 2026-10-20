@@ -21,7 +21,7 @@ if ( empty( $args['quote'] ) || empty( $args['name'] ) ) {
 	</blockquote>
 	<figcaption class="quote-a__cite">
 		<?php if ( ! empty( $args['url'] ) ) : ?>
-			<a class="quote-a__name" href="<?php echo esc_url( $args['url'] ); ?>"><?php echo esc_html( $args['name'] ); ?></a>
+			<a class="quote-a__name" href="<?php echo esc_url( $args['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $args['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $args['name'] ); ?></a>
 		<?php else : ?>
 			<span class="quote-a__name"><?php echo esc_html( $args['name'] ); ?></span>
 		<?php endif; ?>

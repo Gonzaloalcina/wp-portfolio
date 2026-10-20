@@ -331,6 +331,29 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 			)
 		);
 		?>
+		<h3><?php esc_html_e( 'breadcrumb-a', 'portfolio-theme' ); ?></h3>
+		<p><?php esc_html_e( 'Above the H1 of cases, services and notes. The same trail as the BreadcrumbList schema.', 'portfolio-theme' ); ?></p>
+		<?php
+		portfolio_theme_component(
+			'breadcrumb-a',
+			array(
+				'items' => array(
+					array(
+						'title' => __( 'Home', 'portfolio-theme' ),
+						'url'   => home_url( '/' ),
+					),
+					array(
+						'title' => __( 'Work', 'portfolio-theme' ),
+						'url'   => home_url( '/work/' ),
+					),
+					array(
+						'title' => __( 'Case study', 'portfolio-theme' ),
+						'url'   => '',
+					),
+				),
+			)
+		);
+		?>
 		<h3><?php esc_html_e( 'title-a', 'portfolio-theme' ); ?></h3>
 		<p><?php esc_html_e( 'Notes, case studies and legal pages open with it. Shown here without the H1 element, so this page keeps one H1.', 'portfolio-theme' ); ?></p>
 		<div class="title-a">

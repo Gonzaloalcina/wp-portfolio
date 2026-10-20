@@ -61,6 +61,6 @@ $portfolio_heading_id = sanitize_html_class( $args['id'] ?? sanitize_title( $arg
 	?>
 
 	<?php if ( ! empty( $portfolio_more['title'] ) ) : ?>
-		<p class="section-a__more"><a href="<?php echo esc_url( $portfolio_more['url'] ); ?>"><?php echo esc_html( $portfolio_more['title'] ); ?></a></p>
+		<p class="section-a__more"><a href="<?php echo esc_url( $portfolio_more['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $portfolio_more['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $portfolio_more['title'] ); ?></a></p>
 	<?php endif; ?>
 </section>

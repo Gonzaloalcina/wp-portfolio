@@ -18,6 +18,8 @@ $portfolio_case_title = portfolio_theme_field( 'project_case_title' );
 ?>
 <article <?php post_class(); ?>>
 	<?php
+	portfolio_theme_component( 'breadcrumb-a', array( 'items' => portfolio_theme_breadcrumbs() ) );
+
 	portfolio_theme_component(
 		'title-a',
 		array(

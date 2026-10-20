@@ -16,7 +16,7 @@ if ( empty( $args['title'] ) ) {
 ?>
 <div class="row-a">
 	<?php if ( ! empty( $args['url'] ) ) : ?>
-		<a class="row-a__title" href="<?php echo esc_url( $args['url'] ); ?>"<?php echo empty( $args['rel'] ) ? '' : ' rel="' . esc_attr( $args['rel'] ) . '"'; ?>><?php echo esc_html( $args['title'] ); ?></a>
+		<a class="row-a__title" href="<?php echo esc_url( $args['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $args['url'], $args['rel'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $args['title'] ); ?></a>
 	<?php else : ?>
 		<span class="row-a__title"><?php echo esc_html( $args['title'] ); ?></span>
 	<?php endif; ?>

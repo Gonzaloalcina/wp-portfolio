@@ -15,6 +15,8 @@ $portfolio_notes_id = (int) get_option( 'page_for_posts' );
 ?>
 <article <?php post_class(); ?>>
 	<?php
+	portfolio_theme_component( 'breadcrumb-a', array( 'items' => portfolio_theme_breadcrumbs() ) );
+
 	portfolio_theme_component(
 		'title-a',
 		array(

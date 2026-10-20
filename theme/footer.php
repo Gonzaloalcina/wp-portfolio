@@ -20,6 +20,7 @@ defined( 'ABSPATH' ) || exit;
 		)
 	);
 	?>
+	<span id="new-tab-note" hidden><?php esc_html_e( 'Opens in a new tab', 'portfolio-theme' ); ?></span>
 </footer>
 </div>
 <?php wp_footer(); ?>

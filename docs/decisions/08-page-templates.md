@@ -213,3 +213,28 @@ database stays the source of content. Until the i18n phase:
 - The Spanish Home, hubs and pages are not created yet, and theme strings are
   not translated.
 - The Playground blueprint does not install Polylang yet.
+
+## 2026-10-20 — Breadcrumbs: Rank Math's trail, rendered by breadcrumb-a
+
+- **Rank Math builds the trail and the `BreadcrumbList` schema**, turned on
+  from code (`add_theme_support( 'rank-math-breadcrumbs' )`), so every
+  environment has it and all schema still comes from one graph.
+- **`breadcrumb-a` renders the same items** above the H1: a `nav` named
+  "Breadcrumb" with an ordered list, the current page as
+  `aria-current="page"`, muted at `sm`, a slash between items that screen
+  readers skip. What people see and what search engines and agents read is
+  the same list.
+- **Only below the first level** (sitemap rule): Home › Work › case,
+  Home › Services › service, Home › Notes › note. The hub is the page with the
+  Work or Services template, or the posts page, in the current language
+  (`inc/breadcrumbs.php`, filter on Rank Math's items). First-level pages,
+  and a language whose hub does not exist yet, get no trail and no schema.
+
+## 2026-10-20 — External links open in a new tab
+
+Gonzalo's call: links to another host open in a new tab, with
+`rel="noopener"` and `aria-describedby` pointing to one hidden "Opens in a
+new tab" note in the footer, so screen readers announce it.
+`portfolio_theme_link_attrs()` applies it in every component that prints a
+link, and a `the_content` filter does the same for editor content. Internal
+links, `mailto:` and `tel:` are left alone.
