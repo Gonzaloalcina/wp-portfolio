@@ -322,3 +322,7 @@ and space; line and a larger title; line and the square marker):
 `section-a--second` adds a full-width 1px line and more space above it, like
 the footer's. Used by `portfolio_theme_contact_section()` and the Home's
 Contact. No new token.
+
+Rule: **never two lines with nothing between them.** When the block before
+already ends on a line (`list-a`, `quote-list-a`, `facts-a`), Contact draws
+no line of its own and that one is the divider (`:has()` in `section-a.css`).

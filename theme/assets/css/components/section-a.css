@@ -27,6 +27,15 @@
 	}
 }
 
+/*
+ * Never two lines with nothing between them: when what comes before already
+ * ends on a line (a list, quotes, facts), that line is the divider.
+ */
+:is(.list-a, .quote-list-a, .facts-a) + .section-a--second,
+:has(> :is(.list-a, .quote-list-a, .facts-a):last-child) + .section-a--second {
+	border-block-start: 0;
+}
+
 .section-a__title,
 .section-a__text {
 	max-width: var(--layout-text);
