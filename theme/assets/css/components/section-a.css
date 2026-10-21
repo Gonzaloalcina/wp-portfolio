@@ -41,7 +41,11 @@
 	max-width: var(--layout-text);
 }
 
-.section-a__content {
+/*
+ * The section places its content, whatever the component brings: a form-a
+ * keeps the list spacing here instead of its own `* + .form-a`.
+ */
+.section-a > .section-a__content {
 	margin-block-start: var(--space-3);
 }
 
@@ -50,7 +54,7 @@
 	margin-block-start: var(--space-6);
 }
 
-.section-a__subtitle + .section-a__content {
+.section-a > .section-a__subtitle + .section-a__content {
 	margin-block-start: var(--space-2);
 }
 

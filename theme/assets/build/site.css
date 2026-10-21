@@ -568,14 +568,14 @@ border-block-start: 0;
 .section-a__text {
 max-width: var(--layout-text);
 }
-.section-a__content {
+.section-a > .section-a__content {
 margin-block-start: var(--space-3);
 }
 .section-a__subtitle {
 max-width: var(--layout-text);
 margin-block-start: var(--space-6);
 }
-.section-a__subtitle + .section-a__content {
+.section-a > .section-a__subtitle + .section-a__content {
 margin-block-start: var(--space-2);
 }
 .section-a__actions {
