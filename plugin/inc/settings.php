@@ -354,3 +354,23 @@ function portfolio_core_fix_posts_page_canonical( $canonical ) {
 	return $canonical;
 }
 add_filter( 'rank_math/frontend/canonical', 'portfolio_core_fix_posts_page_canonical', 20 );
+
+/**
+ * Makes the front page canonical the language's home URL.
+ *
+ * Rank Math's Polylang support appends the path of Polylang's home URL to
+ * the front page canonical, which assumes WordPress sits at the domain root.
+ * In a subfolder the path is repeated (/sub/sub/). Using the home URL itself
+ * is right in both cases and is the same URL the hreflang tags point to.
+ *
+ * @param string $canonical Canonical URL, after Rank Math's Polylang fix (10).
+ * @return string
+ */
+function portfolio_core_fix_front_page_canonical( $canonical ) {
+	if ( ! is_front_page() || ! function_exists( 'pll_home_url' ) || ! function_exists( 'pll_current_language' ) ) {
+		return $canonical;
+	}
+
+	return pll_home_url( pll_current_language() );
+}
+add_filter( 'rank_math/frontend/canonical', 'portfolio_core_fix_front_page_canonical', 20 );
