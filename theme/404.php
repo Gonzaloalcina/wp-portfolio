@@ -26,23 +26,23 @@ portfolio_theme_component(
 			'links' => array(
 				array(
 					'title' => __( 'Home', 'portfolio-theme' ),
-					'url'   => home_url( '/' ),
+					'url'   => portfolio_theme_page_url( '/' ),
 				),
 				array(
 					'title' => __( 'Work', 'portfolio-theme' ),
-					'url'   => home_url( '/work/' ),
+					'url'   => portfolio_theme_page_url( '/work/' ),
 				),
 				array(
 					'title' => __( 'Services', 'portfolio-theme' ),
-					'url'   => home_url( '/services/' ),
+					'url'   => portfolio_theme_page_url( '/services/' ),
 				),
 				array(
 					'title' => __( 'Notes', 'portfolio-theme' ),
-					'url'   => home_url( '/notes/' ),
+					'url'   => portfolio_theme_page_url( '/notes/' ),
 				),
 				array(
 					'title' => __( 'Contact', 'portfolio-theme' ),
-					'url'   => home_url( '/contact/' ),
+					'url'   => portfolio_theme_page_url( '/contact/' ),
 				),
 			),
 		),

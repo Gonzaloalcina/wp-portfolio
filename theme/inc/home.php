@@ -150,13 +150,51 @@ function portfolio_theme_home_text( $name ) {
 }
 
 /**
- * Turns a site path (/work/) into a full URL. Full URLs pass through.
+ * Returns the URL of the page whose English path is given (/work/), in the
+ * current language: its Polylang translation, or the English page when it has
+ * none. A Spanish page has another slug (/es/trabajo/), so a fixed path would
+ * take a Spanish visitor to the English site. '/' is the home of the language.
+ * Without Polylang it is the plain site path.
+ *
+ * @param string $path English site path, as written in docs/sitemap.md.
+ * @return string
+ */
+function portfolio_theme_page_url( $path ) {
+	static $urls = array();
+
+	$path = trim( (string) $path, '/' );
+	$key  = ( function_exists( 'pll_current_language' ) ? (string) pll_current_language() : '' ) . ':' . $path;
+
+	if ( ! isset( $urls[ $key ] ) ) {
+		if ( '' === $path ) {
+			$urls[ $key ] = function_exists( 'pll_home_url' ) ? (string) pll_home_url() : home_url( '/' );
+		} else {
+			$urls[ $key ] = home_url( '/' . $path . '/' );
+
+			$page = function_exists( 'pll_get_post' ) ? get_page_by_path( $path ) : null;
+			if ( $page ) {
+				$translation  = pll_get_post( $page->ID );
+				$urls[ $key ] = (string) get_permalink( $translation ? $translation : $page );
+			}
+		}
+	}
+
+	return $urls[ $key ];
+}
+
+/**
+ * Turns a site path (/work/) into a full URL, in the current language when
+ * the path is a page of the sitemap. Other paths and full URLs pass through.
  *
  * @param string $url Path or URL.
  * @return string
  */
 function portfolio_theme_resolve_url( $url ) {
 	$url = trim( (string) $url );
+
+	if ( preg_match( '#^/[a-z0-9-]*/?$#', $url ) ) {
+		return portfolio_theme_page_url( $url );
+	}
 
 	if ( str_starts_with( $url, '/' ) && ! str_starts_with( $url, '//' ) ) {
 		return home_url( $url );

@@ -190,6 +190,48 @@ test.describe( 'notes, projects and services', () => {
 	} );
 } );
 
+test.describe( 'links of the Spanish pages', () => {
+	/**
+	 * Returns every internal link of the page except the language switcher.
+	 *
+	 * @param {import('@playwright/test').Page} page
+	 * @return {Promise<string[]>}
+	 */
+	async function links( page ) {
+		return page.locator( 'a[href]:not(.lang-switch__link)' ).evaluateAll( ( anchors ) => anchors.map( ( anchor ) => anchor.href ) );
+	}
+
+	// Header, footer and content build their links from the translation of each
+	// page, not from the English path (/work/ instead of /es/trabajo/).
+	test( 'only lead to Spanish pages', async ( { page, baseURL } ) => {
+		const root = new URL( 'es/', baseURL );
+
+		// The 404 page has links of its own.
+		for ( const path of [ ...PAGES.map( ( [ , es ] ) => es ), 'es/no-existe/' ] ) {
+			await page.goto( path );
+
+			const stray = ( await links( page ) )
+				.map( ( href ) => new URL( href ) )
+				.filter( ( url ) => url.origin === root.origin && ! url.pathname.startsWith( root.pathname ) && ! /\/(wp-|feed\/)/.test( url.pathname ) )
+				.map( ( url ) => url.pathname );
+
+			expect( stray, path ).toEqual( [] );
+		}
+	} );
+
+	test( 'the Spanish home links to the translation of each page', async ( { page, baseURL } ) => {
+		await page.goto( 'es/inicio/' );
+
+		const title = await page.locator( 'a.site__title' ).evaluate( ( anchor ) => anchor.href );
+		expect( clean( title ), 'site title' ).toBe( clean( new URL( 'es/inicio/', baseURL ).href ) );
+
+		const hrefs = ( await links( page ) ).map( clean );
+		for ( const path of [ 'es/sobre-mi/', 'es/trabajo/', 'es/servicios/', 'es/notas/', 'es/cv/', 'es/contacto/' ] ) {
+			expect( hrefs, path ).toContain( clean( new URL( path, baseURL ).href ) );
+		}
+	} );
+} );
+
 test.describe( 'redirects (301)', () => {
 	// Requests go through page.request, which shares the cookies of the page:
 	// Playground logs in on any request without cookies, and answers that first

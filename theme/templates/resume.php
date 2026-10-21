@@ -24,7 +24,7 @@ portfolio_theme_component(
 			'links' => array(
 				array(
 					'title' => __( 'Contact', 'portfolio-theme' ),
-					'url'   => home_url( '/contact/' ),
+					'url'   => portfolio_theme_page_url( '/contact/' ),
 				),
 			),
 		),

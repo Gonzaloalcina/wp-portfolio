@@ -28,7 +28,7 @@ if ( ! empty( $args['variant'] ) ) {
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'portfolio-theme' ); ?></a>
 <div class="<?php echo esc_attr( $portfolio_site_class ); ?>">
 <header class="site__header">
-	<a class="site__title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+	<a class="site__title" href="<?php echo esc_url( portfolio_theme_page_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 	<?php
 	portfolio_theme_component(
 		'nav-a',

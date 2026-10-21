@@ -41,7 +41,7 @@ $portfolio_case_title = portfolio_theme_field( 'project_case_title' );
 			'text'  => portfolio_theme_field( 'project_outcome' ),
 			'more'  => array(
 				'title' => __( 'All work', 'portfolio-theme' ),
-				'url'   => home_url( '/work/' ),
+				'url'   => portfolio_theme_page_url( '/work/' ),
 			),
 		)
 	);

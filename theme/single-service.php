@@ -55,7 +55,7 @@ portfolio_theme_component(
 		),
 		'more'    => array(
 			'title' => __( 'All services', 'portfolio-theme' ),
-			'url'   => home_url( '/services/' ),
+			'url'   => portfolio_theme_page_url( '/services/' ),
 		),
 	)
 );

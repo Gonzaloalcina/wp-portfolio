@@ -75,7 +75,7 @@ portfolio_theme_component(
 		'text'  => portfolio_theme_field( 'about_tools' ),
 		'more'  => array(
 			'title' => __( 'How this site is built', 'portfolio-theme' ),
-			'url'   => home_url( '/how-this-site-is-built/' ),
+			'url'   => portfolio_theme_page_url( '/how-this-site-is-built/' ),
 		),
 	)
 );

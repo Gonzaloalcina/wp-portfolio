@@ -204,7 +204,7 @@ function portfolio_theme_profile_links() {
 function portfolio_theme_contact_button() {
 	return array(
 		'title' => portfolio_theme_front_text( 'home_cta_label' ),
-		'url'   => home_url( '/contact/' ),
+		'url'   => portfolio_theme_page_url( '/contact/' ),
 	);
 }
 

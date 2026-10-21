@@ -72,7 +72,7 @@ portfolio_theme_component(
 				array(
 					array(
 						'title' => __( 'Resume', 'portfolio-theme' ),
-						'url'   => home_url( '/resume/' ),
+						'url'   => portfolio_theme_page_url( '/resume/' ),
 					),
 				)
 			),

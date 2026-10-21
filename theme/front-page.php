@@ -17,7 +17,7 @@ get_header( null, array( 'variant' => 'second' ) );
 
 $portfolio_cta = array(
 	'title' => portfolio_theme_home_text( 'home_cta_label' ),
-	'url'   => home_url( '/contact/' ),
+	'url'   => portfolio_theme_page_url( '/contact/' ),
 );
 
 $portfolio_headline = portfolio_theme_home_text( 'home_headline' );
@@ -32,11 +32,11 @@ portfolio_theme_component(
 			'links'  => array(
 				array(
 					'title' => __( 'Work', 'portfolio-theme' ),
-					'url'   => home_url( '/work/' ),
+					'url'   => portfolio_theme_page_url( '/work/' ),
 				),
 				array(
 					'title' => __( 'About', 'portfolio-theme' ),
-					'url'   => home_url( '/about/' ),
+					'url'   => portfolio_theme_page_url( '/about/' ),
 				),
 			),
 		),
@@ -64,7 +64,7 @@ $portfolio_sections = array(
 		),
 		'more'    => array(
 			'title' => __( 'All work', 'portfolio-theme' ),
-			'url'   => home_url( '/work/' ),
+			'url'   => portfolio_theme_page_url( '/work/' ),
 		),
 	),
 	array(
@@ -78,7 +78,7 @@ $portfolio_sections = array(
 		),
 		'more'    => array(
 			'title' => __( 'All services', 'portfolio-theme' ),
-			'url'   => home_url( '/services/' ),
+			'url'   => portfolio_theme_page_url( '/services/' ),
 		),
 	),
 	array(
@@ -102,7 +102,7 @@ $portfolio_sections = array(
 		),
 		'more'    => array(
 			'title' => __( 'All notes', 'portfolio-theme' ),
-			'url'   => home_url( '/notes/' ),
+			'url'   => portfolio_theme_page_url( '/notes/' ),
 		),
 	),
 	array(
@@ -117,7 +117,7 @@ $portfolio_sections = array(
 				array(
 					array(
 						'title' => __( 'Resume', 'portfolio-theme' ),
-						'url'   => home_url( '/resume/' ),
+						'url'   => portfolio_theme_page_url( '/resume/' ),
 					),
 				),
 				portfolio_theme_profile_links()
