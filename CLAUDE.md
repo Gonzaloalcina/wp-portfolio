@@ -104,8 +104,10 @@ WordPress core, uploads and the database live outside the repo.
 - Local admin credentials are kept outside the repo. Never commit them.
 - Repo path: `/Users/Shared/wp-portfolio` (Apache cannot read the home
   folder). `theme/` is symlinked to `wp-content/themes/portfolio-theme`.
-- Permalinks: `/%postname%/`. The local `.htaccess` (outside the repo) holds
-  the WordPress rewrite rules and the WOFF2 media type.
+- Permalinks: `/notes/%postname%/` (notes live under `/notes/`; pages and the
+  `project` and `service` types keep their own URLs). The local `.htaccess`
+  (outside the repo) holds the WordPress rewrite rules and the WOFF2 media
+  type.
 - Rank Math registration is skipped locally (no account connected).
 - `wp-content/uploads` is writable by Apache (`daemon`) through an ACL. Files
   it creates belong to `daemon`; delete them from WordPress, not the shell.

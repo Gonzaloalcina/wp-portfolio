@@ -307,3 +307,50 @@ function portfolio_core_person_schema( $data ) {
 	return $data;
 }
 add_filter( 'rank_math/json_ld', 'portfolio_core_person_schema', 99 );
+
+/**
+ * Marks the Notes page (the posts page) as a Blog as well as a
+ * CollectionPage, as the sitemap says. Rank Math outputs only CollectionPage.
+ *
+ * @param array $data JSON-LD entities, keyed by Rank Math.
+ * @return array
+ */
+function portfolio_core_blog_schema( $data ) {
+	if ( ! is_home() || is_front_page() ) {
+		return $data;
+	}
+
+	foreach ( $data as $key => $entity ) {
+		if ( is_array( $entity ) && 'CollectionPage' === ( $entity['@type'] ?? '' ) ) {
+			$data[ $key ]['@type'] = array( 'CollectionPage', 'Blog' );
+		}
+	}
+
+	return $data;
+}
+add_filter( 'rank_math/json_ld', 'portfolio_core_blog_schema', 99 );
+
+/**
+ * Undoes what Rank Math's Polylang support adds to the Notes canonical.
+ *
+ * Its fix_home_canonical() runs on every page where is_home() is true, which
+ * includes the posts page, and appends the path of Polylang's home URL. On a
+ * site in a subfolder that turns /notes/ into /notes/subfolder/, and on the
+ * Spanish page it would turn /es/notas/ into /es/notas/es/.
+ *
+ * @param string $canonical Canonical URL, after Rank Math's Polylang fix (10).
+ * @return string
+ */
+function portfolio_core_fix_posts_page_canonical( $canonical ) {
+	if ( ! is_home() || is_front_page() || ! function_exists( 'pll_home_url' ) || ! function_exists( 'pll_current_language' ) ) {
+		return $canonical;
+	}
+
+	$path = ltrim( (string) wp_parse_url( pll_home_url( pll_current_language() ), PHP_URL_PATH ), '/' );
+	if ( '' !== $path && str_ends_with( $canonical, $path ) ) {
+		return substr( $canonical, 0, -strlen( $path ) );
+	}
+
+	return $canonical;
+}
+add_filter( 'rank_math/frontend/canonical', 'portfolio_core_fix_posts_page_canonical', 20 );
