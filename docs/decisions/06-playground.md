@@ -47,3 +47,35 @@ The Home is not seeded: with empty Home fields it shows the site name as H1
 and Latest notes, and every other section hides itself. Checked with
 `npm run playground` (this run found and fixed a Contact heading that
 rendered with nothing under it).
+
+## 2026-10-21 — Polylang in the blueprint: languages, post types and menu
+
+Polylang (free) joins Secure Custom Fields and Rank Math in `plugins`, and a
+new `runPHP` step, before the content one, sets up the languages. Reading
+Polylang 3.9.1 and running the steps showed four things that are not obvious:
+
+- **`PLL_ADMIN` is defined before WordPress loads.** Polylang builds its
+  `$polylang` object, and with it the `pll_*()` functions, only once a language
+  exists. With the constant it builds the admin-side one, as it does for
+  WP-CLI and cron, and `PLL()->model->add_language()` works. Later steps run
+  with Polylang fully loaded and do not need it.
+- **English first, then Spanish.** The first language becomes the default.
+  Polylang's defaults give what the site needs: no prefix for the default
+  language (`hide_default`) and `/es/` for Spanish (`force_lang` = directory),
+  so they are not set.
+- **Projects and services are switched on for translation in the database.**
+  Polylang only translates custom post types listed in its `post_types`
+  option, and nothing in the repo sets it. The step sets it to `project` and
+  `service`; on a local install it is Languages › Settings.
+- **The menu of each language is in Polylang's option.** Once a language
+  exists the front end ignores the `nav_menu_locations` theme mod and reads
+  `polylang['nav_menus'][theme][location][lang]`, so the `Main` menu would
+  vanish unless it is registered there. The content step does it for English.
+  Polylang's options are written through `PLL()->options`: a plain
+  `update_option( 'polylang' )` is discarded.
+
+The page the blueprint seeds, Design system, is given the English language.
+The public blueprint creates Spanish but no Spanish content: Design system is
+English only (see 11), so the `ES` link of the switcher leads to the Spanish
+home. The Spanish pairs live in the optional seed, which now builds both
+languages (see 11).
