@@ -24,9 +24,11 @@ require_once get_theme_file_path( 'inc/about.php' );
 require_once get_theme_file_path( 'inc/breadcrumbs.php' );
 
 /**
- * Registers theme supports.
+ * Registers theme supports and the theme's translations (languages/).
  */
 function portfolio_theme_setup() {
+	load_theme_textdomain( 'portfolio-theme', get_template_directory() . '/languages' );
+
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support(

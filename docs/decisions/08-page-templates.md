@@ -326,3 +326,29 @@ Contact. No new token.
 Rule: **never two lines with nothing between them.** When the block before
 already ends on a line (`list-a`, `quote-list-a`, `facts-a`), Contact draws
 no line of its own and that one is the divider (`:has()` in `section-a.css`).
+
+## 2026-10-20 — Theme strings translated in `theme/languages/`; About in Spanish
+
+The first Spanish page is About (`/es/sobre-mi/`), so the theme now ships
+its translations. Updates "Polylang installed" on theme strings.
+
+- **`portfolio-theme.pot`** is generated with `wp i18n make-pot theme
+  theme/languages/portfolio-theme.pot --domain=portfolio-theme
+  --exclude=assets`. **`es_ES.po`** is the source to edit; `es_ES.mo` and
+  `es_ES.l10n.php` are built from it with `wp i18n make-mo` and
+  `wp i18n make-php`, and committed together (the PHP file is the faster
+  format WordPress reads first; it is left out of PHPCS as generated).
+- Inside a theme the files are named by locale only (`es_ES.*`), not
+  `portfolio-theme-es_ES.*`; `load_theme_textdomain()` points WordPress at
+  the folder.
+- **Translated so far:** the strings a Spanish About shows (header, footer,
+  theme toggle, About sections, Contact). The rest follow page by page.
+- **Location is translatable** (`site_location_es`), like bio and languages.
+- **"Full resume" links to the Resume page of the current language.** Other
+  fixed paths (Contact, How this site is built) stay English until those
+  pages exist in Spanish.
+- Section IDs stay English (`#how-i-work`) in both languages: they are
+  anchors, not copy.
+- Spanish content (About, a CV page with Experience, a minimal Spanish Home
+  for testimonials and Contact) lives in the local database only, like the
+  English.

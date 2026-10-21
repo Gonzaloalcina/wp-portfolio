@@ -1,0 +1,859 @@
+# Copyright (C) 2026 Gonzalo Alcina
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Portfolio Theme 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/theme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-20T23:29:54+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: portfolio-theme\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Portfolio Theme"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://gonzaloalcina.dev"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Custom theme for gonzaloalcina.dev."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Gonzalo Alcina"
+msgstr ""
+
+#: 404.php:15
+msgid "Page not found"
+msgstr ""
+
+#: 404.php:16
+msgid "This address does not lead to a page on this site. It may have moved, or the link may be wrong."
+msgstr ""
+
+#: 404.php:24
+msgid "Try one of these"
+msgstr ""
+
+#: 404.php:28
+#: inc/home.php:25
+#: page-design-system.php:342
+msgid "Home"
+msgstr ""
+
+#. Template Name of the theme
+#: 404.php:32
+#: front-page.php:34
+#: page-design-system.php:346
+msgid "Work"
+msgstr ""
+
+#. Template Name of the theme
+#: 404.php:36
+#: front-page.php:72
+msgid "Services"
+msgstr ""
+
+#: 404.php:40
+#: home.php:21
+msgid "Notes"
+msgstr ""
+
+#. Template Name of the theme
+#: 404.php:44
+#: front-page.php:110
+#: inc/home.php:119
+#: inc/pages.php:221
+#: templates/resume.php:26
+msgid "Contact"
+msgstr ""
+
+#: footer.php:23
+msgid "Opens in a new tab"
+msgstr ""
+
+#. Template Name of the theme
+#: front-page.php:38
+#: inc/about.php:27
+msgid "About"
+msgstr ""
+
+#: front-page.php:53
+msgid "Selected work"
+msgstr ""
+
+#: front-page.php:60
+msgid "Also built"
+msgstr ""
+
+#: front-page.php:66
+#: single-project.php:43
+msgid "All work"
+msgstr ""
+
+#: front-page.php:80
+#: single-service.php:56
+#: templates/services.php:30
+msgid "All services"
+msgstr ""
+
+#: front-page.php:86
+#: inc/home.php:73
+#: inc/home.php:78
+#: templates/about.php:87
+msgid "Testimonials"
+msgstr ""
+
+#: front-page.php:96
+msgid "Latest notes"
+msgstr ""
+
+#: front-page.php:104
+#: home.php:32
+#: single.php:40
+msgid "All notes"
+msgstr ""
+
+#. Template Name of the theme
+#: front-page.php:119
+#: inc/pages.php:62
+#: templates/contact.php:74
+msgid "Resume"
+msgstr ""
+
+#: header.php:28
+msgid "Skip to content"
+msgstr ""
+
+#: inc/about.php:40
+#: inc/about.php:134
+msgid "Currently"
+msgstr ""
+
+#: inc/about.php:43
+msgid "Role and company, e.g. Website Lead, Company. No availability wording."
+msgstr ""
+
+#: inc/about.php:47
+msgid "How I work"
+msgstr ""
+
+#: inc/about.php:51
+msgid "One row per area of the site: what you do there and with whom."
+msgstr ""
+
+#: inc/about.php:52
+#: inc/pages.php:95
+msgid "Add row"
+msgstr ""
+
+#: inc/about.php:56
+msgid "Area"
+msgstr ""
+
+#: inc/about.php:63
+msgid "What I do"
+msgstr ""
+
+#: inc/about.php:70
+msgid "With whom"
+msgstr ""
+
+#: inc/about.php:73
+msgid "Teams or roles, e.g. Growth, Sales."
+msgstr ""
+
+#: inc/about.php:79
+#: templates/about.php:74
+msgid "Tools and AI"
+msgstr ""
+
+#: inc/about.php:84
+msgid "A blank line starts a new paragraph."
+msgstr ""
+
+#: inc/about.php:88
+#: templates/about.php:101
+msgid "Other things"
+msgstr ""
+
+#: inc/about.php:126
+msgid "Based in"
+msgstr ""
+
+#: inc/about.php:130
+msgid "Languages"
+msgstr ""
+
+#: inc/editor.php:33
+msgid "Small"
+msgstr ""
+
+#: inc/editor.php:34
+msgid "Base"
+msgstr ""
+
+#: inc/editor.php:35
+msgid "Large"
+msgstr ""
+
+#: inc/editor.php:36
+msgid "Extra large"
+msgstr ""
+
+#: inc/home.php:38
+msgid "Hero"
+msgstr ""
+
+#: inc/home.php:43
+msgid "Headline (H1)"
+msgstr ""
+
+#: inc/home.php:50
+msgid "Short bio"
+msgstr ""
+
+#: inc/home.php:58
+msgid "Contact button label"
+msgstr ""
+
+#: inc/home.php:61
+msgid "Verb + object. Used in the hero and in Contact."
+msgstr ""
+
+#: inc/home.php:65
+msgid "Portrait"
+msgstr ""
+
+#: inc/home.php:83
+msgid "Real words, with the person's permission. Link to their LinkedIn recommendation or profile as proof."
+msgstr ""
+
+#: inc/home.php:84
+msgid "Add testimonial"
+msgstr ""
+
+#: inc/home.php:88
+msgid "Quote"
+msgstr ""
+
+#: inc/home.php:97
+#: templates/contact.php:36
+msgid "Name"
+msgstr ""
+
+#: inc/home.php:104
+#: inc/pages.php:367
+msgid "Role"
+msgstr ""
+
+#: inc/home.php:107
+msgid "Role and company, e.g. Head of Marketing, Company."
+msgstr ""
+
+#: inc/home.php:111
+msgid "Proof link"
+msgstr ""
+
+#: inc/home.php:124
+msgid "Text"
+msgstr ""
+
+#: inc/icons.php:131
+#: inc/icons.php:146
+msgid "Icon"
+msgstr ""
+
+#: inc/icons.php:132
+msgid "Reusable icon picker. Add it to other field groups with a Clone field."
+msgstr ""
+
+#: inc/icons.php:167
+msgid "Design system demo"
+msgstr ""
+
+#: inc/icons.php:180
+#: page-design-system.php:183
+msgid "Demo card"
+msgstr ""
+
+#: inc/nav.php:20
+msgid "Main menu"
+msgstr ""
+
+#: inc/nav.php:21
+msgid "Footer links"
+msgstr ""
+
+#: inc/pages.php:29
+msgid "Page"
+msgstr ""
+
+#: inc/pages.php:48
+msgid "Intro"
+msgstr ""
+
+#: inc/pages.php:53
+msgid "One or two sentences under the title."
+msgstr ""
+
+#: inc/pages.php:75
+msgid "Sections"
+msgstr ""
+
+#: inc/pages.php:79
+msgid "e.g. Experience, Skills, Education, Languages."
+msgstr ""
+
+#: inc/pages.php:80
+msgid "Add section"
+msgstr ""
+
+#: inc/pages.php:84
+#: inc/pages.php:99
+msgid "Title"
+msgstr ""
+
+#: inc/pages.php:91
+msgid "Rows"
+msgstr ""
+
+#: inc/pages.php:106
+msgid "Meta"
+msgstr ""
+
+#: inc/pages.php:109
+msgid "Years, place."
+msgstr ""
+
+#: inc/pages.php:113
+msgid "Line"
+msgstr ""
+
+#: inc/pages.php:355
+#: page-design-system.php:372
+msgid "Client"
+msgstr ""
+
+#: inc/pages.php:359
+#: page-design-system.php:376
+msgid "Year"
+msgstr ""
+
+#: inc/pages.php:363
+msgid "Type"
+msgstr ""
+
+#: inc/pages.php:371
+msgid "Built with"
+msgstr ""
+
+#: inc/pages.php:375
+#: page-design-system.php:380
+msgid "Site"
+msgstr ""
+
+#: inc/pages.php:555
+#: page-design-system.php:434
+msgid "Newer notes"
+msgstr ""
+
+#: inc/pages.php:561
+#: page-design-system.php:438
+msgid "Older notes"
+msgstr ""
+
+#: inc/security.php:48
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: inc/theme-toggle.php:42
+#: page-design-system.php:118
+msgid "Light"
+msgstr ""
+
+#: inc/theme-toggle.php:43
+#: page-design-system.php:119
+msgid "Dark"
+msgstr ""
+
+#: inc/theme-toggle.php:53
+msgid "Theme:"
+msgstr ""
+
+#: index.php:26
+msgid "Nothing found."
+msgstr ""
+
+#: page-design-system.php:30
+msgid "Living reference, rendered from the design tokens. Every value on this page comes from tokens/tokens.json."
+msgstr ""
+
+#: page-design-system.php:41
+msgid "Unit and spacing"
+msgstr ""
+
+#. translators: %s: unit value, e.g. 0.5rem (8px).
+#: page-design-system.php:46
+#, php-format
+msgid "Every size derives from one unit, %s, in steps of 0.5. Sizes are in rem, so they follow the font size the visitor sets in the browser. The only exceptions are 1px hairlines and heading tracking."
+msgstr ""
+
+#: page-design-system.php:55
+#: page-design-system.php:117
+msgid "Token"
+msgstr ""
+
+#: page-design-system.php:56
+msgid "Unit ×"
+msgstr ""
+
+#: page-design-system.php:57
+msgid "Value"
+msgstr ""
+
+#: page-design-system.php:58
+msgid "Sample"
+msgstr ""
+
+#: page-design-system.php:75
+msgid "Typography"
+msgstr ""
+
+#: page-design-system.php:76
+msgid "Newsreader for headings, Inter for text. Both self-hosted. Font sizes are multiples of a quarter unit; line heights are whole units, so all text sits on the 8px grid."
+msgstr ""
+
+#: page-design-system.php:103
+msgid "Campaigns ship on time when the system is clear."
+msgstr ""
+
+#: page-design-system.php:111
+msgid "Colour"
+msgstr ""
+
+#: page-design-system.php:112
+msgid "One paper, one ink, one grey. Light is the reference theme; dark follows the system or the toggle. Contrast is computed against paper (WCAG 2)."
+msgstr ""
+
+#. translators: %s: contrast ratio, e.g. 16.4.
+#: page-design-system.php:135
+#, php-format
+msgid "%s:1"
+msgstr ""
+
+#: page-design-system.php:159
+msgid "Light and dark"
+msgstr ""
+
+#: page-design-system.php:160
+msgid "The site follows the system by default. The toggle in the header switches between light and dark; a choice that differs from the system is stored in this browser and applied before the first paint."
+msgstr ""
+
+#: page-design-system.php:162
+msgid "Current:"
+msgstr ""
+
+#: page-design-system.php:163
+msgid "requires JavaScript"
+msgstr ""
+
+#: page-design-system.php:168
+msgid "Icons"
+msgstr ""
+
+#: page-design-system.php:169
+msgid "Lucide icons on a 24-unit grid, with a thinner stroke. They take the text colour and are decorative: the text next to them carries the meaning. Editors pick them in a reusable icon field."
+msgstr ""
+
+#. translators: %s: icon name.
+#: page-design-system.php:188
+#, php-format
+msgid "Icon picked in the editor: %s"
+msgstr ""
+
+#: page-design-system.php:189
+msgid "none (fallback: blocks)"
+msgstr ""
+
+#: page-design-system.php:197
+msgid "Lines and details"
+msgstr ""
+
+#. translators: %s: sample link.
+#: page-design-system.php:202
+#, php-format
+msgid "Links are underlined and darken on hover and focus, like %s."
+msgstr ""
+
+#: page-design-system.php:203
+msgid "this one"
+msgstr ""
+
+#: page-design-system.php:208
+msgid "Lists use a small square marker."
+msgstr ""
+
+#: page-design-system.php:209
+msgid "Hierarchy comes from tone, weight and spacing."
+msgstr ""
+
+#: page-design-system.php:210
+msgid "No gradients, no shadows."
+msgstr ""
+
+#: page-design-system.php:213
+msgid "Meta text: dates, labels. Small and muted."
+msgstr ""
+
+#: page-design-system.php:228
+msgid "Components"
+msgstr ""
+
+#: page-design-system.php:229
+msgid "Components are named by what they are plus a letter for the design (hero-a, row-a…), never by the page that uses them. A new letter is a different design; a numeric modifier (--second) is a small variation of the same one. Each page loads only the CSS of the components it uses."
+msgstr ""
+
+#: page-design-system.php:235
+msgid "H1, short intro, actions-a and a square image. One per page."
+msgstr ""
+
+#: page-design-system.php:236
+msgid "H2, then any of: a paragraph, content components (each with an optional H3), an actions-a and an \"All …\" link."
+msgstr ""
+
+#: page-design-system.php:237
+msgid "Rows separated by 1px lines, with the square marker."
+msgstr ""
+
+#: page-design-system.php:238
+msgid "Title, optional meta and one optional line."
+msgstr ""
+
+#: page-design-system.php:239
+msgid "One button-a followed by a link-row-a."
+msgstr ""
+
+#: page-design-system.php:240
+msgid "The primary action. One per page, shown at most twice."
+msgstr ""
+
+#: page-design-system.php:241
+msgid "Quiet links on one line."
+msgstr ""
+
+#: page-design-system.php:242
+msgid "quote-a items separated by 1px lines, on the same columns as a list-a."
+msgstr ""
+
+#: page-design-system.php:243
+msgid "A testimonial: the quote, then name (linked to proof) and role."
+msgstr ""
+
+#: page-design-system.php:244
+msgid "A WordPress menu as quiet links; a \"Menu\" dropdown on narrow screens. In the header."
+msgstr ""
+
+#: page-design-system.php:245
+msgid "H1 of a text page, with an optional meta line and intro. hero-a is for pages that lead to an action."
+msgstr ""
+
+#: page-design-system.php:246
+msgid "Long text from the editor, on the text measure."
+msgstr ""
+
+#: page-design-system.php:247
+msgid "Label and value pairs on 1px lines: client, year, role."
+msgstr ""
+
+#: page-design-system.php:248
+msgid "field-a items, a submit button-a and a note."
+msgstr ""
+
+#: page-design-system.php:249
+msgid "Label, optional hint and a full-width control with a muted line (3:1 contrast)."
+msgstr ""
+
+#: page-design-system.php:250
+msgid "Newer and older links with \"Page x of y\". Hidden with one page."
+msgstr ""
+
+#: page-design-system.php:262
+msgid "list-a and row-a"
+msgstr ""
+
+#: page-design-system.php:263
+msgid "Narrow screens stack each row; from 48rem the rows sit in three columns that the whole list shares."
+msgstr ""
+
+#: page-design-system.php:270
+msgid "Row with meta and text"
+msgstr ""
+
+#: page-design-system.php:272
+msgid "Meta · sm, muted"
+msgstr ""
+
+#: page-design-system.php:273
+msgid "One line of text, 140 characters at most. It wraps under itself, never under the title."
+msgstr ""
+
+#: page-design-system.php:276
+msgid "Row with text only"
+msgstr ""
+
+#: page-design-system.php:278
+msgid "Services use this form: a name and the problem it solves."
+msgstr ""
+
+#: page-design-system.php:281
+msgid "Row with a date"
+msgstr ""
+
+#: page-design-system.php:292
+msgid "quote-list-a and quote-a"
+msgstr ""
+
+#: page-design-system.php:293
+msgid "Testimonials. The name links to the proof, such as a LinkedIn recommendation. No review schema: Google does not show stars for reviews a site publishes about itself."
+msgstr ""
+
+#: page-design-system.php:300
+msgid "The quote, in the heading serif at the large size. 240 characters at most, in the words of the person who said it."
+msgstr ""
+
+#: page-design-system.php:301
+msgid "Name of the person"
+msgstr ""
+
+#: page-design-system.php:302
+msgid "Role, Company"
+msgstr ""
+
+#: page-design-system.php:311
+msgid "actions-a, button-a and link-row-a"
+msgstr ""
+
+#: page-design-system.php:312
+msgid "Ink on paper, inverted on hover and focus, square corners, no shadow. Everything else is a quiet link."
+msgstr ""
+
+#: page-design-system.php:318
+msgid "Primary action"
+msgstr ""
+
+#: page-design-system.php:323
+msgid "Quiet link"
+msgstr ""
+
+#: page-design-system.php:327
+msgid "Another"
+msgstr ""
+
+#: page-design-system.php:334
+msgid "breadcrumb-a"
+msgstr ""
+
+#: page-design-system.php:335
+msgid "Above the H1 of cases, services and notes. The same trail as the BreadcrumbList schema."
+msgstr ""
+
+#: page-design-system.php:350
+#: single-project.php:27
+msgid "Case study"
+msgstr ""
+
+#: page-design-system.php:357
+msgid "title-a"
+msgstr ""
+
+#: page-design-system.php:358
+msgid "Notes, case studies and legal pages open with it. Shown here without the H1 element, so this page keeps one H1."
+msgstr ""
+
+#: page-design-system.php:360
+msgid "Title of a text page"
+msgstr ""
+
+#: page-design-system.php:362
+msgid "One or two sentences of intro, 160 characters at most."
+msgstr ""
+
+#: page-design-system.php:365
+msgid "facts-a"
+msgstr ""
+
+#: page-design-system.php:373
+msgid "Client name"
+msgstr ""
+
+#: page-design-system.php:389
+msgid "prose-a"
+msgstr ""
+
+#: page-design-system.php:394
+msgid "Text written in the editor. Paragraphs, lists, links and headings take the base styles; quotes, captions, code and tables get their own."
+msgstr ""
+
+#: page-design-system.php:395
+msgid "A quote, in the heading serif, set in a little. No side line."
+msgstr ""
+
+#: page-design-system.php:396
+msgid "Column"
+msgstr ""
+
+#: page-design-system.php:396
+msgid "Rows on 1px lines"
+msgstr ""
+
+#: page-design-system.php:401
+msgid "form-a and field-a"
+msgstr ""
+
+#: page-design-system.php:402
+msgid "Static for now: without an action the submit is disabled. The contact form logic will come from the portfolio-core plugin."
+msgstr ""
+
+#: page-design-system.php:407
+msgid "Demo form"
+msgstr ""
+
+#: page-design-system.php:411
+#: templates/contact.php:42
+msgid "Email"
+msgstr ""
+
+#: page-design-system.php:417
+#: templates/contact.php:53
+msgid "Message"
+msgstr ""
+
+#: page-design-system.php:419
+msgid "A hint under the label."
+msgstr ""
+
+#: page-design-system.php:422
+#: templates/contact.php:59
+msgid "Send message"
+msgstr ""
+
+#: page-design-system.php:423
+msgid "A note under the button."
+msgstr ""
+
+#: page-design-system.php:428
+msgid "pagination-a"
+msgstr ""
+
+#: page-design-system.php:443
+msgid "Demo pagination"
+msgstr ""
+
+#: page-design-system.php:450
+msgid "Layout"
+msgstr ""
+
+#. translators: %s: date the page was last updated.
+#: page.php:19
+#, php-format
+msgid "Updated %s"
+msgstr ""
+
+#: single-project.php:27
+msgid "Project"
+msgstr ""
+
+#: single-project.php:40
+msgid "Outcome"
+msgstr ""
+
+#: single-service.php:34
+msgid "What it includes"
+msgstr ""
+
+#: single-service.php:48
+msgid "Proof"
+msgstr ""
+
+#: template-parts/components/breadcrumb-a.php:19
+msgid "Breadcrumb"
+msgstr ""
+
+#: template-parts/components/field-a.php:35
+msgid "(optional)"
+msgstr ""
+
+#: template-parts/components/nav-a.php:36
+msgid "Main"
+msgstr ""
+
+#: template-parts/components/nav-a.php:37
+msgid "Menu"
+msgstr ""
+
+#: template-parts/components/pagination-a.php:22
+msgid "Pagination"
+msgstr ""
+
+#. translators: 1: current page, 2: number of pages.
+#: template-parts/components/pagination-a.php:31
+#, php-format
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+#: templates/about.php:42
+msgid "How I work with the people around a website"
+msgstr ""
+
+#: templates/about.php:56
+msgid "Where I have done it"
+msgstr ""
+
+#: templates/about.php:64
+msgid "Full resume"
+msgstr ""
+
+#: templates/about.php:77
+msgid "How this site is built"
+msgstr ""
+
+#: templates/contact.php:32
+msgid "Contact form"
+msgstr ""
+
+#: templates/contact.php:49
+msgid "Company"
+msgstr ""
+
+#: templates/contact.php:56
+msgid "A project: what it is and when it starts."
+msgstr ""
+
+#: templates/contact.php:60
+msgid "The form is not connected yet."
+msgstr ""
+
+#: templates/contact.php:68
+msgid "Elsewhere"
+msgstr ""
+
+#: templates/work.php:31
+msgid "Case studies"
+msgstr ""
+
+#: templates/work.php:45
+msgid "Projects"
+msgstr ""

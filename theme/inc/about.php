@@ -124,7 +124,7 @@ function portfolio_theme_about_facts( $post_id = 0 ) {
 	return array(
 		array(
 			'label' => __( 'Based in', 'portfolio-theme' ),
-			'value' => portfolio_theme_setting( 'site_location' ),
+			'value' => function_exists( 'portfolio_core_location' ) ? portfolio_core_location() : '',
 		),
 		array(
 			'label' => __( 'Languages', 'portfolio-theme' ),
@@ -188,6 +188,18 @@ function portfolio_theme_resume_page_id() {
 	);
 
 	return $pages ? (int) $pages[0] : 0;
+}
+
+/**
+ * Returns the URL of the Resume page in the current language, or the
+ * English path when there is none.
+ *
+ * @return string
+ */
+function portfolio_theme_resume_url() {
+	$resume_id = portfolio_theme_resume_page_id();
+
+	return $resume_id ? (string) get_permalink( $resume_id ) : home_url( '/resume/' );
 }
 
 /**

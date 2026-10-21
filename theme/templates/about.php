@@ -62,7 +62,7 @@ portfolio_theme_component(
 		),
 		'more'    => array(
 			'title' => __( 'Full resume', 'portfolio-theme' ),
-			'url'   => home_url( '/resume/' ),
+			'url'   => portfolio_theme_resume_url(),
 		),
 	)
 );

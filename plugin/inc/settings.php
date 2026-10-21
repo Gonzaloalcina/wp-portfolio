@@ -99,6 +99,14 @@ function portfolio_core_register_settings() {
 					'name'         => 'site_location',
 					'type'         => 'text',
 					'instructions' => __( 'e.g. Spain · CET.', 'portfolio-core' ),
+					'wrapper'      => array( 'width' => '50' ),
+				),
+				array(
+					'key'     => 'field_portfolio_core_settings_location_es',
+					'label'   => __( 'Location (Spanish)', 'portfolio-core' ),
+					'name'    => 'site_location_es',
+					'type'    => 'text',
+					'wrapper' => array( 'width' => '50' ),
 				),
 				array(
 					'key'          => 'field_portfolio_core_settings_languages_en',
@@ -222,6 +230,19 @@ function portfolio_core_profile_links() {
 	}
 
 	return $links;
+}
+
+/**
+ * Returns the location in the current language: the Spanish field on
+ * Spanish pages when it is filled, the main field otherwise.
+ *
+ * @return string
+ */
+function portfolio_core_location() {
+	$language = function_exists( 'pll_current_language' ) ? pll_current_language( 'slug' ) : '';
+	$spanish  = 'es' === $language ? portfolio_core_setting( 'site_location_es' ) : '';
+
+	return '' !== $spanish ? $spanish : portfolio_core_setting( 'site_location' );
 }
 
 /**
