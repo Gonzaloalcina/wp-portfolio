@@ -10,7 +10,8 @@
  *
  * content: a list of components to render in order, each
  * array( 'name' => 'list-a', 'args' => array( 'items' => … ), 'title' => '' ).
- * An entry with no items is skipped; title, if any, is an H3 above it.
+ * An entry with no items (or, for a form-a, no fields) is skipped; title, if
+ * any, is an H3 above it.
  *
  * @package PortfolioTheme
  */
@@ -19,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 $portfolio_content = array_filter(
 	$args['content'] ?? array(),
-	static fn( $entry ) => ! empty( $entry['name'] ) && ! empty( $entry['args']['items'] )
+	static fn( $entry ) => ! empty( $entry['name'] ) && ( ! empty( $entry['args']['items'] ) || ! empty( $entry['args']['fields'] ) )
 );
 $portfolio_actions = $args['actions'] ?? array();
 if ( empty( $portfolio_actions['button']['title'] ) && empty( $portfolio_actions['links'] ) ) {

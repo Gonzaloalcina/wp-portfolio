@@ -352,3 +352,56 @@ its translations. Updates "Polylang installed" on theme strings.
 - Spanish content (About, a CV page with Experience, a minimal Spanish Home
   for testimonials and Contact) lives in the local database only, like the
   English.
+
+## 2026-10-21 — Services: choose by situation, request form in the hub
+
+The hub lists each service with the situation it fits and, where it exists,
+its price, then explains how it works and ends in a request form instead of
+the generic Contact section. Every service page ends the same way, with its
+service preselected, so a lead arrives classified. The reply promise is two
+working days. `field-a` gains a `select` type. AI and automation joins the
+first launch as a fourth service. Replaces "Services: a `service` post type"
+on AI and automation, which no longer waits as a draft.
+
+- **Rows** (`portfolio_theme_services_hub_rows()`): name linked, the new
+  `service_situation` line as text (the problem line when empty, so no row
+  is blank) and the new `service_price` as meta ("From 80 €/month",
+  "Quoted"; empty: no meta). The Home keeps its problem-line rows.
+- **How it works**: `services_steps` (title, line), a field group on the
+  Services template in `theme/inc/services.php`. No rows: no section.
+- **One function for hub and singles**, `portfolio_theme_request_section()`:
+  name, email, "What do you need?" (the published services in the current
+  language, then "Not sure", after an empty "Choose one" so nothing is sent
+  that nobody chose), site URL (optional) and message. The single passes its
+  own slug; the hub reads `?service=<slug>`, and a slug that is not a
+  published service preselects nothing. The hero button of both points to
+  `#request`. Under the button: the reply promise and the "not connected"
+  note; then a link to the privacy page (wording to review with the legal
+  pages). Still a placeholder: no endpoint, Turnstile, honeypot or rate
+  limiting yet.
+- **`?service=` needed the post type's query var off** (`query_var` false
+  on `service`): WordPress read `?service=<slug>` as "load that service" and
+  rendered it in the hub template. Pretty permalinks are unchanged; core
+  rewrites them to `post_type=service&name=`.
+- **Analytics hooks only** (the push is the dataLayer piece, after consent):
+  `data-cta-location` and `data-service` on the hero button
+  (`services_hero`; `service_hero` on a service page) and on each row
+  (`services_row`); on the form `data-form-id="services_request"`,
+  `data-cta-location="services_form"` and `data-page-type` (`services` or
+  `service`). The `generate_lead` service is the select's value at submit.
+  Slugs differ per language (`mantenimiento-wordpress`): the dataLayer piece
+  decides whether to map them to one value.
+- **Component args, no new markup by default** (Gonzalo, 2026-10-21): a
+  generic `data` arg (`portfolio_theme_data_attrs()`) on `row-a`'s link,
+  `actions-a`'s button and `form-a`; `section-a` takes a `form-a` as content
+  (an entry with `fields`).
+- **`field-a` select**: `type => 'select'` with `options` (value => label)
+  and `selected`. The native look is dropped (some browsers ignore borders
+  on it) and the chevron is two 1px lines on a `field-a__select` wrapper, in
+  the text colour; same muted border and 48px height as the other controls.
+  Shown on `/design-system/`.
+- **Maintenance stays off the Home** (`service_home` off, Gonzalo
+  2026-10-21); the hub lists it.
+- Playground seed: four published services, only maintenance with a price
+  and off the Home, one with a situation line; steps and the privacy page
+  set. The draft service it had is gone, since AI is now published.

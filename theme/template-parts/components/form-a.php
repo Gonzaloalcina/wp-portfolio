@@ -8,7 +8,8 @@
  * action the button is disabled, so the form cannot be sent anywhere.
  *
  * Args: label (accessible name), fields (each the args of a field-a),
- * button (label), action (URL; empty: not connected), note, class.
+ * button (label), action (URL; empty: not connected), note, class, data
+ * (data-* attributes on the form, see portfolio_theme_data_attrs()).
  *
  * @package PortfolioTheme
  */
@@ -21,7 +22,7 @@ if ( empty( $args['fields'] ) || empty( $args['button'] ) ) {
 
 $portfolio_action = $args['action'] ?? '';
 ?>
-<form class="<?php echo esc_attr( trim( 'form-a ' . ( $args['class'] ?? '' ) ) ); ?>"<?php echo $portfolio_action ? ' action="' . esc_url( $portfolio_action ) . '" method="post"' : ''; ?><?php echo empty( $args['label'] ) ? '' : ' aria-label="' . esc_attr( $args['label'] ) . '"'; ?>>
+<form class="<?php echo esc_attr( trim( 'form-a ' . ( $args['class'] ?? '' ) ) ); ?>"<?php echo $portfolio_action ? ' action="' . esc_url( $portfolio_action ) . '" method="post"' : ''; ?><?php echo empty( $args['label'] ) ? '' : ' aria-label="' . esc_attr( $args['label'] ) . '"'; ?><?php echo portfolio_theme_data_attrs( $args['data'] ?? array() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>>
 	<?php foreach ( $args['fields'] as $portfolio_field ) : ?>
 		<?php portfolio_theme_component( 'field-a', $portfolio_field + array( 'class' => 'form-a__field' ) ); ?>
 	<?php endforeach; ?>

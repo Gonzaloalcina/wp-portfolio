@@ -59,6 +59,26 @@ function portfolio_theme_link_attrs( $url, $rel = '' ) {
 }
 
 /**
+ * Returns the data-* attributes of a component's `data` arg: JavaScript
+ * hooks, such as the analytics events, never classes. Empty values are
+ * dropped.
+ *
+ * @param array<string, string> $data Names without the "data-" prefix => values.
+ * @return string Escaped attributes with a leading space, or ''.
+ */
+function portfolio_theme_data_attrs( $data ) {
+	$out = '';
+	foreach ( (array) $data as $name => $value ) {
+		$name = sanitize_key( (string) $name );
+		if ( '' !== $name && '' !== (string) $value ) {
+			$out .= ' data-' . $name . '="' . esc_attr( (string) $value ) . '"';
+		}
+	}
+
+	return $out;
+}
+
+/**
  * Applies portfolio_theme_link_attrs() to the external links in editor
  * content (notes, case studies, services).
  *

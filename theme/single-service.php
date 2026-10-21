@@ -1,8 +1,9 @@
 <?php
 /**
- * Service: H1 with the problem it solves and the contact button, the text
+ * Service: H1 with the problem it solves and a button to the form, the text
  * from the editor, what it includes, its proof (projects and notes), then
- * the closing Contact section. Wide layout (site--second).
+ * the request form with this service preselected, as the Services hub ends.
+ * Wide layout (site--second).
  *
  * @package PortfolioTheme
  */
@@ -20,7 +21,7 @@ portfolio_theme_component(
 		'title'   => get_the_title(),
 		'intro'   => portfolio_theme_field( 'service_problem' ),
 		'actions' => array(
-			'button' => portfolio_theme_contact_button(),
+			'button' => portfolio_theme_request_button( 'service_hero', get_post_field( 'post_name' ) ),
 		),
 	)
 );
@@ -59,6 +60,6 @@ portfolio_theme_component(
 	)
 );
 
-portfolio_theme_contact_section();
+portfolio_theme_request_section( get_post_field( 'post_name' ) );
 
 get_footer();

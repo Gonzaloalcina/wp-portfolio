@@ -246,7 +246,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 					'prose-a'      => __( 'Long text from the editor, on the text measure.', 'portfolio-theme' ),
 					'facts-a'      => __( 'Label and value pairs on 1px lines: client, year, role.', 'portfolio-theme' ),
 					'form-a'       => __( 'field-a items, a submit button-a and a note.', 'portfolio-theme' ),
-					'field-a'      => __( 'Label, optional hint and a full-width control with a muted line (3:1 contrast).', 'portfolio-theme' ),
+					'field-a'      => __( 'Label, optional hint and a full-width control (input, textarea or select) with a muted line (3:1 contrast).', 'portfolio-theme' ),
 					'pagination-a' => __( 'Newer and older links with "Page x of y". Hidden with one page.', 'portfolio-theme' ),
 				);
 				foreach ( $portfolio_component_notes as $portfolio_component => $portfolio_note ) :
@@ -411,6 +411,17 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						'label'    => __( 'Email', 'portfolio-theme' ),
 						'type'     => 'email',
 						'required' => true,
+					),
+					array(
+						'name'     => 'demo-choice',
+						'label'    => __( 'Choice', 'portfolio-theme' ),
+						'type'     => 'select',
+						'required' => true,
+						'options'  => array(
+							''       => __( 'Choose one', 'portfolio-theme' ),
+							'first'  => __( 'First option', 'portfolio-theme' ),
+							'second' => __( 'Second option', 'portfolio-theme' ),
+						),
 					),
 					array(
 						'name'  => 'demo-message',

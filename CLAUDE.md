@@ -125,6 +125,8 @@ Run before proposing a commit; CI runs the same:
   (`npx npm@11.6.2 install …`), see `docs/decisions/09-blog-blocks.md`.
 - `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
   compatibility). `composer run lint:fix` fixes what it can.
+- `npm run test:e2e`: Playwright against http://localhost/portfolio/ (or
+  `BASE_URL`). Needs `npx playwright install chromium` once.
 - `nvm exec 24 npm run playground`: runs `blueprint.json` in Playground CLI
   with `./theme` mounted, on http://127.0.0.1:9400 (needs Node 24; the rest
   of the tooling stays on Node 20). Use it to check blueprint changes.

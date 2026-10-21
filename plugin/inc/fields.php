@@ -174,6 +174,22 @@ function portfolio_core_register_fields() {
 					'instructions' => __( 'One line, in the client\'s words. Shown in lists and under the title.', 'portfolio-core' ),
 				),
 				array(
+					'key'          => 'field_portfolio_core_service_situation',
+					'label'        => __( 'When it is the right one', 'portfolio-core' ),
+					'name'         => 'service_situation',
+					'type'         => 'text',
+					'maxlength'    => 140,
+					'instructions' => __( 'One line for the Services hub: the situation this service fits. Empty: the hub shows the problem line.', 'portfolio-core' ),
+				),
+				array(
+					'key'          => 'field_portfolio_core_service_price',
+					'label'        => __( 'Price', 'portfolio-core' ),
+					'name'         => 'service_price',
+					'type'         => 'text',
+					'maxlength'    => 40,
+					'instructions' => __( 'Short, as the hub shows it: "From 80 €/month" or "Quoted". Empty: no price in the hub.', 'portfolio-core' ),
+				),
+				array(
 					'key'          => 'field_portfolio_core_service_includes',
 					'label'        => __( 'What it includes', 'portfolio-core' ),
 					'name'         => 'service_includes',

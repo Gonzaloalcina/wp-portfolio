@@ -116,6 +116,20 @@ foreach ( $pages as $slug => list( $title, $template ) ) {
 update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $home_id );
 update_option( 'page_for_posts', $page_ids['notes'] );
+update_option( 'wp_page_for_privacy_policy', $page_ids['privacy'] );
+
+// Services: How it works.
+update_field(
+	'field_portfolio_services_steps',
+	array_map(
+		static fn( $title ) => array(
+			'title' => $title,
+			'text'  => $lorem_line,
+		),
+		array( 'Lorem', 'Ipsum', 'Dolor', 'Sit amet' )
+	),
+	$page_ids['services']
+);
 
 // About: every section filled, so the template can be judged whole.
 update_field( 'field_portfolio_about_currently', 'Lorem ipsum, Dolor', $page_ids['about'] );
@@ -210,27 +224,33 @@ for ( $i = 1; $i <= 12; $i++ ) {
 	);
 }
 
-// Services: the two phase-1 services; AI and automation stays a draft.
+// Services: the four phase-1 services. Only maintenance has a price and is
+// off the Home; one has a situation line, so the hub shows every row type
+// (with and without price, situation or the problem line in its place).
 $services = array(
-	array( 'WordPress development', 'wordpress-development', 'publish' ),
-	array( 'Website ownership', 'website-ownership', 'publish' ),
-	array( 'AI and automation', 'ai-automation', 'draft' ),
+	array( 'WordPress development', 'wordpress-development', '', 'Lorem ipsum: dolor sit amet, consectetur adipiscing elit.' ),
+	array( 'Website ownership', 'website-ownership', '', '' ),
+	array( 'AI and automation', 'ai-automation', '', '' ),
+	array( 'WordPress maintenance', 'wordpress-maintenance', 'Lorem 80 €/month', '' ),
 );
 
 $service_ids = array();
-foreach ( $services as $order => list( $title, $slug, $status ) ) {
+foreach ( $services as $order => list( $title, $slug, $price, $situation ) ) {
 	$id = (int) wp_insert_post(
 		array(
 			'post_type'    => 'service',
 			'post_title'   => $title,
 			'post_name'    => $slug,
-			'post_status'  => $status,
+			'post_status'  => 'publish',
 			'post_content' => $prose,
 			'menu_order'   => $order,
 		)
 	);
 
 	update_field( 'field_portfolio_core_service_problem', $lorem_line, $id );
+	update_field( 'field_portfolio_core_service_price', $price, $id );
+	update_field( 'field_portfolio_core_service_situation', $situation, $id );
+	update_field( 'field_portfolio_core_service_home', 'wordpress-maintenance' === $slug ? 0 : 1, $id );
 	update_field(
 		'field_portfolio_core_service_includes',
 		array(

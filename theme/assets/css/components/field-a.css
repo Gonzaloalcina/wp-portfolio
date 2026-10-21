@@ -2,6 +2,8 @@
  * field-a: label, optional hint and a full-width control. The control's
  * line is the muted grey, not the hairline colour: form borders need 3:1
  * contrast (WCAG 1.4.11). 48px tall, like button-a.
+ * A select drops the native look (it ignores borders in some browsers) and
+ * draws its chevron from two 1px lines on its wrapper, in the text colour.
  */
 
 .field-a__label {
@@ -41,4 +43,31 @@
 
 textarea.field-a__control {
 	resize: vertical;
+}
+
+.field-a__select {
+	position: relative;
+	display: block;
+	margin-block-start: var(--space-1);
+}
+
+.field-a__select > .field-a__control {
+	margin-block-start: 0;
+	padding-inline-end: calc(var(--space-6) - var(--line-width));
+	appearance: none;
+	cursor: pointer;
+}
+
+.field-a__select::after {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-end: var(--space-2);
+	width: var(--space-1);
+	height: var(--space-1);
+	border-inline-end: var(--line-width) solid currentcolor;
+	border-block-end: var(--line-width) solid currentcolor;
+	content: "";
+	pointer-events: none;
+	translate: 0 -75%;
+	rotate: 45deg;
 }

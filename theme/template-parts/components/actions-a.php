@@ -3,7 +3,8 @@
  * Component actions-a: one primary button-a, then a link-row-a. Either can
  * be missing; with neither, nothing renders.
  *
- * Args: button (title, url), links (see link-row-a), class (extra classes).
+ * Args: button (title, url, data: data-* attributes, see
+ * portfolio_theme_data_attrs()), links (see link-row-a), class (extra classes).
  *
  * @package PortfolioTheme
  */
@@ -19,7 +20,7 @@ if ( empty( $portfolio_button['title'] ) && ! $portfolio_links ) {
 ?>
 <div class="<?php echo esc_attr( trim( 'actions-a ' . ( $args['class'] ?? '' ) ) ); ?>">
 	<?php if ( ! empty( $portfolio_button['title'] ) ) : ?>
-		<a class="button-a" href="<?php echo esc_url( $portfolio_button['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $portfolio_button['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $portfolio_button['title'] ); ?></a>
+		<a class="button-a" href="<?php echo esc_url( $portfolio_button['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $portfolio_button['url'] ) . portfolio_theme_data_attrs( $portfolio_button['data'] ?? array() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helpers. ?>><?php echo esc_html( $portfolio_button['title'] ); ?></a>
 	<?php endif; ?>
 	<?php portfolio_theme_component( 'link-row-a', array( 'links' => $portfolio_links ) ); ?>
 </div>

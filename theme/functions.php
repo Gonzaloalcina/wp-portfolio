@@ -21,6 +21,7 @@ require_once get_theme_file_path( 'inc/nav.php' );
 require_once get_theme_file_path( 'inc/home.php' );
 require_once get_theme_file_path( 'inc/pages.php' );
 require_once get_theme_file_path( 'inc/about.php' );
+require_once get_theme_file_path( 'inc/services.php' );
 require_once get_theme_file_path( 'inc/breadcrumbs.php' );
 
 /**

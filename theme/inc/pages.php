@@ -380,13 +380,13 @@ function portfolio_theme_project_facts( $post ) {
 }
 
 /**
- * Returns published services as row-a items: name and the problem it solves.
+ * Returns the published services in the current language, in menu order.
  *
  * @param bool $home True: only services shown on the Home (the service's
  *                   "Show on the Home" field; on unless switched off).
- * @return array<int, array{title: string, url: string, text: string}>
+ * @return WP_Post[]
  */
-function portfolio_theme_service_rows( $home = false ) {
+function portfolio_theme_services( $home = false ) {
 	if ( ! post_type_exists( 'service' ) ) {
 		return array();
 	}
@@ -414,13 +414,23 @@ function portfolio_theme_service_rows( $home = false ) {
 		);
 	}
 
+	return $posts;
+}
+
+/**
+ * Returns published services as row-a items: name and the problem it solves.
+ *
+ * @param bool $home True: only services shown on the Home.
+ * @return array<int, array{title: string, url: string, text: string}>
+ */
+function portfolio_theme_service_rows( $home = false ) {
 	return array_map(
 		static fn( $post ) => array(
 			'title' => get_the_title( $post ),
 			'url'   => get_permalink( $post ),
 			'text'  => portfolio_theme_field( 'service_problem', $post->ID ),
 		),
-		$posts
+		portfolio_theme_services( $home )
 	);
 }
 

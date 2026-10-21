@@ -64,6 +64,10 @@ function portfolio_core_register_content_types() {
 			'menu_position' => 21,
 			'menu_icon'     => 'dashicons-hammer',
 			'supports'      => array( 'title', 'editor', 'page-attributes', 'revisions' ),
+			// No public query var: ?service=<slug> preselects the service in the
+			// request form instead of loading the service (rewrites use
+			// post_type=service&name= instead).
+			'query_var'     => false,
 			'rewrite'       => array(
 				'slug'       => 'services',
 				'with_front' => false,

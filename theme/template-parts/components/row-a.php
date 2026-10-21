@@ -3,7 +3,8 @@
  * Component row-a: a title (linked when it has a URL), optional meta and an
  * optional one-line text.
  *
- * Args: title, url, rel, meta, datetime (renders meta as <time>), text.
+ * Args: title, url, rel, meta, datetime (renders meta as <time>), text,
+ * data (data-* attributes on the link, see portfolio_theme_data_attrs()).
  *
  * @package PortfolioTheme
  */
@@ -16,7 +17,7 @@ if ( empty( $args['title'] ) ) {
 ?>
 <div class="row-a">
 	<?php if ( ! empty( $args['url'] ) ) : ?>
-		<a class="row-a__title" href="<?php echo esc_url( $args['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $args['url'], $args['rel'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helper. ?>><?php echo esc_html( $args['title'] ); ?></a>
+		<a class="row-a__title" href="<?php echo esc_url( $args['url'] ); ?>"<?php echo portfolio_theme_link_attrs( $args['url'], $args['rel'] ?? '' ) . portfolio_theme_data_attrs( $args['data'] ?? array() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in the helpers. ?>><?php echo esc_html( $args['title'] ); ?></a>
 	<?php else : ?>
 		<span class="row-a__title"><?php echo esc_html( $args['title'] ); ?></span>
 	<?php endif; ?>

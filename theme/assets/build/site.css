@@ -837,6 +837,30 @@ border-color: var(--color-ink);
 textarea.field-a__control {
 resize: vertical;
 }
+.field-a__select {
+position: relative;
+display: block;
+margin-block-start: var(--space-1);
+}
+.field-a__select > .field-a__control {
+margin-block-start: 0;
+padding-inline-end: calc(var(--space-6) - var(--line-width));
+appearance: none;
+cursor: pointer;
+}
+.field-a__select::after {
+position: absolute;
+inset-block-start: 50%;
+inset-inline-end: var(--space-2);
+width: var(--space-1);
+height: var(--space-1);
+border-inline-end: var(--line-width) solid currentcolor;
+border-block-end: var(--line-width) solid currentcolor;
+content: "";
+pointer-events: none;
+translate: 0 -75%;
+rotate: 45deg;
+}
 * + .form-a {
 margin-block-start: var(--space-6);
 }

@@ -33,3 +33,13 @@ Every action is pinned to a full commit SHA with the version in a comment
 code; a SHA cannot, which protects the pipeline from supply-chain changes.
 Dependabot (`.github/dependabot.yml`) opens weekly grouped updates for the
 actions and the Composer dev dependencies. Workflow permissions are read-only.
+
+## 2026-10-21 — Playwright for end-to-end checks
+
+`@playwright/test` (pinned, dev only) with Chromium, configured in
+`playwright.config.mjs`. Tests live in `tests/e2e/` and run against a site
+that is already up: the local XAMPP install by default, or any other with
+`BASE_URL` (Playground: `BASE_URL=http://127.0.0.1:9401/ npm run test:e2e`).
+First tests: the Services hub and service pages. Browsers are installed with
+`npx playwright install chromium`, outside the repo. CI (a WordPress to test
+against) comes later.
