@@ -116,6 +116,37 @@ add_filter( 'post_type_link', 'portfolio_core_translate_permalink', 20, 2 );
 add_filter( 'post_link', 'portfolio_core_translate_permalink', 20, 2 );
 
 /**
+ * Pages have no base, so only the shared-slug suffix needs undoing: a Spanish
+ * page whose slug is the English one plus "-es" is linked without the suffix.
+ *
+ * @param string $url     Page URL, with the language directory already added.
+ * @param int    $post_id Page ID.
+ * @return string
+ */
+function portfolio_core_translate_page_link( $url, $post_id ) {
+	$post = get_post( $post_id );
+	if ( ! $post || ! function_exists( 'pll_get_post_language' ) || ! portfolio_core_uses_language_directories() ) {
+		return $url;
+	}
+
+	$lang = pll_get_post_language( $post->ID );
+	if ( ! $lang ) {
+		return $url;
+	}
+
+	$public = portfolio_core_public_slug( $post, $lang );
+	if ( $public === $post->post_name ) {
+		return $url;
+	}
+
+	// Only the last segment; ugly permalinks (?page_id=) do not match.
+	$changed = preg_replace( '#/' . preg_quote( $post->post_name, '#' ) . '/?$#', '/' . $public . '/', $url );
+
+	return null === $changed ? $url : $changed;
+}
+add_filter( 'page_link', 'portfolio_core_translate_page_link', 20, 2 );
+
+/**
  * Adds one rewrite rule per translated base, ahead of the rest.
  */
 function portfolio_core_add_rewrite_rules() {
@@ -167,6 +198,27 @@ function portfolio_core_resolve_shared_slug( $query_vars ) {
 add_filter( 'request', 'portfolio_core_resolve_shared_slug' );
 
 /**
+ * The page counterpart of the resolver above: /es/cookies/ is the Spanish
+ * page whose slug is "cookies-es", when there is one.
+ *
+ * @param array $query_vars Request query vars.
+ * @return array
+ */
+function portfolio_core_resolve_shared_page_slug( $query_vars ) {
+	if ( empty( $query_vars['pagename'] ) || empty( $query_vars['lang'] ) || ! is_string( $query_vars['pagename'] ) || ! is_string( $query_vars['lang'] ) || ! function_exists( 'pll_get_post_language' ) ) {
+		return $query_vars;
+	}
+
+	$candidate = get_page_by_path( $query_vars['pagename'] . '-' . $query_vars['lang'] );
+	if ( $candidate && pll_get_post_language( $candidate->ID ) === $query_vars['lang'] ) {
+		$query_vars['pagename'] = get_page_uri( $candidate );
+	}
+
+	return $query_vars;
+}
+add_filter( 'request', 'portfolio_core_resolve_shared_page_slug' );
+
+/**
  * Adds x-default to the hreflang links, pointing to the default language.
  *
  * @param array<string, string> $hreflangs URLs by hreflang code.
@@ -189,13 +241,22 @@ add_filter( 'pll_rel_hreflang_attributes', 'portfolio_core_hreflang_x_default' )
  * page would live at two addresses.
  */
 function portfolio_core_redirect_to_translated_url() {
-	if ( is_admin() || is_preview() || ! is_singular( array_keys( portfolio_core_url_bases() ) ) || ! function_exists( 'pll_get_post_language' ) ) {
+	if ( is_admin() || is_preview() || ! is_singular( array_merge( array_keys( portfolio_core_url_bases() ), array( 'page' ) ) ) || ! function_exists( 'pll_get_post_language' ) ) {
 		return;
 	}
 
 	$post = get_queried_object();
 	$lang = $post instanceof WP_Post ? pll_get_post_language( $post->ID ) : '';
-	if ( ! $lang || ! isset( portfolio_core_url_bases()[ $post->post_type ][ $lang ] ) ) {
+	if ( ! $lang ) {
+		return;
+	}
+
+	if ( 'page' === $post->post_type ) {
+		// Pages have no base: only the shared-slug suffix (/es/cookies-es/) is redirected.
+		if ( portfolio_core_public_slug( $post, $lang ) === $post->post_name ) {
+			return;
+		}
+	} elseif ( ! isset( portfolio_core_url_bases()[ $post->post_type ][ $lang ] ) ) {
 		return;
 	}
 
