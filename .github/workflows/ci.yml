@@ -41,7 +41,8 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci --no-audit --no-fund
+      # npm 11: npm 10.8.2 (Node 20) rejects this lockfile, see docs/decisions/09-blog-blocks.md.
+      - run: npx -y npm@11.6.2 ci --no-audit --no-fund
 
       # Committed plugin/blocks/build/ matches a fresh build; block CSS has no stray px.
       - run: npm run check:blocks

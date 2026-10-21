@@ -196,7 +196,7 @@ npm run build:tokens      # regenerate tokens.css and tokens.json
 npm run test:tokens       # token rules and generated files up to date
 npm run build:css         # compile theme/assets/css into theme/assets/build
 npm run test:css          # build up to date, every component imported, no stray px
-npm ci                    # @wordpress/scripts, for the blocks only
+npx npm@11.6.2 ci         # @wordpress/scripts, for the blocks only (npm 11)
 npm run build:blocks      # build plugin/blocks/src into plugin/blocks/build
 npm run start:blocks      # same, rebuilding on every change
 npm run check:blocks      # block build up to date, no stray px in block CSS

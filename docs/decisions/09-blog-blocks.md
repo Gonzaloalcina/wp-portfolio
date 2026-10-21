@@ -72,15 +72,14 @@ for users who can edit posts.
   plugin from the repository (`git:directory`) and a zip works without
   building. `npm run check:blocks` builds into a temporary folder and fails
   if any committed file differs, is missing or is extra, and if block CSS
-  hard-codes px. CI runs it in its own job (`npm ci`, Node 20).
+  hard-codes px. CI runs it in its own job (`npm ci` with npm 11, Node 20).
 - **Version 35**, not 36: 36 requires Node 22, and the tooling stays on
   Node 20 (Node 24 only for Playground CLI).
 - **Lockfile generated with npm 11** (`npx npm@11.6.2 install`): npm 10.8.2,
   the one Node 20.19 ships, crashes resolving this tree from scratch
   (`Cannot read properties of null (reading 'edgesOut')`, an Arborist bug
-  with an optional peer dependency). `npm ci` from the lockfile works with
-  npm 10, so CI and day-to-day installs need nothing special. Use npm 11 only
-  when adding or upgrading packages.
+  with an optional peer dependency). Since the Playwright packages, `npm ci`
+  needs npm 11 too (see the entry of 2026-10-21 below).
 - The root `package.json` is `"type": "module"`, so block sources import
   relative files with their extension (`./edit.js`), as native modules do.
 - PHPCS skips `plugin/blocks/build/` (generated); `render.php` is linted in
@@ -107,3 +106,12 @@ editor canvas (contrary to decision 04's note). The support is now declared:
 the font size presets and the blocks' token-based CSS preview correctly.
 The canvas still uses the editor's own fonts and base styles; loading the
 site's fonts and base CSS in the editor is a separate decision.
+
+## 2026-10-21 — `npm ci` with npm 11 as well
+
+After the Playwright packages entered the lockfile, npm 10.8.2 (Node 20) stopped
+accepting it: `npm ci` fails with `Missing: @emnapi/core … from lock file`. It
+reads an optional peer dependency of `@napi-rs/wasm-runtime` as missing, though
+the lockfile is complete: npm 11 installs from it and regenerating it changes
+nothing. CI and local installs run `npx npm@11.6.2 ci`. Node stays on 20; moving
+the tooling to Node 22 or 24 would also bring npm 11, but is a separate decision.

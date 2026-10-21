@@ -125,7 +125,7 @@ Run before proposing a commit; CI runs the same:
 - `npm run check:blocks`: block build up to date, no stray px in block CSS.
   After any change in `plugin/blocks/src/` run `npm run build:blocks` and
   commit the sources and `plugin/blocks/build/` together. Install with
-  `npm ci`; adding or upgrading packages needs npm 11
+  `npx npm@11.6.2 ci`; adding or upgrading packages needs npm 11 as well
   (`npx npm@11.6.2 install …`), see `docs/decisions/09-blog-blocks.md`.
 - `composer run lint`: PHPCS (WordPress Coding Standards, PHP 8.0+
   compatibility). `composer run lint:fix` fixes what it can.
