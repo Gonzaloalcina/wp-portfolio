@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+	PHPUnit: WordPress's own test library (wp-phpunit) against a test database,
+	never the site's. Run with `composer run test`; see tests/php/README.md.
+-->
+<phpunit
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+	bootstrap="tests/php/bootstrap.php"
+	colors="true"
+	beStrictAboutTestsThatDoNotTestAnything="true"
+	beStrictAboutOutputDuringTests="true"
+	convertDeprecationsToExceptions="true"
+	failOnWarning="true"
+	failOnRisky="true"
+>
+	<testsuites>
+		<testsuite name="portfolio-core">
+			<directory suffix="Test.php">tests/php</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>

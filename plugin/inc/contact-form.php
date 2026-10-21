@@ -87,23 +87,29 @@ function portfolio_core_contact_forms() {
  * @return array{site: string, secret: string, test: bool}|null
  */
 function portfolio_core_turnstile_keys() {
+	$keys = null;
+
 	if ( defined( 'PORTFOLIO_TURNSTILE_SITE_KEY' ) && defined( 'PORTFOLIO_TURNSTILE_SECRET_KEY' ) ) {
-		return array(
+		$keys = array(
 			'site'   => (string) PORTFOLIO_TURNSTILE_SITE_KEY,
 			'secret' => (string) PORTFOLIO_TURNSTILE_SECRET_KEY,
 			'test'   => false,
 		);
-	}
-
-	if ( in_array( wp_get_environment_type(), array( 'local', 'development' ), true ) ) {
-		return array(
+	} elseif ( in_array( wp_get_environment_type(), array( 'local', 'development' ), true ) ) {
+		$keys = array(
 			'site'   => PORTFOLIO_CORE_TURNSTILE_TEST_SITE_KEY,
 			'secret' => PORTFOLIO_CORE_TURNSTILE_TEST_SECRET_KEY,
 			'test'   => true,
 		);
 	}
 
-	return null;
+	/**
+	 * Filters the Turnstile key pair; null means the form is off. Used by the
+	 * PHPUnit tests to stand in for an environment without keys.
+	 *
+	 * @param array|null $keys site, secret and test, or null.
+	 */
+	return apply_filters( 'portfolio_core_turnstile_keys', $keys );
 }
 
 /**

@@ -80,4 +80,6 @@ placeholder" and the request form of "Services: choose by situation").
   `generate_lead` after consent.
 - **Test:** `tests/e2e/contact-form.spec.mjs` sends one real message
   (Turnstile test keys) and checks the error display with the endpoint
-  mocked, so it costs one attempt of the rate limit per run.
+  mocked, so it costs one attempt of the rate limit per run. The server-side
+  rules are covered by PHPUnit (`tests/php/ContactFormTest.php`,
+  `ContactMessagesTest.php`).

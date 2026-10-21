@@ -4,6 +4,7 @@
 
 	<file>theme</file>
 	<file>plugin</file>
+	<file>tests/php</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
@@ -40,6 +41,25 @@
 				<element value="portfolio"/>
 			</property>
 		</properties>
+	</rule>
+
+	<!-- PHPUnit discovers test classes by file name (ContactFormTest.php), and
+	     test methods describe themselves through their names. -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>tests/php/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>tests/php/*Test.php</exclude-pattern>
+	</rule>
+
+	<!-- The test config defines the constants WordPress itself reads (DB_NAME,
+	     ABSPATH…) and passes settings to the test library through putenv(). -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound">
+		<exclude-pattern>tests/php/wp-tests-config.php</exclude-pattern>
+		<exclude-pattern>tests/php/bootstrap.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv">
+		<exclude-pattern>tests/php/bootstrap.php</exclude-pattern>
 	</rule>
 
 	<!-- PHP version: the theme and the plugin declare Requires PHP: 8.0. -->

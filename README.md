@@ -3,8 +3,8 @@
 > **Work in progress.** In place: repository base, design system (tokens,
 > fonts, base styles, icons, light/dark), theme and page templates, English
 > and Spanish with Polylang, notes with three custom blocks, the contact
-> form, CI and the Playground blueprint. Not built yet: the consent banner
-> and dataLayer events, PHPUnit tests and deployment.
+> form with PHPUnit tests, CI and the Playground blueprint. Not built yet:
+> the consent banner and dataLayer events, and deployment.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
 Gonzalo Alcina, a WordPress developer. The repo is part of the portfolio: it
@@ -26,8 +26,8 @@ shows how the site is built, tested and documented, not just the result.
 - No bundler: CSS split per component and compiled by a zero-dependency
   script into one site stylesheet; native ES modules; `@wordpress/scripts`
   only for blocks.
-- PHPCS, token, CSS and block checks in GitHub Actions. Playwright end-to-end
-  tests run locally; PHPUnit is to come.
+- PHPCS, PHPUnit (WordPress's test library, MySQL as a service), token, CSS
+  and block checks in GitHub Actions. Playwright end-to-end tests run locally.
 - Public demo through WordPress Playground.
 
 ## Demo
@@ -170,7 +170,7 @@ theme/               # WordPress theme (portfolio-theme)
   inc/               # theme features, one file each
 tokens/              # design tokens (source)
 scripts/             # build, check and Playground scripts
-tests/               # token and CSS tests, Playwright end-to-end; PHPUnit to come
+tests/               # token and CSS tests, PHPUnit (php/), Playwright end-to-end (e2e/)
 docs/                # design brief and decision log (by phase)
 .github/             # CI workflow and Dependabot
 blueprint.json       # WordPress Playground demo
@@ -198,6 +198,7 @@ npm run build:blocks      # build plugin/blocks/src into plugin/blocks/build
 npm run start:blocks      # same, rebuilding on every change
 npm run check:blocks      # block build up to date, no stray px in block CSS
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
+composer run test         # PHPUnit against a test database (tests/php/README.md)
 npm run test:e2e          # Playwright against the local site, or any site with BASE_URL
 nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```

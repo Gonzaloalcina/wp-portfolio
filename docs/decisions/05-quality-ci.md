@@ -43,3 +43,30 @@ that is already up: the local XAMPP install by default, or any other with
 First tests: the Services hub and service pages. Browsers are installed with
 `npx playwright install chromium`, outside the repo. CI (a WordPress to test
 against) comes later.
+
+## 2026-10-21 — PHPUnit with WordPress's test library
+
+PHPUnit tests the plugin's logic, starting with the contact form: rules
+that Playwright cannot reach cheaply (the sixth attempt in an hour, a token
+from another site, a message 13 months old) are each a millisecond test.
+
+- **WordPress's own test library**, from Composer: `wp-phpunit/wp-phpunit`
+  (no svn checkout), `yoast/phpunit-polyfills` (required by it) and
+  `phpunit/phpunit` 9.6, the newest that runs on PHP 8.0. WordPress core
+  comes from `roots/wordpress-no-content`, pinned to the site's version, so
+  the tests never use the files of the local site, and CI runs the same core.
+- **A test database, never the site's:** `wp_portfolio_tests` with its own
+  MySQL user. The library empties it on every run, so the config refuses a
+  database whose name lacks "test". Locally the settings live in
+  `.env.testing` (git-ignored); in CI, in the job's environment.
+- **Only portfolio-core is loaded**, without SCF or Polylang: the code under
+  test must work without them, and it does (`function_exists()` checks).
+- **Cloudflare is never called:** siteverify is answered by a
+  `pre_http_request` filter, so tests run offline and decide whether
+  Turnstile passes. The `portfolio_core_turnstile_keys` filter stands in
+  for an environment without keys.
+- **CI:** a `phpunit` job on PHP 8.0 with MySQL 8.0 as a service.
+- Tests are linted with the rest (PHPCS), except for the rules a test file
+  cannot follow: class file names (PHPUnit finds `*Test.php`), doc comments
+  on test methods (the name says what each checks), and unprefixed constants
+  in the config, which are the ones WordPress reads.

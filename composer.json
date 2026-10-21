@@ -17,11 +17,16 @@
   },
   "scripts": {
     "lint": "phpcs",
-    "lint:fix": "phpcbf"
+    "lint:fix": "phpcbf",
+    "test": "phpunit"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "wp-coding-standards/wpcs": "^3.4"
+    "phpunit/phpunit": "^9.6",
+    "roots/wordpress-no-content": "7.1.*",
+    "wp-coding-standards/wpcs": "^3.4",
+    "wp-phpunit/wp-phpunit": "7.1.*",
+    "yoast/phpunit-polyfills": "^4.0"
   }
 }

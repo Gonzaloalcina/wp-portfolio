@@ -62,3 +62,42 @@ jobs:
 
       # WordPress Coding Standards and PHP 8.0+ compatibility (phpcs.xml.dist).
       - run: composer run lint
+
+  phpunit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    services:
+      # Test database only: WordPress's test library empties it on every run.
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: wp_portfolio_tests
+          MYSQL_USER: wp_portfolio_tests
+          MYSQL_PASSWORD: wp_portfolio_tests
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+    env:
+      WP_TESTS_DB_NAME: wp_portfolio_tests
+      WP_TESTS_DB_USER: wp_portfolio_tests
+      WP_TESTS_DB_PASSWORD: wp_portfolio_tests
+      WP_TESTS_DB_HOST: 127.0.0.1:3306
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.0'
+          extensions: mysqli
+          tools: composer
+          coverage: none
+
+      - run: composer install --no-interaction --no-progress --prefer-dist
+
+      # portfolio-core against WordPress's test library (phpunit.xml.dist).
+      - run: composer run test
