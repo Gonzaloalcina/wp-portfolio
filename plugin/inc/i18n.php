@@ -235,6 +235,29 @@ function portfolio_core_hreflang_x_default( $hreflangs ) {
 add_filter( 'pll_rel_hreflang_attributes', 'portfolio_core_hreflang_x_default' );
 
 /**
+ * Switches Polylang on for projects and services from code, so a fresh
+ * install (Playground, CI) translates them without anyone ticking the boxes
+ * in Languages > Settings. In that screen Polylang shows them checked and
+ * locked, because they are active programmatically.
+ *
+ * Added at plugin load: Polylang asks for the list early (see the filter's
+ * documentation in its source).
+ *
+ * @param array<string, string> $post_types Post type names, as keys and values.
+ * @return array<string, string>
+ */
+function portfolio_core_polylang_post_types( $post_types ) {
+	return array_merge(
+		$post_types,
+		array(
+			'project' => 'project',
+			'service' => 'service',
+		)
+	);
+}
+add_filter( 'pll_get_post_types', 'portfolio_core_polylang_post_types' );
+
+/**
  * Sends the URL a translated post had before (/es/work/ramon-esteve-es/) to
  * its current one (/es/trabajo/ramon-esteve/). Polylang still answers on the
  * English base, and WordPress does not redirect it, so without this the same
