@@ -24,6 +24,7 @@ $portfolio_notes_id = (int) get_option( 'page_for_posts' );
 			'meta'     => get_the_date(),
 			'datetime' => get_the_date( 'Y-m-d' ),
 			'intro'    => has_excerpt() ? get_the_excerpt() : '',
+			'variant'  => has_excerpt() ? 'second' : '',
 		)
 	);
 
