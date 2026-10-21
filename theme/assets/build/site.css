@@ -880,8 +880,15 @@ font: inherit;
 line-height: var(--font-line-height-base);
 }
 .field-a__control:hover,
-.field-a__control:focus-visible {
+.field-a__control:focus-visible,
+.field-a__control[aria-invalid="true"] {
 border-color: var(--color-ink);
+}
+.field-a__error {
+margin: var(--space-1) 0 0;
+font-size: var(--font-size-sm);
+font-weight: var(--font-weight-strong);
+line-height: var(--font-line-height-sm);
 }
 textarea.field-a__control {
 resize: vertical;
@@ -931,11 +938,33 @@ background: var(--color-muted);
 color: var(--color-paper);
 cursor: not-allowed;
 }
-.form-a__note {
+.form-a__note,
+.form-a__more {
 margin: 0;
-color: var(--color-muted);
 font-size: var(--font-size-sm);
 line-height: var(--font-line-height-sm);
+}
+.form-a__note {
+color: var(--color-muted);
+}
+.form-a__status {
+margin: 0;
+font-weight: var(--font-weight-strong);
+}
+.form-a__status:empty,
+.form-a__challenge:empty {
+display: none;
+}
+.form-a[aria-busy="true"] .form-a__status {
+color: var(--color-muted);
+font-weight: var(--font-weight-regular);
+}
+.form-a__trap {
+position: absolute;
+inset-inline-start: -100vw;
+width: 1px;
+height: 1px;
+overflow: hidden;
 }
 * + .pagination-a {
 margin-block-start: var(--space-4);

@@ -17,6 +17,7 @@ decided and why.
 | [10 — Notes](10-notes.md) | What Notes is, formats, cadence, launch set |
 | [11 — i18n](11-i18n.md) | Polylang setup, Spanish URLs, language switcher, translated Related block |
 | [12 — Deploy](12-deploy.md) | Hosting, staging, production and the deploy pipeline |
+| [13 — Contact form](13-contact-form.md) | REST endpoint, spam protection, storage, email, theme wiring |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).

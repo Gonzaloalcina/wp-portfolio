@@ -1,6 +1,8 @@
 /*
  * form-a: fields stacked on the text measure, then the submit button-a and
  * a note. The submit is a <button>, so it takes the page font here.
+ * A connected form adds a status line under the button, a Turnstile slot
+ * (empty for most visitors) and a honeypot field kept off screen.
  */
 
 * + .form-a {
@@ -20,7 +22,7 @@
 	cursor: pointer;
 }
 
-/* Not connected yet: muted, and no hover inversion. */
+/* Not connected, waiting for its module or sending: muted, no hover inversion. */
 .form-a__submit:disabled,
 .form-a__submit:disabled:hover {
 	border-color: var(--color-muted);
@@ -29,9 +31,37 @@
 	cursor: not-allowed;
 }
 
-.form-a__note {
+.form-a__note,
+.form-a__more {
 	margin: 0;
-	color: var(--color-muted);
 	font-size: var(--font-size-sm);
 	line-height: var(--font-line-height-sm);
+}
+
+.form-a__note {
+	color: var(--color-muted);
+}
+
+.form-a__status {
+	margin: 0;
+	font-weight: var(--font-weight-strong);
+}
+
+.form-a__status:empty,
+.form-a__challenge:empty {
+	display: none;
+}
+
+.form-a[aria-busy="true"] .form-a__status {
+	color: var(--color-muted);
+	font-weight: var(--font-weight-regular);
+}
+
+/* Off screen rather than display: none, which some bots skip. */
+.form-a__trap {
+	position: absolute;
+	inset-inline-start: -100vw;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }

@@ -175,8 +175,10 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 		$service_slug = sanitize_title( wp_unslash( $_GET['service'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only: preselects a choice.
 	}
 
-	$options = portfolio_theme_request_options();
-	$privacy = get_privacy_policy_url();
+	$options    = portfolio_theme_request_options();
+	$privacy    = get_privacy_policy_url();
+	$connection = portfolio_theme_form_connection( 'services_request' );
+	$reply      = __( 'I reply within 2 working days.', 'portfolio-theme' );
 
 	portfolio_theme_component(
 		'section-a',
@@ -187,7 +189,7 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 			'content' => array(
 				array(
 					'name' => 'form-a',
-					'args' => array(
+					'args' => $connection + array(
 						'label'  => __( 'Request information', 'portfolio-theme' ),
 						'fields' => array(
 							array(
@@ -195,6 +197,7 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 								'label'        => __( 'Name', 'portfolio-theme' ),
 								'required'     => true,
 								'autocomplete' => 'name',
+								'maxlength'    => 100,
 							),
 							array(
 								'name'         => 'email',
@@ -202,6 +205,7 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 								'type'         => 'email',
 								'required'     => true,
 								'autocomplete' => 'email',
+								'maxlength'    => 254,
 							),
 							array(
 								'name'     => 'service',
@@ -214,20 +218,23 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 							array(
 								'name'         => 'site',
 								'label'        => __( 'Site URL', 'portfolio-theme' ),
-								'type'         => 'url',
+								'type'         => 'text',
+								'inputmode'    => 'url',
 								'autocomplete' => 'url',
+								'maxlength'    => 200,
 								'hint'         => __( 'If you already have one.', 'portfolio-theme' ),
 							),
 							array(
-								'name'     => 'message',
-								'label'    => __( 'Message', 'portfolio-theme' ),
-								'type'     => 'textarea',
-								'required' => true,
-								'hint'     => __( 'What it is and when it starts.', 'portfolio-theme' ),
+								'name'      => 'message',
+								'label'     => __( 'Message', 'portfolio-theme' ),
+								'type'      => 'textarea',
+								'required'  => true,
+								'maxlength' => 5000,
+								'hint'      => __( 'What it is and when it starts.', 'portfolio-theme' ),
 							),
 						),
 						'button' => __( 'Send request', 'portfolio-theme' ),
-						'note'   => __( 'I reply within 2 working days. The form is not connected yet.', 'portfolio-theme' ),
+						'note'   => $connection ? $reply : $reply . ' ' . __( 'The form is not connected yet.', 'portfolio-theme' ),
 						'data'   => array(
 							'form-id'      => 'services_request',
 							'cta-location' => 'services_form',

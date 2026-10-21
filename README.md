@@ -2,8 +2,8 @@
 
 > **Work in progress.** In place: repository base, design system (tokens,
 > fonts, base styles, icons, light/dark), theme and page templates, English
-> and Spanish with Polylang, notes with three custom blocks, CI and the
-> Playground blueprint. Not built yet: the contact form, the consent banner
+> and Spanish with Polylang, notes with three custom blocks, the contact
+> form, CI and the Playground blueprint. Not built yet: the consent banner
 > and dataLayer events, PHPUnit tests and deployment.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
@@ -18,8 +18,9 @@ shows how the site is built, tested and documented, not just the result.
 - English and Spanish with Polylang.
 - SEO with Rank Math.
 - Custom plugin (`portfolio-core`): project and service types, site settings,
-  the Spanish URL layer and the blog blocks. A REST contact form (server-side
-  Cloudflare Turnstile, honeypot, rate limiting) is planned.
+  the Spanish URL layer, the blog blocks and a REST contact form (Cloudflare
+  Turnstile verified server-side, honeypot, rate limiting; messages stored
+  for 12 months and emailed).
 - Design system as code: W3C design tokens compiled to CSS custom properties,
   with a living `/design-system` page.
 - No bundler: CSS split per component and compiled by a zero-dependency

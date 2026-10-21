@@ -3,13 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio Theme 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/theme\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/portfolio-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-20T23:29:54+02:00\n"
+"POT-Creation-Date: 2026-10-21T22:01:15+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
@@ -48,7 +48,7 @@ msgid "Try one of these"
 msgstr ""
 
 #: 404.php:28
-#: inc/breadcrumbs.php:86
+#: inc/breadcrumbs.php:84
 #: inc/home.php:25
 #: page-design-system.php:342
 msgid "Home"
@@ -64,6 +64,7 @@ msgstr ""
 #. Template Name of the theme
 #: 404.php:36
 #: front-page.php:72
+#: inc/services.php:33
 msgid "Services"
 msgstr ""
 
@@ -105,8 +106,7 @@ msgid "All work"
 msgstr ""
 
 #: front-page.php:80
-#: single-service.php:56
-#: templates/services.php:30
+#: single-service.php:57
 msgid "All services"
 msgstr ""
 
@@ -123,14 +123,14 @@ msgstr ""
 
 #: front-page.php:104
 #: home.php:32
-#: single.php:40
+#: single.php:41
 msgid "All notes"
 msgstr ""
 
 #. Template Name of the theme
 #: front-page.php:119
 #: inc/pages.php:62
-#: templates/contact.php:74
+#: templates/contact.php:89
 msgid "Resume"
 msgstr ""
 
@@ -198,10 +198,6 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
-#: inc/language-switcher.php:26
-msgid "Language"
-msgstr ""
-
 #: inc/editor.php:33
 msgid "Small"
 msgstr ""
@@ -216,6 +212,54 @@ msgstr ""
 
 #: inc/editor.php:36
 msgid "Extra large"
+msgstr ""
+
+#: inc/forms.php:48
+msgid "Sending…"
+msgstr ""
+
+#: inc/forms.php:49
+msgid "Thank you. Your message has been sent."
+msgstr ""
+
+#: inc/forms.php:50
+msgid "Some fields need a change. They are marked below."
+msgstr ""
+
+#: inc/forms.php:51
+msgid "The spam check did not pass. Reload the page and try again."
+msgstr ""
+
+#: inc/forms.php:52
+msgid "Too many messages in a short time. Try again in an hour."
+msgstr ""
+
+#: inc/forms.php:53
+msgid "The message could not be sent. Try again in a few minutes."
+msgstr ""
+
+#: inc/forms.php:55
+msgid "This field is required."
+msgstr ""
+
+#: inc/forms.php:56
+msgid "This value is not valid."
+msgstr ""
+
+#: inc/forms.php:57
+msgid "Enter an email address, like name@example.com."
+msgstr ""
+
+#: inc/forms.php:58
+msgid "Enter a web address, like example.com."
+msgstr ""
+
+#: inc/forms.php:59
+msgid "Add a few more words."
+msgstr ""
+
+#: inc/forms.php:60
+msgid "This is too long."
 msgstr ""
 
 #: inc/home.php:38
@@ -255,7 +299,8 @@ msgid "Quote"
 msgstr ""
 
 #: inc/home.php:97
-#: templates/contact.php:36
+#: inc/services.php:197
+#: templates/contact.php:38
 msgid "Name"
 msgstr ""
 
@@ -294,6 +339,10 @@ msgstr ""
 msgid "Demo card"
 msgstr ""
 
+#: inc/language-switcher.php:26
+msgid "Language"
+msgstr ""
+
 #: inc/nav.php:20
 msgid "Main menu"
 msgstr ""
@@ -328,6 +377,7 @@ msgstr ""
 
 #: inc/pages.php:84
 #: inc/pages.php:99
+#: inc/services.php:55
 msgid "Title"
 msgstr ""
 
@@ -344,6 +394,7 @@ msgid "Years, place."
 msgstr ""
 
 #: inc/pages.php:113
+#: inc/services.php:62
 msgid "Line"
 msgstr ""
 
@@ -370,18 +421,92 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
-#: inc/pages.php:555
-#: page-design-system.php:434
+#: inc/pages.php:565
+#: page-design-system.php:445
 msgid "Newer notes"
 msgstr ""
 
-#: inc/pages.php:561
-#: page-design-system.php:438
+#: inc/pages.php:571
+#: page-design-system.php:449
 msgid "Older notes"
 msgstr ""
 
 #: inc/security.php:48
 msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: inc/services.php:46
+#: templates/services.php:50
+msgid "How it works"
+msgstr ""
+
+#: inc/services.php:50
+msgid "Three or four steps, from the first message to the quote. Empty: the section hides."
+msgstr ""
+
+#: inc/services.php:51
+msgid "Add step"
+msgstr ""
+
+#: inc/services.php:136
+#: inc/services.php:187
+#: inc/services.php:193
+msgid "Request information"
+msgstr ""
+
+#: inc/services.php:152
+#: page-design-system.php:421
+msgid "Choose one"
+msgstr ""
+
+#: inc/services.php:161
+msgid "Not sure"
+msgstr ""
+
+#: inc/services.php:181
+msgid "I reply within 2 working days."
+msgstr ""
+
+#: inc/services.php:204
+#: page-design-system.php:411
+#: templates/contact.php:45
+msgid "Email"
+msgstr ""
+
+#: inc/services.php:212
+msgid "What do you need?"
+msgstr ""
+
+#: inc/services.php:220
+msgid "Site URL"
+msgstr ""
+
+#: inc/services.php:225
+msgid "If you already have one."
+msgstr ""
+
+#: inc/services.php:229
+#: page-design-system.php:428
+#: templates/contact.php:59
+msgid "Message"
+msgstr ""
+
+#: inc/services.php:233
+msgid "What it is and when it starts."
+msgstr ""
+
+#: inc/services.php:236
+msgid "Send request"
+msgstr ""
+
+#: inc/services.php:237
+#: templates/contact.php:67
+msgid "The form is not connected yet."
+msgstr ""
+
+#: inc/services.php:248
+#: templates/contact.php:72
+msgid "How the data you send is used"
 msgstr ""
 
 #: inc/theme-toggle.php:42
@@ -588,7 +713,7 @@ msgid "field-a items, a submit button-a and a note."
 msgstr ""
 
 #: page-design-system.php:249
-msgid "Label, optional hint and a full-width control with a muted line (3:1 contrast)."
+msgid "Label, optional hint and a full-width control (input, textarea or select) with a muted line (3:1 contrast)."
 msgstr ""
 
 #: page-design-system.php:250
@@ -736,38 +861,40 @@ msgstr ""
 msgid "Demo form"
 msgstr ""
 
-#: page-design-system.php:411
-#: templates/contact.php:42
-msgid "Email"
-msgstr ""
-
 #: page-design-system.php:417
-#: templates/contact.php:53
-msgid "Message"
-msgstr ""
-
-#: page-design-system.php:419
-msgid "A hint under the label."
+msgid "Choice"
 msgstr ""
 
 #: page-design-system.php:422
-#: templates/contact.php:59
-msgid "Send message"
+msgid "First option"
 msgstr ""
 
 #: page-design-system.php:423
+msgid "Second option"
+msgstr ""
+
+#: page-design-system.php:430
+msgid "A hint under the label."
+msgstr ""
+
+#: page-design-system.php:433
+#: templates/contact.php:66
+msgid "Send message"
+msgstr ""
+
+#: page-design-system.php:434
 msgid "A note under the button."
 msgstr ""
 
-#: page-design-system.php:428
+#: page-design-system.php:439
 msgid "pagination-a"
 msgstr ""
 
-#: page-design-system.php:443
+#: page-design-system.php:454
 msgid "Demo pagination"
 msgstr ""
 
-#: page-design-system.php:450
+#: page-design-system.php:461
 msgid "Layout"
 msgstr ""
 
@@ -785,11 +912,11 @@ msgstr ""
 msgid "Outcome"
 msgstr ""
 
-#: single-service.php:34
+#: single-service.php:35
 msgid "What it includes"
 msgstr ""
 
-#: single-service.php:48
+#: single-service.php:49
 msgid "Proof"
 msgstr ""
 
@@ -797,8 +924,16 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: template-parts/components/field-a.php:35
+#: template-parts/components/field-a.php:44
 msgid "(optional)"
+msgstr ""
+
+#: template-parts/components/form-a.php:50
+msgid "Leave this field empty"
+msgstr ""
+
+#: template-parts/components/form-a.php:65
+msgid "This form needs JavaScript to send."
 msgstr ""
 
 #: template-parts/components/nav-a.php:36
@@ -835,24 +970,24 @@ msgstr ""
 msgid "How this site is built"
 msgstr ""
 
-#: templates/contact.php:32
+#: templates/contact.php:34
 msgid "Contact form"
 msgstr ""
 
-#: templates/contact.php:49
+#: templates/contact.php:53
 msgid "Company"
 msgstr ""
 
-#: templates/contact.php:56
+#: templates/contact.php:63
 msgid "A project: what it is and when it starts."
 msgstr ""
 
-#: templates/contact.php:60
-msgid "The form is not connected yet."
+#: templates/contact.php:83
+msgid "Elsewhere"
 msgstr ""
 
-#: templates/contact.php:68
-msgid "Elsewhere"
+#: templates/services.php:36
+msgid "Which one do you need?"
 msgstr ""
 
 #: templates/work.php:31
@@ -861,80 +996,4 @@ msgstr ""
 
 #: templates/work.php:45
 msgid "Projects"
-msgstr ""
-
-#: inc/services.php:46
-#: templates/services.php:50
-msgid "How it works"
-msgstr ""
-
-#: inc/services.php:50
-msgid "Three or four steps, from the first message to the quote. Empty: the section hides."
-msgstr ""
-
-#: inc/services.php:51
-msgid "Add step"
-msgstr ""
-
-#: inc/services.php:136
-#: inc/services.php:185
-#: inc/services.php:191
-msgid "Request information"
-msgstr ""
-
-#: inc/services.php:152
-#: page-design-system.php:421
-msgid "Choose one"
-msgstr ""
-
-#: inc/services.php:161
-msgid "Not sure"
-msgstr ""
-
-#: inc/services.php:208
-msgid "What do you need?"
-msgstr ""
-
-#: inc/services.php:216
-msgid "Site URL"
-msgstr ""
-
-#: inc/services.php:219
-msgid "If you already have one."
-msgstr ""
-
-#: inc/services.php:226
-msgid "What it is and when it starts."
-msgstr ""
-
-#: inc/services.php:229
-msgid "Send request"
-msgstr ""
-
-#: inc/services.php:230
-msgid "I reply within 2 working days. The form is not connected yet."
-msgstr ""
-
-#: inc/services.php:241
-msgid "How the data you send is used"
-msgstr ""
-
-#: page-design-system.php:249
-msgid "Label, optional hint and a full-width control (input, textarea or select) with a muted line (3:1 contrast)."
-msgstr ""
-
-#: page-design-system.php:417
-msgid "Choice"
-msgstr ""
-
-#: page-design-system.php:422
-msgid "First option"
-msgstr ""
-
-#: page-design-system.php:423
-msgid "Second option"
-msgstr ""
-
-#: templates/services.php:36
-msgid "Which one do you need?"
 msgstr ""

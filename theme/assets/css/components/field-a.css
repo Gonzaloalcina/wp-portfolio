@@ -4,6 +4,8 @@
  * contrast (WCAG 1.4.11). 48px tall, like button-a.
  * A select drops the native look (it ignores borders in some browsers) and
  * draws its chevron from two 1px lines on its wrapper, in the text colour.
+ * An error (from the endpoint) turns the line to the text colour and puts
+ * its message under the control: one ink, no red.
  */
 
 .field-a__label {
@@ -37,8 +39,16 @@
 }
 
 .field-a__control:hover,
-.field-a__control:focus-visible {
+.field-a__control:focus-visible,
+.field-a__control[aria-invalid="true"] {
 	border-color: var(--color-ink);
+}
+
+.field-a__error {
+	margin: var(--space-1) 0 0;
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-strong);
+	line-height: var(--font-line-height-sm);
 }
 
 textarea.field-a__control {

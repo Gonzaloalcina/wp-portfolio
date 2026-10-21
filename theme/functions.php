@@ -18,6 +18,7 @@ require_once get_theme_file_path( 'inc/security.php' );
 require_once get_theme_file_path( 'inc/media.php' );
 require_once get_theme_file_path( 'inc/icons.php' );
 require_once get_theme_file_path( 'inc/components.php' );
+require_once get_theme_file_path( 'inc/forms.php' );
 require_once get_theme_file_path( 'inc/nav.php' );
 require_once get_theme_file_path( 'inc/home.php' );
 require_once get_theme_file_path( 'inc/pages.php' );

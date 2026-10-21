@@ -4,7 +4,8 @@
  * (input, textarea or select), full width, 1px line.
  *
  * Args: name, label, type (text, email, textarea, select…), required,
- * autocomplete, hint, class. Select only: options (value => label; an ''
+ * autocomplete, inputmode, maxlength (characters; match the endpoint's
+ * limit), hint, class. Select only: options (value => label; an ''
  * value first asks for a choice, so a required select is never sent with a
  * choice nobody made) and selected (a value of options).
  *
@@ -26,12 +27,14 @@ $portfolio_id       = 'field-a-' . sanitize_html_class( $args['name'] );
 $portfolio_required = ! empty( $args['required'] );
 $portfolio_hint_id  = empty( $args['hint'] ) ? '' : $portfolio_id . '-hint';
 $portfolio_attrs    = sprintf(
-	'class="field-a__control" id="%1$s" name="%2$s"%3$s%4$s%5$s',
+	'class="field-a__control" id="%1$s" name="%2$s"%3$s%4$s%5$s%6$s%7$s',
 	esc_attr( $portfolio_id ),
 	esc_attr( $args['name'] ),
 	$portfolio_required ? ' required' : '',
 	empty( $args['autocomplete'] ) ? '' : ' autocomplete="' . esc_attr( $args['autocomplete'] ) . '"',
-	$portfolio_hint_id ? ' aria-describedby="' . esc_attr( $portfolio_hint_id ) . '"' : ''
+	$portfolio_hint_id ? ' aria-describedby="' . esc_attr( $portfolio_hint_id ) . '"' : '',
+	empty( $args['maxlength'] ) ? '' : ' maxlength="' . absint( $args['maxlength'] ) . '"',
+	empty( $args['inputmode'] ) ? '' : ' inputmode="' . esc_attr( $args['inputmode'] ) . '"'
 );
 ?>
 <div class="<?php echo esc_attr( trim( 'field-a ' . ( $args['class'] ?? '' ) ) ); ?>">
