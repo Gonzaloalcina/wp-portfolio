@@ -49,10 +49,11 @@ msgid "Try one of these"
 msgstr ""
 
 #: 404.php:28
+#: inc/breadcrumbs.php:86
 #: inc/home.php:25
 #: page-design-system.php:342
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #. Template Name of the theme
 #: 404.php:32
@@ -70,7 +71,7 @@ msgstr ""
 #: 404.php:40
 #: home.php:21
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #. Template Name of the theme
 #: 404.php:44
@@ -125,7 +126,7 @@ msgstr ""
 #: home.php:32
 #: single.php:40
 msgid "All notes"
-msgstr ""
+msgstr "Todas las notas"
 
 #. Template Name of the theme
 #: front-page.php:119

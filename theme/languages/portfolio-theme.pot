@@ -48,6 +48,7 @@ msgid "Try one of these"
 msgstr ""
 
 #: 404.php:28
+#: inc/breadcrumbs.php:86
 #: inc/home.php:25
 #: page-design-system.php:342
 msgid "Home"

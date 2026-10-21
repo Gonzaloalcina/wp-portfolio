@@ -81,6 +81,7 @@ function portfolio_theme_breadcrumb_items( $crumbs ) {
 	}
 
 	$home    = reset( $crumbs );
+	$home[0] = __( 'Home', 'portfolio-theme' ); // Rank Math has one label for every language.
 	$home[1] = home_url( '/' ); // Rank Math links the Home without the slash of its canonical URL.
 
 	return array(
