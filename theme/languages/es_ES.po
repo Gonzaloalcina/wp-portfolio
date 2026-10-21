@@ -38,15 +38,15 @@ msgstr ""
 
 #: 404.php:15
 msgid "Page not found"
-msgstr ""
+msgstr "Página no encontrada"
 
 #: 404.php:16
 msgid "This address does not lead to a page on this site. It may have moved, or the link may be wrong."
-msgstr ""
+msgstr "Esta dirección no lleva a ninguna página de esta web. Puede que se haya movido o que el enlace sea incorrecto."
 
 #: 404.php:24
 msgid "Try one of these"
-msgstr ""
+msgstr "Prueba con alguna de estas"
 
 #: 404.php:28
 #: inc/breadcrumbs.php:86
@@ -60,13 +60,13 @@ msgstr "Inicio"
 #: front-page.php:34
 #: page-design-system.php:346
 msgid "Work"
-msgstr ""
+msgstr "Trabajo"
 
 #. Template Name of the theme
 #: 404.php:36
 #: front-page.php:72
 msgid "Services"
-msgstr ""
+msgstr "Servicios"
 
 #: 404.php:40
 #: home.php:21
@@ -94,22 +94,22 @@ msgstr "Sobre mí"
 
 #: front-page.php:53
 msgid "Selected work"
-msgstr ""
+msgstr "Trabajo seleccionado"
 
 #: front-page.php:60
 msgid "Also built"
-msgstr ""
+msgstr "También he construido"
 
 #: front-page.php:66
 #: single-project.php:43
 msgid "All work"
-msgstr ""
+msgstr "Todo el trabajo"
 
 #: front-page.php:80
 #: single-service.php:56
 #: templates/services.php:30
 msgid "All services"
-msgstr ""
+msgstr "Todos los servicios"
 
 #: front-page.php:86
 #: inc/home.php:73
@@ -120,7 +120,7 @@ msgstr "Testimonios"
 
 #: front-page.php:96
 msgid "Latest notes"
-msgstr ""
+msgstr "Últimas notas"
 
 #: front-page.php:104
 #: home.php:32
@@ -133,7 +133,7 @@ msgstr "Todas las notas"
 #: inc/pages.php:62
 #: templates/contact.php:74
 msgid "Resume"
-msgstr ""
+msgstr "CV"
 
 #: header.php:28
 msgid "Skip to content"
@@ -146,36 +146,36 @@ msgstr "Ahora"
 
 #: inc/about.php:43
 msgid "Role and company, e.g. Website Lead, Company. No availability wording."
-msgstr ""
+msgstr "Puesto y empresa, p. ej. Website Lead, Empresa. Sin lenguaje de disponibilidad."
 
 #: inc/about.php:47
 msgid "How I work"
-msgstr ""
+msgstr "Cómo trabajo"
 
 #: inc/about.php:51
 msgid "One row per area of the site: what you do there and with whom."
-msgstr ""
+msgstr "Una fila por cada área de la web: qué haces en ella y con quién."
 
 #: inc/about.php:52
 #: inc/pages.php:95
 msgid "Add row"
-msgstr ""
+msgstr "Añadir fila"
 
 #: inc/about.php:56
 msgid "Area"
-msgstr ""
+msgstr "Área"
 
 #: inc/about.php:63
 msgid "What I do"
-msgstr ""
+msgstr "Qué hago"
 
 #: inc/about.php:70
 msgid "With whom"
-msgstr ""
+msgstr "Con quién"
 
 #: inc/about.php:73
 msgid "Teams or roles, e.g. Growth, Sales."
-msgstr ""
+msgstr "Equipos o roles, p. ej. Growth, Ventas."
 
 #: inc/about.php:79
 #: templates/about.php:74
@@ -184,7 +184,7 @@ msgstr "Herramientas e IA"
 
 #: inc/about.php:84
 msgid "A blank line starts a new paragraph."
-msgstr ""
+msgstr "Una línea en blanco empieza un párrafo nuevo."
 
 #: inc/about.php:88
 #: templates/about.php:101
@@ -205,185 +205,185 @@ msgstr "Idioma"
 
 #: inc/editor.php:33
 msgid "Small"
-msgstr ""
+msgstr "Pequeño"
 
 #: inc/editor.php:34
 msgid "Base"
-msgstr ""
+msgstr "Base"
 
 #: inc/editor.php:35
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 #: inc/editor.php:36
 msgid "Extra large"
-msgstr ""
+msgstr "Extra grande"
 
 #: inc/home.php:38
 msgid "Hero"
-msgstr ""
+msgstr "Cabecera principal"
 
 #: inc/home.php:43
 msgid "Headline (H1)"
-msgstr ""
+msgstr "Titular (H1)"
 
 #: inc/home.php:50
 msgid "Short bio"
-msgstr ""
+msgstr "Bio corta"
 
 #: inc/home.php:58
 msgid "Contact button label"
-msgstr ""
+msgstr "Texto del botón de contacto"
 
 #: inc/home.php:61
 msgid "Verb + object. Used in the hero and in Contact."
-msgstr ""
+msgstr "Verbo + objeto. Se usa en la cabecera principal y en Contacto."
 
 #: inc/home.php:65
 msgid "Portrait"
-msgstr ""
+msgstr "Retrato"
 
 #: inc/home.php:83
 msgid "Real words, with the person's permission. Link to their LinkedIn recommendation or profile as proof."
-msgstr ""
+msgstr "Palabras reales, con permiso de la persona. Enlaza su recomendación o perfil de LinkedIn como prueba."
 
 #: inc/home.php:84
 msgid "Add testimonial"
-msgstr ""
+msgstr "Añadir testimonio"
 
 #: inc/home.php:88
 msgid "Quote"
-msgstr ""
+msgstr "Cita"
 
 #: inc/home.php:97
 #: templates/contact.php:36
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: inc/home.php:104
 #: inc/pages.php:367
 msgid "Role"
-msgstr ""
+msgstr "Cargo"
 
 #: inc/home.php:107
 msgid "Role and company, e.g. Head of Marketing, Company."
-msgstr ""
+msgstr "Cargo y empresa, p. ej. Head of Marketing, Empresa."
 
 #: inc/home.php:111
 msgid "Proof link"
-msgstr ""
+msgstr "Enlace de prueba"
 
 #: inc/home.php:124
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: inc/icons.php:131
 #: inc/icons.php:146
 msgid "Icon"
-msgstr ""
+msgstr "Icono"
 
 #: inc/icons.php:132
 msgid "Reusable icon picker. Add it to other field groups with a Clone field."
-msgstr ""
+msgstr "Selector de iconos reutilizable. Añádelo a otros grupos de campos con un campo Clon."
 
 #: inc/icons.php:167
 msgid "Design system demo"
-msgstr ""
+msgstr "Demo del sistema de diseño"
 
 #: inc/icons.php:180
 #: page-design-system.php:183
 msgid "Demo card"
-msgstr ""
+msgstr "Tarjeta de ejemplo"
 
 #: inc/nav.php:20
 msgid "Main menu"
-msgstr ""
+msgstr "Menú principal"
 
 #: inc/nav.php:21
 msgid "Footer links"
-msgstr ""
+msgstr "Enlaces del pie"
 
 #: inc/pages.php:29
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 #: inc/pages.php:48
 msgid "Intro"
-msgstr ""
+msgstr "Intro"
 
 #: inc/pages.php:53
 msgid "One or two sentences under the title."
-msgstr ""
+msgstr "Una o dos frases bajo el título."
 
 #: inc/pages.php:75
 msgid "Sections"
-msgstr ""
+msgstr "Secciones"
 
 #: inc/pages.php:79
 msgid "e.g. Experience, Skills, Education, Languages."
-msgstr ""
+msgstr "p. ej. Experiencia, Competencias, Formación, Idiomas."
 
 #: inc/pages.php:80
 msgid "Add section"
-msgstr ""
+msgstr "Añadir sección"
 
 #: inc/pages.php:84
 #: inc/pages.php:99
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: inc/pages.php:91
 msgid "Rows"
-msgstr ""
+msgstr "Filas"
 
 #: inc/pages.php:106
 msgid "Meta"
-msgstr ""
+msgstr "Meta"
 
 #: inc/pages.php:109
 msgid "Years, place."
-msgstr ""
+msgstr "Años, lugar."
 
 #: inc/pages.php:113
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #: inc/pages.php:355
 #: page-design-system.php:372
 msgid "Client"
-msgstr ""
+msgstr "Cliente"
 
 #: inc/pages.php:359
 #: page-design-system.php:376
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 #: inc/pages.php:363
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: inc/pages.php:371
 msgid "Built with"
-msgstr ""
+msgstr "Construido con"
 
 #: inc/pages.php:375
 #: page-design-system.php:380
 msgid "Site"
-msgstr ""
+msgstr "Sitio"
 
 #: inc/pages.php:555
 #: page-design-system.php:434
 msgid "Newer notes"
-msgstr ""
+msgstr "Notas más recientes"
 
 #: inc/pages.php:561
 #: page-design-system.php:438
 msgid "Older notes"
-msgstr ""
+msgstr "Notas anteriores"
 
 #: inc/security.php:48
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Lo siento, no tienes permiso para hacer eso."
 
 #: inc/theme-toggle.php:42
 #: page-design-system.php:118
@@ -401,7 +401,7 @@ msgstr "Tema:"
 
 #: index.php:26
 msgid "Nothing found."
-msgstr ""
+msgstr "No se ha encontrado nada."
 
 #: page-design-system.php:30
 msgid "Living reference, rendered from the design tokens. Every value on this page comes from tokens/tokens.json."
@@ -679,7 +679,7 @@ msgstr ""
 #: page-design-system.php:350
 #: single-project.php:27
 msgid "Case study"
-msgstr ""
+msgstr "Caso de estudio"
 
 #: page-design-system.php:357
 msgid "title-a"
@@ -740,12 +740,12 @@ msgstr ""
 #: page-design-system.php:411
 #: templates/contact.php:42
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: page-design-system.php:417
 #: templates/contact.php:53
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: page-design-system.php:419
 msgid "A hint under the label."
@@ -754,7 +754,7 @@ msgstr ""
 #: page-design-system.php:422
 #: templates/contact.php:59
 msgid "Send message"
-msgstr ""
+msgstr "Enviar mensaje"
 
 #: page-design-system.php:423
 msgid "A note under the button."
@@ -776,31 +776,31 @@ msgstr ""
 #: page.php:19
 #, php-format
 msgid "Updated %s"
-msgstr ""
+msgstr "Actualizado el %s"
 
 #: single-project.php:27
 msgid "Project"
-msgstr ""
+msgstr "Proyecto"
 
 #: single-project.php:40
 msgid "Outcome"
-msgstr ""
+msgstr "Resultado"
 
 #: single-service.php:34
 msgid "What it includes"
-msgstr ""
+msgstr "Qué incluye"
 
 #: single-service.php:48
 msgid "Proof"
-msgstr ""
+msgstr "Pruebas"
 
 #: template-parts/components/breadcrumb-a.php:19
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Migas de pan"
 
 #: template-parts/components/field-a.php:35
 msgid "(optional)"
-msgstr ""
+msgstr "(opcional)"
 
 #: template-parts/components/nav-a.php:36
 msgid "Main"
@@ -812,13 +812,13 @@ msgstr "Menú"
 
 #: template-parts/components/pagination-a.php:22
 msgid "Pagination"
-msgstr ""
+msgstr "Paginación"
 
 #. translators: 1: current page, 2: number of pages.
 #: template-parts/components/pagination-a.php:31
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Página %1$d de %2$d"
 
 #: templates/about.php:42
 msgid "How I work with the people around a website"
@@ -838,28 +838,88 @@ msgstr "Cómo está hecha esta web"
 
 #: templates/contact.php:32
 msgid "Contact form"
-msgstr ""
+msgstr "Formulario de contacto"
 
 #: templates/contact.php:49
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #: templates/contact.php:56
 msgid "A project: what it is and when it starts."
-msgstr ""
+msgstr "Un proyecto: qué es y cuándo empieza."
 
 #: templates/contact.php:60
 msgid "The form is not connected yet."
-msgstr ""
+msgstr "El formulario aún no está conectado."
 
 #: templates/contact.php:68
 msgid "Elsewhere"
-msgstr ""
+msgstr "En otros sitios"
 
 #: templates/work.php:31
 msgid "Case studies"
-msgstr ""
+msgstr "Casos de estudio"
 
 #: templates/work.php:45
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
+
+#: inc/services.php:46
+#: templates/services.php:50
+msgid "How it works"
+msgstr "Cómo funciona"
+
+#: inc/services.php:50
+msgid "Three or four steps, from the first message to the quote. Empty: the section hides."
+msgstr "Tres o cuatro pasos, desde el primer mensaje hasta el presupuesto. Vacío: la sección se oculta."
+
+#: inc/services.php:51
+msgid "Add step"
+msgstr "Añadir paso"
+
+#: inc/services.php:136
+#: inc/services.php:185
+#: inc/services.php:191
+msgid "Request information"
+msgstr "Solicitar información"
+
+#: inc/services.php:152
+#: page-design-system.php:421
+msgid "Choose one"
+msgstr "Elige una opción"
+
+#: inc/services.php:161
+msgid "Not sure"
+msgstr "No lo sé"
+
+#: inc/services.php:208
+msgid "What do you need?"
+msgstr "¿Qué necesitas?"
+
+#: inc/services.php:216
+msgid "Site URL"
+msgstr "URL de la web"
+
+#: inc/services.php:219
+msgid "If you already have one."
+msgstr "Si ya tienes una."
+
+#: inc/services.php:226
+msgid "What it is and when it starts."
+msgstr "Qué es y cuándo empieza."
+
+#: inc/services.php:229
+msgid "Send request"
+msgstr "Enviar solicitud"
+
+#: inc/services.php:230
+msgid "I reply within 2 working days. The form is not connected yet."
+msgstr "Respondo en un plazo de 2 días laborables. El formulario aún no está conectado."
+
+#: inc/services.php:241
+msgid "How the data you send is used"
+msgstr "Cómo se usan los datos que envías"
+
+#: templates/services.php:36
+msgid "Which one do you need?"
+msgstr "¿Cuál necesitas?"

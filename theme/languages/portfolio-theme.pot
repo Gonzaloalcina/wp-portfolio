@@ -862,3 +862,79 @@ msgstr ""
 #: templates/work.php:45
 msgid "Projects"
 msgstr ""
+
+#: inc/services.php:46
+#: templates/services.php:50
+msgid "How it works"
+msgstr ""
+
+#: inc/services.php:50
+msgid "Three or four steps, from the first message to the quote. Empty: the section hides."
+msgstr ""
+
+#: inc/services.php:51
+msgid "Add step"
+msgstr ""
+
+#: inc/services.php:136
+#: inc/services.php:185
+#: inc/services.php:191
+msgid "Request information"
+msgstr ""
+
+#: inc/services.php:152
+#: page-design-system.php:421
+msgid "Choose one"
+msgstr ""
+
+#: inc/services.php:161
+msgid "Not sure"
+msgstr ""
+
+#: inc/services.php:208
+msgid "What do you need?"
+msgstr ""
+
+#: inc/services.php:216
+msgid "Site URL"
+msgstr ""
+
+#: inc/services.php:219
+msgid "If you already have one."
+msgstr ""
+
+#: inc/services.php:226
+msgid "What it is and when it starts."
+msgstr ""
+
+#: inc/services.php:229
+msgid "Send request"
+msgstr ""
+
+#: inc/services.php:230
+msgid "I reply within 2 working days. The form is not connected yet."
+msgstr ""
+
+#: inc/services.php:241
+msgid "How the data you send is used"
+msgstr ""
+
+#: page-design-system.php:249
+msgid "Label, optional hint and a full-width control (input, textarea or select) with a muted line (3:1 contrast)."
+msgstr ""
+
+#: page-design-system.php:417
+msgid "Choice"
+msgstr ""
+
+#: page-design-system.php:422
+msgid "First option"
+msgstr ""
+
+#: page-design-system.php:423
+msgid "Second option"
+msgstr ""
+
+#: templates/services.php:36
+msgid "Which one do you need?"
+msgstr ""
