@@ -1,7 +1,7 @@
 <?php
 /**
- * Site footer: copyright and the footer links menu. Closes the site block
- * opened in header.php.
+ * Site footer: copyright, the footer links menu and "Cookie settings".
+ * Closes the site block opened in header.php.
  *
  * @package PortfolioTheme
  */
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 	portfolio_theme_component(
 		'link-row-a',
 		array(
-			'links' => portfolio_theme_menu_links( 'footer' ),
+			'links' => array_merge( portfolio_theme_menu_links( 'footer' ), portfolio_theme_consent_link() ),
 			'class' => 'site__footer-links',
 		)
 	);

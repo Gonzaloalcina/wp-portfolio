@@ -1,0 +1,41 @@
+/*
+ * consent-a: the cookie banner, fixed to the bottom end corner on the
+ * text measure, paper on a 1px line like the rest. Shown only while the
+ * visitor has not answered (<html data-consent="pending">). The two buttons
+ * are the same button-a: rejecting weighs the same as accepting.
+ */
+
+.consent-a {
+	display: none;
+}
+
+:root[data-consent="pending"] .consent-a {
+	position: fixed;
+	inset-block-end: var(--layout-gutter);
+	inset-inline-end: var(--layout-gutter);
+	z-index: 20;
+	display: grid;
+	gap: var(--space-2);
+	width: min(var(--layout-text), 100% - var(--layout-gutter) * 2);
+	padding: calc(var(--space-3) - var(--line-width));
+	border: var(--line-width) solid var(--color-ink);
+	background: var(--color-paper);
+}
+
+.consent-a__text {
+	margin: 0;
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.consent-a__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.consent-a__button {
+	font: inherit;
+	font-weight: var(--font-weight-strong);
+	cursor: pointer;
+}

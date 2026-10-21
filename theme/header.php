@@ -26,6 +26,7 @@ if ( ! empty( $args['variant'] ) ) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'portfolio-theme' ); ?></a>
+<?php portfolio_theme_consent_banner(); ?>
 <div class="<?php echo esc_attr( $portfolio_site_class ); ?>">
 <header class="site__header">
 	<a class="site__title" href="<?php echo esc_url( portfolio_theme_page_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>

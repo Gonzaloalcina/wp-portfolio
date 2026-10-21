@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Portfolio Core
  * Plugin URI:        https://gonzaloalcina.dev
- * Description:       Site functionality for gonzaloalcina.dev that must survive a theme change: content types, their fields, the blog blocks, site settings, the contact form and comments off.
+ * Description:       Site functionality for gonzaloalcina.dev that must survive a theme change: content types, their fields, the blog blocks, site settings, the contact form, consent and analytics, and comments off.
  * Version:           0.1.0
  * Requires at least: 7.1
  * Requires PHP:      8.0
@@ -26,6 +26,7 @@ require_once __DIR__ . '/inc/settings.php';
 require_once __DIR__ . '/inc/i18n.php';
 require_once __DIR__ . '/inc/contact-form.php';
 require_once __DIR__ . '/inc/contact-messages.php';
+require_once __DIR__ . '/inc/consent.php';
 
 /**
  * Registers the content types' rewrite rules on activation, so their URLs

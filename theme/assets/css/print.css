@@ -17,7 +17,8 @@
 	.site__nav,
 	.theme-toggle,
 	.actions-a,
-	.site__footer {
+	.site__footer,
+	:root[data-consent] .consent-a {
 		display: none;
 	}
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/portfolio-theme\n"
-"POT-Creation-Date: 2026-10-21T22:01:15+02:00\n"
+"POT-Creation-Date: 2026-10-21T22:53:18+02:00\n"
 "PO-Revision-Date: 2026-10-20 23:30+0200\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -179,6 +179,32 @@ msgstr "Vivo en"
 #: inc/about.php:130
 msgid "Languages"
 msgstr "Idiomas"
+
+#: inc/consent.php:35
+msgid "Cookie consent"
+msgstr "Consentimiento de cookies"
+
+#: inc/consent.php:36
+msgid ""
+"I use Google Analytics to see which pages people read. It only runs if you "
+"accept."
+msgstr "Uso Google Analytics para ver qué páginas se leen. Solo se activa si aceptas."
+
+#: inc/consent.php:38
+msgid "Cookie policy"
+msgstr "Política de cookies"
+
+#: inc/consent.php:41
+msgid "Accept"
+msgstr "Aceptar"
+
+#: inc/consent.php:42
+msgid "Reject"
+msgstr "Rechazar"
+
+#: inc/consent.php:68
+msgid "Cookie settings"
+msgstr "Ajustes de cookies"
 
 #: inc/editor.php:33
 msgid "Small"

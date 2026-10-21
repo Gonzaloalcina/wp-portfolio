@@ -63,7 +63,9 @@ from there), so:
 - **i18n:** Polylang (free), EN/ES.
 - **SEO:** Rank Math (free).
 - **Plugin:** custom plugin (`portfolio-core`): REST form with Cloudflare
-  Turnstile validated server-side, honeypot and rate limiting; plus automation.
+  Turnstile validated server-side, honeypot and rate limiting; a consent
+  banner of its own with Google Consent Mode v2 in basic mode (GTM and GA4
+  only after Accept) and dataLayer events; plus automation.
 - **Design system as code:** W3C design tokens (JSON) → CSS custom properties;
   a `/design-system` page (noindex); documented in the README. No paid Figma.
 - **Quality:** PHPCS, PHPUnit (separate MySQL test database, never the site

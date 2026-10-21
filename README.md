@@ -3,8 +3,9 @@
 > **Work in progress.** In place: repository base, design system (tokens,
 > fonts, base styles, icons, light/dark), theme and page templates, English
 > and Spanish with Polylang, notes with three custom blocks, the contact
-> form with PHPUnit tests, CI and the Playground blueprint. Not built yet:
-> the consent banner and dataLayer events, and deployment.
+> form with PHPUnit tests, the consent banner with Consent Mode v2 and
+> dataLayer events, CI and the Playground blueprint. Not built yet:
+> deployment.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
 Gonzalo Alcina, a WordPress developer. The repo is part of the portfolio: it
@@ -20,7 +21,9 @@ shows how the site is built, tested and documented, not just the result.
 - Custom plugin (`portfolio-core`): project and service types, site settings,
   the Spanish URL layer, the blog blocks and a REST contact form (Cloudflare
   Turnstile verified server-side, honeypot, rate limiting; messages stored
-  for 12 months and emailed).
+  for 12 months and emailed), and consent and analytics: a cookie banner of
+  its own with Google Consent Mode v2 in basic mode (GTM and GA4 load only
+  after Accept) and dataLayer events for CTAs and leads.
 - Design system as code: W3C design tokens compiled to CSS custom properties,
   with a living `/design-system` page.
 - No bundler: CSS split per component and compiled by a zero-dependency
@@ -236,7 +239,9 @@ JavaScript uses native ES modules without a build.
 Planned deployment: GitHub Actions deploys `main` to staging and version tags
 to production, only after CI passes. Environment-specific behaviour (debug,
 indexing, API keys) is driven by `wp_get_environment_type()` and
-configuration, never by editing code per environment.
+configuration, never by editing code per environment. Per-environment
+secrets and IDs go in `wp-config.php`: `PORTFOLIO_TURNSTILE_SITE_KEY`,
+`PORTFOLIO_TURNSTILE_SECRET_KEY` and `PORTFOLIO_GTM_ID`.
 
 ## Decisions
 
