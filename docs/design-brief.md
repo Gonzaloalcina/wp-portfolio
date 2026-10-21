@@ -40,7 +40,8 @@ Everything derives from a single base unit.
 
 ## Typography
 
-- **Headings:** Newsreader (serif). Weight 500, tracking -0.02em.
+- **Headings:** Newsreader (serif) for H1, H2 and H3. Weight 500, tracking -0.02em. H3 at md (20/24).
+- **Minor headings (H4–H6):** Inter at base size, weight 600. One style.
 - **Text:** Inter (sans). Weight 400.
 - Both self-hosted (variable WOFF2, latin + latin-ext, `font-display: swap`).
   No third-party font requests: GDPR.
@@ -50,7 +51,8 @@ Everything derives from a single base unit.
 | Step | Size / line height | Use |
 |---|---|---|
 | sm | 14 / 24 | Meta: dates, labels. Muted colour |
-| base | 16 / 24 | Body text |
+| base | 16 / 24 | Body text, H4–H6 |
+| md | 20 / 24 | Subheadings (H3) |
 | lg | 24 / 32 | Section headings (H2) |
 | xl | 40 / 48 | Page title (H1) |
 

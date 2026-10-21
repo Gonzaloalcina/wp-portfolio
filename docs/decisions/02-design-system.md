@@ -130,3 +130,13 @@ from an 8px unit".
   so each label carries `data-icon` and admin CSS draws the icon with a mask.
 - `/design-system` shows the library and a demo card whose icon is picked on
   that page (demo field group, not the final card component).
+
+## 2026-10-21 — H3 in the serif at its own size; one style for H4–H6
+
+On the real render, H3 at base size read like a bold paragraph and did not
+separate from the H2, and the serif at base size and weight 600 looked heavy.
+New token step `md`: 20px (2.5 units) with a 24px line height (3 units). H3
+uses it in Newsreader, with the heading weight and tracking, like H1 and H2.
+H4–H6 share one style: Inter at base size, weight 600 (`font.weight.strong`),
+no heading tracking. Supersedes the H3 part of "Strong weight 600; H3 at base
+size and strong weight".

@@ -72,7 +72,7 @@ tokens/tokens.json  ──  npm run build:tokens  ──▶  theme/assets/css/to
 |---|---|---|
 | Unit | `--unit` | 0.5rem (8px) |
 | Space | `--space-0-5` … `--space-12` | 4, 8, 12, 16, 24, 32, 48, 64, 96px |
-| Font size / line height | `sm`, `base`, `lg`, `xl` | 14/24, 16/24, 24/32, 40/48px |
+| Font size / line height | `sm`, `base`, `md`, `lg`, `xl` | 14/24, 16/24, 20/24, 24/32, 40/48px |
 | Font family | `heading`, `body` | Newsreader, Inter |
 | Font weight | `regular`, `heading`, `strong` | 400, 500, 600 |
 | Layout | `text`, `wide`, `gutter` | 640, 1024, 24px |
@@ -105,7 +105,8 @@ own scheme clears the stored value.
 
 ### Typography
 
-Newsreader (headings, weight 500, tracking -0.02em) and Inter (text), both
+Newsreader (H1–H3, weight 500, tracking -0.02em; H3 at 20/24) and Inter
+(text, and H4–H6 at 16/24 and weight 600), both
 self-hosted as variable WOFF2 files split into latin and latin-ext. No
 third-party font requests. The latin files are preloaded; latin-ext and the
 Inter italic download only when a page needs them.

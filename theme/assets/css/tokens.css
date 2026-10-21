@@ -15,10 +15,12 @@
 	--font-family-body: Inter, system-ui, sans-serif;
 	--font-size-sm: calc(var(--unit) * 1.75);
 	--font-size-base: calc(var(--unit) * 2);
+	--font-size-md: calc(var(--unit) * 2.5);
 	--font-size-lg: calc(var(--unit) * 3);
 	--font-size-xl: calc(var(--unit) * 5);
 	--font-line-height-sm: calc(var(--unit) * 3);
 	--font-line-height-base: calc(var(--unit) * 3);
+	--font-line-height-md: calc(var(--unit) * 3);
 	--font-line-height-lg: calc(var(--unit) * 4);
 	--font-line-height-xl: calc(var(--unit) * 6);
 	--font-weight-regular: 400;

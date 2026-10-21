@@ -62,10 +62,12 @@ unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, 
 --font-family-body: Inter, system-ui, sans-serif;
 --font-size-sm: calc(var(--unit) * 1.75);
 --font-size-base: calc(var(--unit) * 2);
+--font-size-md: calc(var(--unit) * 2.5);
 --font-size-lg: calc(var(--unit) * 3);
 --font-size-xl: calc(var(--unit) * 5);
 --font-line-height-sm: calc(var(--unit) * 3);
 --font-line-height-base: calc(var(--unit) * 3);
+--font-line-height-md: calc(var(--unit) * 3);
 --font-line-height-lg: calc(var(--unit) * 4);
 --font-line-height-xl: calc(var(--unit) * 6);
 --font-weight-regular: 400;
@@ -135,10 +137,14 @@ h3,
 h4,
 h5,
 h6 {
+text-wrap: balance;
+}
+h1,
+h2,
+h3 {
 font-family: var(--font-family-heading);
 font-weight: var(--font-weight-heading);
 letter-spacing: var(--font-tracking-heading);
-text-wrap: balance;
 }
 h1 {
 font-size: var(--font-size-xl);
@@ -148,15 +154,17 @@ h2 {
 font-size: var(--font-size-lg);
 line-height: var(--font-line-height-lg);
 }
-h3,
+h3 {
+font-size: var(--font-size-md);
+line-height: var(--font-line-height-md);
+}
 h4,
 h5,
 h6 {
+font-family: var(--font-family-body);
 font-size: var(--font-size-base);
-line-height: var(--font-line-height-base);
-}
-h3 {
 font-weight: var(--font-weight-strong);
+line-height: var(--font-line-height-base);
 }
 :where(p, ul, ol, figure, blockquote, pre, table, hr) + * {
 margin-block-start: var(--space-3);

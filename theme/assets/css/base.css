@@ -52,10 +52,16 @@ h3,
 h4,
 h5,
 h6 {
+	text-wrap: balance;
+}
+
+/* The serif is for H1, H2 and H3. */
+h1,
+h2,
+h3 {
 	font-family: var(--font-family-heading);
 	font-weight: var(--font-weight-heading);
 	letter-spacing: var(--font-tracking-heading);
-	text-wrap: balance;
 }
 
 h1 {
@@ -68,17 +74,20 @@ h2 {
 	line-height: var(--font-line-height-lg);
 }
 
-/* Below H2: base size. H3 is set apart by weight. */
-h3,
+/* H3 has its own step (md), between H2 and the text. */
+h3 {
+	font-size: var(--font-size-md);
+	line-height: var(--font-line-height-md);
+}
+
+/* H4–H6, one style: the text font at base size, set apart by weight. */
 h4,
 h5,
 h6 {
+	font-family: var(--font-family-body);
 	font-size: var(--font-size-base);
-	line-height: var(--font-line-height-base);
-}
-
-h3 {
 	font-weight: var(--font-weight-strong);
+	line-height: var(--font-line-height-base);
 }
 
 /* Vertical rhythm: one line of text between blocks, more before headings. */
