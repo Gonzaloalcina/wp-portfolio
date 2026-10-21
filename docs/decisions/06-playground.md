@@ -54,19 +54,22 @@ Polylang (free) joins Secure Custom Fields and Rank Math in `plugins`, and a
 new `runPHP` step, before the content one, sets up the languages. Reading
 Polylang 3.9.1 and running the steps showed four things that are not obvious:
 
-- **`PLL_ADMIN` is defined before WordPress loads.** Polylang builds its
+- **The languages are created through Polylang's model.** Polylang builds its
   `$polylang` object, and with it the `pll_*()` functions, only once a language
-  exists. With the constant it builds the admin-side one, as it does for
-  WP-CLI and cron, and `PLL()->model->add_language()` works. Later steps run
-  with Polylang fully loaded and do not need it.
+  exists, so the first step cannot call them. It creates a `PLL_Model` with its
+  own `Options` object, calls `add_language()` and saves the options (the first
+  language becomes the default one in them). Later steps run with Polylang
+  fully loaded.
 - **English first, then Spanish.** The first language becomes the default.
   Polylang's defaults give what the site needs: no prefix for the default
   language (`hide_default`) and `/es/` for Spanish (`force_lang` = directory),
   so they are not set.
-- **Projects and services are switched on for translation in the database.**
-  Polylang only translates custom post types listed in its `post_types`
-  option, and nothing in the repo sets it. The step sets it to `project` and
-  `service`; on a local install it is Languages › Settings.
+- **Projects and services are switched on for translation from code.**
+  Polylang only translates the custom post types it is told about, and by
+  default that is a database setting (`post_types`). portfolio-core adds
+  `project` and `service` with the `pll_get_post_types` filter, so a fresh
+  install needs no setting and the blueprint stores none; Languages › Settings
+  shows them checked and locked.
 - **The menu of each language is in Polylang's option.** Once a language
   exists the front end ignores the `nav_menu_locations` theme mod and reads
   `polylang['nav_menus'][theme][location][lang]`, so the `Main` menu would
@@ -79,3 +82,20 @@ The public blueprint creates Spanish but no Spanish content: Design system is
 English only (see 11), so the `ES` link of the switcher leads to the Spanish
 home. The Spanish pairs live in the optional seed, which now builds both
 languages (see 11).
+
+## 2026-10-21 — The public blueprint stays without Spanish content
+
+Considered and left as it is: the public blueprint creates the two languages
+and nothing in Spanish.
+
+- It seeds one page, Design system, which is English only by design (see 11),
+  and the pages behind its menu do not exist yet, so a Spanish half would be as
+  empty as the English one.
+- The complete content in both languages is the optional seed (`SEED=1`), and
+  it is placeholder text. The e2e spec for i18n runs against it.
+- What a visitor sees today: the `ES` link of the switcher goes to `/es/`, the
+  Spanish home with the site name as heading and the footer in Spanish, and no
+  menu (there is no `Main ES` without pages to point to).
+
+When the real content replaces the placeholder, both languages go into the
+blueprint together.
