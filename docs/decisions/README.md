@@ -16,6 +16,7 @@ decided and why.
 | [09 — Blog blocks](09-blog-blocks.md) | Custom Gutenberg blocks: Related, Code with file name, Aside |
 | [10 — Notes](10-notes.md) | What Notes is, formats, cadence, launch set |
 | [11 — i18n](11-i18n.md) | Polylang setup, Spanish URLs, language switcher, translated Related block |
+| [12 — Deploy](12-deploy.md) | Hosting, staging, production and the deploy pipeline |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).

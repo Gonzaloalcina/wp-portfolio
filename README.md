@@ -1,9 +1,10 @@
 # wp-portfolio
 
 > **Work in progress.** In place: repository base, design system (tokens,
-> fonts, base styles, icons, light/dark), theme skeleton, CI and the
-> Playground blueprint, blog blocks. Not built yet: page templates, the
-> contact form plugin and i18n.
+> fonts, base styles, icons, light/dark), theme and page templates, English
+> and Spanish with Polylang, notes with three custom blocks, CI and the
+> Playground blueprint. Not built yet: the contact form, the consent banner
+> and dataLayer events, PHPUnit tests and deployment.
 
 Source code for [gonzaloalcina.dev](https://gonzaloalcina.dev), the portfolio of
 Gonzalo Alcina, a WordPress developer. The repo is part of the portfolio: it
@@ -16,14 +17,16 @@ shows how the site is built, tested and documented, not just the result.
   editor, PHP render). Pages use the classic editor and SCF fields.
 - English and Spanish with Polylang.
 - SEO with Rank Math.
-- Custom plugin with a REST contact form (server-side Cloudflare Turnstile,
-  honeypot, rate limiting).
+- Custom plugin (`portfolio-core`): project and service types, site settings,
+  the Spanish URL layer and the blog blocks. A REST contact form (server-side
+  Cloudflare Turnstile, honeypot, rate limiting) is planned.
 - Design system as code: W3C design tokens compiled to CSS custom properties,
   with a living `/design-system` page.
 - No bundler: CSS split per component and compiled by a zero-dependency
   script into one site stylesheet; native ES modules; `@wordpress/scripts`
   only for blocks.
-- PHPCS and token tests in GitHub Actions; PHPUnit and Playwright to come.
+- PHPCS, token, CSS and block checks in GitHub Actions. Playwright end-to-end
+  tests run locally; PHPUnit is to come.
 - Public demo through WordPress Playground.
 
 ## Demo
@@ -113,7 +116,7 @@ Inter italic download only when a page needs them.
 
 ### Icons
 
-Fourteen [Lucide](https://lucide.dev) icons (ISC) in `theme/assets/icons/`,
+Sixteen [Lucide](https://lucide.dev) icons (ISC) in `theme/assets/icons/`,
 drawn at `--icon-size` with a thinner stroke (`--icon-stroke-width`). They
 take the text colour and are decorative, so the text next to them carries the
 meaning.
@@ -158,22 +161,23 @@ cannot drift from the tokens.
 
 ```
 theme/               # WordPress theme (portfolio-theme)
-  assets/css/        # fonts, generated tokens, base styles, page styles
+  assets/css/        # fonts, generated tokens, base styles, one file per component
+  assets/build/      # compiled site stylesheet (committed)
   assets/fonts/      # self-hosted Newsreader and Inter
   assets/icons/      # Lucide SVGs
-  assets/js/         # native ES modules (theme toggle)
+  assets/js/         # native ES modules (theme toggle, navigation, video)
   inc/               # theme features, one file each
 tokens/              # design tokens (source)
-scripts/             # build scripts (tokens)
-tests/               # token tests; PHPUnit and Playwright to come
+scripts/             # build, check and Playground scripts
+tests/               # token and CSS tests, Playwright end-to-end; PHPUnit to come
 docs/                # design brief and decision log (by phase)
 .github/             # CI workflow and Dependabot
 blueprint.json       # WordPress Playground demo
 ```
 
 `plugin/` (`portfolio-core`) holds what must survive a theme change: the
-project and service types and the blog blocks (`plugin/blocks/src`, built
-into `plugin/blocks/build`).
+project and service types, site settings, the Spanish URL layer and the blog
+blocks (`plugin/blocks/src`, built into `plugin/blocks/build`).
 
 WordPress core, uploads and the database are not part of this repo. `theme/`
 is symlinked into a local WordPress install.
@@ -193,6 +197,7 @@ npm run build:blocks      # build plugin/blocks/src into plugin/blocks/build
 npm run start:blocks      # same, rebuilding on every change
 npm run check:blocks      # block build up to date, no stray px in block CSS
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
+npm run test:e2e          # Playwright against the local site, or any site with BASE_URL
 nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
 ```
 
@@ -223,8 +228,8 @@ JavaScript uses native ES modules without a build.
 |---|---|---|
 | Local | XAMPP on macOS, `WP_ENVIRONMENT_TYPE=local` | In use |
 | Demo | WordPress Playground (`blueprint.json`) | Ready, public once the repo is |
-| Staging | Private copy for review: noindex, password-protected, test keys | Planned |
-| Production | gonzaloalcina.dev | Planned (hosting not chosen yet) |
+| Staging | Subdomain on cdmon shared hosting: noindex, password-protected, test keys | Planned |
+| Production | gonzaloalcina.dev on cdmon shared hosting | Planned |
 
 Planned deployment: GitHub Actions deploys `main` to staging and version tags
 to production, only after CI passes. Environment-specific behaviour (debug,
