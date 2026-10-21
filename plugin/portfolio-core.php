@@ -11,6 +11,7 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       portfolio-core
+ * Domain Path:       /languages
  *
  * @package PortfolioCore
  */
@@ -22,6 +23,7 @@ require_once __DIR__ . '/inc/fields.php';
 require_once __DIR__ . '/inc/blocks.php';
 require_once __DIR__ . '/inc/comments.php';
 require_once __DIR__ . '/inc/settings.php';
+require_once __DIR__ . '/inc/i18n.php';
 
 /**
  * Registers the content types' rewrite rules on activation, so their URLs
@@ -29,6 +31,7 @@ require_once __DIR__ . '/inc/settings.php';
  */
 function portfolio_core_activate() {
 	portfolio_core_register_content_types();
+	portfolio_core_add_rewrite_rules();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'portfolio_core_activate' );

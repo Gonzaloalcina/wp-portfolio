@@ -15,6 +15,7 @@ decided and why.
 | [08 — Page templates](08-page-templates.md) | Page templates, content types, portfolio-core |
 | [09 — Blog blocks](09-blog-blocks.md) | Custom Gutenberg blocks: Related, Code with file name, Aside |
 | [10 — Notes](10-notes.md) | What Notes is, formats, cadence, launch set |
+| [11 — i18n](11-i18n.md) | Polylang setup, Spanish URLs, language switcher, translated Related block |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).

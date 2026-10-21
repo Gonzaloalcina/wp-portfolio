@@ -69,9 +69,26 @@ function portfolio_core_is_linkable( $post, $post_type ) {
 }
 
 /**
+ * Maps a post ID to its translation in the current language (Polylang).
+ * Without Polylang the ID is returned unchanged; with it, 0 when that
+ * language has no translation, so the row is skipped instead of showing
+ * another language.
+ *
+ * @param int $post_id Post ID as stored in the block (the default language).
+ * @return int
+ */
+function portfolio_core_translated_id( $post_id ) {
+	if ( ! $post_id || ! function_exists( 'pll_get_post' ) ) {
+		return $post_id;
+	}
+
+	return (int) pll_get_post( $post_id, pll_current_language() );
+}
+
+/**
  * The Related block's rows, in the shape of the theme's row-a: title, URL,
- * the one-line text and what the row is (meta). Anything no longer public
- * is skipped.
+ * the one-line text and what the row is (meta). Anything no longer public,
+ * or without a translation in the current language, is skipped.
  *
  * @param array $attributes Block attributes (serviceId, projectId).
  * @return array<int, array{title: string, url: string, text: string, meta: string}>
@@ -79,7 +96,7 @@ function portfolio_core_is_linkable( $post, $post_type ) {
 function portfolio_core_related_items( $attributes ) {
 	$items = array();
 
-	$service = get_post( absint( $attributes['serviceId'] ?? 0 ) );
+	$service = get_post( portfolio_core_translated_id( absint( $attributes['serviceId'] ?? 0 ) ) );
 	if ( portfolio_core_is_linkable( $service, 'service' ) ) {
 		$items[] = array(
 			'title' => get_the_title( $service ),
@@ -89,7 +106,7 @@ function portfolio_core_related_items( $attributes ) {
 		);
 	}
 
-	$project = get_post( absint( $attributes['projectId'] ?? 0 ) );
+	$project = get_post( portfolio_core_translated_id( absint( $attributes['projectId'] ?? 0 ) ) );
 	if ( portfolio_core_is_linkable( $project, 'project' ) ) {
 		$items[] = array(
 			'title' => get_the_title( $project ),
