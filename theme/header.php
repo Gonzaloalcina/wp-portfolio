@@ -38,6 +38,9 @@ if ( ! empty( $args['variant'] ) ) {
 		)
 	);
 	?>
-	<?php portfolio_theme_toggle_button(); ?>
+	<div class="site__tools">
+		<?php portfolio_theme_language_switcher(); ?>
+		<?php portfolio_theme_toggle_button(); ?>
+	</div>
 </header>
 <main id="content" class="site__main">

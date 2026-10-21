@@ -11,6 +11,7 @@ define( 'PORTFOLIO_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 
 require_once get_theme_file_path( 'inc/design-system.php' );
 require_once get_theme_file_path( 'inc/theme-toggle.php' );
+require_once get_theme_file_path( 'inc/language-switcher.php' );
 require_once get_theme_file_path( 'inc/cleanup.php' );
 require_once get_theme_file_path( 'inc/editor.php' );
 require_once get_theme_file_path( 'inc/security.php' );

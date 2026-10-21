@@ -285,6 +285,43 @@ display: none;
 .theme-toggle[hidden] {
 display: none;
 }
+.site__tools {
+display: flex;
+gap: var(--space-2);
+align-items: baseline;
+}
+.lang-switch__list {
+display: flex;
+}
+.lang-switch__item {
+margin-block-start: 0;
+padding-inline-start: 0;
+color: var(--color-muted);
+font-size: var(--font-size-sm);
+line-height: var(--font-line-height-sm);
+}
+.lang-switch__item::before {
+content: none;
+}
+.lang-switch__item + .lang-switch__item::before {
+content: "/";
+content: "/" / "";
+position: static;
+width: auto;
+height: auto;
+padding-inline: var(--space-1);
+background: none;
+}
+.lang-switch__link {
+color: inherit;
+text-decoration-color: transparent;
+}
+.lang-switch__link:hover,
+.lang-switch__link:focus-visible,
+.lang-switch__link[aria-current="true"] {
+color: var(--color-ink);
+text-decoration-color: currentColor;
+}
 .site__main {
 padding-block: var(--space-6);
 }

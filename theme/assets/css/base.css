@@ -212,7 +212,7 @@ hr {
 }
 
 /*
- * Header: title | nav | theme toggle. The nav's dropdown is positioned
+ * Header: title | nav | tools (language switcher and theme toggle). The nav's dropdown is positioned
  * against the header, and z-index keeps it above anything positioned later
  * in the page. Narrow without JavaScript, the nav takes its own row.
  */
@@ -261,6 +261,59 @@ hr {
 
 .theme-toggle[hidden] {
 	display: none;
+}
+
+/*
+ * Header tools: the language switcher and the theme toggle on one line, so
+ * the header keeps three columns whether or not there is a second language.
+ */
+.site__tools {
+	display: flex;
+	gap: var(--space-2);
+	align-items: baseline;
+}
+
+/*
+ * Language switcher: "EN / ES" as meta text, muted until hover or focus. The
+ * current language is full ink and underlined, like the current page in the
+ * menu. The names for screen readers are in visually hidden text.
+ */
+.lang-switch__list {
+	display: flex;
+}
+
+.lang-switch__item {
+	margin-block-start: 0;
+	padding-inline-start: 0;
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+}
+
+.lang-switch__item::before {
+	content: none;
+}
+
+.lang-switch__item + .lang-switch__item::before {
+	content: "/";
+	content: "/" / "";
+	position: static;
+	width: auto;
+	height: auto;
+	padding-inline: var(--space-1);
+	background: none;
+}
+
+.lang-switch__link {
+	color: inherit;
+	text-decoration-color: transparent;
+}
+
+.lang-switch__link:hover,
+.lang-switch__link:focus-visible,
+.lang-switch__link[aria-current="true"] {
+	color: var(--color-ink);
+	text-decoration-color: currentColor;
 }
 
 .site__main {

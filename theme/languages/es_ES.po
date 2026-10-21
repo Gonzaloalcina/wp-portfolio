@@ -198,6 +198,10 @@ msgstr "Vivo en"
 msgid "Languages"
 msgstr "Idiomas"
 
+#: inc/language-switcher.php:26
+msgid "Language"
+msgstr "Idioma"
+
 #: inc/editor.php:33
 msgid "Small"
 msgstr ""

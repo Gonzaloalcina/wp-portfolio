@@ -197,6 +197,10 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
+#: inc/language-switcher.php:26
+msgid "Language"
+msgstr ""
+
 #: inc/editor.php:33
 msgid "Small"
 msgstr ""
