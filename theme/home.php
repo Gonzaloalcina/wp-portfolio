@@ -4,7 +4,8 @@
  * posts page). Not to be confused with inc/home.php, the Home's fields.
  *
  * H1 and intro from the posts page, then the notes as rows (date, title, one
- * line) and the pagination. Wide layout (site--second).
+ * line), the pagination and the closing contact section. Wide layout
+ * (site--second).
  *
  * @package PortfolioTheme
  */
@@ -40,5 +41,7 @@ portfolio_theme_component(
 );
 
 portfolio_theme_component( 'pagination-a', portfolio_theme_posts_pagination() );
+
+portfolio_theme_contact_section();
 
 get_footer();
