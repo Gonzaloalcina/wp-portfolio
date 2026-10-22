@@ -140,3 +140,25 @@ uses it in Newsreader, with the heading weight and tracking, like H1 and H2.
 H4–H6 share one style: Inter at base size, weight 600 (`font.weight.strong`),
 no heading tracking. Supersedes the H3 part of "Strong weight 600; H3 at base
 size and strong weight".
+
+## 2026-10-22 — Standalone links end in an arrow instead of an underline
+
+The underline of standalone links (row titles, link rows, "All …", facts,
+testimonial names, pagination) clashed with the 1px dividers next to them.
+They now drop it and end in a small ↗ arrow, muted at rest and full ink on
+hover and focus, the same wherever the link leads (a first version used →
+for this site and ↗ for other sites; Gonzalo preferred ↗ everywhere). The
+underline returns on hover and focus. The pagination keeps ← and →, where
+the arrow gives the direction.
+
+- Links in running text keep the underline: they are the colour of the text,
+  so without it they would be told apart by nothing (WCAG 1.4.1).
+- Menus keep their own style: nav-a, the language switch, the site title and
+  the footer menu (no arrow, underline on hover and focus).
+- CSS only (`theme/assets/css/links.css`): no component changed its args or
+  markup. Arrows are Lucide `arrow-up-right`, `arrow-right` and `arrow-left`
+  as masks, so they take the text colour; they flip in right-to-left text.
+- Rejected: an arrow on every link, including running text (noise inside
+  sentences); no icon at all with underline on hover only (no hint on touch
+  screens, which have no hover).
+

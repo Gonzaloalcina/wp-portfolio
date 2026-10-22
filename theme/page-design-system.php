@@ -199,7 +199,7 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 			<?php
 			printf(
 				/* translators: %s: sample link. */
-				esc_html__( 'Links are underlined and darken on hover and focus, like %s.', 'portfolio-theme' ),
+				esc_html__( 'Links in running text are underlined and darken on hover and focus, like %s. Standalone links, such as row titles, end in an arrow instead.', 'portfolio-theme' ),
 				'<a href="#ds-details">' . esc_html__( 'this one', 'portfolio-theme' ) . '</a>'
 			);
 			?>

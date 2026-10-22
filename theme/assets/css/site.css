@@ -29,4 +29,6 @@
 @import "components/pagination-a.css";
 @import "components/consent-a.css";
 
+@import "links.css";
+
 @import "print.css";

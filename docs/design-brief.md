@@ -102,8 +102,15 @@ place.
 
 - 1px lines, `--color-line`. Used as dividers and as the row structure of lists.
 - Lists use a 4px square marker (`--marker-size`), not round bullets.
-- Links are underlined (offset 4px, one half unit, underline at ~30% opacity) and change to
-  full ink on hover and focus. Keep a visible focus style.
+- Links in running text are underlined (offset 4px, one half unit, underline
+  at ~30% opacity) and change to full ink on hover and focus. They are the
+  colour of the text, so the underline is what tells them apart.
+- Standalone links (row titles, link rows, "All …", facts, pagination) have
+  no underline: next to the 1px dividers it reads as one more line. They end
+  in a small muted ↗ arrow, wherever they lead, and the underline comes
+  back on hover and focus. The pagination keeps ← and →; menus keep no
+  arrow.
+- Keep a visible focus style.
 
 ## Not allowed
 
