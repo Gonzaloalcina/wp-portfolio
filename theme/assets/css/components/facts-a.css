@@ -1,5 +1,6 @@
 /*
- * facts-a: label and value pairs on 1px lines. Narrow: label over value.
+ * facts-a: label and value pairs with a 1px line under each one (none above
+ * the first, like list-a). Narrow: label over value.
  * From 48rem: label | value, on the first two columns of a list-a (1fr 2fr),
  * so facts line up with the lists on the same page.
  */
@@ -10,7 +11,6 @@
 
 .facts-a {
 	max-width: var(--layout-text);
-	border-block-start: var(--line-width) solid var(--color-line);
 }
 
 .facts-a__item {

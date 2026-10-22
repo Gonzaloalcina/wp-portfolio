@@ -1,12 +1,9 @@
 /*
- * quote-list-a: quote-a items separated by 1px lines, no marker. From 48rem
+ * quote-list-a: quote-a items with a 1px line under each one (none above the
+ * first, like list-a), no marker. From 48rem
  * the list owns the same three columns as a list-a and each quote shares
  * them through subgrid.
  */
-
-.quote-list-a {
-	border-block-start: var(--line-width) solid var(--color-line);
-}
 
 .quote-list-a__item {
 	margin-block-start: 0;

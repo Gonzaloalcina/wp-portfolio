@@ -100,7 +100,9 @@ place.
 
 ## Lines and details
 
-- 1px lines, `--color-line`. Used as dividers and as the row structure of lists.
+- 1px lines, `--color-line`. Used as dividers and as the row structure of lists:
+  one line under each row, none above the first (the heading and the space set
+  the list apart).
 - Lists use a 4px square marker (`--marker-size`), not round bullets.
 - Links in running text are underlined (offset 4px, one half unit, underline
   at ~30% opacity) and change to full ink on hover and focus. They are the

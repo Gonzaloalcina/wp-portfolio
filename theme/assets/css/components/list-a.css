@@ -1,13 +1,10 @@
 /*
- * list-a: items separated by 1px lines, with the square marker. Each item
- * holds a row-a. From 48rem the list owns three columns (title | text | meta)
+ * list-a: items with a 1px line under each one (none above the first: the
+ * heading and the space set the list apart), with the square marker. Each
+ * item holds a row-a. From 48rem the list owns three columns (title | text | meta)
  * and items and rows share them through subgrid, so text and meta line up
  * from row to row whatever their length.
  */
-
-.list-a {
-	border-block-start: var(--line-width) solid var(--color-line);
-}
 
 .list-a__item {
 	margin-block-start: 0;

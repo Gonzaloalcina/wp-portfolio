@@ -494,9 +494,6 @@ grid-template-areas: "title title meta";
 text-align: end;
 }
 }
-.list-a {
-border-block-start: var(--line-width) solid var(--color-line);
-}
 .list-a__item {
 margin-block-start: 0;
 padding-block: var(--space-2);
@@ -574,9 +571,6 @@ grid-column: 1 / -1;
 grid-template-columns: subgrid;
 grid-template-areas: "cite quote quote";
 }
-}
-.quote-list-a {
-border-block-start: var(--line-width) solid var(--color-line);
 }
 .quote-list-a__item {
 margin-block-start: 0;
@@ -876,7 +870,6 @@ margin-block-start: var(--space-4);
 }
 .facts-a {
 max-width: var(--layout-text);
-border-block-start: var(--line-width) solid var(--color-line);
 }
 .facts-a__item {
 display: grid;

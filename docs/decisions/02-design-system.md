@@ -162,3 +162,16 @@ the arrow gives the direction.
   sentences); no icon at all with underline on hover only (no hint on touch
   screens, which have no hover).
 
+## 2026-10-22 — Lists: a line under each row, none above the first
+
+`list-a`, `quote-list-a` and `facts-a` drew a 1px line above their first item
+as well as under each one. The top line sat right under the H2, so headings
+read as underlined and short lists (Also built) showed a line every 45px. The
+top line is gone: each row keeps the line under it, and the heading and the
+space set the list apart.
+
+Kept on purpose, as structure rather than rows: the line that sets the
+closing Contact section apart (`section-a--second`), the footer line and the
+line under the intro of a text page (`title-a--second`). The rule against two
+lines in a row still holds, since lists still end on a line.
+
