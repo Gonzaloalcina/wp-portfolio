@@ -338,11 +338,10 @@ hr {
 
 /* Footer: copyright, then the footer links; side by side when they fit. */
 .site__footer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
 	align-items: baseline;
-	gap: var(--space-1) var(--space-3);
+	gap: var(--space-2) var(--space-3);
 	padding-block: var(--space-4);
 	border-block-start: var(--line-width) solid var(--color-line);
 	color: var(--color-muted);
@@ -350,23 +349,53 @@ hr {
 	line-height: var(--font-line-height-sm);
 }
 
-/* The flex gap spaces the footer's parts, not the flow margin. */
+/* The grid gap spaces the footer's parts, not the flow margin. */
 .site__footer > * {
 	margin-block-start: 0;
 }
 
 /*
- * Legal links and "Cookie settings": their own row at the bottom, on the
- * start edge when narrow (like the rows above) and on the end edge from 48rem.
+ * Narrow: copyright with the LinkedIn icon on the end edge of the same row,
+ * then the footer links and the legal links, each on its own row.
  */
-.site__footer-legal {
-	flex-basis: 100%;
-	padding-block-start: var(--space-2);
+.site__footer-social {
+	grid-column: 2;
+	grid-row: 1;
 }
 
+.site__footer-links {
+	grid-column: 1 / -1;
+}
+
+/*
+ * From 48rem, two columns: copyright and the LinkedIn icon under it on the
+ * start edge; the footer links and, under them, the legal links and
+ * "Cookie settings" on the end edge, so both menus line up on the right.
+ */
 @media (min-width: 48rem) {
-	.site__footer-legal {
+	.site__footer {
+		grid-template-columns: auto minmax(0, 1fr);
+	}
+
+	.site__footer-text,
+	.site__footer-social {
+		grid-column: 1;
+	}
+
+	.site__footer-links {
+		grid-column: 2;
+		justify-self: end;
 		justify-content: flex-end;
+	}
+
+	.site__footer-text,
+	.site__footer-links:not(.site__footer-legal) {
+		grid-row: 1;
+	}
+
+	.site__footer-social,
+	.site__footer-legal {
+		grid-row: 2;
 	}
 }
 

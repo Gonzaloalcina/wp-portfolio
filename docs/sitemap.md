@@ -93,7 +93,7 @@ Spanish lives under `/es/`; English has no prefix.
   needed: the XML sitemap does the indexing and the service links carry the
   internal weight.
 - Footer: the main menu (About, Projects, Services, Notes, Contact) plus Resume
-  and How this site is built, then "Cookie settings" and a LinkedIn icon.
+  and a LinkedIn icon, then the legal pages and "Cookie settings".
   The same in Spanish, with the Spanish pages.
 - Maintenance proof: MDF Construcción.
 - `BreadcrumbList` on every page below the first level. One H1 per page.

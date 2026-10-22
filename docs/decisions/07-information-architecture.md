@@ -139,3 +139,19 @@ a full case) and "Sites" alone as a menu label (too bare in English).
 - **Before the site is public**, so no search result points to the old
   addresses yet; the redirects are there for links already shared and for
   the decision entries that still say `/work/`.
+
+## 2026-10-22 — "How this site is built" leaves the footer
+
+The footer links are the main menu plus Resume; "How this site is built" is
+no longer one of them (Gonzalo). Its label was by far the longest and broke
+the row, in Spanish most of all, and the page is already reached from the
+"Gonzalo Alcina" row in Projects and from About. The page stays as it is.
+
+## 2026-10-22 — Footer layout: two columns, menus on the end edge
+
+From 48rem the footer is a two-column grid: the copyright with the LinkedIn
+icon under it on the start edge, and the footer links with the legal links
+under them on the end edge, so both menus line up on the right (Gonzalo).
+Below 48rem the copyright and the icon share the first row, the icon on the
+end edge, and each menu takes its own row. The icon is now its own
+`link-row-a` (`site__footer-social`), out of the footer links list.

@@ -484,10 +484,10 @@ foreach ( $menus as $language => $menu_id ) {
 	}
 }
 
-// Footer menus, as in scripts/seed-footer-menu.php: the main menu plus Resume
-// and "How this site is built", and the legal links on their own row
+// Footer menus, as in scripts/seed-footer-menu.php: the main menu plus Resume,
+// and the legal links on their own row
 // (docs/decisions/07-information-architecture.md).
-$footer_items = array_merge( $main_items, array( 'resume', 'how-this-site-is-built' ) );
+$footer_items = array_merge( $main_items, array( 'resume' ) );
 $legal_items  = array( 'privacy', 'legal-notice', 'cookies' );
 $footer_menus = array();
 $legal_menus  = array();

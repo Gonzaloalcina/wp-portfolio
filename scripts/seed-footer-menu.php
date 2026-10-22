@@ -2,9 +2,9 @@
 /**
  * Builds the footer menus, one per language, assigned through Polylang:
  *
- * - `footer`: a reduced copy of the main menu plus Resume and "How this site
- *   is built". WordPress maintenance is not here: it is linked from the
- *   Services hub and from each service page.
+ * - `footer`: a reduced copy of the main menu plus Resume. "How this site is
+ *   built" and WordPress maintenance are not here: the first is linked from
+ *   Projects and About, the second from the Services hub and each service.
  * - `legal`: Privacy, Legal notice and Cookies, on their own row at the
  *   bottom of the footer, with "Cookie settings".
  *
@@ -29,7 +29,7 @@ if ( ! defined( 'WP_CLI' ) ) {
 
 // Location => [ menu name, English slugs in menu order ]. Spanish pages are their translations.
 $footer_menus = array(
-	'footer' => array( 'Footer', array( 'about', 'projects', 'services', 'notes', 'contact', 'resume', 'how-this-site-is-built' ) ),
+	'footer' => array( 'Footer', array( 'about', 'projects', 'services', 'notes', 'contact', 'resume' ) ),
 	'legal'  => array( 'Legal', array( 'privacy', 'legal-notice', 'cookies' ) ),
 );
 $languages    = function_exists( 'pll_languages_list' ) ? pll_languages_list() : array( 'en' );

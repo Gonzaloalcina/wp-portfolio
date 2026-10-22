@@ -1,6 +1,5 @@
 /**
- * Footer: the reduced main menu plus Resume and "How this site is built" and
- * the LinkedIn icon link, then a row with the legal pages and
+ * Footer: the reduced main menu plus Resume, the LinkedIn icon link, then a row with the legal pages and
  * "Cookie settings", in English and in Spanish.
  * WordPress maintenance is not a footer link: the Services hub and every
  * other service page link to it (docs/decisions/07-information-architecture.md).
@@ -14,14 +13,14 @@ import { test, expect } from '@playwright/test';
 const LANGUAGES = [
 	{
 		path: '',
-		links: [ 'About', 'Projects', 'Services', 'Notes', 'Contact', 'Resume', 'How this site is built' ],
+		links: [ 'About', 'Projects', 'Services', 'Notes', 'Contact', 'Resume' ],
 		legal: [ 'Privacy', 'Legal notice', 'Cookies' ],
 		services: 'services/',
 		maintenance: /\/services\/wordpress-maintenance\/$/,
 	},
 	{
 		path: 'es/inicio/',
-		links: [ 'Sobre mí', 'Proyectos', 'Servicios', 'Notas', 'Contacto', 'CV', 'Cómo está hecha esta web' ],
+		links: [ 'Sobre mí', 'Proyectos', 'Servicios', 'Notas', 'Contacto', 'CV' ],
 		legal: [ 'Privacidad', 'Aviso legal', 'Cookies' ],
 		services: 'es/servicios/',
 		maintenance: /\/es\/servicios\/mantenimiento-wordpress\/$/,
@@ -33,7 +32,7 @@ for ( const language of LANGUAGES ) {
 		await page.goto( language.path );
 		const footer = page.locator( '.site__footer' );
 
-		// The menu items, in order, then the LinkedIn icon.
+		// The menu items, in order; the LinkedIn icon has its own row.
 		const main = footer.locator( '.site__footer-links:not(.site__footer-legal)' );
 		const titles = await main.locator( '.link-row-a__item a:not(.link-row-a__icon)' ).allTextContents();
 		expect( titles.map( ( title ) => title.trim() ) ).toEqual( language.links );
@@ -45,7 +44,7 @@ for ( const language of LANGUAGES ) {
 
 		await expect( footer.locator( `a[href*="wordpress-maintenance"], a[href*="mantenimiento-wordpress"]` ) ).toHaveCount( 0 );
 
-		const linkedin = main.locator( 'a.link-row-a__icon' );
+		const linkedin = footer.locator( '.site__footer-social a.link-row-a__icon' );
 		await expect( linkedin ).toHaveCount( 1 );
 		await expect( linkedin ).toHaveAttribute( 'href', /^https:\/\/www\.linkedin\.com\/in\// );
 		await expect( linkedin ).toHaveAttribute( 'aria-label', 'LinkedIn' );
