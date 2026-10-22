@@ -26,6 +26,7 @@ require_once get_theme_file_path( 'inc/pages.php' );
 require_once get_theme_file_path( 'inc/about.php' );
 require_once get_theme_file_path( 'inc/services.php' );
 require_once get_theme_file_path( 'inc/breadcrumbs.php' );
+require_once get_theme_file_path( 'inc/brand.php' );
 
 /**
  * Registers theme supports and the theme's translations (languages/).

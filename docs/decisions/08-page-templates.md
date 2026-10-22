@@ -405,3 +405,39 @@ on AI and automation, which no longer waits as a draft.
 - Playground seed: four published services, only maintenance with a price
   and off the Home, one with a situation line; steps and the privacy page
   set. The draft service it had is gone, since AI is now published.
+
+## 2026-10-22 — Resume: the whole CV, a one-line summary for About
+
+The Resume carries the full CV in four `resume_sections`, in this order:
+Experience, Before web development, Skills, Education and languages. Same
+template and components (`hero-a`, `prose-a`, one `section-a` + `list-a` per
+section); no new component and no new token.
+
+- **Experience stays the first section:** About's "Where I have done it"
+  reads `sections[0]`. That is why the years before web development are a
+  section of their own: About shows three rows, not four.
+- **Rows carry a paragraph:** the row `text` field is now a textarea with no
+  length limit (it was a 140-character line). A role reads as one paragraph
+  of about 85 words; it holds at 360, 768 and 1280 without layout changes.
+- **Optional `summary` per row** (140 characters): About shows it when
+  present, the Resume's `text` otherwise. The experience is still entered
+  once; only its length differs per page.
+- **Skills are plain lists:** title = category, text = the tools, no years
+  and no self-assessed levels.
+- **The hero has no Contact link;** the page ends with the closing Contact
+  like the other pages, so its list's bottom line is the divider.
+- **No phone, email address or work mode** on the page; Contact is the way
+  in. No employer-specific plugin names or internal figures.
+- **Print: two A4 pages.** The print styles now hide the site header and the
+  closing Contact, set the root size to 87.5% (everything is in rem, so it
+  all scales), and win over the dark scheme: the colour override also
+  matches `:root:not([data-theme="light"])`, which before left light ink on
+  white paper when the system was dark.
+- Playground seed: the four sections, with a paragraph and a summary on the
+  experience rows and no years on the skills.
+
+## 2026-10-22 — Home: no portrait
+
+The Home hero is text only: headline, intro, the Contact button and the Work
+and About links. The `home_portrait` field and the empty preview frame are
+removed; the portrait lives on About.

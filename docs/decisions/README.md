@@ -19,6 +19,7 @@ decided and why.
 | [12 — Deploy](12-deploy.md) | Hosting, staging, production and the deploy pipeline |
 | [13 — Contact form](13-contact-form.md) | REST endpoint, spam protection, storage, email, theme wiring |
 | [14 — Consent and analytics](14-consent-analytics.md) | Cookie banner, Consent Mode v2, GTM and GA4, dataLayer events |
+| [15 — Brand](15-brand.md) | Mark, logo lockup, favicon, header logo component |
 
 New phases get their own file when work on them starts, numbered in the order
 they start (performance, blog blocks, plugin, i18n, Playground…).

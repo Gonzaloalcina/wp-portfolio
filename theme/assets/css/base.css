@@ -242,6 +242,13 @@ hr {
 	}
 }
 
+/* The logo, menu button and tools share one row: less room between them. */
+@media (width < 36rem) {
+	.site__header {
+		column-gap: var(--space-2);
+	}
+}
+
 /*
  * Theme toggle: an icon button, muted until hover or focus. It shows the
  * scheme on screen (sun: light, moon: dark); the name is in visually hidden

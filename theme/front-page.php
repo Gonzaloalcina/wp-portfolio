@@ -25,9 +25,9 @@ $portfolio_headline = portfolio_theme_home_text( 'home_headline' );
 portfolio_theme_component(
 	'hero-a',
 	array(
-		'title'       => $portfolio_headline ? $portfolio_headline : get_bloginfo( 'name' ),
-		'intro'       => portfolio_theme_home_text( 'home_intro' ),
-		'actions'     => array(
+		'title'   => $portfolio_headline ? $portfolio_headline : get_bloginfo( 'name' ),
+		'intro'   => portfolio_theme_home_text( 'home_intro' ),
+		'actions' => array(
 			'button' => $portfolio_cta,
 			'links'  => array(
 				array(
@@ -40,10 +40,6 @@ portfolio_theme_component(
 				),
 			),
 		),
-		'image_id'    => function_exists( 'get_field' ) ? (int) get_field( 'home_portrait' ) : 0,
-		'image_alt'   => get_bloginfo( 'name' ),
-		// Preview only: draw the empty frame while there is no portrait.
-		'image_frame' => true,
 	)
 );
 

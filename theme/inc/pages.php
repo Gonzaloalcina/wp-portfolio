@@ -109,11 +109,20 @@ function portfolio_theme_register_page_fields() {
 									'instructions' => __( 'Years, place.', 'portfolio-theme' ),
 								),
 								array(
-									'key'       => 'field_portfolio_resume_row_text',
-									'label'     => __( 'Line', 'portfolio-theme' ),
-									'name'      => 'text',
-									'type'      => 'text',
-									'maxlength' => 140,
+									'key'          => 'field_portfolio_resume_row_text',
+									'label'        => __( 'Text', 'portfolio-theme' ),
+									'name'         => 'text',
+									'type'         => 'textarea',
+									'rows'         => 4,
+									'instructions' => __( 'One paragraph: the role and what it covered, or a list.', 'portfolio-theme' ),
+								),
+								array(
+									'key'          => 'field_portfolio_resume_row_summary',
+									'label'        => __( 'Summary', 'portfolio-theme' ),
+									'name'         => 'summary',
+									'type'         => 'text',
+									'maxlength'    => 140,
+									'instructions' => __( 'Optional. One line for About; the Resume shows the text.', 'portfolio-theme' ),
 								),
 							),
 						),
@@ -555,8 +564,9 @@ function portfolio_theme_note_row( $post ) {
 }
 
 /**
- * Returns the Resume sections, each with its rows as row-a items. Sections
- * without a title or rows are dropped.
+ * Returns the Resume sections, each with its rows as row-a items (plus the
+ * row's optional summary, which row-a ignores). Sections without a title or
+ * rows are dropped.
  *
  * @param int $post_id Resume page ID.
  * @return array<int, array{title: string, items: array}>
@@ -576,9 +586,10 @@ function portfolio_theme_resume_sections( $post_id ) {
 			$row_title = trim( (string) ( $row['title'] ?? '' ) );
 			if ( '' !== $row_title ) {
 				$items[] = array(
-					'title' => $row_title,
-					'meta'  => trim( (string) ( $row['meta'] ?? '' ) ),
-					'text'  => trim( (string) ( $row['text'] ?? '' ) ),
+					'title'   => $row_title,
+					'meta'    => trim( (string) ( $row['meta'] ?? '' ) ),
+					'text'    => trim( (string) ( $row['text'] ?? '' ) ),
+					'summary' => trim( (string) ( $row['summary'] ?? '' ) ),
 				);
 			}
 		}

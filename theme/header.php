@@ -29,7 +29,7 @@ if ( ! empty( $args['variant'] ) ) {
 <?php portfolio_theme_consent_banner(); ?>
 <div class="<?php echo esc_attr( $portfolio_site_class ); ?>">
 <header class="site__header">
-	<a class="site__title" href="<?php echo esc_url( portfolio_theme_page_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+	<a class="site__title" href="<?php echo esc_url( portfolio_theme_page_url( '/' ) ); ?>"><?php portfolio_theme_component( 'logo-a' ); ?></a>
 	<?php
 	portfolio_theme_component(
 		'nav-a',

@@ -61,14 +61,6 @@ function portfolio_theme_register_home_fields() {
 					'instructions' => __( 'Verb + object. Used in the hero and in Contact.', 'portfolio-theme' ),
 				),
 				array(
-					'key'           => 'field_portfolio_home_portrait',
-					'label'         => __( 'Portrait', 'portfolio-theme' ),
-					'name'          => 'home_portrait',
-					'type'          => 'image',
-					'return_format' => 'id',
-					'preview_size'  => 'thumbnail',
-				),
-				array(
 					'key'   => 'field_portfolio_home_tab_testimonials',
 					'label' => __( 'Testimonials', 'portfolio-theme' ),
 					'type'  => 'tab',
