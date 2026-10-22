@@ -73,7 +73,7 @@ for users who can edit posts.
   building. `npm run check:blocks` builds into a temporary folder and fails
   if any committed file differs, is missing or is extra, and if block CSS
   hard-codes px. CI runs it in its own job (`npm ci`).
-- **Version 35**, not 36: 36 requires Node 22, and the tooling stays on
+- **Version 35** at first (now 37, see the entry of 2026-10-22), not 36: 36 requires Node 22, and the tooling stays on
   Node 20 (Node 24 only for Playground CLI).
 - **Lockfile generated with npm 11** (`npx npm@11.6.2 install`): npm 10.8.2,
   the one Node 20.19 ships, crashes resolving this tree from scratch
@@ -123,3 +123,13 @@ as well; regenerating it with that npm added the two `@emnapi` entries the
 older npm left out, so the entry above was wrong to call the lockfile complete.
 With the regenerated lockfile, `npm ci` works without pinning npm. Version 36+
 of `@wordpress/scripts` is now possible; upgrading is a separate change.
+
+## 2026-10-22 — `@wordpress/scripts` 37
+
+Upgraded from 35 to 37, pinned as before. The breaking changes of 36 and 37
+(Node 22+, Jest replaced by consumer-installed Vitest, webpack-dev-server 6,
+markdownlint and stylelint config lookup) do not touch this project: it only
+uses `build`, `start` and `build-blocks-manifest`, with no JS unit tests and no
+custom dev server. The block build came out byte for byte the same, the blocks
+of an existing note stay valid in the editor, and the install drops about 200
+packages (no bundled Jest).

@@ -75,7 +75,7 @@ from there), so:
 - **Build tooling:** no bundler. CSS is split per component and compiled
   by `scripts/build-css.mjs` (no dependencies) into one site stylesheet in
   `theme/assets/build/`, committed. JavaScript stays native ES modules;
-  `@wordpress/scripts` (v35) only for Gutenberg blocks, which live
+  `@wordpress/scripts` (v37) only for Gutenberg blocks, which live
   in `plugin/blocks/src/` and build into `plugin/blocks/build/`, committed.
 - **Node:** 24 for all the tooling, pinned in `.nvmrc` (run `nvm use` in the
   repo; the machine default stays as it is). See
