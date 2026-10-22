@@ -4,7 +4,7 @@
  * (linked when there is a URL, e.g. their LinkedIn profile, as proof) and
  * role.
  *
- * Args: quote, name, role, url.
+ * Args: quote (a blank line starts a new paragraph), name, role, url.
  *
  * @package PortfolioTheme
  */
@@ -17,7 +17,9 @@ if ( empty( $args['quote'] ) || empty( $args['name'] ) ) {
 ?>
 <figure class="quote-a">
 	<blockquote class="quote-a__quote">
-		<p class="quote-a__text"><?php echo esc_html( $args['quote'] ); ?></p>
+		<?php foreach ( preg_split( '/\R\s*\R/', trim( $args['quote'] ) ) as $portfolio_paragraph ) : ?>
+			<p class="quote-a__text"><?php echo esc_html( $portfolio_paragraph ); ?></p>
+		<?php endforeach; ?>
 	</blockquote>
 	<figcaption class="quote-a__cite">
 		<?php if ( ! empty( $args['url'] ) ) : ?>

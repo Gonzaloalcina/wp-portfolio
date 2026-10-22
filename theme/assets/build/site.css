@@ -531,10 +531,10 @@ letter-spacing: var(--font-tracking-heading);
 text-wrap: pretty;
 quotes: "\201C" "\201D";
 }
-.quote-a__text::before {
+.quote-a__text:first-child::before {
 content: open-quote;
 }
-.quote-a__text::after {
+.quote-a__text:last-child::after {
 content: close-quote;
 }
 .quote-a__cite {

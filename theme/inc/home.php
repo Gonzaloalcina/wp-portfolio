@@ -84,13 +84,14 @@ function portfolio_theme_register_home_fields() {
 					'button_label' => __( 'Add testimonial', 'portfolio-theme' ),
 					'sub_fields'   => array(
 						array(
-							'key'       => 'field_portfolio_home_testimonials_quote',
-							'label'     => __( 'Quote', 'portfolio-theme' ),
-							'name'      => 'quote',
-							'type'      => 'textarea',
-							'rows'      => 3,
-							'maxlength' => 480,
-							'required'  => 1,
+							'key'          => 'field_portfolio_home_testimonials_quote',
+							'label'        => __( 'Quote', 'portfolio-theme' ),
+							'name'         => 'quote',
+							'type'         => 'textarea',
+							'rows'         => 3,
+							'maxlength'    => 600,
+							'instructions' => __( 'As the person wrote it. A blank line starts a new paragraph.', 'portfolio-theme' ),
+							'required'     => 1,
 						),
 						array(
 							'key'      => 'field_portfolio_home_testimonials_name',
