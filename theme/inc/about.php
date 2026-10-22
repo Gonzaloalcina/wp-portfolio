@@ -204,7 +204,8 @@ function portfolio_theme_resume_url() {
 
 /**
  * Returns the "Where I have done it" rows: the first section of the Resume
- * page (its experience), so the experience is entered once.
+ * page (its experience), so the experience is entered once. Each row shows
+ * its one-line summary when it has one, the Resume's longer text otherwise.
  *
  * @return array<int, array{title: string, meta: string, text: string}>
  */
@@ -216,5 +217,7 @@ function portfolio_theme_about_where_rows() {
 
 	$sections = portfolio_theme_resume_sections( $resume_id );
 
-	return $sections ? $sections[0]['items'] : array();
+	return $sections
+		? array_map( static fn( $row ) => array( 'text' => $row['summary'] ? $row['summary'] : $row['text'] ) + $row, $sections[0]['items'] )
+		: array();
 }

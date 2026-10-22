@@ -2,10 +2,10 @@
 /**
  * Template Name: Resume
  *
- * Resume: a transcription of the CV. H1, intro and a link to Contact, then
- * one section per Resume field section (experience, skills…) as rows. No
- * PDF download. Printable: the print styles hide the site chrome. Wide
- * layout (site--second).
+ * Resume: a transcription of the CV. H1 and intro, the profile, then one
+ * section per Resume field section (experience, skills…) as rows, and the
+ * closing Contact. No PDF download. Printable: the print styles hide the
+ * site chrome and the closing Contact. Wide layout (site--second).
  *
  * @package PortfolioTheme
  */
@@ -18,16 +18,8 @@ the_post();
 portfolio_theme_component(
 	'hero-a',
 	array(
-		'title'   => get_the_title(),
-		'intro'   => portfolio_theme_page_intro(),
-		'actions' => array(
-			'links' => array(
-				array(
-					'title' => __( 'Contact', 'portfolio-theme' ),
-					'url'   => portfolio_theme_page_url( '/contact/' ),
-				),
-			),
-		),
+		'title' => get_the_title(),
+		'intro' => portfolio_theme_page_intro(),
 	)
 );
 
@@ -47,5 +39,7 @@ foreach ( portfolio_theme_resume_sections( get_the_ID() ) as $portfolio_section 
 		)
 	);
 }
+
+portfolio_theme_contact_section();
 
 get_footer();

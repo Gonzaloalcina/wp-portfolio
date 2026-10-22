@@ -1,11 +1,14 @@
 /*
  * Print: the Resume is meant to be printed, and any page may be. Light ink
  * on white even when the dark scheme is on (system colours, no new values),
- * and the site chrome hidden.
+ * the site chrome and the closing Contact hidden, and a smaller root size so
+ * the Resume fits two A4 pages (everything is in rem, so it all scales).
  */
 
 @media print {
+	/* Matches every selector the dark scheme uses, so print always wins. */
 	:root,
+	:root:not([data-theme="light"]),
 	:root[data-theme] {
 		--color-paper: Canvas;
 		--color-ink: CanvasText;
@@ -13,16 +16,21 @@
 		color-scheme: light;
 	}
 
+	html {
+		font-size: 87.5%;
+	}
+
 	.skip-link,
+	.site__header,
 	.site__nav,
 	.theme-toggle,
 	.actions-a,
 	.site__footer,
+	.section-a--second,
 	:root[data-consent] .consent-a {
 		display: none;
 	}
 
-	.site__header,
 	.site__main {
 		width: auto;
 		padding-block: 0;

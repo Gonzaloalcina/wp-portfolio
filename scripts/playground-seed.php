@@ -194,10 +194,10 @@ update_option( 'page_on_front', $home_id );
 update_option( 'page_for_posts', $page_ids['en']['notes'] );
 update_option( 'wp_page_for_privacy_policy', $page_ids['en']['privacy'] );
 
-// Resume section titles, per language.
+// Resume section titles, per language. Experience first: About reads it.
 $resume_titles = array(
-	'en' => array( 'Experience', 'Skills', 'Education', 'Languages' ),
-	'es' => array( 'Experiencia', 'Competencias', 'Formación', 'Idiomas' ),
+	'en' => array( 'Experience', 'Before web development', 'Skills', 'Education and languages' ),
+	'es' => array( 'Experiencia', 'Antes del desarrollo web', 'Competencias', 'Formación e idiomas' ),
 );
 
 foreach ( array_filter( $page_ids ) as $language => $language_ids ) {
@@ -234,22 +234,27 @@ foreach ( array_filter( $page_ids ) as $language => $language_ids ) {
 	update_field(
 		'field_portfolio_resume_sections',
 		array_map(
-			static fn( $section ) => array(
+			// Experience: a paragraph per row on the Resume, one line on About.
+			// Skills (third section): no years.
+			static fn( $section, $index ) => array(
 				'title' => $section,
 				'rows'  => array(
 					array(
-						'title' => 'Lorem ipsum dolor',
-						'meta'  => '2024 – 2026',
-						'text'  => $lorem_line,
+						'title'   => 'Lorem ipsum dolor',
+						'meta'    => 2 === $index ? '' : '2024 – 2026',
+						'text'    => 0 === $index ? "{$lorem} {$lorem} {$lorem}" : $lorem_line,
+						'summary' => 0 === $index ? $lorem_line : '',
 					),
 					array(
-						'title' => 'Consectetur adipiscing',
-						'meta'  => '2020 – 2024',
-						'text'  => $lorem_line,
+						'title'   => 'Consectetur adipiscing',
+						'meta'    => 2 === $index ? '' : '2020 – 2024',
+						'text'    => 0 === $index ? "{$lorem} {$lorem}" : $lorem_line,
+						'summary' => 0 === $index ? $lorem_line : '',
 					),
 				),
 			),
-			$resume_titles[ $language ]
+			$resume_titles[ $language ],
+			array_keys( $resume_titles[ $language ] )
 		),
 		$language_ids['resume']
 	);
