@@ -1,0 +1,59 @@
+/*
+ * logo-a: the site mark and name on one line. The mark is one line height
+ * tall and takes the text colour, so it follows light and dark with the link.
+ * The name is heading type at md size. The name sets the baseline, so the
+ * header aligns it with the menu like any other text. An inline-flex box
+ * does not inherit the link underline: a logo is not underlined.
+ */
+
+.logo-a {
+	display: inline-flex;
+	gap: var(--space-1-5);
+	align-items: center;
+}
+
+/*
+ * Optical centring: the middle of the mark meets the middle of the name's
+ * capitals, not of its lowercase letters, so the mark rises by a tenth of the
+ * name's size (2px at md, 1px at base). Whole pixels keep the 1px frame sharp.
+ * The name stays on the baseline the menu uses.
+ */
+.logo-a__mark {
+	flex: none;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	font-size: var(--font-size-md);
+	translate: 0 -0.1em;
+}
+
+.logo-a__name {
+	align-self: baseline;
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-heading);
+	line-height: var(--font-line-height-md);
+	letter-spacing: var(--font-tracking-heading);
+}
+
+/*
+ * Narrow screens: mark, name, menu button and tools share one row, so the
+ * mark and the name step down one size. At 2 units the mark is the favicon's
+ * size, with the same 1px frame.
+ */
+@media (width < 36rem) {
+	.logo-a {
+		gap: var(--space-1);
+	}
+
+	.logo-a__mark {
+		width: var(--space-2);
+		height: var(--space-2);
+		font-size: var(--font-size-base);
+		translate: 0 -0.0625em;
+	}
+
+	.logo-a__name {
+		font-size: var(--font-size-base);
+		line-height: var(--font-line-height-base);
+	}
+}
