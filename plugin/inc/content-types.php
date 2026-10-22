@@ -2,8 +2,8 @@
 /**
  * Content types: projects (Work) and services.
  *
- * The hubs (/work/, /services/) are pages with a theme template, not post
- * type archives: Polylang free translates page slugs (/es/trabajo/) but not
+ * The hubs (/projects/, /services/) are pages with a theme template, not post
+ * type archives: Polylang free translates page slugs (/es/proyectos/) but not
  * the base of a post type's URL. Single URLs keep the English base for now;
  * translating it is part of the i18n phase (docs/decisions/08-page-templates.md).
  *
@@ -39,7 +39,7 @@ function portfolio_core_register_content_types() {
 			'menu_icon'     => 'dashicons-portfolio',
 			'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'revisions' ),
 			'rewrite'       => array(
-				'slug'       => 'work',
+				'slug'       => 'projects',
 				'with_front' => false,
 			),
 		)

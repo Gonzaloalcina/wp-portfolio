@@ -25,7 +25,7 @@ add_action( 'after_setup_theme', 'portfolio_theme_breadcrumbs_support' );
 
 /**
  * The hub page a post sits under: Notes (the posts page) for a note, the
- * page with the Work or Services template for a project or a service. Only
+ * page with the Projects or Services template for a project or a service. Only
  * a hub in the current language counts.
  *
  * @param WP_Post $post Post.
@@ -33,7 +33,7 @@ add_action( 'after_setup_theme', 'portfolio_theme_breadcrumbs_support' );
  */
 function portfolio_theme_breadcrumb_hub( $post ) {
 	$templates = array(
-		'project' => 'templates/work.php',
+		'project' => 'templates/projects.php',
 		'service' => 'templates/services.php',
 	);
 

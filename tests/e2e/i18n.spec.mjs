@@ -16,7 +16,7 @@ import { test, expect } from '@playwright/test';
 const PAGES = [
 	[ '', 'es/inicio/' ],
 	[ 'about/', 'es/sobre-mi/' ],
-	[ 'work/', 'es/trabajo/' ],
+	[ 'projects/', 'es/proyectos/' ],
 	[ 'services/', 'es/servicios/' ],
 	[ 'services/wordpress-development/', 'es/servicios/desarrollo-wordpress/' ],
 	[ 'notes/', 'es/notas/' ],
@@ -32,7 +32,7 @@ const PAGES = [
 // English hub, English base, Spanish hub, Spanish base, old English base under /es/.
 const TYPES = [
 	{ name: 'note', hub: 'notes/', base: 'notes', esHub: 'es/notas/', esBase: 'notas', oldBase: 'es/notes' },
-	{ name: 'project', hub: 'work/', base: 'work', esHub: 'es/trabajo/', esBase: 'trabajo', oldBase: 'es/work' },
+	{ name: 'project', hub: 'projects/', base: 'projects', esHub: 'es/proyectos/', esBase: 'proyectos', oldBase: 'es/projects' },
 	{ name: 'service', hub: 'services/', base: 'services', esHub: 'es/servicios/', esBase: 'servicios', oldBase: 'es/services' },
 ];
 
@@ -202,7 +202,7 @@ test.describe( 'links of the Spanish pages', () => {
 	}
 
 	// Header, footer and content build their links from the translation of each
-	// page, not from the English path (/work/ instead of /es/trabajo/).
+	// page, not from the English path (/projects/ instead of /es/proyectos/).
 	test( 'only lead to Spanish pages', async ( { page, baseURL } ) => {
 		const root = new URL( 'es/', baseURL );
 
@@ -227,7 +227,7 @@ test.describe( 'links of the Spanish pages', () => {
 		expect( clean( title ), 'site title' ).toBe( clean( new URL( 'es/inicio/', baseURL ).href ) );
 
 		const hrefs = ( await links( page ) ).map( clean );
-		for ( const path of [ 'es/sobre-mi/', 'es/trabajo/', 'es/servicios/', 'es/notas/', 'es/cv/', 'es/contacto/' ] ) {
+		for ( const path of [ 'es/sobre-mi/', 'es/proyectos/', 'es/servicios/', 'es/notas/', 'es/cv/', 'es/contacto/' ] ) {
 			expect( hrefs, path ).toContain( clean( new URL( path, baseURL ).href ) );
 		}
 	} );
@@ -261,6 +261,23 @@ test.describe( 'redirects (301)', () => {
 			const response = await page.request.get( old, { maxRedirects: 0 } );
 			expect( response.status(), old ).toBe( 301 );
 			expect( clean( response.headers().location ), old ).toBe( clean( esUrl ) );
+		} );
+	}
+} );
+
+test.describe( 'moved bases', () => {
+	// Work became Projects (docs/decisions/07-information-architecture.md):
+	// the old addresses answer with a 301 to the new ones, hub and singles.
+	for ( const [ old, now ] of [
+		[ 'work/', 'projects/' ],
+		[ 'work/founderz/', 'projects/founderz/' ],
+		[ 'es/trabajo/', 'es/proyectos/' ],
+		[ 'es/trabajo/founderz/', 'es/proyectos/founderz/' ],
+	] ) {
+		test( `/${ old } redirects to /${ now }`, async ( { page, baseURL } ) => {
+			const response = await page.request.get( old, { maxRedirects: 0 } );
+			expect( response.status(), old ).toBe( 301 );
+			expect( clean( response.headers().location ), old ).toBe( clean( new URL( now, baseURL ).href ) );
 		} );
 	}
 } );

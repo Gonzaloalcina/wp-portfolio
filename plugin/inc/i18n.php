@@ -2,13 +2,13 @@
 /**
  * Translated URLs for the content types, with Polylang (free).
  *
- * Polylang free translates the slug of a page (/es/trabajo/) but not the base
- * of a post type or of the notes (/es/work/<slug>/), and it cannot share a
+ * Polylang free translates the slug of a page (/es/proyectos/) but not the base
+ * of a post type or of the notes (/es/projects/<slug>/), and it cannot share a
  * slug between translations, so a Spanish project that has the same slug as
  * its English one ends in -es. This file puts the translated base in the
  * Spanish URL and drops that suffix from the public URL:
  *
- *   /work/ramon-esteve/  ->  /es/trabajo/ramon-esteve/
+ *   /projects/ramon-esteve/  ->  /es/proyectos/ramon-esteve/
  *
  * Output: post_type_link and post_link build the Spanish URL. Input: a rewrite
  * rule per base, and the request filter puts the -es back to find the post.
@@ -30,7 +30,7 @@ function portfolio_core_url_bases() {
 	return (array) apply_filters(
 		'portfolio_core_url_bases',
 		array(
-			'project' => array( 'es' => 'trabajo' ),
+			'project' => array( 'es' => 'proyectos' ),
 			'service' => array( 'es' => 'servicios' ),
 			'post'    => array( 'es' => 'notas' ),
 		)
@@ -258,8 +258,8 @@ function portfolio_core_polylang_post_types( $post_types ) {
 add_filter( 'pll_get_post_types', 'portfolio_core_polylang_post_types' );
 
 /**
- * Sends the URL a translated post had before (/es/work/ramon-esteve-es/) to
- * its current one (/es/trabajo/ramon-esteve/). Polylang still answers on the
+ * Sends the URL a translated post had before (/es/projects/ramon-esteve-es/) to
+ * its current one (/es/proyectos/ramon-esteve/). Polylang still answers on the
  * English base, and WordPress does not redirect it, so without this the same
  * page would live at two addresses.
  */
@@ -295,6 +295,54 @@ function portfolio_core_redirect_to_translated_url() {
 	exit;
 }
 add_action( 'template_redirect', 'portfolio_core_redirect_to_translated_url' );
+
+/**
+ * Returns the bases that moved, as paths under the site's home: old => new.
+ * Work became Projects on 2026-10-22 (docs/decisions/07-information-architecture.md),
+ * and /es/projects/ is what Polylang would answer without the translated base.
+ *
+ * @return array<string, string>
+ */
+function portfolio_core_moved_bases() {
+	return (array) apply_filters(
+		'portfolio_core_moved_bases',
+		array(
+			'work/'       => 'projects/',
+			'es/trabajo/' => 'es/proyectos/',
+			'es/work/'    => 'es/proyectos/',
+		)
+	);
+}
+
+/**
+ * Sends a request under a moved base (/work/founderz/) to the same path under
+ * the new one (/projects/founderz/) with a 301, so links and search results
+ * that point to the old address keep working. Only on a 404, and before core
+ * guesses a permalink of its own.
+ */
+function portfolio_core_redirect_moved_bases() {
+	if ( ! is_404() ) {
+		return;
+	}
+
+	$request = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+	$home    = trailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+	$path    = (string) wp_parse_url( $request, PHP_URL_PATH );
+	if ( 0 !== strpos( $path, $home ) ) {
+		return;
+	}
+	$path = trailingslashit( substr( $path, strlen( $home ) ) );
+
+	foreach ( portfolio_core_moved_bases() as $old => $new ) {
+		if ( 0 === strpos( $path, $old ) ) {
+			$target = home_url( '/' . $new . substr( $path, strlen( $old ) ) );
+			$query  = (string) wp_parse_url( $request, PHP_URL_QUERY );
+			wp_safe_redirect( '' === $query ? $target : $target . '?' . $query, 301 );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'portfolio_core_redirect_moved_bases', 1 );
 
 /**
  * Loads the plugin's front-end translations (the Related block's labels).

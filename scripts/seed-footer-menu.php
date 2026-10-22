@@ -29,7 +29,7 @@ if ( ! defined( 'WP_CLI' ) ) {
 
 // Location => [ menu name, English slugs in menu order ]. Spanish pages are their translations.
 $footer_menus = array(
-	'footer' => array( 'Footer', array( 'about', 'work', 'services', 'notes', 'contact', 'resume', 'how-this-site-is-built' ) ),
+	'footer' => array( 'Footer', array( 'about', 'projects', 'services', 'notes', 'contact', 'resume', 'how-this-site-is-built' ) ),
 	'legal'  => array( 'Legal', array( 'privacy', 'legal-notice', 'cookies' ) ),
 );
 $languages    = function_exists( 'pll_languages_list' ) ? pll_languages_list() : array( 'en' );

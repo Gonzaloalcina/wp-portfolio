@@ -343,8 +343,8 @@ $portfolio_paper   = array_column( $portfolio_colors, null, 'name' )['paper'] ??
 						'url'   => home_url( '/' ),
 					),
 					array(
-						'title' => __( 'Work', 'portfolio-theme' ),
-						'url'   => home_url( '/work/' ),
+						'title' => __( 'Projects', 'portfolio-theme' ),
+						'url'   => home_url( '/projects/' ),
 					),
 					array(
 						'title' => __( 'Case study', 'portfolio-theme' ),

@@ -140,7 +140,7 @@ update_field(
 // languages, so its Spanish page is saved as cookies-es.
 $pages = array(
 	'about'                  => array( 'About', 'templates/about.php', 'Sobre mí', 'sobre-mi' ),
-	'work'                   => array( 'Work', 'templates/work.php', 'Trabajo', 'trabajo' ),
+	'projects'               => array( 'Projects', 'templates/projects.php', 'Proyectos', 'proyectos' ),
 	'services'               => array( 'Services', 'templates/services.php', 'Servicios', 'servicios' ),
 	'notes'                  => array( 'Notes', '', 'Notas', 'notas' ),
 	'resume'                 => array( 'Resume', 'templates/resume.php', 'CV', 'cv' ),
@@ -157,7 +157,7 @@ $page_ids = array(
 );
 foreach ( $pages as $slug => list( $title, $template, $title_es, $slug_es ) ) {
 	$page_args = array(
-		'post_content' => in_array( $slug, array( 'notes', 'contact', 'work', 'services', 'resume' ), true ) ? '' : $prose,
+		'post_content' => in_array( $slug, array( 'notes', 'contact', 'projects', 'services', 'resume' ), true ) ? '' : $prose,
 	);
 
 	$page_ids['en'][ $slug ] = $create(
@@ -452,7 +452,7 @@ $translate(
 // Menus: one per language, with pages as items (not custom links), so they
 // follow each language's permalinks and the address of the install. The
 // blueprint made "Main" with custom links; here its items become pages.
-$main_items = array( 'about', 'work', 'services', 'notes', 'contact' );
+$main_items = array( 'about', 'projects', 'services', 'notes', 'contact' );
 $menus      = array();
 
 $main = wp_get_nav_menu_object( 'Main' );

@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: Work
+ * Template Name: Projects
  *
- * Work hub: case studies (featured projects), then every other project as a
+ * Projects hub: case studies (featured projects), then every other project as a
  * row. Every row links to the project's page on this site. Only projects whose
  * client may be named are listed. Wide layout (site--second).
  *

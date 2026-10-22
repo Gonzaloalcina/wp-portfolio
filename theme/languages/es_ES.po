@@ -56,13 +56,6 @@ msgid "Home"
 msgstr "Inicio"
 
 #. Template Name of the theme
-#: 404.php:32
-#: front-page.php:34
-#: page-design-system.php:346
-msgid "Work"
-msgstr "Trabajo"
-
-#. Template Name of the theme
 #: 404.php:36
 #: front-page.php:68
 #: inc/services.php:33
@@ -92,18 +85,9 @@ msgstr "Se abre en una pestaña nueva"
 msgid "About"
 msgstr "Sobre mí"
 
-#: front-page.php:49
-msgid "Selected work"
-msgstr "Trabajo seleccionado"
-
 #: front-page.php:56
 msgid "Also built"
 msgstr "También he construido"
-
-#: front-page.php:62
-#: single-project.php:43
-msgid "All work"
-msgstr "Todo el trabajo"
 
 #: front-page.php:76
 #: single-service.php:72
@@ -992,11 +976,15 @@ msgstr "En otros sitios"
 msgid "Which one do you need?"
 msgstr "¿Cuál necesitas?"
 
-#: templates/work.php:31
+#: templates/projects.php:31
 msgid "Case studies"
 msgstr "Casos de estudio"
 
-#: templates/work.php:45
+#. Template Name of the theme
+#: 404.php:32
+#: front-page.php:34
+#: page-design-system.php:346
+#: templates/projects.php:45
 msgid "Projects"
 msgstr "Proyectos"
 
@@ -1045,3 +1033,12 @@ msgstr ""
 #: inc/nav.php:22
 msgid "Legal links"
 msgstr "Enlaces legales"
+
+#: front-page.php:49
+msgid "Sites I've built"
+msgstr "Webs que he construido"
+
+#: front-page.php:62
+#: single-project.php:43
+msgid "All projects"
+msgstr "Todos los proyectos"

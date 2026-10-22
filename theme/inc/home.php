@@ -2,7 +2,7 @@
 /**
  * Home page: SCF fields and the data the front-page template reads.
  *
- * Selected work and Also built come from the project post type
+ * Sites I've built and Also built come from the project post type
  * (portfolio-core), placed by each project's "Home" field; Services from the
  * service post type. The template only depends on the helpers below.
  *
@@ -143,9 +143,9 @@ function portfolio_theme_home_text( $name ) {
 }
 
 /**
- * Returns the URL of the page whose English path is given (/work/), in the
+ * Returns the URL of the page whose English path is given (/projects/), in the
  * current language: its Polylang translation, or the English page when it has
- * none. A Spanish page has another slug (/es/trabajo/), so a fixed path would
+ * none. A Spanish page has another slug (/es/proyectos/), so a fixed path would
  * take a Spanish visitor to the English site. '/' is the home of the language.
  * Without Polylang it is the plain site path.
  *
@@ -176,7 +176,7 @@ function portfolio_theme_page_url( $path ) {
 }
 
 /**
- * Turns a site path (/work/) into a full URL, in the current language when
+ * Turns a site path (/projects/) into a full URL, in the current language when
  * the path is a page of the sitemap. Other paths and full URLs pass through.
  *
  * @param string $url Path or URL.
@@ -234,7 +234,7 @@ function portfolio_theme_home_quotes( $limit = 0 ) {
  * Returns the projects placed on the Home (the project's "Home" field), as
  * row-a items. Only projects whose client may be named, in menu order.
  *
- * Selected work rows keep their line (what I did); Also built rows are name
+ * Sites I've built rows keep their line (what I did); Also built rows are name
  * and year · type only. Both link to the project's page.
  *
  * @param string $placement "selected" or "also_built".

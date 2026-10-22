@@ -29,8 +29,8 @@ portfolio_theme_component(
 					'url'   => portfolio_theme_page_url( '/' ),
 				),
 				array(
-					'title' => __( 'Work', 'portfolio-theme' ),
-					'url'   => portfolio_theme_page_url( '/work/' ),
+					'title' => __( 'Projects', 'portfolio-theme' ),
+					'url'   => portfolio_theme_page_url( '/projects/' ),
 				),
 				array(
 					'title' => __( 'Services', 'portfolio-theme' ),

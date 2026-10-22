@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-22T21:45:26+02:00\n"
+"POT-Creation-Date: 2026-10-22T22:14:28+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
@@ -59,7 +59,8 @@ msgstr ""
 #: 404.php:32
 #: front-page.php:34
 #: page-design-system.php:346
-msgid "Work"
+#: templates/projects.php:45
+msgid "Projects"
 msgstr ""
 
 #. Template Name of the theme
@@ -93,7 +94,7 @@ msgid "About"
 msgstr ""
 
 #: front-page.php:49
-msgid "Selected work"
+msgid "Sites I've built"
 msgstr ""
 
 #: front-page.php:56
@@ -102,7 +103,7 @@ msgstr ""
 
 #: front-page.php:62
 #: single-project.php:43
-msgid "All work"
+msgid "All projects"
 msgstr ""
 
 #: front-page.php:76
@@ -1030,18 +1031,14 @@ msgstr ""
 msgid "Elsewhere"
 msgstr ""
 
+#: templates/projects.php:31
+msgid "Case studies"
+msgstr ""
+
 #: templates/services.php:38
 msgid "Which one do you need?"
 msgstr ""
 
 #: templates/services.php:40
 msgid "Prices exclude VAT."
-msgstr ""
-
-#: templates/work.php:31
-msgid "Case studies"
-msgstr ""
-
-#: templates/work.php:45
-msgid "Projects"
 msgstr ""

@@ -17,10 +17,10 @@ The decisions behind it are in
 ```
 /                                    Home
 /about/                              About
-/work/                               Work hub
-   /work/founderz/                   Case: Founderz
-   /work/ramon-esteve/               Case: Ramón Esteve
-   /work/escuela-victoria/           Case: Escuela Victoria
+/projects/                           Projects hub
+   /projects/founderz/               Case: Founderz
+   /projects/ramon-esteve/           Case: Ramón Esteve
+   /projects/escuela-victoria/       Case: Escuela Victoria
 /services/                           Services hub
    /services/wordpress-development/
    /services/website-ownership/
@@ -41,9 +41,9 @@ Spanish lives under `/es/`; English has no prefix.
 | English | Spanish |
 |---|---|
 | `/about/` | `/es/sobre-mi/` |
-| `/work/`, `/work/founderz/` | `/es/trabajo/`, `/es/trabajo/founderz/` |
-| `/work/ramon-esteve/` | `/es/trabajo/ramon-esteve/` |
-| `/work/escuela-victoria/` | `/es/trabajo/escuela-victoria/` |
+| `/projects/`, `/projects/founderz/` | `/es/proyectos/`, `/es/proyectos/founderz/` |
+| `/projects/ramon-esteve/` | `/es/proyectos/ramon-esteve/` |
+| `/projects/escuela-victoria/` | `/es/proyectos/escuela-victoria/` |
 | `/services/` | `/es/servicios/` |
 | `/services/wordpress-development/` | `/es/servicios/desarrollo-wordpress/` |
 | `/services/website-ownership/` | `/es/servicios/responsable-de-web/` |
@@ -59,9 +59,9 @@ Spanish lives under `/es/`; English has no prefix.
 
 | Page | Purpose | Schema | Phase |
 |---|---|---|---|
-| Home | Hub: who, selected work, services, latest notes, contact | WebSite, Person | 1 |
+| Home | Hub: who, sites I've built, services, latest notes, contact | WebSite, Person | 1 |
 | About | Entity page: who Gonzalo is, how he works with stakeholders | ProfilePage (Person) | 1 |
-| Work | Hub: full cases plus a row list of projects | CollectionPage | 1 |
+| Projects | Hub: full cases plus a row list of projects | CollectionPage | 1 |
 | Founderz case | Method and decisions, no internal figures or specific plugins | Article | 1 |
 | Ramón Esteve case | Migration from a custom theme to Elementor, so the team can edit visually | Article | 1 |
 | Escuela Victoria case | Architecture of a large language-course catalog | Article | 1 |
@@ -92,7 +92,7 @@ Spanish lives under `/es/`; English has no prefix.
   in the main navigation, the footer or on the Home. No HTML sitemap page is
   needed: the XML sitemap does the indexing and the service links carry the
   internal weight.
-- Footer: the main menu (About, Work, Services, Notes, Contact) plus Resume
+- Footer: the main menu (About, Projects, Services, Notes, Contact) plus Resume
   and How this site is built, then "Cookie settings" and a LinkedIn icon.
   The same in Spanish, with the Spanish pages.
 - Maintenance proof: MDF Construcción.
@@ -102,18 +102,18 @@ Spanish lives under `/es/`; English has no prefix.
 - `llms.txt` is optional and cheap, and its effect is not proven. Not a
   priority.
 
-## Work hub data
+## Projects hub data
 
 Projects are a custom post type `project` with SCF fields named after the data
 hub columns. Every project whose client may be named has its own page at
-`/work/<slug>/`; featured marks the case studies (see
+`/projects/<slug>/`; featured marks the case studies (see
 `decisions/08-page-templates.md`, 2026-10-20).
 
 - The hub lists projects as rows (1px lines, like the rest of the design system).
 - `featured` marks the case studies (long text, "Case study" above the
   title): Founderz, Ramón Esteve and Escuela Victoria.
 - This site's own entry links to `/how-this-site-is-built/`, and
-  `/work/this-website/` redirects there (301), so there is no duplicate
+  `/projects/this-website/` redirects there (301), so there is no duplicate
   content.
 - Only rows with client OK to name equal to Yes or Not needed are shown.
 - Custom-theme work first, then page-builder work, listed honestly by type and

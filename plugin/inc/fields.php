@@ -138,13 +138,13 @@ function portfolio_core_register_fields() {
 					'name'          => 'project_home',
 					'type'          => 'select',
 					'choices'       => array(
-						'selected'   => __( 'Selected work', 'portfolio-core' ),
+						'selected'   => __( 'Sites I\'ve built', 'portfolio-core' ),
 						'also_built' => __( 'Also built', 'portfolio-core' ),
 					),
 					'allow_null'    => 1,
 					'default_value' => '',
 					'return_format' => 'value',
-					'instructions'  => __( 'Where the project shows on the Home. Selected work: up to three, with the line. Also built: name and year · type. Empty: not on the Home. Only projects whose client may be named are shown.', 'portfolio-core' ),
+					'instructions'  => __( 'Where the project shows on the Home. Sites I\'ve built: up to three, with the line. Also built: name and year · type. Empty: not on the Home. Only projects whose client may be named are shown.', 'portfolio-core' ),
 				),
 			),
 		)

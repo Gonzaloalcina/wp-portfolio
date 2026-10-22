@@ -119,3 +119,23 @@ belongs with the cookie policy.
   the footer still has a single hairline above it.
 - **Seeded in code** like the footer menu: `scripts/seed-footer-menu.php`
   builds both menus per language, and the Playground seed does the same.
+
+## 2026-10-22 — Work becomes Projects, with new addresses
+
+"Work" and "Selected work" read as vague template labels on the finished
+site (Gonzalo). The hub is now **Projects / Proyectos** and the Home section
+**Sites I've built / Webs que he construido**: concrete, and in the first
+person like the rest of the Home. Rejected: "Case studies" (only Founderz has
+a full case) and "Sites" alone as a menu label (too bare in English).
+
+- **Addresses move too** (Gonzalo, knowing the cost): `/projects/` and
+  `/es/proyectos/` for the hub, and the same bases for every project
+  (`/projects/founderz/`, `/es/proyectos/founderz/`). The page template is
+  `templates/projects.php`.
+- **Old addresses redirect with a 301**, hub and singles, query kept:
+  `/work/…` and `/es/trabajo/…` (and Polylang's `/es/work/…`) go to the same
+  path under the new base (`portfolio_core_moved_bases()`, filterable). Tested
+  in `tests/e2e/i18n.spec.mjs`.
+- **Before the site is public**, so no search result points to the old
+  addresses yet; the redirects are there for links already shared and for
+  the decision entries that still say `/work/`.

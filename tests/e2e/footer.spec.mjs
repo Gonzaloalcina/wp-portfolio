@@ -14,14 +14,14 @@ import { test, expect } from '@playwright/test';
 const LANGUAGES = [
 	{
 		path: '',
-		links: [ 'About', 'Work', 'Services', 'Notes', 'Contact', 'Resume', 'How this site is built' ],
+		links: [ 'About', 'Projects', 'Services', 'Notes', 'Contact', 'Resume', 'How this site is built' ],
 		legal: [ 'Privacy', 'Legal notice', 'Cookies' ],
 		services: 'services/',
 		maintenance: /\/services\/wordpress-maintenance\/$/,
 	},
 	{
 		path: 'es/inicio/',
-		links: [ 'Sobre mí', 'Trabajo', 'Servicios', 'Notas', 'Contacto', 'CV', 'Cómo está hecha esta web' ],
+		links: [ 'Sobre mí', 'Proyectos', 'Servicios', 'Notas', 'Contacto', 'CV', 'Cómo está hecha esta web' ],
 		legal: [ 'Privacidad', 'Aviso legal', 'Cookies' ],
 		services: 'es/servicios/',
 		maintenance: /\/es\/servicios\/mantenimiento-wordpress\/$/,

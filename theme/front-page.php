@@ -1,9 +1,9 @@
 <?php
 /**
- * Home: hero, selected work (with also built), services, testimonials,
+ * Home: hero, the sites I've built (with also built), services, testimonials,
  * latest notes and contact, built from components. Wide layout (site--second).
  *
- * Text is read from the Home SCF fields (inc/home.php); Selected work and
+ * Text is read from the Home SCF fields (inc/home.php); Sites I've built and
  * Also built are projects placed by their "Home" field, Services are the
  * published services shown on the Home. An empty field
  * renders nothing, and a section with no content hides itself.
@@ -31,8 +31,8 @@ portfolio_theme_component(
 			'button' => $portfolio_cta,
 			'links'  => array(
 				array(
-					'title' => __( 'Work', 'portfolio-theme' ),
-					'url'   => portfolio_theme_page_url( '/work/' ),
+					'title' => __( 'Projects', 'portfolio-theme' ),
+					'url'   => portfolio_theme_page_url( '/projects/' ),
 				),
 				array(
 					'title' => __( 'About', 'portfolio-theme' ),
@@ -46,7 +46,7 @@ portfolio_theme_component(
 $portfolio_sections = array(
 	array(
 		'id'      => 'selected-work',
-		'title'   => __( 'Selected work', 'portfolio-theme' ),
+		'title'   => __( 'Sites I\'ve built', 'portfolio-theme' ),
 		'content' => array(
 			array(
 				'name' => 'list-a',
@@ -59,8 +59,8 @@ $portfolio_sections = array(
 			),
 		),
 		'more'    => array(
-			'title' => __( 'All work', 'portfolio-theme' ),
-			'url'   => portfolio_theme_page_url( '/work/' ),
+			'title' => __( 'All projects', 'portfolio-theme' ),
+			'url'   => portfolio_theme_page_url( '/projects/' ),
 		),
 	),
 	array(
