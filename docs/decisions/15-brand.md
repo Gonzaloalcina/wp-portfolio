@@ -39,3 +39,22 @@ social images stay with Rank Math.
 Open: `/favicon.ico` at the web root. WordPress answers it with its own icon
 when no Site Icon is set; place a copy of `favicon.ico` at the web root when
 deploying (see 12 — Deploy).
+
+## 2026-10-22 — A social image per page, rendered from the brand template
+
+Every published page, note, project and service has its own 1200×630 social
+image: the mark on the left and the page title, on the layout of the default
+image (Gonzalo). The front pages keep the default image, and noindex or
+redirected pages get none.
+
+- **Rendered locally, not on the server.** `scripts/og-images.mjs` draws an
+  HTML template in Playwright's Chromium (already a dev dependency) with the
+  site's fonts and the light-theme tokens; `scripts/og-images.php` exports
+  the list of titles and imports the PNGs with WP-CLI. Rejected: generating
+  them on the fly in PHP, which needs GD with font support on the host, costs
+  CPU on each request and would not match the site's typography.
+- **Rank Math holds them** as each page's Facebook image; Twitter reuses it.
+  A rerun replaces the file of the same attachment, so there are no
+  duplicates in the media library.
+- **Cost:** rerun the two steps when a title changes or a page is added. The
+  images are content (media library), not committed.
