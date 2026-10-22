@@ -206,6 +206,10 @@ npm run test:e2e          # Playwright against the local site, or any site with 
 npm run playground        # run blueprint.json locally with ./theme mounted
 ```
 
+Social images (one per page, see [15 — Brand](docs/decisions/15-brand.md)):
+`wp eval-file scripts/og-images.php export`, `node scripts/og-images.mjs`, then
+`wp eval-file scripts/og-images.php import`; the usage is in the PHP file.
+
 ## Environments
 
 ### Builds: small, committed and checked
@@ -236,8 +240,10 @@ JavaScript uses native ES modules without a build.
 | Staging | Subdomain on cdmon shared hosting: noindex, password-protected, test keys | Planned |
 | Production | gonzaloalcina.dev on cdmon shared hosting | Planned |
 
-Planned deployment: GitHub Actions deploys `main` to staging and version tags
-to production, only after CI passes. Environment-specific behaviour (debug,
+The hosting plan has FTP only (no SSH, WP-CLI or Git deploy), so the database
+is prepared locally with WP-CLI and imported with phpMyAdmin; how code is
+uploaded is decided in [12 — Deploy](docs/decisions/12-deploy.md).
+Environment-specific behaviour (debug,
 indexing, API keys) is driven by `wp_get_environment_type()` and
 configuration, never by editing code per environment. Per-environment
 secrets and IDs go in `wp-config.php`: `PORTFOLIO_TURNSTILE_SITE_KEY`,
@@ -247,3 +253,8 @@ secrets and IDs go in `wp-config.php`: `PORTFOLIO_TURNSTILE_SITE_KEY`,
 
 Every closed decision, with its reasons, is in
 [docs/decisions/](docs/decisions/README.md), one file per project phase.
+
+## Licence
+
+GPL-2.0-or-later, like WordPress: see [LICENSE](LICENSE). The bundled fonts
+(SIL Open Font License) and Lucide icons (ISC) keep their own licences.

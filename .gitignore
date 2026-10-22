@@ -57,3 +57,8 @@ playwright/.auth/
 .vscode/*
 !.vscode/extensions.json
 *.swp
+
+# --- Local only ---
+# Private content sources and Claude Code worktrees.
+.private/
+.claude/worktrees/
