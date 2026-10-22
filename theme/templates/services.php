@@ -29,15 +29,19 @@ portfolio_theme_component(
 
 portfolio_theme_component( 'prose-a', array( 'content' => portfolio_theme_content() ) );
 
+$portfolio_rows = portfolio_theme_services_hub_rows();
+
 portfolio_theme_component(
 	'section-a',
 	array(
 		'id'      => 'which-one',
 		'title'   => __( 'Which one do you need?', 'portfolio-theme' ),
+		// Only when a row shows a figure ("Quoted" is not one).
+		'text'    => preg_grep( '/\d/', array_column( $portfolio_rows, 'meta' ) ) ? __( 'Prices exclude VAT.', 'portfolio-theme' ) : '',
 		'content' => array(
 			array(
 				'name' => 'list-a',
-				'args' => array( 'items' => portfolio_theme_services_hub_rows() ),
+				'args' => array( 'items' => $portfolio_rows ),
 			),
 		),
 	)

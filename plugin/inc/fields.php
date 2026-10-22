@@ -187,7 +187,7 @@ function portfolio_core_register_fields() {
 					'name'         => 'service_price',
 					'type'         => 'text',
 					'maxlength'    => 40,
-					'instructions' => __( 'Short, as the hub shows it: "From 80 €/month" or "Quoted". Empty: no price in the hub.', 'portfolio-core' ),
+					'instructions' => __( 'Short, as the hub shows it, without VAT: "From 1,500 €", "From 150 €/month" or "Quoted". Empty: no price in the hub.', 'portfolio-core' ),
 				),
 				array(
 					'key'          => 'field_portfolio_core_service_includes',

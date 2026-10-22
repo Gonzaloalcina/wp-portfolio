@@ -122,7 +122,8 @@ hub columns. Every project whose client may be named has its own page at
 
 ## Maintenance plans
 
-- Care: 80 €/month. Care + 2 hours of development: 140 €/month.
+- Care: 150 €/month. Care + 2 hours of development: 250 €/month (from
+  2026-10-22; see `decisions/07-information-architecture.md`).
 - Prices without VAT, per website. Unused hours do not roll over.
 - Anything else is quoted, depending on complexity. No public hourly rate.
 - Included in both: WordPress, plugin and theme updates; PHP version control;

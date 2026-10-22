@@ -52,3 +52,29 @@ assistant can operate, translation and QA pipelines), not a title, and its
 proof is this site and the Founderz work in the wording already approved on
 About. Invoicing automation stays out until there is a real case.
 Maintenance stays off the Home.
+
+## 2026-10-22 — Public prices on every service that has a floor
+
+A visible "from" price is the best filter for requests and what search
+engines and assistants quote when asked what the work costs. It must be on
+the page: structured data that marks up a price nobody can see is ignored,
+or worse. Prices exclude VAT, and the hub says so when a row shows a figure.
+
+- **WordPress development: from 1,500 €.** The floor is a basic site: Home,
+  services, about, blog, projects, contact and legal pages, in two
+  languages, built from the client's design. Design is a separate item,
+  quoted on its own. Larger builds are quoted.
+- **WordPress maintenance: 150 €/month** (Care) and **250 €/month** (Care +
+  2 hours of development), up from 80 and 140, so the price reads as a
+  service and the extra hours sit at a senior rate. Updates the 2026-10-19
+  entry.
+- **AI and automation: from 1,000 €** for a setup. Smaller one-off
+  automations can still be quoted privately.
+- **Website ownership: quoted.** A monthly fee only makes sense tied to a
+  capacity (days per month), which is not fixed yet.
+- **No public hourly or agency rate.** Agencies get quotes privately: an
+  hourly figure would anchor every other price and read as a mid-level
+  profile.
+- The `Service` structured data (with `offers` from separate price fields)
+  comes with the technical phase, after the layout of every page.
+
