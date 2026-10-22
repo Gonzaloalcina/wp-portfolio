@@ -63,7 +63,7 @@ msgstr "Trabajo"
 
 #. Template Name of the theme
 #: 404.php:36
-#: front-page.php:72
+#: front-page.php:68
 #: inc/services.php:33
 msgid "Services"
 msgstr "Servicios"
@@ -75,10 +75,9 @@ msgstr "Notas"
 
 #. Template Name of the theme
 #: 404.php:44
-#: front-page.php:110
-#: inc/home.php:120
-#: inc/pages.php:239
-#: templates/resume.php:26
+#: front-page.php:106
+#: inc/home.php:112
+#: inc/pages.php:248
 msgid "Contact"
 msgstr "Contacto"
 
@@ -92,43 +91,43 @@ msgstr "Se abre en una pestaña nueva"
 msgid "About"
 msgstr "Sobre mí"
 
-#: front-page.php:53
+#: front-page.php:49
 msgid "Selected work"
 msgstr "Trabajo seleccionado"
 
-#: front-page.php:60
+#: front-page.php:56
 msgid "Also built"
 msgstr "También he construido"
 
-#: front-page.php:66
+#: front-page.php:62
 #: single-project.php:43
 msgid "All work"
 msgstr "Todo el trabajo"
 
-#: front-page.php:80
+#: front-page.php:76
 #: single-service.php:72
 msgid "All services"
 msgstr "Todos los servicios"
 
-#: front-page.php:86
-#: inc/home.php:73
-#: inc/home.php:78
+#: front-page.php:82
+#: inc/home.php:65
+#: inc/home.php:70
 #: templates/about.php:87
 msgid "Testimonials"
 msgstr "Testimonios"
 
-#: front-page.php:96
+#: front-page.php:92
 msgid "Latest notes"
 msgstr "Últimas notas"
 
-#: front-page.php:104
+#: front-page.php:100
 #: home.php:33
 #: single.php:41
 msgid "All notes"
 msgstr "Todas las notas"
 
 #. Template Name of the theme
-#: front-page.php:119
+#: front-page.php:115
 #: inc/pages.php:62
 #: templates/contact.php:89
 msgid "Resume"
@@ -306,59 +305,56 @@ msgstr "Texto del botón de contacto"
 msgid "Verb + object. Used in the hero and in Contact."
 msgstr "Verbo + objeto. Se usa en la cabecera principal y en Contacto."
 
-#: inc/home.php:65
-msgid "Portrait"
-msgstr "Retrato"
-
-#: inc/home.php:83
+#: inc/home.php:75
 msgid "Real words, with the person's permission. Link to their LinkedIn recommendation or profile as proof."
 msgstr "Palabras reales, con permiso de la persona. Enlaza su recomendación o perfil de LinkedIn como prueba."
 
-#: inc/home.php:84
+#: inc/home.php:76
 msgid "Add testimonial"
 msgstr "Añadir testimonio"
 
-#: inc/home.php:88
+#: inc/home.php:80
 msgid "Quote"
 msgstr "Cita"
 
-#: inc/home.php:98
+#: inc/home.php:90
 #: inc/services.php:197
 #: templates/contact.php:38
 msgid "Name"
 msgstr "Nombre"
 
-#: inc/home.php:105
-#: inc/pages.php:385
+#: inc/home.php:97
+#: inc/pages.php:394
 msgid "Role"
 msgstr "Cargo"
 
-#: inc/home.php:108
+#: inc/home.php:100
 msgid "Role and company, e.g. Head of Marketing, Company."
 msgstr "Cargo y empresa, p. ej. Head of Marketing, Empresa."
 
-#: inc/home.php:112
+#: inc/home.php:104
 msgid "Proof link"
 msgstr "Enlace de prueba"
 
-#: inc/home.php:125
+#: inc/home.php:117
+#: inc/pages.php:113
 msgid "Text"
 msgstr "Texto"
 
-#: inc/icons.php:156
-#: inc/icons.php:171
+#: inc/icons.php:158
+#: inc/icons.php:173
 msgid "Icon"
 msgstr "Icono"
 
-#: inc/icons.php:157
+#: inc/icons.php:159
 msgid "Reusable icon picker. Add it to other field groups with a Clone field."
 msgstr "Selector de iconos reutilizable. Añádelo a otros grupos de campos con un campo Clon."
 
-#: inc/icons.php:192
+#: inc/icons.php:194
 msgid "Design system demo"
 msgstr "Demo del sistema de diseño"
 
-#: inc/icons.php:205
+#: inc/icons.php:207
 #: page-design-system.php:183
 msgid "Demo card"
 msgstr "Tarjeta de ejemplo"
@@ -417,40 +413,39 @@ msgstr "Meta"
 msgid "Years, place."
 msgstr "Años, lugar."
 
-#: inc/pages.php:113
 #: inc/services.php:62
 msgid "Line"
 msgstr "Línea"
 
-#: inc/pages.php:373
+#: inc/pages.php:382
 #: page-design-system.php:372
 msgid "Client"
 msgstr "Cliente"
 
-#: inc/pages.php:377
+#: inc/pages.php:386
 #: page-design-system.php:376
 msgid "Year"
 msgstr "Año"
 
-#: inc/pages.php:381
+#: inc/pages.php:390
 msgid "Type"
 msgstr "Tipo"
 
-#: inc/pages.php:389
+#: inc/pages.php:398
 msgid "Built with"
 msgstr "Construido con"
 
-#: inc/pages.php:393
+#: inc/pages.php:402
 #: page-design-system.php:380
 msgid "Site"
 msgstr "Sitio"
 
-#: inc/pages.php:611
+#: inc/pages.php:622
 #: page-design-system.php:445
 msgid "Newer notes"
 msgstr "Notas más recientes"
 
-#: inc/pages.php:617
+#: inc/pages.php:628
 #: page-design-system.php:449
 msgid "Older notes"
 msgstr "Notas anteriores"
@@ -646,12 +641,6 @@ msgstr ""
 msgid "Lines and details"
 msgstr ""
 
-#. translators: %s: sample link.
-#: page-design-system.php:202
-#, php-format
-msgid "Links are underlined and darken on hover and focus, like %s."
-msgstr ""
-
 #: page-design-system.php:203
 msgid "this one"
 msgstr ""
@@ -688,10 +677,6 @@ msgstr ""
 msgid "H2, then any of: a paragraph, content components (each with an optional H3), an actions-a and an \"All …\" link."
 msgstr ""
 
-#: page-design-system.php:237
-msgid "Rows separated by 1px lines, with the square marker."
-msgstr ""
-
 #: page-design-system.php:238
 msgid "Title, optional meta and one optional line."
 msgstr ""
@@ -708,10 +693,6 @@ msgstr ""
 msgid "Quiet links on one line."
 msgstr ""
 
-#: page-design-system.php:242
-msgid "quote-a items separated by 1px lines, on the same columns as a list-a."
-msgstr ""
-
 #: page-design-system.php:243
 msgid "A testimonial: the quote, then name (linked to proof) and role."
 msgstr ""
@@ -726,10 +707,6 @@ msgstr ""
 
 #: page-design-system.php:246
 msgid "Long text from the editor, on the text measure."
-msgstr ""
-
-#: page-design-system.php:247
-msgid "Label and value pairs on 1px lines: client, year, role."
 msgstr ""
 
 #: page-design-system.php:248
@@ -1022,7 +999,7 @@ msgstr "Casos de estudio"
 msgid "Projects"
 msgstr "Proyectos"
 
-#: inc/home.php:93
+#: inc/home.php:85
 msgid "As the person wrote it. A blank line starts a new paragraph."
 msgstr ""
 
@@ -1032,4 +1009,34 @@ msgstr "Otros servicios"
 
 #: templates/services.php:40
 msgid "Prices exclude VAT."
+msgstr "Precios sin IVA."
+
+#: inc/pages.php:117
+msgid "One paragraph: the role and what it covered, or a list."
+msgstr ""
+
+#: inc/pages.php:121
+msgid "Summary"
+msgstr ""
+
+#: inc/pages.php:125
+msgid "Optional. One line for About; the Resume shows the text."
+msgstr ""
+
+#. translators: %s: sample link.
+#: page-design-system.php:202
+#, php-format
+msgid "Links in running text are underlined and darken on hover and focus, like %s. Standalone links, such as row titles, end in an arrow instead."
+msgstr ""
+
+#: page-design-system.php:237
+msgid "Rows with a 1px line under each one, with the square marker."
+msgstr ""
+
+#: page-design-system.php:242
+msgid "quote-a items with a 1px line under each one, on the same columns as a list-a."
+msgstr ""
+
+#: page-design-system.php:247
+msgid "Label and value pairs, a 1px line under each: client, year, role."
 msgstr ""

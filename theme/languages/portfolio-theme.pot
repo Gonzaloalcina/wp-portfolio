@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-22T08:44:53+02:00\n"
+"POT-Creation-Date: 2026-10-22T20:20:37+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
@@ -63,7 +63,7 @@ msgstr ""
 
 #. Template Name of the theme
 #: 404.php:36
-#: front-page.php:72
+#: front-page.php:68
 #: inc/services.php:33
 msgid "Services"
 msgstr ""
@@ -75,10 +75,9 @@ msgstr ""
 
 #. Template Name of the theme
 #: 404.php:44
-#: front-page.php:110
-#: inc/home.php:120
-#: inc/pages.php:239
-#: templates/resume.php:26
+#: front-page.php:106
+#: inc/home.php:112
+#: inc/pages.php:248
 msgid "Contact"
 msgstr ""
 
@@ -92,43 +91,43 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: front-page.php:53
+#: front-page.php:49
 msgid "Selected work"
 msgstr ""
 
-#: front-page.php:60
+#: front-page.php:56
 msgid "Also built"
 msgstr ""
 
-#: front-page.php:66
+#: front-page.php:62
 #: single-project.php:43
 msgid "All work"
 msgstr ""
 
-#: front-page.php:80
+#: front-page.php:76
 #: single-service.php:72
 msgid "All services"
 msgstr ""
 
-#: front-page.php:86
-#: inc/home.php:73
-#: inc/home.php:78
+#: front-page.php:82
+#: inc/home.php:65
+#: inc/home.php:70
 #: templates/about.php:87
 msgid "Testimonials"
 msgstr ""
 
-#: front-page.php:96
+#: front-page.php:92
 msgid "Latest notes"
 msgstr ""
 
-#: front-page.php:104
+#: front-page.php:100
 #: home.php:33
 #: single.php:41
 msgid "All notes"
 msgstr ""
 
 #. Template Name of the theme
-#: front-page.php:119
+#: front-page.php:115
 #: inc/pages.php:62
 #: templates/contact.php:89
 msgid "Resume"
@@ -306,63 +305,60 @@ msgstr ""
 msgid "Verb + object. Used in the hero and in Contact."
 msgstr ""
 
-#: inc/home.php:65
-msgid "Portrait"
-msgstr ""
-
-#: inc/home.php:83
+#: inc/home.php:75
 msgid "Real words, with the person's permission. Link to their LinkedIn recommendation or profile as proof."
 msgstr ""
 
-#: inc/home.php:84
+#: inc/home.php:76
 msgid "Add testimonial"
 msgstr ""
 
-#: inc/home.php:88
+#: inc/home.php:80
 msgid "Quote"
 msgstr ""
 
-#: inc/home.php:93
+#: inc/home.php:85
 msgid "As the person wrote it. A blank line starts a new paragraph."
 msgstr ""
 
-#: inc/home.php:98
+#: inc/home.php:90
 #: inc/services.php:197
 #: templates/contact.php:38
 msgid "Name"
 msgstr ""
 
-#: inc/home.php:105
-#: inc/pages.php:385
+#: inc/home.php:97
+#: inc/pages.php:394
 msgid "Role"
 msgstr ""
 
-#: inc/home.php:108
+#: inc/home.php:100
 msgid "Role and company, e.g. Head of Marketing, Company."
 msgstr ""
 
-#: inc/home.php:112
+#: inc/home.php:104
 msgid "Proof link"
 msgstr ""
 
-#: inc/home.php:125
+#: inc/home.php:117
+#: inc/pages.php:113
 msgid "Text"
 msgstr ""
 
-#: inc/icons.php:156
-#: inc/icons.php:171
+#: inc/icons.php:158
+#: inc/icons.php:173
 msgid "Icon"
 msgstr ""
 
-#: inc/icons.php:157
+#: inc/icons.php:159
 msgid "Reusable icon picker. Add it to other field groups with a Clone field."
 msgstr ""
 
-#: inc/icons.php:192
+#: inc/icons.php:194
 msgid "Design system demo"
 msgstr ""
 
-#: inc/icons.php:205
+#: inc/icons.php:207
 #: page-design-system.php:183
 msgid "Demo card"
 msgstr ""
@@ -421,40 +417,47 @@ msgstr ""
 msgid "Years, place."
 msgstr ""
 
-#: inc/pages.php:113
-#: inc/services.php:62
-msgid "Line"
+#: inc/pages.php:117
+msgid "One paragraph: the role and what it covered, or a list."
 msgstr ""
 
-#: inc/pages.php:373
+#: inc/pages.php:121
+msgid "Summary"
+msgstr ""
+
+#: inc/pages.php:125
+msgid "Optional. One line for About; the Resume shows the text."
+msgstr ""
+
+#: inc/pages.php:382
 #: page-design-system.php:372
 msgid "Client"
 msgstr ""
 
-#: inc/pages.php:377
+#: inc/pages.php:386
 #: page-design-system.php:376
 msgid "Year"
 msgstr ""
 
-#: inc/pages.php:381
+#: inc/pages.php:390
 msgid "Type"
 msgstr ""
 
-#: inc/pages.php:389
+#: inc/pages.php:398
 msgid "Built with"
 msgstr ""
 
-#: inc/pages.php:393
+#: inc/pages.php:402
 #: page-design-system.php:380
 msgid "Site"
 msgstr ""
 
-#: inc/pages.php:611
+#: inc/pages.php:622
 #: page-design-system.php:445
 msgid "Newer notes"
 msgstr ""
 
-#: inc/pages.php:617
+#: inc/pages.php:628
 #: page-design-system.php:449
 msgid "Older notes"
 msgstr ""
@@ -474,6 +477,10 @@ msgstr ""
 
 #: inc/services.php:51
 msgid "Add step"
+msgstr ""
+
+#: inc/services.php:62
+msgid "Line"
 msgstr ""
 
 #: inc/services.php:136
@@ -653,7 +660,7 @@ msgstr ""
 #. translators: %s: sample link.
 #: page-design-system.php:202
 #, php-format
-msgid "Links are underlined and darken on hover and focus, like %s."
+msgid "Links in running text are underlined and darken on hover and focus, like %s. Standalone links, such as row titles, end in an arrow instead."
 msgstr ""
 
 #: page-design-system.php:203
@@ -693,7 +700,7 @@ msgid "H2, then any of: a paragraph, content components (each with an optional H
 msgstr ""
 
 #: page-design-system.php:237
-msgid "Rows separated by 1px lines, with the square marker."
+msgid "Rows with a 1px line under each one, with the square marker."
 msgstr ""
 
 #: page-design-system.php:238
@@ -713,7 +720,7 @@ msgid "Quiet links on one line."
 msgstr ""
 
 #: page-design-system.php:242
-msgid "quote-a items separated by 1px lines, on the same columns as a list-a."
+msgid "quote-a items with a 1px line under each one, on the same columns as a list-a."
 msgstr ""
 
 #: page-design-system.php:243
@@ -733,7 +740,7 @@ msgid "Long text from the editor, on the text measure."
 msgstr ""
 
 #: page-design-system.php:247
-msgid "Label and value pairs on 1px lines: client, year, role."
+msgid "Label and value pairs, a 1px line under each: client, year, role."
 msgstr ""
 
 #: page-design-system.php:248
