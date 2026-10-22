@@ -435,3 +435,9 @@ section); no new component and no new token.
   white paper when the system was dark.
 - Playground seed: the four sections, with a paragraph and a summary on the
   experience rows and no years on the skills.
+
+## 2026-10-22 — Home: no portrait
+
+The Home hero is text only: headline, intro, the Contact button and the Work
+and About links. The `home_portrait` field and the empty preview frame are
+removed; the portrait lives on About.
