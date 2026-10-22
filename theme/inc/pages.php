@@ -462,7 +462,8 @@ function portfolio_theme_service_includes( $post_id ) {
 
 /**
  * Returns a service's proof (projects and notes) as row-a items. Projects
- * that may not be shown, and anything unpublished, are dropped.
+ * that may not be shown, anything unpublished, and anything without a
+ * translation in the current language are dropped.
  *
  * @param int $post_id Service ID.
  * @return array<int, array{title: string, url: string, meta: string, text: string}>
@@ -471,6 +472,19 @@ function portfolio_theme_service_proof( $post_id ) {
 	$ids = function_exists( 'get_field' ) ? get_field( 'service_proof', $post_id ) : null;
 	if ( ! is_array( $ids ) ) {
 		return array();
+	}
+
+	// The field may hold the English posts: show their translation, never
+	// the English page on a Spanish one.
+	if ( function_exists( 'pll_get_post' ) ) {
+		$ids = array_filter(
+			array_map(
+				static function ( $id ) {
+					return (int) pll_get_post( (int) $id, pll_current_language() );
+				},
+				$ids
+			)
+		);
 	}
 
 	$items = array();
