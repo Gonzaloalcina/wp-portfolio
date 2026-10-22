@@ -5,15 +5,15 @@
   "license": "GPL-2.0-or-later",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": "^24.15.0"
   },
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs && node scripts/build-css.mjs",
     "check:tokens": "node scripts/build-tokens.mjs --check",
-    "test:tokens": "node --test tests/tokens/",
+    "test:tokens": "node --test 'tests/tokens/*.test.mjs'",
     "build:css": "node scripts/build-css.mjs",
     "check:css": "node scripts/build-css.mjs --check",
-    "test:css": "node --test tests/css/",
+    "test:css": "node --test 'tests/css/*.test.mjs'",
     "build:blocks": "wp-scripts build --webpack-src-dir=plugin/blocks/src --output-path=plugin/blocks/build && wp-scripts build-blocks-manifest --input=plugin/blocks/build --output=plugin/blocks/build/blocks-manifest.php",
     "start:blocks": "wp-scripts start --webpack-src-dir=plugin/blocks/src --output-path=plugin/blocks/build",
     "check:blocks": "node scripts/check-blocks.mjs",

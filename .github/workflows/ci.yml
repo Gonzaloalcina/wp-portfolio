@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 20
+          node-version-file: .nvmrc
 
       # Unit rules, plus generated tokens.css / tokens.json up to date.
       - run: npm run test:tokens
@@ -38,11 +38,10 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
 
-      # npm 11: npm 10.8.2 (Node 20) rejects this lockfile, see docs/decisions/09-blog-blocks.md.
-      - run: npx -y npm@11.6.2 ci --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
 
       # Committed plugin/blocks/build/ matches a fresh build; block CSS has no stray px.
       - run: npm run check:blocks

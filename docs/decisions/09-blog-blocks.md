@@ -72,7 +72,7 @@ for users who can edit posts.
   plugin from the repository (`git:directory`) and a zip works without
   building. `npm run check:blocks` builds into a temporary folder and fails
   if any committed file differs, is missing or is extra, and if block CSS
-  hard-codes px. CI runs it in its own job (`npm ci` with npm 11, Node 20).
+  hard-codes px. CI runs it in its own job (`npm ci`).
 - **Version 35**, not 36: 36 requires Node 22, and the tooling stays on
   Node 20 (Node 24 only for Playground CLI).
 - **Lockfile generated with npm 11** (`npx npm@11.6.2 install`): npm 10.8.2,
@@ -115,3 +115,11 @@ reads an optional peer dependency of `@napi-rs/wasm-runtime` as missing, though
 the lockfile is complete: npm 11 installs from it and regenerating it changes
 nothing. CI and local installs run `npx npm@11.6.2 ci`. Node stays on 20; moving
 the tooling to Node 22 or 24 would also bring npm 11, but is a separate decision.
+
+## 2026-10-22 — Plain `npm ci` again, on Node 24
+
+The tooling moved to Node 24 (decision 05). Its npm (11.19) rejected the lockfile
+as well; regenerating it with that npm added the two `@emnapi` entries the
+older npm left out, so the entry above was wrong to call the lockfile complete.
+With the regenerated lockfile, `npm ci` works without pinning npm. Version 36+
+of `@wordpress/scripts` is now possible; upgrading is a separate change.

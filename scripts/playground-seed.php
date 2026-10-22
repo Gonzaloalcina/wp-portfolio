@@ -4,7 +4,7 @@
  * templates, and Lorem projects, services and notes, so every template can
  * be previewed, in English and in Spanish. Not part of the public blueprint.
  *
- * Usage: SEED=1 nvm exec 24 npm run playground
+ * Usage: SEED=1 npm run playground
  *
  * Everything here is placeholder text. Page and service names follow the
  * sitemap; no fact about Gonzalo or his clients is stated.

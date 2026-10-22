@@ -32,8 +32,8 @@ changes show up live. It passes the PHP version explicitly because the CLI
 ignores `preferredVersions` (it defaults to PHP 8.3).
 
 The CLI needs Node 24+ (Node 26 fails: a native dependency has no prebuilt
-binary for it). The project's tools stay on Node 20; run it with
-`nvm exec 24 npm run playground`. The CLI version is pinned in the script.
+binary for it). Since 2026-10-22 the whole
+tooling runs on Node 24 (decision 05), so `npm run playground` is enough. The CLI version is pinned in the script.
 
 ## 2026-10-18 — Main menu in the blueprint
 

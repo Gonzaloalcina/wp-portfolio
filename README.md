@@ -188,7 +188,7 @@ is symlinked into a local WordPress install.
 
 ## Development
 
-Requirements: Node 20+, PHP 8.0+, Composer.
+Requirements: Node 24 (`nvm use` reads `.nvmrc`), PHP 8.0+, Composer.
 
 ```bash
 composer install          # coding standards (dev only)
@@ -196,14 +196,14 @@ npm run build:tokens      # regenerate tokens.css and tokens.json
 npm run test:tokens       # token rules and generated files up to date
 npm run build:css         # compile theme/assets/css into theme/assets/build
 npm run test:css          # build up to date, every component imported, no stray px
-npx npm@11.6.2 ci         # @wordpress/scripts, for the blocks only (npm 11)
+npm ci                    # @wordpress/scripts, for the blocks only
 npm run build:blocks      # build plugin/blocks/src into plugin/blocks/build
 npm run start:blocks      # same, rebuilding on every change
 npm run check:blocks      # block build up to date, no stray px in block CSS
 composer run lint         # PHPCS: WordPress Coding Standards, PHP 8.0+
 composer run test         # PHPUnit against a test database (tests/php/README.md)
 npm run test:e2e          # Playwright against the local site, or any site with BASE_URL
-nvm exec 24 npm run playground   # run blueprint.json locally with ./theme mounted (Node 24+)
+npm run playground        # run blueprint.json locally with ./theme mounted
 ```
 
 ## Environments

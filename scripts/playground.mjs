@@ -11,9 +11,9 @@
  * and Lorem content, to preview the page templates. The public blueprint
  * does not include it.
  *
- * Usage (Playground CLI needs Node 24+):
- *   nvm exec 24 npm run playground
- *   SEED=1 PORT=9401 nvm exec 24 npm run playground
+ * Usage (Playground CLI needs Node 24, the version in .nvmrc):
+ *   npm run playground
+ *   SEED=1 PORT=9401 npm run playground
  */
 
 import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
@@ -30,7 +30,7 @@ const PLUGIN = 'portfolio-core';
 const SEED = '1' === process.env.SEED;
 
 if ( Number( process.versions.node.split( '.' )[ 0 ] ) < 24 ) {
-	console.error( `Playground CLI needs Node 24+ (this is ${ process.version }). Run: nvm exec 24 npm run playground` );
+	console.error( `Playground CLI needs Node 24+ (this is ${ process.version }). Run: nvm use, then npm run playground` );
 	process.exit( 1 );
 }
 

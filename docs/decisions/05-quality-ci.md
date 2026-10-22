@@ -9,7 +9,7 @@ See [README.md](README.md) for how entries are written.
 `.github/workflows/ci.yml` runs on every push and pull request to `main`, in
 two parallel jobs:
 
-- **Design tokens:** `npm run test:tokens` on Node 20 (no dependencies): unit
+- **Design tokens:** `npm run test:tokens` (no dependencies): unit
   rules and generated files up to date.
 - **PHP coding standards:** `composer run lint` on PHP 8.0: WordPress Coding
   Standards (Core, Docs, Extra) and PHPCompatibilityWP for PHP 8.0+, configured
@@ -70,3 +70,16 @@ from another site, a message 13 months old) are each a millisecond test.
   cannot follow: class file names (PHPUnit finds `*Test.php`), doc comments
   on test methods (the name says what each checks), and unprefixed constants
   in the config, which are the ones WordPress reads.
+
+## 2026-10-22 — Tooling on Node 24
+
+Node 20 was holding the tooling back: npm 10 rejected the lockfile, several
+dependencies of `@wordpress/scripts` and Playwright already require Node 22+,
+and Playground CLI needed its own Node 24 call. Node 24 is the LTS line;
+26 is ruled out because Playground CLI fails on it (decision 06).
+
+- `.nvmrc` pins `24`; `package.json` declares `"node": "^24.15.0"`. CI reads
+  `.nvmrc` (`node-version-file`). Locally `nvm use` switches the repo only;
+  the machine default is left alone.
+- Since Node 22, `node --test` no longer takes a directory, so the token and
+  CSS tests run with a glob (`'tests/tokens/*.test.mjs'`).
