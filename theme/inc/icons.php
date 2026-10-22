@@ -37,15 +37,16 @@ function portfolio_theme_icon_names() {
  */
 function portfolio_theme_icon_kses() {
 	$shape = array(
-		'd'      => true,
-		'cx'     => true,
-		'cy'     => true,
-		'r'      => true,
-		'x'      => true,
-		'y'      => true,
-		'width'  => true,
-		'height' => true,
-		'rx'     => true,
+		'd'         => true,
+		'fill-rule' => true,
+		'cx'        => true,
+		'cy'        => true,
+		'r'         => true,
+		'x'         => true,
+		'y'         => true,
+		'width'     => true,
+		'height'    => true,
+		'rx'        => true,
 	);
 
 	return array(
@@ -116,15 +117,16 @@ function portfolio_theme_icon( $name ) {
 /**
  * Returns the inline SVG for a brand icon (e.g. LinkedIn), or '' if there is
  * none. Brand marks are not Lucide icons and stay out of the icon picker, so
- * they live here, not in assets/icons/. Same markup and size as the icons:
- * stroked in currentColor, decorative.
+ * they live here, not in assets/icons/. Same size as the icons, filled in
+ * currentColor, decorative.
  *
  * @param string $name Brand name.
  * @return string
  */
 function portfolio_theme_get_brand_icon( $name ) {
 	$shapes = array(
-		'linkedin' => '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
+		// A filled square with "in" cut out (even-odd fill), square corners.
+		'linkedin' => '<path fill-rule="evenodd" d="M2 2h20v20H2zM6 10h3v8H6zM7.5 5.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3zM10.5 10h2.9v1.2c.5-.8 1.4-1.4 2.7-1.4 2.2 0 3.4 1.3 3.4 3.8V18h-3v-4c0-1.1-.4-1.8-1.4-1.8s-1.6.7-1.6 1.8v4h-3z"/>',
 	);
 
 	if ( ! isset( $shapes[ $name ] ) ) {
@@ -132,7 +134,7 @@ function portfolio_theme_get_brand_icon( $name ) {
 	}
 
 	return sprintf(
-		'<svg class="icon" data-icon="%s" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">%s</svg>',
+		'<svg class="icon" data-icon="%s" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">%s</svg>',
 		esc_attr( $name ),
 		$shapes[ $name ]
 	);

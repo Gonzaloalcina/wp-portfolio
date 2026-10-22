@@ -99,7 +99,9 @@ built a link from every page without crowding the header. Updates the
   `scripts/playground-seed.php` builds the same menus in Playground.
 - **LinkedIn icon.** The URL is the LinkedIn row in Site settings › Profiles,
   the same value the Person schema uses as `sameAs`: one place to change it.
-  An inline SVG, stroked in `currentColor` like the Lucide icons but kept out
-  of `assets/icons/` so it does not appear in the editors' icon picker. It
+  An inline SVG: a solid square in ink with "in" cut out, square corners like
+  the buttons (it inverts with the theme, so it stays visible in dark mode).
+  Kept out of `assets/icons/` so it does not appear in the editors' icon
+  picker. It
   opens in a new tab with `rel="me noopener"`, `aria-label="LinkedIn"` and
   the footer's "Opens in a new tab" note.
