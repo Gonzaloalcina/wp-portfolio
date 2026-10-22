@@ -196,6 +196,24 @@ function portfolio_theme_profile_links() {
 }
 
 /**
+ * Returns the LinkedIn profile from the site settings as a link-row-a icon
+ * link, or nothing when there is none. The URL is kept once, in Site settings
+ * › Profiles (it also feeds the Person schema).
+ *
+ * @return array<int, array> Zero or one link-row-a link.
+ */
+function portfolio_theme_linkedin_link() {
+	foreach ( portfolio_theme_profile_links() as $link ) {
+		$host = (string) wp_parse_url( $link['url'], PHP_URL_HOST );
+		if ( 'linkedin.com' === $host || str_ends_with( $host, '.linkedin.com' ) ) {
+			return array( $link + array( 'icon' => 'linkedin' ) );
+		}
+	}
+
+	return array();
+}
+
+/**
  * Returns the contact button: the Home's label, pointing at /contact/. No
  * label, no button.
  *
@@ -432,6 +450,20 @@ function portfolio_theme_service_rows( $home = false ) {
 		),
 		portfolio_theme_services( $home )
 	);
+}
+
+/**
+ * Returns the other published services as row-a items, for the end of a
+ * service page: every service stays one click away from any other (the
+ * footer does not list them).
+ *
+ * @param int $post_id Current service ID.
+ * @return array<int, array{title: string, url: string, text: string}>
+ */
+function portfolio_theme_other_service_rows( $post_id ) {
+	$url = get_permalink( $post_id );
+
+	return array_values( array_filter( portfolio_theme_service_rows(), static fn( $row ) => $row['url'] !== $url ) );
 }
 
 /**

@@ -78,3 +78,28 @@ or worse. Prices exclude VAT, and the hub says so when a row shows a figure.
 - The `Service` structured data (with `offers` from separate price fields)
   comes with the technical phase, after the layout of every page.
 
+
+## 2026-10-22 — Footer: a reduced main menu; maintenance leaves it
+
+The footer links are now the main menu (About, Work, Services, Notes,
+Contact) plus Resume and How this site is built, then "Cookie settings" and
+a LinkedIn icon. A footer that repeats the main pages is what visitors
+expect at the end of a long page, and it gives Resume and How this site is
+built a link from every page without crowding the header. Updates the
+2026-10-19 entry: WordPress maintenance is no longer a footer link.
+
+- **Maintenance stays one click away.** The Services hub lists it, and every
+  service page ends with an "Other services" section that lists the rest,
+  so maintenance gets internal links from each service, in context, instead
+  of a sitewide footer link. Still indexed, still off the Home and the main
+  menu.
+- **Seeded in code.** `scripts/seed-footer-menu.php` (WP-CLI) builds a
+  "Footer" and a "Footer ES" menu from pages, not custom links, so each
+  follows its language's permalinks, and assigns them through Polylang.
+  `scripts/playground-seed.php` builds the same menus in Playground.
+- **LinkedIn icon.** The URL is the LinkedIn row in Site settings › Profiles,
+  the same value the Person schema uses as `sameAs`: one place to change it.
+  An inline SVG, stroked in `currentColor` like the Lucide icons but kept out
+  of `assets/icons/` so it does not appear in the editors' icon picker. It
+  opens in a new tab with `rel="me noopener"`, `aria-label="LinkedIn"` and
+  the footer's "Opens in a new tab" note.

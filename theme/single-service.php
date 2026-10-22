@@ -1,8 +1,9 @@
 <?php
 /**
  * Service: H1 with the problem it solves and a button to the form, the text
- * from the editor, what it includes, its proof (projects and notes), then
- * the request form with this service preselected, as the Services hub ends.
+ * from the editor, what it includes, its proof (projects and notes), the
+ * other services, then the request form with this service preselected, as
+ * the Services hub ends.
  * Wide layout (site--second).
  *
  * @package PortfolioTheme
@@ -51,6 +52,20 @@ portfolio_theme_component(
 			array(
 				'name' => 'list-a',
 				'args' => array( 'items' => portfolio_theme_service_proof( get_the_ID() ) ),
+			),
+		),
+	)
+);
+
+portfolio_theme_component(
+	'section-a',
+	array(
+		'id'      => 'other-services',
+		'title'   => __( 'Other services', 'portfolio-theme' ),
+		'content' => array(
+			array(
+				'name' => 'list-a',
+				'args' => array( 'items' => portfolio_theme_other_service_rows( get_the_ID() ) ),
 			),
 		),
 		'more'    => array(

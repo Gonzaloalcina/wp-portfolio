@@ -14,3 +14,15 @@
 .link-row-a__item::before {
 	content: none;
 }
+
+/* An icon link (e.g. LinkedIn): muted until hover or focus, on the text's line. */
+.link-row-a__icon {
+	display: inline-flex;
+	vertical-align: middle;
+	color: var(--color-muted);
+}
+
+.link-row-a__icon:hover,
+.link-row-a__icon:focus-visible {
+	color: var(--color-ink);
+}

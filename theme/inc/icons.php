@@ -114,6 +114,31 @@ function portfolio_theme_icon( $name ) {
 }
 
 /**
+ * Returns the inline SVG for a brand icon (e.g. LinkedIn), or '' if there is
+ * none. Brand marks are not Lucide icons and stay out of the icon picker, so
+ * they live here, not in assets/icons/. Same markup and size as the icons:
+ * stroked in currentColor, decorative.
+ *
+ * @param string $name Brand name.
+ * @return string
+ */
+function portfolio_theme_get_brand_icon( $name ) {
+	$shapes = array(
+		'linkedin' => '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
+	);
+
+	if ( ! isset( $shapes[ $name ] ) ) {
+		return '';
+	}
+
+	return sprintf(
+		'<svg class="icon" data-icon="%s" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">%s</svg>',
+		esc_attr( $name ),
+		$shapes[ $name ]
+	);
+}
+
+/**
  * Registers the reusable icon field group, and the demo group for the
  * /design-system page.
  *

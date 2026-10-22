@@ -1,16 +1,15 @@
-# Copyright (C) 2026 Gonzalo Alcina
-# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio Theme 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/portfolio-theme\n"
-"POT-Creation-Date: 2026-10-21T22:53:18+02:00\n"
-"PO-Revision-Date: 2026-10-20 23:30+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-21T22:53:18+02:00\n"
+"PO-Revision-Date: 2026-10-20 23:30+0200\n"
+"Language: es_ES\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -41,47 +40,55 @@ msgid "Page not found"
 msgstr "Página no encontrada"
 
 #: 404.php:16
-msgid ""
-"This address does not lead to a page on this site. It may have moved, or the "
-"link may be wrong."
-msgstr ""
-"Esta dirección no lleva a ninguna página de esta web. Puede que se haya "
-"movido o que el enlace sea incorrecto."
+msgid "This address does not lead to a page on this site. It may have moved, or the link may be wrong."
+msgstr "Esta dirección no lleva a ninguna página de esta web. Puede que se haya movido o que el enlace sea incorrecto."
 
 #: 404.php:24
 msgid "Try one of these"
 msgstr "Prueba con alguna de estas"
 
-#: 404.php:28 inc/breadcrumbs.php:84 inc/home.php:25 page-design-system.php:342
+#: 404.php:28
+#: inc/breadcrumbs.php:84
+#: inc/home.php:25
+#: page-design-system.php:342
 msgid "Home"
 msgstr "Inicio"
 
 #. Template Name of the theme
-#: 404.php:32 front-page.php:34 page-design-system.php:346
+#: 404.php:32
+#: front-page.php:34
+#: page-design-system.php:346
 msgid "Work"
 msgstr "Trabajo"
 
 #. Template Name of the theme
-#: 404.php:36 front-page.php:72 inc/services.php:33
+#: 404.php:36
+#: front-page.php:72
+#: inc/services.php:33
 msgid "Services"
 msgstr "Servicios"
 
-#: 404.php:40 home.php:21
+#: 404.php:40
+#: home.php:22
 msgid "Notes"
 msgstr "Notas"
 
 #. Template Name of the theme
-#: 404.php:44 front-page.php:110 inc/home.php:119 inc/pages.php:221
+#: 404.php:44
+#: front-page.php:110
+#: inc/home.php:120
+#: inc/pages.php:239
 #: templates/resume.php:26
 msgid "Contact"
 msgstr "Contacto"
 
-#: footer.php:23
+#: footer.php:24
 msgid "Opens in a new tab"
 msgstr "Se abre en una pestaña nueva"
 
 #. Template Name of the theme
-#: front-page.php:38 inc/about.php:27
+#: front-page.php:38
+#: inc/about.php:27
 msgid "About"
 msgstr "Sobre mí"
 
@@ -93,15 +100,20 @@ msgstr "Trabajo seleccionado"
 msgid "Also built"
 msgstr "También he construido"
 
-#: front-page.php:66 single-project.php:43
+#: front-page.php:66
+#: single-project.php:43
 msgid "All work"
 msgstr "Todo el trabajo"
 
-#: front-page.php:80 single-service.php:57
+#: front-page.php:80
+#: single-service.php:72
 msgid "All services"
 msgstr "Todos los servicios"
 
-#: front-page.php:86 inc/home.php:73 inc/home.php:78 templates/about.php:87
+#: front-page.php:86
+#: inc/home.php:73
+#: inc/home.php:78
+#: templates/about.php:87
 msgid "Testimonials"
 msgstr "Testimonios"
 
@@ -109,12 +121,16 @@ msgstr "Testimonios"
 msgid "Latest notes"
 msgstr "Últimas notas"
 
-#: front-page.php:104 home.php:32 single.php:41
+#: front-page.php:104
+#: home.php:33
+#: single.php:41
 msgid "All notes"
 msgstr "Todas las notas"
 
 #. Template Name of the theme
-#: front-page.php:119 inc/pages.php:62 templates/contact.php:89
+#: front-page.php:119
+#: inc/pages.php:62
+#: templates/contact.php:89
 msgid "Resume"
 msgstr "CV"
 
@@ -122,15 +138,14 @@ msgstr "CV"
 msgid "Skip to content"
 msgstr "Saltar al contenido"
 
-#: inc/about.php:40 inc/about.php:134
+#: inc/about.php:40
+#: inc/about.php:134
 msgid "Currently"
 msgstr "Ahora"
 
 #: inc/about.php:43
 msgid "Role and company, e.g. Website Lead, Company. No availability wording."
-msgstr ""
-"Puesto y empresa, p. ej. Website Lead, Empresa. Sin lenguaje de "
-"disponibilidad."
+msgstr "Puesto y empresa, p. ej. Website Lead, Empresa. Sin lenguaje de disponibilidad."
 
 #: inc/about.php:47
 msgid "How I work"
@@ -140,7 +155,8 @@ msgstr "Cómo trabajo"
 msgid "One row per area of the site: what you do there and with whom."
 msgstr "Una fila por cada área de la web: qué haces en ella y con quién."
 
-#: inc/about.php:52 inc/pages.php:95
+#: inc/about.php:52
+#: inc/pages.php:95
 msgid "Add row"
 msgstr "Añadir fila"
 
@@ -160,7 +176,8 @@ msgstr "Con quién"
 msgid "Teams or roles, e.g. Growth, Sales."
 msgstr "Equipos o roles, p. ej. Growth, Ventas."
 
-#: inc/about.php:79 templates/about.php:74
+#: inc/about.php:79
+#: templates/about.php:74
 msgid "Tools and AI"
 msgstr "Herramientas e IA"
 
@@ -168,7 +185,8 @@ msgstr "Herramientas e IA"
 msgid "A blank line starts a new paragraph."
 msgstr "Una línea en blanco empieza un párrafo nuevo."
 
-#: inc/about.php:88 templates/about.php:101
+#: inc/about.php:88
+#: templates/about.php:101
 msgid "Other things"
 msgstr "Otras cosas"
 
@@ -185,9 +203,7 @@ msgid "Cookie consent"
 msgstr "Consentimiento de cookies"
 
 #: inc/consent.php:36
-msgid ""
-"I use Google Analytics to see which pages people read. It only runs if you "
-"accept."
+msgid "I use Google Analytics to see which pages people read. It only runs if you accept."
 msgstr "Uso Google Analytics para ver qué páginas se leen. Solo se activa si aceptas."
 
 #: inc/consent.php:38
@@ -236,19 +252,15 @@ msgstr "Hay campos que corregir. Están marcados abajo."
 
 #: inc/forms.php:51
 msgid "The spam check did not pass. Reload the page and try again."
-msgstr ""
-"La comprobación antispam no se ha superado. Recarga la página y vuelve a "
-"intentarlo."
+msgstr "La comprobación antispam no se ha superado. Recarga la página y vuelve a intentarlo."
 
 #: inc/forms.php:52
 msgid "Too many messages in a short time. Try again in an hour."
-msgstr ""
-"Demasiados mensajes en poco tiempo. Vuelve a intentarlo dentro de una hora."
+msgstr "Demasiados mensajes en poco tiempo. Vuelve a intentarlo dentro de una hora."
 
 #: inc/forms.php:53
 msgid "The message could not be sent. Try again in a few minutes."
-msgstr ""
-"No se ha podido enviar el mensaje. Vuelve a intentarlo en unos minutos."
+msgstr "No se ha podido enviar el mensaje. Vuelve a intentarlo en unos minutos."
 
 #: inc/forms.php:55
 msgid "This field is required."
@@ -299,12 +311,8 @@ msgid "Portrait"
 msgstr "Retrato"
 
 #: inc/home.php:83
-msgid ""
-"Real words, with the person's permission. Link to their LinkedIn "
-"recommendation or profile as proof."
-msgstr ""
-"Palabras reales, con permiso de la persona. Enlaza su recomendación o perfil "
-"de LinkedIn como prueba."
+msgid "Real words, with the person's permission. Link to their LinkedIn recommendation or profile as proof."
+msgstr "Palabras reales, con permiso de la persona. Enlaza su recomendación o perfil de LinkedIn como prueba."
 
 #: inc/home.php:84
 msgid "Add testimonial"
@@ -314,41 +322,44 @@ msgstr "Añadir testimonio"
 msgid "Quote"
 msgstr "Cita"
 
-#: inc/home.php:97 inc/services.php:197 templates/contact.php:38
+#: inc/home.php:98
+#: inc/services.php:197
+#: templates/contact.php:38
 msgid "Name"
 msgstr "Nombre"
 
-#: inc/home.php:104 inc/pages.php:367
+#: inc/home.php:105
+#: inc/pages.php:385
 msgid "Role"
 msgstr "Cargo"
 
-#: inc/home.php:107
+#: inc/home.php:108
 msgid "Role and company, e.g. Head of Marketing, Company."
 msgstr "Cargo y empresa, p. ej. Head of Marketing, Empresa."
 
-#: inc/home.php:111
+#: inc/home.php:112
 msgid "Proof link"
 msgstr "Enlace de prueba"
 
-#: inc/home.php:124
+#: inc/home.php:125
 msgid "Text"
 msgstr "Texto"
 
-#: inc/icons.php:131 inc/icons.php:146
+#: inc/icons.php:156
+#: inc/icons.php:171
 msgid "Icon"
 msgstr "Icono"
 
-#: inc/icons.php:132
+#: inc/icons.php:157
 msgid "Reusable icon picker. Add it to other field groups with a Clone field."
-msgstr ""
-"Selector de iconos reutilizable. Añádelo a otros grupos de campos con un "
-"campo Clon."
+msgstr "Selector de iconos reutilizable. Añádelo a otros grupos de campos con un campo Clon."
 
-#: inc/icons.php:167
+#: inc/icons.php:192
 msgid "Design system demo"
 msgstr "Demo del sistema de diseño"
 
-#: inc/icons.php:180 page-design-system.php:183
+#: inc/icons.php:205
+#: page-design-system.php:183
 msgid "Demo card"
 msgstr "Tarjeta de ejemplo"
 
@@ -388,7 +399,9 @@ msgstr "p. ej. Experiencia, Competencias, Formación, Idiomas."
 msgid "Add section"
 msgstr "Añadir sección"
 
-#: inc/pages.php:84 inc/pages.php:99 inc/services.php:55
+#: inc/pages.php:84
+#: inc/pages.php:99
+#: inc/services.php:55
 msgid "Title"
 msgstr "Título"
 
@@ -404,35 +417,41 @@ msgstr "Meta"
 msgid "Years, place."
 msgstr "Años, lugar."
 
-#: inc/pages.php:113 inc/services.php:62
+#: inc/pages.php:113
+#: inc/services.php:62
 msgid "Line"
 msgstr "Línea"
 
-#: inc/pages.php:355 page-design-system.php:372
+#: inc/pages.php:373
+#: page-design-system.php:372
 msgid "Client"
 msgstr "Cliente"
 
-#: inc/pages.php:359 page-design-system.php:376
+#: inc/pages.php:377
+#: page-design-system.php:376
 msgid "Year"
 msgstr "Año"
 
-#: inc/pages.php:363
+#: inc/pages.php:381
 msgid "Type"
 msgstr "Tipo"
 
-#: inc/pages.php:371
+#: inc/pages.php:389
 msgid "Built with"
 msgstr "Construido con"
 
-#: inc/pages.php:375 page-design-system.php:380
+#: inc/pages.php:393
+#: page-design-system.php:380
 msgid "Site"
 msgstr "Sitio"
 
-#: inc/pages.php:565 page-design-system.php:445
+#: inc/pages.php:611
+#: page-design-system.php:445
 msgid "Newer notes"
 msgstr "Notas más recientes"
 
-#: inc/pages.php:571 page-design-system.php:449
+#: inc/pages.php:617
+#: page-design-system.php:449
 msgid "Older notes"
 msgstr "Notas anteriores"
 
@@ -440,27 +459,27 @@ msgstr "Notas anteriores"
 msgid "Sorry, you are not allowed to do that."
 msgstr "Lo siento, no tienes permiso para hacer eso."
 
-#: inc/services.php:46 templates/services.php:50
+#: inc/services.php:46
+#: templates/services.php:54
 msgid "How it works"
 msgstr "Cómo funciona"
 
 #: inc/services.php:50
-msgid ""
-"Three or four steps, from the first message to the quote. Empty: the section "
-"hides."
-msgstr ""
-"Tres o cuatro pasos, desde el primer mensaje hasta el presupuesto. Vacío: la "
-"sección se oculta."
+msgid "Three or four steps, from the first message to the quote. Empty: the section hides."
+msgstr "Tres o cuatro pasos, desde el primer mensaje hasta el presupuesto. Vacío: la sección se oculta."
 
 #: inc/services.php:51
 msgid "Add step"
 msgstr "Añadir paso"
 
-#: inc/services.php:136 inc/services.php:187 inc/services.php:193
+#: inc/services.php:136
+#: inc/services.php:187
+#: inc/services.php:193
 msgid "Request information"
 msgstr "Solicitar información"
 
-#: inc/services.php:152 page-design-system.php:421
+#: inc/services.php:152
+#: page-design-system.php:421
 msgid "Choose one"
 msgstr "Elige una opción"
 
@@ -472,7 +491,9 @@ msgstr "No lo sé"
 msgid "I reply within 2 working days."
 msgstr "Respondo en un plazo de 2 días laborables."
 
-#: inc/services.php:204 page-design-system.php:411 templates/contact.php:45
+#: inc/services.php:204
+#: page-design-system.php:411
+#: templates/contact.php:45
 msgid "Email"
 msgstr "Correo electrónico"
 
@@ -488,7 +509,9 @@ msgstr "URL de la web"
 msgid "If you already have one."
 msgstr "Si ya tienes una."
 
-#: inc/services.php:229 page-design-system.php:428 templates/contact.php:59
+#: inc/services.php:229
+#: page-design-system.php:428
+#: templates/contact.php:59
 msgid "Message"
 msgstr "Mensaje"
 
@@ -500,19 +523,23 @@ msgstr "Qué es y cuándo empieza."
 msgid "Send request"
 msgstr "Enviar solicitud"
 
-#: inc/services.php:237 templates/contact.php:67
+#: inc/services.php:237
+#: templates/contact.php:67
 msgid "The form is not connected yet."
 msgstr "El formulario aún no está conectado."
 
-#: inc/services.php:248 templates/contact.php:72
+#: inc/services.php:248
+#: templates/contact.php:72
 msgid "How the data you send is used"
 msgstr "Cómo se usan los datos que envías"
 
-#: inc/theme-toggle.php:42 page-design-system.php:118
+#: inc/theme-toggle.php:42
+#: page-design-system.php:118
 msgid "Light"
 msgstr "Claro"
 
-#: inc/theme-toggle.php:43 page-design-system.php:119
+#: inc/theme-toggle.php:43
+#: page-design-system.php:119
 msgid "Dark"
 msgstr "Oscuro"
 
@@ -525,9 +552,7 @@ msgid "Nothing found."
 msgstr "No se ha encontrado nada."
 
 #: page-design-system.php:30
-msgid ""
-"Living reference, rendered from the design tokens. Every value on this page "
-"comes from tokens/tokens.json."
+msgid "Living reference, rendered from the design tokens. Every value on this page comes from tokens/tokens.json."
 msgstr ""
 
 #: page-design-system.php:41
@@ -537,13 +562,11 @@ msgstr ""
 #. translators: %s: unit value, e.g. 0.5rem (8px).
 #: page-design-system.php:46
 #, php-format
-msgid ""
-"Every size derives from one unit, %s, in steps of 0.5. Sizes are in rem, so "
-"they follow the font size the visitor sets in the browser. The only "
-"exceptions are 1px hairlines and heading tracking."
+msgid "Every size derives from one unit, %s, in steps of 0.5. Sizes are in rem, so they follow the font size the visitor sets in the browser. The only exceptions are 1px hairlines and heading tracking."
 msgstr ""
 
-#: page-design-system.php:55 page-design-system.php:117
+#: page-design-system.php:55
+#: page-design-system.php:117
 msgid "Token"
 msgstr ""
 
@@ -564,10 +587,7 @@ msgid "Typography"
 msgstr ""
 
 #: page-design-system.php:76
-msgid ""
-"Newsreader for headings, Inter for text. Both self-hosted. Font sizes are "
-"multiples of a quarter unit; line heights are whole units, so all text sits "
-"on the 8px grid."
+msgid "Newsreader for headings, Inter for text. Both self-hosted. Font sizes are multiples of a quarter unit; line heights are whole units, so all text sits on the 8px grid."
 msgstr ""
 
 #: page-design-system.php:103
@@ -579,9 +599,7 @@ msgid "Colour"
 msgstr ""
 
 #: page-design-system.php:112
-msgid ""
-"One paper, one ink, one grey. Light is the reference theme; dark follows the "
-"system or the toggle. Contrast is computed against paper (WCAG 2)."
+msgid "One paper, one ink, one grey. Light is the reference theme; dark follows the system or the toggle. Contrast is computed against paper (WCAG 2)."
 msgstr ""
 
 #. translators: %s: contrast ratio, e.g. 16.4.
@@ -595,10 +613,7 @@ msgid "Light and dark"
 msgstr ""
 
 #: page-design-system.php:160
-msgid ""
-"The site follows the system by default. The toggle in the header switches "
-"between light and dark; a choice that differs from the system is stored in "
-"this browser and applied before the first paint."
+msgid "The site follows the system by default. The toggle in the header switches between light and dark; a choice that differs from the system is stored in this browser and applied before the first paint."
 msgstr ""
 
 #: page-design-system.php:162
@@ -614,10 +629,7 @@ msgid "Icons"
 msgstr ""
 
 #: page-design-system.php:169
-msgid ""
-"Lucide icons on a 24-unit grid, with a thinner stroke. They take the text "
-"colour and are decorative: the text next to them carries the meaning. "
-"Editors pick them in a reusable icon field."
+msgid "Lucide icons on a 24-unit grid, with a thinner stroke. They take the text colour and are decorative: the text next to them carries the meaning. Editors pick them in a reusable icon field."
 msgstr ""
 
 #. translators: %s: icon name.
@@ -665,11 +677,7 @@ msgid "Components"
 msgstr ""
 
 #: page-design-system.php:229
-msgid ""
-"Components are named by what they are plus a letter for the design (hero-a, "
-"row-a…), never by the page that uses them. A new letter is a different "
-"design; a numeric modifier (--second) is a small variation of the same one. "
-"Each page loads only the CSS of the components it uses."
+msgid "Components are named by what they are plus a letter for the design (hero-a, row-a…), never by the page that uses them. A new letter is a different design; a numeric modifier (--second) is a small variation of the same one. Each page loads only the CSS of the components it uses."
 msgstr ""
 
 #: page-design-system.php:235
@@ -677,9 +685,7 @@ msgid "H1, short intro, actions-a and a square image. One per page."
 msgstr ""
 
 #: page-design-system.php:236
-msgid ""
-"H2, then any of: a paragraph, content components (each with an optional H3), "
-"an actions-a and an \"All …\" link."
+msgid "H2, then any of: a paragraph, content components (each with an optional H3), an actions-a and an \"All …\" link."
 msgstr ""
 
 #: page-design-system.php:237
@@ -711,15 +717,11 @@ msgid "A testimonial: the quote, then name (linked to proof) and role."
 msgstr ""
 
 #: page-design-system.php:244
-msgid ""
-"A WordPress menu as quiet links; a \"Menu\" dropdown on narrow screens. In "
-"the header."
+msgid "A WordPress menu as quiet links; a \"Menu\" dropdown on narrow screens. In the header."
 msgstr ""
 
 #: page-design-system.php:245
-msgid ""
-"H1 of a text page, with an optional meta line and intro. hero-a is for pages "
-"that lead to an action."
+msgid "H1 of a text page, with an optional meta line and intro. hero-a is for pages that lead to an action."
 msgstr ""
 
 #: page-design-system.php:246
@@ -735,9 +737,7 @@ msgid "field-a items, a submit button-a and a note."
 msgstr ""
 
 #: page-design-system.php:249
-msgid ""
-"Label, optional hint and a full-width control (input, textarea or select) "
-"with a muted line (3:1 contrast)."
+msgid "Label, optional hint and a full-width control (input, textarea or select) with a muted line (3:1 contrast)."
 msgstr ""
 
 #: page-design-system.php:250
@@ -749,9 +749,7 @@ msgid "list-a and row-a"
 msgstr ""
 
 #: page-design-system.php:263
-msgid ""
-"Narrow screens stack each row; from 48rem the rows sit in three columns that "
-"the whole list shares."
+msgid "Narrow screens stack each row; from 48rem the rows sit in three columns that the whole list shares."
 msgstr ""
 
 #: page-design-system.php:270
@@ -763,9 +761,7 @@ msgid "Meta · sm, muted"
 msgstr ""
 
 #: page-design-system.php:273
-msgid ""
-"One line of text, 140 characters at most. It wraps under itself, never under "
-"the title."
+msgid "One line of text, 140 characters at most. It wraps under itself, never under the title."
 msgstr ""
 
 #: page-design-system.php:276
@@ -785,16 +781,11 @@ msgid "quote-list-a and quote-a"
 msgstr ""
 
 #: page-design-system.php:293
-msgid ""
-"Testimonials. The name links to the proof, such as a LinkedIn "
-"recommendation. No review schema: Google does not show stars for reviews a "
-"site publishes about itself."
+msgid "Testimonials. The name links to the proof, such as a LinkedIn recommendation. No review schema: Google does not show stars for reviews a site publishes about itself."
 msgstr ""
 
 #: page-design-system.php:300
-msgid ""
-"The quote, in the heading serif at the large size. 240 characters at most, "
-"in the words of the person who said it."
+msgid "The quote, in the heading serif at the large size. 240 characters at most, in the words of the person who said it."
 msgstr ""
 
 #: page-design-system.php:301
@@ -810,9 +801,7 @@ msgid "actions-a, button-a and link-row-a"
 msgstr ""
 
 #: page-design-system.php:312
-msgid ""
-"Ink on paper, inverted on hover and focus, square corners, no shadow. "
-"Everything else is a quiet link."
+msgid "Ink on paper, inverted on hover and focus, square corners, no shadow. Everything else is a quiet link."
 msgstr ""
 
 #: page-design-system.php:318
@@ -832,12 +821,11 @@ msgid "breadcrumb-a"
 msgstr ""
 
 #: page-design-system.php:335
-msgid ""
-"Above the H1 of cases, services and notes. The same trail as the "
-"BreadcrumbList schema."
+msgid "Above the H1 of cases, services and notes. The same trail as the BreadcrumbList schema."
 msgstr ""
 
-#: page-design-system.php:350 single-project.php:27
+#: page-design-system.php:350
+#: single-project.php:27
 msgid "Case study"
 msgstr "Caso de estudio"
 
@@ -846,9 +834,7 @@ msgid "title-a"
 msgstr ""
 
 #: page-design-system.php:358
-msgid ""
-"Notes, case studies and legal pages open with it. Shown here without the H1 "
-"element, so this page keeps one H1."
+msgid "Notes, case studies and legal pages open with it. Shown here without the H1 element, so this page keeps one H1."
 msgstr ""
 
 #: page-design-system.php:360
@@ -872,9 +858,7 @@ msgid "prose-a"
 msgstr ""
 
 #: page-design-system.php:394
-msgid ""
-"Text written in the editor. Paragraphs, lists, links and headings take the "
-"base styles; quotes, captions, code and tables get their own."
+msgid "Text written in the editor. Paragraphs, lists, links and headings take the base styles; quotes, captions, code and tables get their own."
 msgstr ""
 
 #: page-design-system.php:395
@@ -894,9 +878,7 @@ msgid "form-a and field-a"
 msgstr ""
 
 #: page-design-system.php:402
-msgid ""
-"Static for now: without an action the submit is disabled. The contact form "
-"logic will come from the portfolio-core plugin."
+msgid "Static for now: without an action the submit is disabled. The contact form logic will come from the portfolio-core plugin."
 msgstr ""
 
 #: page-design-system.php:407
@@ -919,7 +901,8 @@ msgstr ""
 msgid "A hint under the label."
 msgstr ""
 
-#: page-design-system.php:433 templates/contact.php:66
+#: page-design-system.php:433
+#: templates/contact.php:66
 msgid "Send message"
 msgstr "Enviar mensaje"
 
@@ -953,11 +936,11 @@ msgstr "Proyecto"
 msgid "Outcome"
 msgstr "Resultado"
 
-#: single-service.php:35
+#: single-service.php:36
 msgid "What it includes"
 msgstr "Qué incluye"
 
-#: single-service.php:49
+#: single-service.php:50
 msgid "Proof"
 msgstr "Pruebas"
 
@@ -1027,7 +1010,7 @@ msgstr "Un proyecto: qué es y cuándo empieza."
 msgid "Elsewhere"
 msgstr "En otros sitios"
 
-#: templates/services.php:36
+#: templates/services.php:38
 msgid "Which one do you need?"
 msgstr "¿Cuál necesitas?"
 
@@ -1038,3 +1021,15 @@ msgstr "Casos de estudio"
 #: templates/work.php:45
 msgid "Projects"
 msgstr "Proyectos"
+
+#: inc/home.php:93
+msgid "As the person wrote it. A blank line starts a new paragraph."
+msgstr ""
+
+#: single-service.php:64
+msgid "Other services"
+msgstr "Otros servicios"
+
+#: templates/services.php:40
+msgid "Prices exclude VAT."
+msgstr ""

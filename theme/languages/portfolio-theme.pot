@@ -3,13 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio Theme 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/portfolio-theme\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-21T22:53:18+02:00\n"
+"POT-Creation-Date: 2026-10-22T08:44:53+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
@@ -69,20 +69,20 @@ msgid "Services"
 msgstr ""
 
 #: 404.php:40
-#: home.php:21
+#: home.php:22
 msgid "Notes"
 msgstr ""
 
 #. Template Name of the theme
 #: 404.php:44
 #: front-page.php:110
-#: inc/home.php:119
-#: inc/pages.php:221
+#: inc/home.php:120
+#: inc/pages.php:239
 #: templates/resume.php:26
 msgid "Contact"
 msgstr ""
 
-#: footer.php:23
+#: footer.php:24
 msgid "Opens in a new tab"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgid "All work"
 msgstr ""
 
 #: front-page.php:80
-#: single-service.php:57
+#: single-service.php:72
 msgid "All services"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgid "Latest notes"
 msgstr ""
 
 #: front-page.php:104
-#: home.php:32
+#: home.php:33
 #: single.php:41
 msgid "All notes"
 msgstr ""
@@ -322,43 +322,47 @@ msgstr ""
 msgid "Quote"
 msgstr ""
 
-#: inc/home.php:97
+#: inc/home.php:93
+msgid "As the person wrote it. A blank line starts a new paragraph."
+msgstr ""
+
+#: inc/home.php:98
 #: inc/services.php:197
 #: templates/contact.php:38
 msgid "Name"
 msgstr ""
 
-#: inc/home.php:104
-#: inc/pages.php:367
+#: inc/home.php:105
+#: inc/pages.php:385
 msgid "Role"
 msgstr ""
 
-#: inc/home.php:107
+#: inc/home.php:108
 msgid "Role and company, e.g. Head of Marketing, Company."
 msgstr ""
 
-#: inc/home.php:111
+#: inc/home.php:112
 msgid "Proof link"
 msgstr ""
 
-#: inc/home.php:124
+#: inc/home.php:125
 msgid "Text"
 msgstr ""
 
-#: inc/icons.php:131
-#: inc/icons.php:146
+#: inc/icons.php:156
+#: inc/icons.php:171
 msgid "Icon"
 msgstr ""
 
-#: inc/icons.php:132
+#: inc/icons.php:157
 msgid "Reusable icon picker. Add it to other field groups with a Clone field."
 msgstr ""
 
-#: inc/icons.php:167
+#: inc/icons.php:192
 msgid "Design system demo"
 msgstr ""
 
-#: inc/icons.php:180
+#: inc/icons.php:205
 #: page-design-system.php:183
 msgid "Demo card"
 msgstr ""
@@ -422,35 +426,35 @@ msgstr ""
 msgid "Line"
 msgstr ""
 
-#: inc/pages.php:355
+#: inc/pages.php:373
 #: page-design-system.php:372
 msgid "Client"
 msgstr ""
 
-#: inc/pages.php:359
+#: inc/pages.php:377
 #: page-design-system.php:376
 msgid "Year"
 msgstr ""
 
-#: inc/pages.php:363
+#: inc/pages.php:381
 msgid "Type"
 msgstr ""
 
-#: inc/pages.php:371
+#: inc/pages.php:389
 msgid "Built with"
 msgstr ""
 
-#: inc/pages.php:375
+#: inc/pages.php:393
 #: page-design-system.php:380
 msgid "Site"
 msgstr ""
 
-#: inc/pages.php:565
+#: inc/pages.php:611
 #: page-design-system.php:445
 msgid "Newer notes"
 msgstr ""
 
-#: inc/pages.php:571
+#: inc/pages.php:617
 #: page-design-system.php:449
 msgid "Older notes"
 msgstr ""
@@ -460,7 +464,7 @@ msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
 #: inc/services.php:46
-#: templates/services.php:50
+#: templates/services.php:54
 msgid "How it works"
 msgstr ""
 
@@ -936,12 +940,16 @@ msgstr ""
 msgid "Outcome"
 msgstr ""
 
-#: single-service.php:35
+#: single-service.php:36
 msgid "What it includes"
 msgstr ""
 
-#: single-service.php:49
+#: single-service.php:50
 msgid "Proof"
+msgstr ""
+
+#: single-service.php:64
+msgid "Other services"
 msgstr ""
 
 #: template-parts/components/breadcrumb-a.php:19
@@ -1010,8 +1018,12 @@ msgstr ""
 msgid "Elsewhere"
 msgstr ""
 
-#: templates/services.php:36
+#: templates/services.php:38
 msgid "Which one do you need?"
+msgstr ""
+
+#: templates/services.php:40
+msgid "Prices exclude VAT."
 msgstr ""
 
 #: templates/work.php:31

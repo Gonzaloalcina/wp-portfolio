@@ -1,6 +1,7 @@
 <?php
 /**
- * Site footer: copyright, the footer links menu and "Cookie settings".
+ * Site footer: copyright, the footer links menu, "Cookie settings" and the
+ * LinkedIn icon link.
  * Closes the site block opened in header.php.
  *
  * @package PortfolioTheme
@@ -15,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 	portfolio_theme_component(
 		'link-row-a',
 		array(
-			'links' => array_merge( portfolio_theme_menu_links( 'footer' ), portfolio_theme_consent_link() ),
+			'links' => array_merge( portfolio_theme_menu_links( 'footer' ), portfolio_theme_consent_link(), portfolio_theme_linkedin_link() ),
 			'class' => 'site__footer-links',
 		)
 	);

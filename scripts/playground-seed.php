@@ -479,6 +479,26 @@ foreach ( $menus as $language => $menu_id ) {
 	}
 }
 
+// Footer menus: the main menu plus Resume and "How this site is built", as in
+// scripts/seed-footer-menu.php (docs/decisions/07-information-architecture.md).
+$footer_items = array_merge( $main_items, array( 'resume', 'how-this-site-is-built' ) );
+$footer_menus = array();
+foreach ( array_keys( $menus ) as $language ) {
+	$footer_menus[ $language ] = (int) wp_create_nav_menu( 'en' === $language ? 'Footer' : 'Footer ES' );
+	foreach ( $footer_items as $slug ) {
+		wp_update_nav_menu_item(
+			$footer_menus[ $language ],
+			0,
+			array(
+				'menu-item-type'      => 'post_type',
+				'menu-item-object'    => 'page',
+				'menu-item-object-id' => $page_ids[ $language ][ $slug ],
+				'menu-item-status'    => 'publish',
+			)
+		);
+	}
+}
+
 // Polylang keeps one menu per language and location in its own option (the
 // `primary___es` location the Customizer shows is only a label for it). The
 // theme mod stays for the default language.
@@ -487,10 +507,17 @@ if ( $pll ) {
 	$pll_theme = get_option( 'stylesheet' );
 
 	$pll_menus[ $pll_theme ]['primary'] = $menus;
+	$pll_menus[ $pll_theme ]['footer']  = $footer_menus;
 	PLL()->options->set( 'nav_menus', $pll_menus );
 	PLL()->options->save();
 }
-set_theme_mod( 'nav_menu_locations', array( 'primary' => $menus['en'] ) );
+set_theme_mod(
+	'nav_menu_locations',
+	array(
+		'primary' => $menus['en'],
+		'footer'  => $footer_menus['en'],
+	)
+);
 
 flush_rewrite_rules();
 

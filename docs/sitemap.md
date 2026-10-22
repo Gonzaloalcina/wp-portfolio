@@ -1,6 +1,6 @@
 # Sitemap
 
-Pages, URLs and linking rules for gonzaloalcina.dev. Version 3, 2026-10-21.
+Pages, URLs and linking rules for gonzaloalcina.dev. Version 3, 2026-10-21; footer updated 2026-10-22.
 The decisions behind it are in
 [`decisions/07-information-architecture.md`](decisions/07-information-architecture.md).
 
@@ -24,7 +24,7 @@ The decisions behind it are in
 /services/                           Services hub
    /services/wordpress-development/
    /services/website-ownership/
-   /services/wordpress-maintenance/  Indexed; footer link, not in the main nav
+   /services/wordpress-maintenance/  Indexed; not in the main nav or the footer
    /services/ai-automation/
 /notes/                              Blog (fortnightly)
    /notes/<post>/
@@ -87,10 +87,14 @@ Spanish lives under `/es/`; English has no prefix.
   project. Every service links to its proof. Home links to every hub.
 - Every service page ends with the same request form as the hub, its service
   preselected; `?service=<slug>` preselects it on the hub.
-- Maintenance is linked from the Services hub and the footer, and is indexed.
-  It is not in the main navigation or on the Home. No HTML sitemap page is
-  needed: the XML sitemap does the indexing and the footer link carries the
+- Maintenance is linked from the Services hub and from the "Other services"
+  section at the end of every other service page, and is indexed. It is not
+  in the main navigation, the footer or on the Home. No HTML sitemap page is
+  needed: the XML sitemap does the indexing and the service links carry the
   internal weight.
+- Footer: the main menu (About, Work, Services, Notes, Contact) plus Resume
+  and How this site is built, then "Cookie settings" and a LinkedIn icon.
+  The same in Spanish, with the Spanish pages.
 - Maintenance proof: MDF Construcción.
 - `BreadcrumbList` on every page below the first level. One H1 per page.
 - The same name, headline and profile links on About, in `sameAs`, on LinkedIn
