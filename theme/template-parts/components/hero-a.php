@@ -1,12 +1,10 @@
 <?php
 /**
- * Component hero-a: the page's H1, a short intro, an actions-a and a square
- * image with a 1px line.
+ * Component hero-a: the page's H1, a short intro, an actions-a and an
+ * optional square image with a 1px line.
  *
- * Args: title, intro, actions (see actions-a), image_id, image_alt,
- * image_frame (true: draw the empty frame when there is no image; for the
- * preview only), variant ("second": a larger image, for a page about a
- * person).
+ * Args: title, intro, actions (see actions-a), image_id, image_alt, variant
+ * ("second": a larger image, for a page about a person).
  *
  * @package PortfolioTheme
  */
@@ -35,21 +33,19 @@ $portfolio_second   = 'second' === ( $args['variant'] ?? '' );
 		?>
 	</div>
 
-	<?php if ( $portfolio_image_id || ! empty( $args['image_frame'] ) ) : ?>
+	<?php if ( $portfolio_image_id ) : ?>
 		<div class="hero-a__image">
 			<?php
-			if ( $portfolio_image_id ) {
-				echo wp_get_attachment_image(
-					$portfolio_image_id,
-					$portfolio_second ? 'medium_large' : 'medium',
-					false,
-					array(
-						'alt'     => $args['image_alt'] ?? '',
-						'sizes'   => $portfolio_second ? '12rem' : '8rem',
-						'loading' => 'eager',
-					)
-				);
-			}
+			echo wp_get_attachment_image(
+				$portfolio_image_id,
+				$portfolio_second ? 'medium_large' : 'medium',
+				false,
+				array(
+					'alt'     => $args['image_alt'] ?? '',
+					'sizes'   => $portfolio_second ? '12rem' : '8rem',
+					'loading' => 'eager',
+				)
+			);
 			?>
 		</div>
 	<?php endif; ?>
