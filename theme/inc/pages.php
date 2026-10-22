@@ -643,3 +643,19 @@ function portfolio_theme_posts_pagination() {
 function portfolio_theme_content() {
 	return apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook.
 }
+
+/**
+ * Title of the 404 page in the page's language. Rank Math has one 404 title
+ * for every language; the H1 already comes from the theme's catalogue.
+ *
+ * @param string $title Title from Rank Math.
+ * @return string
+ */
+function portfolio_theme_404_title( $title ) {
+	if ( ! is_404() ) {
+		return $title;
+	}
+
+	return __( 'Page not found', 'portfolio-theme' ) . ' - ' . get_bloginfo( 'name' );
+}
+add_filter( 'rank_math/frontend/title', 'portfolio_theme_404_title' );
