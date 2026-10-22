@@ -105,3 +105,15 @@ whole method, since the code side alone was only a third of it.
 pagination, as About, Work and the project page do. The Notes intro is set in
 both languages. Single notes end with the link back to all notes, without the
 Contact section, as before.
+
+## 2026-10-22 — Launch with two notes
+
+The site goes live with the two notes already published in both languages
+(1, component CSS without a bundler, and 4, a WordPress site run from
+Claude), not with the six planned above (Gonzalo). Waiting for all six would
+hold the launch for content that does not change what the site shows.
+
+- **The other four (2, 3, 5, 6) follow at the fortnightly cadence**, each in
+  English and Spanish together, in the same order unless a newer piece of
+  work makes a better note.
+- Every note is still about work that exists, as the evidence rule says.
