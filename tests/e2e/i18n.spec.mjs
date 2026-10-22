@@ -212,7 +212,8 @@ test.describe( 'links of the Spanish pages', () => {
 
 			const stray = ( await links( page ) )
 				.map( ( href ) => new URL( href ) )
-				.filter( ( url ) => url.origin === root.origin && ! url.pathname.startsWith( root.pathname ) && ! /\/(wp-|feed\/)/.test( url.pathname ) )
+				// The design system page is English only (docs/decisions/11-i18n.md).
+				.filter( ( url ) => url.origin === root.origin && ! url.pathname.startsWith( root.pathname ) && ! /\/(wp-|feed\/|design-system\/$)/.test( url.pathname ) )
 				.map( ( url ) => url.pathname );
 
 			expect( stray, path ).toEqual( [] );

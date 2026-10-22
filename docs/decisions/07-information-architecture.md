@@ -105,3 +105,17 @@ built a link from every page without crowding the header. Updates the
   picker. It
   opens in a new tab with `rel="me noopener"`, `aria-label="LinkedIn"` and
   the footer's "Opens in a new tab" note.
+
+## 2026-10-22 — Legal links on their own row at the bottom of the footer
+
+Privacy, Legal notice and Cookies now have their own menu (`legal` location,
+"Legal" and "Legal ES"), shown as a second row at the bottom of the footer,
+aligned to the end edge (start on narrow screens), with "Cookie settings"
+after them (Gonzalo). The first row keeps the site's pages and the LinkedIn
+icon. Legal links are expected at the very bottom, and "Cookie settings"
+belongs with the cookie policy.
+
+- **No new line:** the row sits under the first one with a small space, so
+  the footer still has a single hairline above it.
+- **Seeded in code** like the footer menu: `scripts/seed-footer-menu.php`
+  builds both menus per language, and the Playground seed does the same.

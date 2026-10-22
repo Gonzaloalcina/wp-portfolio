@@ -353,6 +353,15 @@ line-height: var(--font-line-height-sm);
 .site__footer > * {
 margin-block-start: 0;
 }
+.site__footer-legal {
+flex-basis: 100%;
+padding-block-start: var(--space-2);
+}
+@media (min-width: 48rem) {
+.site__footer-legal {
+justify-content: flex-end;
+}
+}
 .site__back {
 margin-block-start: var(--space-6);
 font-size: var(--font-size-sm);

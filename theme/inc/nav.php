@@ -19,6 +19,7 @@ function portfolio_theme_register_menus() {
 		array(
 			'primary' => __( 'Main menu', 'portfolio-theme' ),
 			'footer'  => __( 'Footer links', 'portfolio-theme' ),
+			'legal'   => __( 'Legal links', 'portfolio-theme' ),
 		)
 	);
 }

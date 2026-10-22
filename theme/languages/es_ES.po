@@ -36,6 +36,7 @@ msgid "Gonzalo Alcina"
 msgstr ""
 
 #: 404.php:15
+#: inc/pages.php:659
 msgid "Page not found"
 msgstr "Página no encontrada"
 
@@ -81,7 +82,7 @@ msgstr "Notas"
 msgid "Contact"
 msgstr "Contacto"
 
-#: footer.php:24
+#: footer.php:31
 msgid "Opens in a new tab"
 msgstr "Se abre en una pestaña nueva"
 
@@ -1040,3 +1041,7 @@ msgstr ""
 #: page-design-system.php:247
 msgid "Label and value pairs, a 1px line under each: client, year, role."
 msgstr ""
+
+#: inc/nav.php:22
+msgid "Legal links"
+msgstr "Enlaces legales"

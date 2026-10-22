@@ -355,6 +355,21 @@ hr {
 	margin-block-start: 0;
 }
 
+/*
+ * Legal links and "Cookie settings": their own row at the bottom, on the
+ * start edge when narrow (like the rows above) and on the end edge from 48rem.
+ */
+.site__footer-legal {
+	flex-basis: 100%;
+	padding-block-start: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+	.site__footer-legal {
+		justify-content: flex-end;
+	}
+}
+
 /* A quiet link back to the parent page, after an article. */
 .site__back {
 	margin-block-start: var(--space-6);
