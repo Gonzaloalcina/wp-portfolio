@@ -103,6 +103,13 @@
 	}
 
 	const stored = read();
+
+	// No analytics cookies without consent, even ones GA4 wrote while it was
+	// still starting when the visitor withdrew, or under an older version.
+	if ( stored !== true ) {
+		clearAnalyticsCookies();
+	}
+
 	if ( stored === null ) {
 		root.dataset.consent = 'pending';
 	} else {
@@ -128,10 +135,11 @@
 			} );
 
 			// Withdrawn: remove what GA4 stored. The page reloads so the
-			// loaded container stops too.
-			if ( ! granted && before === true ) {
+			// loaded container stops too; the next load clears anything it
+			// wrote in the meantime.
+			if ( ! granted ) {
 				clearAnalyticsCookies();
-				if ( loaded ) {
+				if ( before === true && loaded ) {
 					window.location.reload();
 				}
 			}

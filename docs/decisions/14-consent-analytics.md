@@ -46,6 +46,9 @@ harder to defend under the AEPD's guidance.
   use change; every stored answer is then void and the banner asks again.
 - **Withdrawing** (Reject after Accept) deletes the `_ga*` cookies and, if
   GTM was loaded on the page, reloads it so the container stops.
+- **Every load without consent** (rejected, or no valid answer) deletes the
+  `_ga*` cookies too (2026-10-23, found on production): GA4 still starting
+  when the visitor rejects can write them again before the reload.
 
 ## 2026-10-21 — consent-a: the banner
 

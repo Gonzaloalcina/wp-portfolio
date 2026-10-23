@@ -140,6 +140,27 @@ test( 'an answer to an older version counts as none', async ( { page, context, b
 	await expect( page.getByRole( 'region', { name: 'Cookie consent' } ) ).toBeVisible();
 } );
 
+test( 'analytics cookies left without consent are cleared on load', async ( { page, context, baseURL } ) => {
+	// What GA4 can write while it is still starting when the visitor rejects
+	// (GA4 always uses Path=/).
+	const domain = new URL( baseURL ).hostname;
+	const analytics = [
+		{ name: '_ga', value: 'GA1.1.123.1700000000', domain, path: '/' },
+		{ name: '_ga_TEST', value: 'GS2.1.s1700000000', domain, path: '/' },
+	];
+	const left = async () =>
+		( await context.cookies() ).filter( ( { name } ) => name.startsWith( '_ga' ) ).map( ( { name } ) => name );
+
+	await context.addCookies( [ ...analytics, { name: 'portfolio_consent', value: '1.0.1700000000', url: baseURL } ] );
+	await page.goto( PAGE );
+	expect( await left() ).toEqual( [] );
+
+	// No valid answer (an older version) counts as no consent too.
+	await context.addCookies( [ ...analytics, { name: 'portfolio_consent', value: '0.1.1700000000', url: baseURL } ] );
+	await page.goto( PAGE );
+	expect( await left() ).toEqual( [] );
+} );
+
 test( 'the banner speaks the page language', async ( { page } ) => {
 	await page.goto( 'es/servicios/' );
 
