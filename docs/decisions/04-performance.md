@@ -114,3 +114,41 @@ limited, so tall screenshots are not shrunk. Core's `1536x1536` and
 
 Checked on the test post: a 1024px 2x screen loads the 1280 file for the
 text column (2048 before); a 375px 2x phone loads the 960 file.
+
+## 2026-10-23 — Page cache: WP Super Cache, Simple mode
+
+Measured from outside with curl right after launch (three requests per page,
+logged out): TTFB 0.93–1.09 s on `/`, 0.86–0.88 s on `/es/inicio/`,
+0.78–0.82 s on `/projects/`. HTML is under 30 KB and gzipped by Apache, so
+almost all of that time is PHP and the database building the page.
+
+- **WP Super Cache** (Automattic), installed in wp-admin (Gonzalo). It
+  stores each page as a file on disk and serves it on the next visit without
+  running the theme or the database queries.
+- **Simple delivery mode, not Expert.** Expert serves the files straight from
+  `mod_rewrite` rules in `.htaccess`, but `/web` on cdmon also holds other,
+  unrelated sites, and its root `.htaccess` is shared. Simple mode only needs
+  `WP_CACHE` in `wp-config.php` and `wp-content/advanced-cache.php`.
+- **Why not cdmon's own cache tool.** It is incompatible with cdmon's CDN
+  (one or the other), and cdmon warns that its WordPress mode can conflict
+  when several sites share one hosting in subfolders.
+- **Safe to cache because the HTML is the same for every anonymous
+  visitor:** the consent choice is read in the browser from the
+  `portfolio_consent` cookie (`consent-a.js`), the colour scheme lives in
+  `localStorage`, the language is in the URL (Polylang, no browser-language
+  redirect) and the front end prints no nonces.
+- **Not cached:** logged-in users; URLs with query strings; the contact form
+  (`POST` to the REST route `portfolio/v1/contact`); Rank Math sitemaps and
+  their XSL (`sitemap` and `\.xsl` in Rejected URL Strings), so they are
+  always current.
+- **Compression off in the plugin:** Apache already gzips HTML.
+- Publishing or updating a post or page clears the whole cache.
+- Other settings: cache rebuild and extra homepage checks on, Cache Timeout
+  1800 s (the plugin's default here).
+
+Result (2026-10-24, same curl method, cached pages): TTFB 0.13–0.16 s on `/`,
+0.11–0.13 s on `/es/inicio/`, 0.11–0.15 s on `/projects/`, about seven times
+faster. The first visit after a purge still takes ~0.9 s while the file is
+written. A URL with a query string (`?utm_source=…`) is generated each time
+(~0.96 s), as intended. Sitemaps carry no cache marker, and the contact
+route still answers from PHP (`POST` with no body: 400).
