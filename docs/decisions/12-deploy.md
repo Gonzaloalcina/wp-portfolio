@@ -31,3 +31,23 @@ Consequences:
 Upgrade path when budget allows: cdmon Senior (SSH with keys, rsync, WP-CLI,
 Git, staging tool) or another host, with DNS kept at cdmon; the domain's email
 must be kept or moved first.
+
+## 2026-10-23 — Redirects from the previous site, in the plugin
+
+The previous gonzaloalcina.dev (Elementor, Spanish only, no `/es/`) had 28
+URLs in its sitemaps. Each one answers with a 301 on the new site (Gonzalo):
+
+- **Projects still listed** go to their page (`/proyectos/ramon-esteve-estudio/`
+  → `/es/proyectos/ramon-esteve/`); **projects that are not, and the old
+  portfolio categories**, go to `/es/proyectos/` (a 301, not a 410: a visitor
+  lands on the projects that are there); **blog categories** go to
+  `/es/notas/`. `/contacto/` and `/proyectos/` need no rule: WordPress finds
+  the Spanish page by its slug and redirects to its `/es/` URL.
+- **In the plugin, not in Rank Math:** `plugin/inc/redirects.php`, a
+  filterable map (`portfolio_core_legacy_redirects`), versioned and covered by
+  `tests/e2e/redirects.spec.mjs`. Rejected: Rank Math's Redirections module,
+  editable in wp-admin but outside the repo and its tests.
+- **Only on a 404**, before core guesses a permalink, so a real page always
+  wins; the path is matched decoded (Relyon's old slug ends in U+FE0F).
+- **The Home stays at `/`, now in English** (Gonzalo): no browser-language
+  redirect; Spanish visitors switch with EN / ES.

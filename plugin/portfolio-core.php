@@ -24,6 +24,7 @@ require_once __DIR__ . '/inc/blocks.php';
 require_once __DIR__ . '/inc/comments.php';
 require_once __DIR__ . '/inc/settings.php';
 require_once __DIR__ . '/inc/i18n.php';
+require_once __DIR__ . '/inc/redirects.php';
 require_once __DIR__ . '/inc/contact-form.php';
 require_once __DIR__ . '/inc/contact-messages.php';
 require_once __DIR__ . '/inc/consent.php';
