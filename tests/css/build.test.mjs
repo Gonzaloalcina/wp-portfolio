@@ -28,3 +28,11 @@ test( 'source CSS uses no hard-coded px except 1px hairlines', () => {
 		assert.deepEqual( offenders, [], result.entry );
 	}
 } );
+
+test( 'every relative url() carries a content version', () => {
+	for ( const result of results ) {
+		const urls = [ ...result.css.matchAll( /url\(\s*["']?([^"')]+)/g ) ].map( ( match ) => match[ 1 ] );
+		const unversioned = urls.filter( ( url ) => ! /^(?:[a-z]+:|\/|#)/i.test( url ) && ! /\?v=[0-9a-f]{8}$/.test( url ) );
+		assert.deepEqual( unversioned, [], result.entry );
+	}
+} );

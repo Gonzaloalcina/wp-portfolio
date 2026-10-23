@@ -83,6 +83,9 @@ add_action( 'wp_enqueue_scripts', 'portfolio_theme_enqueue_assets' );
 /**
  * Preloads the latin font files every page uses, so they start downloading
  * before the CSS is parsed. Latin-ext and italic load on demand.
+ *
+ * The ?v= is the same content hash scripts/build-css.mjs adds to the url()
+ * in the stylesheet: the preload is only reused if both URLs match.
  */
 function portfolio_theme_preload_fonts() {
 	$fonts = array(
@@ -91,9 +94,11 @@ function portfolio_theme_preload_fonts() {
 	);
 
 	foreach ( $fonts as $font ) {
+		$url = add_query_arg( 'v', substr( md5_file( get_theme_file_path( $font ) ), 0, 8 ), get_theme_file_uri( $font ) );
+
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( get_theme_file_uri( $font ) )
+			esc_url( $url )
 		);
 	}
 }

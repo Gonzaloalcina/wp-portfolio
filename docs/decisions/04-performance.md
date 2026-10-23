@@ -152,3 +152,19 @@ faster. The first visit after a purge still takes ~0.9 s while the file is
 written. A URL with a query string (`?utm_source=…`) is generated each time
 (~0.96 s), as intended. Sitemaps carry no cache marker, and the contact
 route still answers from PHP (`POST` with no body: 400).
+
+## 2026-10-24 — Versioned font URLs
+
+The fonts were referenced from the stylesheet with bare URLs. The stylesheet
+itself carries a `?ver=` that changes with the file, but the fonts did not, so
+a re-instanced font would keep its old copy in browsers, and in cdmon's CDN for
+up to 24 hours with no way to purge it.
+
+- `scripts/build-css.mjs` appends `?v=` plus the first 8 hex characters of the
+  file's MD5 to every relative `url()`. A content hash, not the modification
+  time, because the build is committed and checked in CI: it must come out
+  the same on every machine.
+- The font preloads in `theme/functions.php` add the same hash with
+  `md5_file()`. A preload is only reused when its URL matches the one in the
+  stylesheet exactly; otherwise the font downloads twice.
+- `npm run test:css` fails if a relative `url()` in the build has no version.

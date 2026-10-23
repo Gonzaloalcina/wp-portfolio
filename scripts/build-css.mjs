@@ -19,11 +19,16 @@
  * - Only local @import "file.css"; is supported, at the top of a file. Each
  *   file is inlined once, the first time it is imported.
  * - Relative url() paths are rewritten so they still point to the same file
- *   from the build folder.
+ *   from the build folder, with ?v= and the first 8 hex characters of the
+ *   file's MD5. A changed font gets a new URL, so no browser or CDN keeps the
+ *   old one. The hash depends only on the content, so the build is the same
+ *   on every machine. theme/functions.php adds the same version to the font
+ *   preloads; the URLs must match or the font downloads twice.
  * - Comments and indentation are dropped; gzip does the rest.
  */
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, relative, resolve, posix, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -37,6 +42,11 @@ const IMPORT = /@import\s+(?:url\()?\s*["']([^"']+)["']\s*\)?\s*;/g;
 const URL = /url\(\s*(["']?)([^"')]+)\1\s*\)/g;
 
 const toPosix = ( path ) => path.split( sep ).join( posix.sep );
+
+/**
+ * Short content hash used as the ?v= of an asset URL.
+ */
+export const version = ( file ) => createHash( 'md5' ).update( readFileSync( file ) ).digest( 'hex' ).slice( 0, 8 );
 
 /**
  * Inlines a file and its imports, depth first. Returns the CSS and the list
@@ -55,7 +65,7 @@ function inline( file, seen ) {
 			return match;
 		}
 		const target = resolve( dirname( file ), url );
-		return `url(${ quote }${ toPosix( relative( BUILD_DIR, target ) ) }${ quote })`;
+		return `url(${ quote }${ toPosix( relative( BUILD_DIR, target ) ) }?v=${ version( target ) }${ quote })`;
 	} );
 
 	return withUrls.replace( IMPORT, ( _, path ) => inline( resolve( dirname( file ), path ), seen ) );
