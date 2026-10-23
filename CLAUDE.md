@@ -62,6 +62,9 @@ from there), so:
 - **Blog:** Gutenberg with 2–3 custom blocks (React in the editor, PHP render).
 - **i18n:** Polylang (free), EN/ES.
 - **SEO:** Rank Math (free).
+- **Page cache (production):** WP Super Cache, Simple mode (no `.htaccess`
+  rules: `/web` is shared with other sites). Not installed locally. See
+  `docs/decisions/04-performance.md`.
 - **Plugin:** custom plugin (`portfolio-core`): REST form with Cloudflare
   Turnstile validated server-side, honeypot and rate limiting; a consent
   banner of its own with Google Consent Mode v2 in basic mode (GTM and GA4
