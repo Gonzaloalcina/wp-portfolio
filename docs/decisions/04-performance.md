@@ -168,3 +168,23 @@ up to 24 hours with no way to purge it.
   `md5_file()`. A preload is only reused when its URL matches the one in the
   stylesheet exactly; otherwise the font downloads twice.
 - `npm run test:css` fails if a relative `url()` in the build has no version.
+
+## 2026-10-24 — cdmon's CDN: tried and turned off
+
+cdmon includes a CDN with the hosting (static files up to 24 h, HTML up to
+5 minutes, no purge). Gonzalo turned it on in the panel and checked from
+outside:
+
+- **It only covered `www`.** `www.gonzaloalcina.dev` became a CNAME to the
+  CDN, but `gonzaloalcina.dev`, the canonical address, kept its A record to
+  the hosting server. A bare domain cannot be a CNAME, so every real page
+  was still served by Apache directly; `www` only redirects to it.
+- **Turned off** (Gonzalo). Moving the site to `www` would change every
+  canonical URL the day after launch, for a gain the page cache had mostly
+  already given.
+- **If a CDN comes back** (cdmon serving the bare domain, or Cloudflare with
+  DNS moved): the contact form reads the visitor's IP from `REMOTE_ADDR`
+  (`plugin/inc/contact-form.php`), so behind a proxy every visitor would share
+  one rate limit. Check which IP reaches PHP before relying on it. Fonts are
+  same-origin, so no CORS header is needed, and their URLs are versioned
+  (entry above).
