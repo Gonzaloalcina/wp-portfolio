@@ -62,7 +62,7 @@ if ( $portfolio_action ) {
 
 	<?php if ( $portfolio_action ) : ?>
 		<p class="form-a__status" role="status" data-form-a-status></p>
-		<noscript><p class="form-a__note"><?php esc_html_e( 'This form needs JavaScript to send.', 'portfolio-theme' ); ?></p></noscript>
+		<noscript><p class="form-a__note"><?php esc_html_e( 'You need JavaScript turned on to send this form.', 'portfolio-theme' ); ?></p></noscript>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $args['note'] ) ) : ?>

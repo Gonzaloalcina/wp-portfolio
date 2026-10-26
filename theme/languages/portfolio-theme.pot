@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-22T22:14:28+02:00\n"
+"POT-Creation-Date: 2026-10-26T22:28:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-theme\n"
@@ -41,7 +41,7 @@ msgid "Page not found"
 msgstr ""
 
 #: 404.php:16
-msgid "This address does not lead to a page on this site. It may have moved, or the link may be wrong."
+msgid "There's no page at this address. It may have moved, or the link may be wrong."
 msgstr ""
 
 #: 404.php:24
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: footer.php:31
+#: footer.php:40
 msgid "Opens in a new tab"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgid "Sites I've built"
 msgstr ""
 
 #: front-page.php:56
-msgid "Also built"
+msgid "Other sites"
 msgstr ""
 
 #: front-page.php:62
@@ -114,7 +114,7 @@ msgstr ""
 #: front-page.php:82
 #: inc/home.php:65
 #: inc/home.php:70
-#: templates/about.php:87
+#: templates/about.php:86
 msgid "Testimonials"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgid "Skip to content"
 msgstr ""
 
 #: inc/about.php:40
-#: inc/about.php:134
+#: inc/about.php:126
 msgid "Currently"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgid "Teams or roles, e.g. Growth, Sales."
 msgstr ""
 
 #: inc/about.php:79
-#: templates/about.php:74
+#: templates/about.php:73
 msgid "Tools and AI"
 msgstr ""
 
@@ -186,16 +186,11 @@ msgstr ""
 msgid "A blank line starts a new paragraph."
 msgstr ""
 
-#: inc/about.php:88
-#: templates/about.php:101
-msgid "Other things"
-msgstr ""
-
-#: inc/about.php:126
+#: inc/about.php:118
 msgid "Based in"
 msgstr ""
 
-#: inc/about.php:130
+#: inc/about.php:122
 msgid "Languages"
 msgstr ""
 
@@ -244,23 +239,23 @@ msgid "Sending…"
 msgstr ""
 
 #: inc/forms.php:49
-msgid "Thank you. Your message has been sent."
+msgid "Thanks. I've got your message."
 msgstr ""
 
 #: inc/forms.php:50
-msgid "Some fields need a change. They are marked below."
+msgid "Please check the fields marked below."
 msgstr ""
 
 #: inc/forms.php:51
-msgid "The spam check did not pass. Reload the page and try again."
+msgid "The spam check failed. Reload the page and try again."
 msgstr ""
 
 #: inc/forms.php:52
-msgid "Too many messages in a short time. Try again in an hour."
+msgid "Too many messages have been sent in a short time. Please try again in an hour."
 msgstr ""
 
 #: inc/forms.php:53
-msgid "The message could not be sent. Try again in a few minutes."
+msgid "Your message couldn't be sent. Please try again in a few minutes."
 msgstr ""
 
 #: inc/forms.php:55
@@ -268,7 +263,7 @@ msgid "This field is required."
 msgstr ""
 
 #: inc/forms.php:56
-msgid "This value is not valid."
+msgid "This doesn't look right. Please check it."
 msgstr ""
 
 #: inc/forms.php:57
@@ -284,7 +279,7 @@ msgid "Add a few more words."
 msgstr ""
 
 #: inc/forms.php:60
-msgid "This is too long."
+msgid "This is too long. Try shortening it."
 msgstr ""
 
 #: inc/home.php:38
@@ -492,7 +487,7 @@ msgstr ""
 #: inc/services.php:136
 #: inc/services.php:187
 #: inc/services.php:193
-msgid "Request information"
+msgid "Ask for details"
 msgstr ""
 
 #: inc/services.php:152
@@ -505,7 +500,7 @@ msgid "Not sure"
 msgstr ""
 
 #: inc/services.php:181
-msgid "I reply within 2 working days."
+msgid "I'll reply within 2 working days."
 msgstr ""
 
 #: inc/services.php:204
@@ -533,7 +528,7 @@ msgid "Message"
 msgstr ""
 
 #: inc/services.php:233
-msgid "What it is and when it starts."
+msgid "Tell me what it is and when it starts."
 msgstr ""
 
 #: inc/services.php:236
@@ -565,7 +560,7 @@ msgid "Theme:"
 msgstr ""
 
 #: index.php:26
-msgid "Nothing found."
+msgid "Nothing to show here."
 msgstr ""
 
 #: page-design-system.php:30
@@ -958,7 +953,8 @@ msgid "What it includes"
 msgstr ""
 
 #: single-service.php:50
-msgid "Proof"
+#: templates/about.php:55
+msgid "Where I've done it"
 msgstr ""
 
 #: single-service.php:64
@@ -978,7 +974,7 @@ msgid "Leave this field empty"
 msgstr ""
 
 #: template-parts/components/form-a.php:65
-msgid "This form needs JavaScript to send."
+msgid "You need JavaScript turned on to send this form."
 msgstr ""
 
 #: template-parts/components/nav-a.php:36
@@ -999,19 +995,15 @@ msgstr ""
 msgid "Page %1$d of %2$d"
 msgstr ""
 
-#: templates/about.php:42
-msgid "How I work with the people around a website"
+#: templates/about.php:41
+msgid "How I work with the people behind a website"
 msgstr ""
 
-#: templates/about.php:56
-msgid "Where I have done it"
-msgstr ""
-
-#: templates/about.php:64
+#: templates/about.php:63
 msgid "Full resume"
 msgstr ""
 
-#: templates/about.php:77
+#: templates/about.php:76
 msgid "How this site is built"
 msgstr ""
 
@@ -1024,7 +1016,7 @@ msgid "Company"
 msgstr ""
 
 #: templates/contact.php:63
-msgid "A project: what it is and when it starts."
+msgid "Tell me what the project is and when it starts."
 msgstr ""
 
 #: templates/contact.php:83

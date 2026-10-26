@@ -23,7 +23,7 @@ if ( have_posts() ) :
 	the_posts_pagination();
 else :
 	?>
-	<p><?php esc_html_e( 'Nothing found.', 'portfolio-theme' ); ?></p>
+	<p><?php esc_html_e( 'Nothing to show here.', 'portfolio-theme' ); ?></p>
 	<?php
 endif;
 

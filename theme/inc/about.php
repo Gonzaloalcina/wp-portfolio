@@ -83,14 +83,6 @@ function portfolio_theme_register_about_fields() {
 					'new_lines'    => '',
 					'instructions' => __( 'A blank line starts a new paragraph.', 'portfolio-theme' ),
 				),
-				array(
-					'key'       => 'field_portfolio_about_outside',
-					'label'     => __( 'Other things', 'portfolio-theme' ),
-					'name'      => 'about_outside',
-					'type'      => 'textarea',
-					'rows'      => 3,
-					'new_lines' => '',
-				),
 			),
 		)
 	);
@@ -203,7 +195,7 @@ function portfolio_theme_resume_url() {
 }
 
 /**
- * Returns the "Where I have done it" rows: the first section of the Resume
+ * Returns the "Where I've done it" rows: the first section of the Resume
  * page (its experience), so the experience is entered once. Each row shows
  * its one-line summary when it has one, the Resume's longer text otherwise.
  *

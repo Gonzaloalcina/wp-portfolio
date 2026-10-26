@@ -53,7 +53,7 @@ $portfolio_sections = array(
 				'args' => array( 'items' => portfolio_theme_home_project_rows( 'selected', 3 ) ),
 			),
 			array(
-				'title' => __( 'Also built', 'portfolio-theme' ),
+				'title' => __( 'Other sites', 'portfolio-theme' ),
 				'name'  => 'list-a',
 				'args'  => array( 'items' => portfolio_theme_home_project_rows( 'also_built' ) ),
 			),

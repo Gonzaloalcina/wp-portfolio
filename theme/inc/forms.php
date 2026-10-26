@@ -46,18 +46,18 @@ function portfolio_theme_form_connection( $form_id ) {
 function portfolio_theme_form_messages() {
 	return array(
 		'sending'          => __( 'Sending…', 'portfolio-theme' ),
-		'sent'             => __( 'Thank you. Your message has been sent.', 'portfolio-theme' ),
-		'invalid_fields'   => __( 'Some fields need a change. They are marked below.', 'portfolio-theme' ),
-		'challenge_failed' => __( 'The spam check did not pass. Reload the page and try again.', 'portfolio-theme' ),
-		'rate_limited'     => __( 'Too many messages in a short time. Try again in an hour.', 'portfolio-theme' ),
-		'error'            => __( 'The message could not be sent. Try again in a few minutes.', 'portfolio-theme' ),
+		'sent'             => __( 'Thanks. I\'ve got your message.', 'portfolio-theme' ),
+		'invalid_fields'   => __( 'Please check the fields marked below.', 'portfolio-theme' ),
+		'challenge_failed' => __( 'The spam check failed. Reload the page and try again.', 'portfolio-theme' ),
+		'rate_limited'     => __( 'Too many messages have been sent in a short time. Please try again in an hour.', 'portfolio-theme' ),
+		'error'            => __( 'Your message couldn\'t be sent. Please try again in a few minutes.', 'portfolio-theme' ),
 		'fields'           => array(
 			'required'  => __( 'This field is required.', 'portfolio-theme' ),
-			'invalid'   => __( 'This value is not valid.', 'portfolio-theme' ),
+			'invalid'   => __( 'This doesn\'t look right. Please check it.', 'portfolio-theme' ),
 			'email'     => __( 'Enter an email address, like name@example.com.', 'portfolio-theme' ),
 			'url'       => __( 'Enter a web address, like example.com.', 'portfolio-theme' ),
 			'too_short' => __( 'Add a few more words.', 'portfolio-theme' ),
-			'too_long'  => __( 'This is too long.', 'portfolio-theme' ),
+			'too_long'  => __( 'This is too long. Try shortening it.', 'portfolio-theme' ),
 		),
 	);
 }

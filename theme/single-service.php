@@ -47,7 +47,7 @@ portfolio_theme_component(
 	'section-a',
 	array(
 		'id'      => 'proof',
-		'title'   => __( 'Proof', 'portfolio-theme' ),
+		'title'   => __( 'Where I\'ve done it', 'portfolio-theme' ),
 		'content' => array(
 			array(
 				'name' => 'list-a',

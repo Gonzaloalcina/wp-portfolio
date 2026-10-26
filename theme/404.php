@@ -13,7 +13,7 @@ portfolio_theme_component(
 	'title-a',
 	array(
 		'title' => __( 'Page not found', 'portfolio-theme' ),
-		'intro' => __( 'This address does not lead to a page on this site. It may have moved, or the link may be wrong.', 'portfolio-theme' ),
+		'intro' => __( 'There\'s no page at this address. It may have moved, or the link may be wrong.', 'portfolio-theme' ),
 	)
 );
 

@@ -4,9 +4,9 @@
  *
  * About: the entity page. Hero with the person's name as H1, the short bio
  * and a larger portrait (featured image); facts; the long bio (page text);
- * How I work; Where I have done it (the Resume's first section); Tools and
- * AI; Testimonials (the Home's); Other things; then the closing Contact
- * section. A section with no content does not render.
+ * How I work; Where I've done it (the Resume's first section); Tools and
+ * AI; Testimonials (the Home's); then the closing Contact section. A
+ * section with no content does not render.
  *
  * @package PortfolioTheme
  */
@@ -39,7 +39,7 @@ portfolio_theme_component(
 	'section-a',
 	array(
 		'id'      => 'how-i-work',
-		'title'   => __( 'How I work with the people around a website', 'portfolio-theme' ),
+		'title'   => __( 'How I work with the people behind a website', 'portfolio-theme' ),
 		'content' => array(
 			array(
 				'name' => 'list-a',
@@ -53,7 +53,7 @@ portfolio_theme_component(
 	'section-a',
 	array(
 		'id'      => 'where',
-		'title'   => __( 'Where I have done it', 'portfolio-theme' ),
+		'title'   => __( 'Where I\'ve done it', 'portfolio-theme' ),
 		'content' => array(
 			array(
 				'name' => 'list-a',
@@ -91,15 +91,6 @@ portfolio_theme_component(
 				'args' => array( 'items' => portfolio_theme_home_quotes( 2 ) ),
 			),
 		),
-	)
-);
-
-portfolio_theme_component(
-	'section-a',
-	array(
-		'id'    => 'other-things',
-		'title' => __( 'Other things', 'portfolio-theme' ),
-		'text'  => portfolio_theme_field( 'about_outside' ),
 	)
 );
 

@@ -38,7 +38,7 @@ test( 'the contact form sends a message', async ( { page } ) => {
 	await form.locator( 'button[type="submit"]' ).click();
 	expect( ( await sent ).status() ).toBe( 200 );
 
-	await expect( form.getByRole( 'status' ) ).toHaveText( 'Thank you. Your message has been sent.' );
+	await expect( form.getByRole( 'status' ) ).toHaveText( "Thanks. I've got your message." );
 	await expect( form.getByLabel( 'Name' ) ).toHaveValue( '' );
 } );
 
@@ -66,7 +66,7 @@ test( 'field errors from the endpoint show under their field', async ( { page } 
 	await expect( site ).toHaveAttribute( 'aria-invalid', 'true' );
 	await expect( site ).toBeFocused();
 	await expect( site ).toHaveAccessibleDescription( /Enter a web address/ );
-	await expect( form.getByRole( 'status' ) ).toContainText( 'Some fields need a change' );
+	await expect( form.getByRole( 'status' ) ).toContainText( 'Please check the fields marked below' );
 
 	// The service chosen stays, so the visitor only fixes what is wrong.
 	await expect( form.getByLabel( 'What do you need?' ) ).toHaveValue( 'wordpress-maintenance' );

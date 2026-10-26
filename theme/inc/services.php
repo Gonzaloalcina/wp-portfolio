@@ -133,7 +133,7 @@ function portfolio_theme_services_steps( $post_id ) {
  */
 function portfolio_theme_request_button( $location, $service = '' ) {
 	return array(
-		'title' => __( 'Request information', 'portfolio-theme' ),
+		'title' => __( 'Ask for details', 'portfolio-theme' ),
 		'url'   => '#request',
 		'data'  => array(
 			'cta-location' => $location,
@@ -178,19 +178,19 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 	$options    = portfolio_theme_request_options();
 	$privacy    = get_privacy_policy_url();
 	$connection = portfolio_theme_form_connection( 'services_request' );
-	$reply      = __( 'I reply within 2 working days.', 'portfolio-theme' );
+	$reply      = __( 'I\'ll reply within 2 working days.', 'portfolio-theme' );
 
 	portfolio_theme_component(
 		'section-a',
 		array(
 			'id'      => 'request',
-			'title'   => __( 'Request information', 'portfolio-theme' ),
+			'title'   => __( 'Ask for details', 'portfolio-theme' ),
 			'variant' => 'second',
 			'content' => array(
 				array(
 					'name' => 'form-a',
 					'args' => $connection + array(
-						'label'  => __( 'Request information', 'portfolio-theme' ),
+						'label'  => __( 'Ask for details', 'portfolio-theme' ),
 						'fields' => array(
 							array(
 								'name'         => 'name',
@@ -230,7 +230,7 @@ function portfolio_theme_request_section( $service_slug = '' ) {
 								'type'      => 'textarea',
 								'required'  => true,
 								'maxlength' => 5000,
-								'hint'      => __( 'What it is and when it starts.', 'portfolio-theme' ),
+								'hint'      => __( 'Tell me what it is and when it starts.', 'portfolio-theme' ),
 							),
 						),
 						'button' => __( 'Send request', 'portfolio-theme' ),

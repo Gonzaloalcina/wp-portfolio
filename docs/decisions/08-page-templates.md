@@ -441,3 +441,16 @@ section); no new component and no new token.
 The Home hero is text only: headline, intro, the Contact button and the Work
 and About links. The `home_portrait` field and the empty preview frame are
 removed; the portrait lives on About.
+
+## 2026-10-26 — About: no "Other things"; plainer interface copy
+
+The About page loses its personal section: the `about_outside` field and its
+"Other things" section are removed (Gonzalo, 2026-10-26). Values already
+saved stay in the database but nothing reads them.
+
+Visitor-facing theme strings are rewritten to read less like a system and
+more like a person, in English and Spanish, as part of a pass over the whole
+site copy: the 404 text, the contact form's messages and hints, "Request
+information" → "Ask for details", "Also built" → "Other sites", "Proof" and
+"Where I have done it" → "Where I've done it" (one string now). The page
+copy itself lives in the database and changes there.

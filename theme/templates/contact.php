@@ -60,7 +60,7 @@ portfolio_theme_component(
 				'type'      => 'textarea',
 				'required'  => true,
 				'maxlength' => 5000,
-				'hint'      => __( 'A project: what it is and when it starts.', 'portfolio-theme' ),
+				'hint'      => __( 'Tell me what the project is and when it starts.', 'portfolio-theme' ),
 			),
 		),
 		'button' => __( 'Send message', 'portfolio-theme' ),

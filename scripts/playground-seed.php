@@ -229,7 +229,6 @@ foreach ( array_filter( $page_ids ) as $language => $language_ids ) {
 		$language_ids['about']
 	);
 	update_field( 'field_portfolio_about_tools', "{$lorem}\n\n{$lorem}", $language_ids['about'] );
-	update_field( 'field_portfolio_about_outside', $lorem, $language_ids['about'] );
 
 	update_field(
 		'field_portfolio_resume_sections',
