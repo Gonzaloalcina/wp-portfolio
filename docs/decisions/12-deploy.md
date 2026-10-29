@@ -51,3 +51,20 @@ URLs in its sitemaps. Each one answers with a 301 on the new site (Gonzalo):
   wins; the path is matched decoded (Relyon's old slug ends in U+FE0F).
 - **The Home stays at `/`, now in English** (Gonzalo): no browser-language
   redirect; Spanish visitors switch with EN / ES.
+
+## 2026-10-29 — Code goes up as a theme zip from wp-admin; content by hand
+
+Until the plan has SSH, a release is two separate steps (Gonzalo):
+
+- **Code:** `git archive --format=zip --prefix=portfolio-theme/ -o portfolio-theme.zip <commit>:theme`
+  (the same for `plugin/` when it changes), uploaded in Appearance › Themes ›
+  Add New › Upload, which offers to replace the installed copy. Only
+  versioned files go up, over HTTPS, so the plain-text FTP is not needed.
+  Rolling back is uploading the zip of the previous commit.
+- **Content** (fields, order, featured images) is changed by hand in
+  wp-admin, following a short checklist kept with the package.
+- **Rejected for small releases:** a full-site migration plugin export. It
+  replaces the whole production database, so anything that only exists
+  there (cache settings, form data, SEO settings) would be lost, and leaving
+  media out breaks any post that points to a new image.
+- After either step, clear the WP Super Cache page cache.
