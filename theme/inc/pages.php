@@ -326,18 +326,19 @@ function portfolio_theme_project_url( $post ) {
 }
 
 /**
- * Returns projects as row-a items: name, year · type, what I did and the
- * role (agency work says through whom, and who did the design).
+ * Returns projects as row-a (or card-a) items: name, year · type, what I did
+ * and the role (agency work says through whom, and who did the design), and
+ * the featured image for cards (row-a ignores it).
  *
  * @param WP_Post[] $posts Projects.
- * @return array<int, array{title: string, url: string, meta: string, text: string}>
+ * @return array<int, array{title: string, url: string, meta: string, text: string, image_id: int}>
  */
 function portfolio_theme_project_rows( $posts ) {
 	return array_map(
 		static fn( $post ) => array(
-			'title' => get_the_title( $post ),
-			'url'   => portfolio_theme_project_url( $post ),
-			'meta'  => implode(
+			'title'    => get_the_title( $post ),
+			'url'      => portfolio_theme_project_url( $post ),
+			'meta'     => implode(
 				' · ',
 				array_filter(
 					array(
@@ -346,7 +347,8 @@ function portfolio_theme_project_rows( $posts ) {
 					)
 				)
 			),
-			'text'  => portfolio_theme_project_line( $post ),
+			'text'     => portfolio_theme_project_line( $post ),
+			'image_id' => get_post_thumbnail_id( $post ),
 		),
 		$posts
 	);

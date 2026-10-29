@@ -1,0 +1,48 @@
+/*
+ * card-a: a screenshot in a 1px frame, then the title, meta and one short
+ * text. The title link stretches over the whole card (::before), so the
+ * image is clickable too without a second link. No shadow, no lift on
+ * hover: the title's underline is the feedback, as for any standalone link.
+ */
+
+.card-a {
+	position: relative;
+	display: grid;
+	align-content: start;
+}
+
+.card-a > * {
+	margin: 0;
+}
+
+.card-a__image {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 10;
+	margin-block-end: var(--space-2);
+	object-fit: cover;
+	object-position: top;
+	border: var(--line-width) solid var(--color-line);
+}
+
+.card-a__title {
+	font-weight: var(--font-weight-strong);
+}
+
+.card-a__title[href]::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.card-a__meta {
+	color: var(--color-muted);
+	font-size: var(--font-size-sm);
+	line-height: var(--font-line-height-sm);
+	font-variant-numeric: tabular-nums;
+}
+
+.card-a__text {
+	margin-block-start: var(--space-1);
+	color: var(--color-muted);
+}

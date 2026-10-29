@@ -1,0 +1,25 @@
+/*
+ * card-list-a: card-a items in a grid, no lines and no marker (the frames
+ * of the images already set the cards apart). One column on phones, three
+ * from 48rem. The column gap matches the sizes attribute in the template.
+ */
+
+.card-list-a {
+	display: grid;
+	gap: var(--space-6) var(--space-3);
+}
+
+.card-list-a__item {
+	margin-block-start: 0;
+	padding-inline-start: 0;
+}
+
+.card-list-a__item::before {
+	content: none;
+}
+
+@media (min-width: 48rem) {
+	.card-list-a {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

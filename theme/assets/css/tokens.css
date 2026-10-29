@@ -39,6 +39,7 @@
 	--color-paper: #FAF8F3;
 	--color-ink: #1A1A1A;
 	--color-muted: #6B6B66;
+	--color-accent: #B4441F;
 	color-scheme: light;
 }
 
@@ -47,6 +48,7 @@
 		--color-paper: #171615;
 		--color-ink: #ECE9E2;
 		--color-muted: #9A9791;
+		--color-accent: #E8835F;
 		color-scheme: dark;
 	}
 }
@@ -55,5 +57,6 @@
 	--color-paper: #171615;
 	--color-ink: #ECE9E2;
 	--color-muted: #9A9791;
+	--color-accent: #E8835F;
 	color-scheme: dark;
 }

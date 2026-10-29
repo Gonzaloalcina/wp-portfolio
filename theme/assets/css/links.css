@@ -12,8 +12,8 @@
  * styles; the footer menu reads like the nav (below).
  *
  * Arrows: Lucide arrow-up-right, arrow-right and arrow-left (ISC licence,
- * see assets/icons/LICENSE.txt), drawn as a mask so they take the text
- * colour: muted at rest, full ink on hover and focus.
+ * see assets/icons/LICENSE.txt), drawn as a mask and filled with the accent
+ * colour. The text stays in ink; the hover underline takes the accent too.
  */
 
 :root {
@@ -24,6 +24,7 @@
 
 :is(
 	.row-a__title[href],
+	.card-a__title[href],
 	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
 	.section-a__more > a,
 	.form-a__more > a,
@@ -37,6 +38,7 @@
 
 :is(
 	.row-a__title[href],
+	.card-a__title[href],
 	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
 	.section-a__more > a,
 	.form-a__more > a,
@@ -46,12 +48,13 @@
 	.pagination-a__next
 ):is(:hover, :focus-visible) {
 	text-decoration-line: underline;
-	text-decoration-color: currentColor;
+	text-decoration-color: var(--color-accent);
 }
 
 /* The arrow: an inline block, so the hover underline stops before it. */
 :is(
 	.row-a__title[href],
+	.card-a__title[href],
 	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
 	.section-a__more > a,
 	.form-a__more > a,
@@ -65,7 +68,7 @@
 	width: 0.875em;
 	height: 0.875em;
 	vertical-align: -0.0625em;
-	background: var(--color-muted);
+	background: var(--color-accent);
 	mask: var(--link-arrow-up-right) center / contain no-repeat;
 }
 
@@ -75,6 +78,7 @@
 
 :is(
 	.row-a__title[href],
+	.card-a__title[href],
 	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
 	.section-a__more > a,
 	.form-a__more > a,
@@ -90,22 +94,10 @@
 	mask-image: var(--link-arrow-left);
 }
 
-:is(
-	.row-a__title[href],
-	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
-	.section-a__more > a,
-	.form-a__more > a,
-	.facts-a__value > a,
-	.quote-a__name[href],
-	.pagination-a__next
-):is(:hover, :focus-visible)::after,
-.pagination-a__prev:is(:hover, :focus-visible)::before {
-	background: currentColor;
-}
-
 /* Right to left: the arrows point the other way. */
 :dir(rtl):is(
 	.row-a__title[href],
+	.card-a__title[href],
 	.link-row-a:not(.site__footer-links) > .link-row-a__item > a:not(.link-row-a__icon),
 	.section-a__more > a,
 	.form-a__more > a,

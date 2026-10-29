@@ -147,3 +147,20 @@ The Home's Services rows are the published services (portfolio-core), in menu
 order, with their "Problem you solve" line, the same rows as the /services/
 hub. The temporary Home repeater is removed. AI and automation, a draft,
 appears by itself when it is published (Home brief Q3).
+
+## 2026-10-29 — Home: selected sites as cards with a screenshot
+
+The same review asked for images on the three selected sites, so a recruiter
+sees the work before reading about it. New components `card-list-a` (a grid:
+one column on phones, three from 48rem) and `card-a` (screenshot, title ↗,
+meta and the one line). "Other sites" stays a `list-a`.
+
+- The image is the project's featured image, so editors change it in the
+  usual place. It is decorative (`alt=""`): the title next to it names it.
+- 16:10 crop from the top, 1px frame in `--color-line`, no shadow and no
+  hover lift (the brief rules out shadows). The title link covers the whole
+  card, so the image is clickable without a second link in the tab order.
+- `sizes` matches the grid (a third of the wide column on desktop), so the
+  640px file is enough on most screens.
+- Screenshots: the live home page of each site at 1440×900, cookie banners
+  hidden, saved as JPEG. WebP waits for the pending media work.

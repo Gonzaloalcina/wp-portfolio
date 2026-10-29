@@ -175,3 +175,15 @@ closing Contact section apart (`section-a--second`), the footer line and the
 line under the intro of a text page (`title-a--second`). The rule against two
 lines in a row still holds, since lists still end on a line.
 
+## 2026-10-29 — Accent colour: terracotta, on link arrows only
+
+A UX/UI review (Alma Hortelano) found the ink-and-grey palette too flat for a
+first visit. New token `color.accent`: `#B4441F` light, `#E8835F` dark (5.2:1
+and 6.8:1 on paper, AA for text). It is used in one place: the ↗ arrows of
+standalone links (now accent at rest instead of muted) and their hover
+underline. Text keeps the ink colour, so links still read as text.
+
+- Terracotta over blue, green and burnt orange: warm next to the cream paper
+  and the serif, and the orange was at 4.9:1, too close to the AA limit.
+- Kept off for now, to judge on the real render first: list markers, focus
+  ring, text selection and the primary button.

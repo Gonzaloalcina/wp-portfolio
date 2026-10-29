@@ -9,7 +9,8 @@ render, not final.
 
 ## Direction
 
-Minimal, Notion-like: cream or white paper, black ink and one grey. A serif
+Minimal, Notion-like: cream or white paper, black ink, one grey and one
+terracotta accent used sparingly. A serif
 for headings, a sans for text, a grid made of thin lines and small details
 (little squares). Hierarchy comes from tone, weight and spacing, not from
 decoration.
@@ -61,17 +62,23 @@ a new size.
 
 ## Colour
 
-One ink, one grey, one paper.
+One ink, one grey, one paper, one accent.
 
 | Token | Light | Dark |
 |---|---|---|
 | paper | `#FAF8F3` (cream) | `#171615` |
 | ink | `#1A1A1A` | `#ECE9E2` |
 | muted | `#6B6B66` | `#9A9791` |
+| accent | `#B4441F` (terracotta) | `#E8835F` |
 | line | muted at 30% | muted at 30% |
 
 Contrast (WCAG, computed): ink on paper 16.4:1 light, 14.9:1 dark; muted on
-paper 5.0:1 light, 6.2:1 dark. Both pass AA for body text.
+paper 5.0:1 light, 6.2:1 dark; accent on paper 5.2:1 light, 6.8:1 dark. All
+pass AA for body text.
+
+The accent marks where a click goes, and only that: the ↗ arrows of
+standalone links and their hover underline. Text stays in ink. It is not a
+fill, a background or a second heading colour.
 
 Lines are not a second grey: `color-mix(in srgb, var(--color-muted) 30%, transparent)`.
 
@@ -109,8 +116,8 @@ place.
   colour of the text, so the underline is what tells them apart.
 - Standalone links (row titles, link rows, "All …", facts, pagination) have
   no underline: next to the 1px dividers it reads as one more line. They end
-  in a small muted ↗ arrow, wherever they lead, and the underline comes
-  back on hover and focus. The pagination keeps ← and →; menus keep no
+  in a small ↗ arrow in the accent colour, wherever they lead, and an accent
+  underline comes back on hover and focus. The pagination keeps ← and →; menus keep no
   arrow.
 - Keep a visible focus style.
 

@@ -49,7 +49,7 @@ $portfolio_sections = array(
 		'title'   => __( 'Sites I\'ve built', 'portfolio-theme' ),
 		'content' => array(
 			array(
-				'name' => 'list-a',
+				'name' => 'card-list-a',
 				'args' => array( 'items' => portfolio_theme_home_project_rows( 'selected', 3 ) ),
 			),
 			array(
